@@ -1,6 +1,6 @@
 # Experiment Introduction
  
-Welcome to the Rust Book experiment, and thank you for your participation! First, we want to introduce you to the new mechanics of this experiment.
+Welcome to the Rust Book experiment, and thank you for your participation! This book is an experimental fork of [*The Rust Programming Language*](http://doc.rust-lang.org/book/) which introduces several mechanics to make learning Rust more interactive. We'll briefly walk through each mechanic:
 
 ## 1. Quizzes
 
