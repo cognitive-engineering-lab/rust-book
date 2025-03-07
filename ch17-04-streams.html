@@ -242,7 +242,7 @@ the chapter. For now, this is enough to let us keep moving.</p>
 Listing 17-31.</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><code class="language-rust ignore does_not_compile">extern crate trpl; // required for mdbook test
+<pre><pre class="playground"><code class="language-rust edition2021">extern crate trpl; // required for mdbook test
 
 use trpl::StreamExt;
 
@@ -256,7 +256,7 @@ fn main() {
             println!(&quot;The value was: {value}&quot;);
         }
     });
-}</code></pre>
+}</code></pre></pre>
 <figcaption>Listing 17-31: Successfully using an iterator as the basis for a stream</figcaption>
 </figure>
 <p>With all those pieces put together, things work the way we want! What is more,
