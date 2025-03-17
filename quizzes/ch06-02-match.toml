@@ -20,7 +20,7 @@ fn main() {
 """
 answer.doesCompile = true
 answer.stdout = "5"
-context = """ 
+context = """
 Each match is tried from top to bottom. Both the second and third pattern are applicable, so the second one is used.
 """
 
@@ -93,7 +93,7 @@ fn decr_twice_v1(n: u32) -> Option<u32> {
   match n {
     0 => None,
     1 => None,
-    n2 => Some(n2 - 2)
+    n => Some(n - 2)
   }
 }
 
