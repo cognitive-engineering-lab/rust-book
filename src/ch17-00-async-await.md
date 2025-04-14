@@ -82,7 +82,7 @@ When an individual works on several different tasks before any of them is
 complete, this is *concurrency*. Maybe you have two different projects checked
 out on your computer, and when you get bored or stuck on one project, you switch
 to the other. You are just one person, so you cannot make progress on both tasks
-tasks at the exact same time—but you can multi-task, making progress on multiple
+at the exact same time—but you can multi-task, making progress on multiple
 tasks by switching between them.
 
 <figure>
