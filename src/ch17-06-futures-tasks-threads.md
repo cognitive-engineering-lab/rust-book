@@ -98,7 +98,7 @@ As a default way of thinking about which to use when:
 
 And if you need some mix of parallelism and concurrency, you do not have to
 choose between threads and async. You can use them together freely, letting each
-one serve the part it is best at. For example, Listing 17-TODO shows a fairly
+one serve the part it is best at. For example, Listing 17-42 shows a fairly
 common example of this kind of mix in real-world Rust code.
 
 <!-- TODO: extract into a listing file! -->
