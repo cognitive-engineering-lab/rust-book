@@ -58,7 +58,7 @@ async fn example(x: i32) -> i32 {
 """
 context = """
 The core problem addressed by pinning in self-reference, or a future which contains a pointer to itself. 
-This happens an async block contains a local variable that refers to another local variable in the future.
+This happens when an async block contains a local variable that refers to another local variable in the future.
 Here, that would be `y = &x`.
 """
 id = "bc8b4acb-d111-4fec-b89a-e5d1bc77c8f2"
