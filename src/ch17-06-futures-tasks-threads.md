@@ -42,7 +42,7 @@ from the perspective of the calling code! What is more, even though one of our
 functions spawned an async task on the runtime and the other spawned an
 OS thread, the resulting streams were unaffected by the differences.
 
-However, there is a significant difference between these two approaches behave,
+However, there is a significant difference between how these two approaches behave,
 although we might have a hard time measuring it in this very simple example. We
 could spawn hundreds of thousands or even millions of async tasks on any modern
 personal computer. If we tried to do that with threads, we would literally run
