@@ -5839,11 +5839,11 @@ var __publicField = (obj, key, value) => {
     `m1(m3(t1)`, and so on.
     */
     static defineModifier() {
-      let mod = new Modifier();
+      let mod2 = new Modifier();
       return (tag) => {
-        if (tag.modified.indexOf(mod) > -1)
+        if (tag.modified.indexOf(mod2) > -1)
           return tag;
-        return Modifier.get(tag.base || tag, tag.modified.concat(mod).sort((a2, b2) => a2.id - b2.id));
+        return Modifier.get(tag.base || tag, tag.modified.concat(mod2).sort((a2, b2) => a2.id - b2.id));
       };
     }
   }
@@ -10067,21 +10067,21 @@ var __publicField = (obj, key, value) => {
       let sheet = this.sheet;
       let pos = 0, j = 0;
       for (let i2 = 0; i2 < modules.length; i2++) {
-        let mod = modules[i2], index2 = this.modules.indexOf(mod);
+        let mod2 = modules[i2], index2 = this.modules.indexOf(mod2);
         if (index2 < j && index2 > -1) {
           this.modules.splice(index2, 1);
           j--;
           index2 = -1;
         }
         if (index2 == -1) {
-          this.modules.splice(j++, 0, mod);
+          this.modules.splice(j++, 0, mod2);
           if (sheet)
-            for (let k = 0; k < mod.rules.length; k++)
-              sheet.insertRule(mod.rules[k], pos++);
+            for (let k = 0; k < mod2.rules.length; k++)
+              sheet.insertRule(mod2.rules[k], pos++);
         } else {
           while (j < index2)
             pos += this.modules[j++].rules.length;
-          pos += mod.rules.length;
+          pos += mod2.rules.length;
           j++;
         }
       }
@@ -17049,22 +17049,22 @@ var __publicField = (obj, key, value) => {
       result = " ";
     let alt, ctrl, shift2, meta2;
     for (let i2 = 0; i2 < parts.length - 1; ++i2) {
-      const mod = parts[i2];
-      if (/^(cmd|meta|m)$/i.test(mod))
+      const mod2 = parts[i2];
+      if (/^(cmd|meta|m)$/i.test(mod2))
         meta2 = true;
-      else if (/^a(lt)?$/i.test(mod))
+      else if (/^a(lt)?$/i.test(mod2))
         alt = true;
-      else if (/^(c|ctrl|control)$/i.test(mod))
+      else if (/^(c|ctrl|control)$/i.test(mod2))
         ctrl = true;
-      else if (/^s(hift)?$/i.test(mod))
+      else if (/^s(hift)?$/i.test(mod2))
         shift2 = true;
-      else if (/^mod$/i.test(mod)) {
+      else if (/^mod$/i.test(mod2)) {
         if (platform == "mac")
           meta2 = true;
         else
           ctrl = true;
       } else
-        throw new Error("Unrecognized modifier name: " + mod);
+        throw new Error("Unrecognized modifier name: " + mod2);
     }
     if (alt)
       result = "Alt-" + result;
@@ -46225,1327 +46225,1311 @@ var __publicField = (obj, key, value) => {
       widget: new BoundaryPointWidget(view, facts, b2, annotations)
     }).range(linecolToPosition(b2.location, view.state.doc)));
   }
-  var leaderLine_min = { exports: {} };
-  /*! LeaderLine v1.1.5 (c) anseki https://anseki.github.io/leader-line/ */
-  (function(module, exports) {
-    var LeaderLine2 = function() {
-      var te, M2, I, C2, L2, o2, t2, h2, f2, p2, n2, a2, e2, x2, b2, l2, r2, i2, k, w2, s2, u2, c2, A = "leader-line", V2 = 1, P2 = 2, N = 3, T2 = 4, W2 = { top: V2, right: P2, bottom: N, left: T2 }, B2 = 1, R2 = 2, F2 = 3, G = 4, D2 = 5, z2 = { straight: B2, arc: R2, fluid: F2, magnet: G, grid: D2 }, ne = "behind", d2 = A + "-defs", y2 = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="leader-line-defs"><style><![CDATA[.leader-line{position:absolute;overflow:visible!important;pointer-events:none!important;font-size:16px}#leader-line-defs{width:0;height:0;position:absolute;left:0;top:0}.leader-line-line-path{fill:none}.leader-line-mask-bg-rect{fill:#fff}.leader-line-caps-mask-anchor,.leader-line-caps-mask-marker-shape{fill:#000}.leader-line-caps-mask-anchor{stroke:#000}.leader-line-caps-mask-line,.leader-line-plugs-face{stroke:transparent}.leader-line-line-mask-shape{stroke:#fff}.leader-line-line-outline-mask-shape{stroke:#000}.leader-line-plug-mask-shape{fill:#fff;stroke:#000}.leader-line-plug-outline-mask-shape{fill:#000;stroke:#fff}.leader-line-areaAnchor{position:absolute;overflow:visible!important}]]></style><defs><circle id="leader-line-disc" cx="0" cy="0" r="5"/><rect id="leader-line-square" x="-5" y="-5" width="10" height="10"/><polygon id="leader-line-arrow1" points="-8,-8 8,0 -8,8 -5,0"/><polygon id="leader-line-arrow2" points="-4,-8 4,0 -4,8 -7,5 -2,0 -7,-5"/><polygon id="leader-line-arrow3" points="-4,-5 8,0 -4,5"/><g id="leader-line-hand"><path style="fill: #fcfcfc" d="M9.19 11.14h4.75c1.38 0 2.49-1.11 2.49-2.49 0-.51-.15-.98-.41-1.37h1.3c1.38 0 2.49-1.11 2.49-2.49s-1.11-2.53-2.49-2.53h1.02c1.38 0 2.49-1.11 2.49-2.49s-1.11-2.49-2.49-2.49h14.96c1.37 0 2.49-1.11 2.49-2.49s-1.11-2.49-2.49-2.49H16.58C16-9.86 14.28-11.14 9.7-11.14c-4.79 0-6.55 3.42-7.87 4.73H-2.14v13.23h3.68C3.29 9.97 5.47 11.14 9.19 11.14L9.19 11.14Z"/><path style="fill: black" d="M13.95 12c1.85 0 3.35-1.5 3.35-3.35 0-.17-.02-.34-.04-.51h.07c1.85 0 3.35-1.5 3.35-3.35 0-.79-.27-1.51-.72-2.08 1.03-.57 1.74-1.67 1.74-2.93 0-.59-.16-1.15-.43-1.63h12.04c1.85 0 3.35-1.5 3.35-3.35 0-1.85-1.5-3.35-3.35-3.35H17.2C16.26-10.93 13.91-12 9.7-12 5.36-12 3.22-9.4 1.94-7.84c0 0-.29.33-.5.57-.63 0-3.58 0-3.58 0C-2.61-7.27-3-6.88-3-6.41v13.23c0 .47.39.86.86.86 0 0 2.48 0 3.2 0C2.9 10.73 5.29 12 9.19 12L13.95 12ZM9.19 10.28c-3.46 0-5.33-1.05-6.9-3.87-.15-.27-.44-.44-.75-.44 0 0-1.81 0-2.82 0V-5.55c1.06 0 3.11 0 3.11 0 .25 0 .44-.06.61-.25l.83-.95c1.23-1.49 2.91-3.53 6.43-3.53 3.45 0 4.9.74 5.57 1.72h-4.3c-.48 0-.86.38-.86.86s.39.86.86.86h22.34c.9 0 1.63.73 1.63 1.63 0 .9-.73 1.63-1.63 1.63H15.83c-.48 0-.86.38-.86.86 0 .47.39.86.86.86h2.52c.9 0 1.63.73 1.63 1.63s-.73 1.63-1.63 1.63h-3.12c-.48 0-.86.38-.86.86 0 .47.39.86.86.86h2.11c.88 0 1.63.76 1.63 1.67 0 .9-.73 1.63-1.63 1.63h-3.2c-.48 0-.86.39-.86.86 0 .47.39.86.86.86h1.36c.05.16.09.34.09.51 0 .9-.73 1.63-1.63 1.63C13.95 10.28 9.19 10.28 9.19 10.28Z"/></g><g id="leader-line-crosshair"><path d="M0-78.97c-43.54 0-78.97 35.43-78.97 78.97 0 43.54 35.43 78.97 78.97 78.97s78.97-35.43 78.97-78.97C78.97-43.54 43.55-78.97 0-78.97ZM76.51-1.21h-9.91v-9.11h-2.43v9.11h-11.45c-.64-28.12-23.38-50.86-51.5-51.5V-64.17h9.11V-66.6h-9.11v-9.91C42.46-75.86 75.86-42.45 76.51-1.21ZM-1.21-30.76h-9.11v2.43h9.11V-4.2c-1.44.42-2.57 1.54-2.98 2.98H-28.33v-9.11h-2.43v9.11H-50.29C-49.65-28-27.99-49.65-1.21-50.29V-30.76ZM-30.76 1.21v9.11h2.43v-9.11H-4.2c.42 1.44 1.54 2.57 2.98 2.98v24.13h-9.11v2.43h9.11v19.53C-27.99 49.65-49.65 28-50.29 1.21H-30.76ZM1.22 30.75h9.11v-2.43h-9.11V4.2c1.44-.42 2.56-1.54 2.98-2.98h24.13v9.11h2.43v-9.11h19.53C49.65 28 28 49.65 1.22 50.29V30.75ZM30.76-1.21v-9.11h-2.43v9.11H4.2c-.42-1.44-1.54-2.56-2.98-2.98V-28.33h9.11v-2.43h-9.11V-50.29C28-49.65 49.65-28 50.29-1.21H30.76ZM-1.21-76.51v9.91h-9.11v2.43h9.11v11.45c-28.12.64-50.86 23.38-51.5 51.5H-64.17v-9.11H-66.6v9.11h-9.91C-75.86-42.45-42.45-75.86-1.21-76.51ZM-76.51 1.21h9.91v9.11h2.43v-9.11h11.45c.64 28.12 23.38 50.86 51.5 51.5v11.45h-9.11v2.43h9.11v9.91C-42.45 75.86-75.86 42.45-76.51 1.21ZM1.22 76.51v-9.91h9.11v-2.43h-9.11v-11.45c28.12-.64 50.86-23.38 51.5-51.5h11.45v9.11h2.43v-9.11h9.91C75.86 42.45 42.45 75.86 1.22 76.51Z"/><path d="M0 83.58-7.1 96 7.1 96Z"/><path d="M0-83.58 7.1-96-7.1-96"/><path d="M83.58 0 96 7.1 96-7.1Z"/><path d="M-83.58 0-96-7.1-96 7.1Z"/></g></defs></svg>', ae = { disc: { elmId: "leader-line-disc", noRotate: true, bBox: { left: -5, top: -5, width: 10, height: 10, right: 5, bottom: 5 }, widthR: 2.5, heightR: 2.5, bCircle: 5, sideLen: 5, backLen: 5, overhead: 0, outlineBase: 1, outlineMax: 4 }, square: { elmId: "leader-line-square", noRotate: true, bBox: { left: -5, top: -5, width: 10, height: 10, right: 5, bottom: 5 }, widthR: 2.5, heightR: 2.5, bCircle: 5, sideLen: 5, backLen: 5, overhead: 0, outlineBase: 1, outlineMax: 4 }, arrow1: { elmId: "leader-line-arrow1", bBox: { left: -8, top: -8, width: 16, height: 16, right: 8, bottom: 8 }, widthR: 4, heightR: 4, bCircle: 8, sideLen: 8, backLen: 8, overhead: 8, outlineBase: 2, outlineMax: 1.5 }, arrow2: { elmId: "leader-line-arrow2", bBox: { left: -7, top: -8, width: 11, height: 16, right: 4, bottom: 8 }, widthR: 2.75, heightR: 4, bCircle: 8, sideLen: 8, backLen: 7, overhead: 4, outlineBase: 1, outlineMax: 1.75 }, arrow3: { elmId: "leader-line-arrow3", bBox: { left: -4, top: -5, width: 12, height: 10, right: 8, bottom: 5 }, widthR: 3, heightR: 2.5, bCircle: 8, sideLen: 5, backLen: 4, overhead: 8, outlineBase: 1, outlineMax: 2.5 }, hand: { elmId: "leader-line-hand", bBox: { left: -3, top: -12, width: 40, height: 24, right: 37, bottom: 12 }, widthR: 10, heightR: 6, bCircle: 37, sideLen: 12, backLen: 3, overhead: 37 }, crosshair: { elmId: "leader-line-crosshair", noRotate: true, bBox: { left: -96, top: -96, width: 192, height: 192, right: 96, bottom: 96 }, widthR: 48, heightR: 48, bCircle: 96, sideLen: 96, backLen: 96, overhead: 0 } }, j = { behind: ne, disc: "disc", square: "square", arrow1: "arrow1", arrow2: "arrow2", arrow3: "arrow3", hand: "hand", crosshair: "crosshair" }, ie2 = { disc: "disc", square: "square", arrow1: "arrow1", arrow2: "arrow2", arrow3: "arrow3", hand: "hand", crosshair: "crosshair" }, H2 = [V2, P2, N, T2], U = "auto", oe = { x: "left", y: "top", width: "width", height: "height" }, Z = 80, Y = 4, X = 5, q = 120, Q = 8, K = 3.75, J = 10, $ = 30, ee = 0.5522847, le = 0.25 * Math.PI, m2 = /^\s*(\-?[\d\.]+)\s*(\%)?\s*$/, re = "http://www.w3.org/2000/svg", S2 = "-ms-scroll-limit" in document.documentElement.style && "-ms-ime-align" in document.documentElement.style && !window.navigator.msPointerEnabled, se = !S2 && !!document.uniqueID, ue = "MozAppearance" in document.documentElement.style, he = !(S2 || ue || !window.chrome || !window.CSS), pe = !S2 && !se && !ue && !he && !window.chrome && "WebkitAppearance" in document.documentElement.style, ce = se || S2 ? 0.2 : 0.1, de = { path: F2, lineColor: "coral", lineSize: 4, plugSE: [ne, "arrow1"], plugSizeSE: [1, 1], lineOutlineEnabled: false, lineOutlineColor: "indianred", lineOutlineSize: 0.25, plugOutlineEnabledSE: [false, false], plugOutlineSizeSE: [1, 1] }, fe = (s2 = {}.toString, u2 = {}.hasOwnProperty.toString, c2 = u2.call(Object), function(e3) {
-        var t3, n3;
-        return e3 && "[object Object]" === s2.call(e3) && (!(t3 = Object.getPrototypeOf(e3)) || (n3 = t3.hasOwnProperty("constructor") && t3.constructor) && "function" == typeof n3 && u2.call(n3) === c2);
-      }), ye = Number.isFinite || function(e3) {
-        return "number" == typeof e3 && window.isFinite(e3);
-      }, g = (x2 = { ease: [0.25, 0.1, 0.25, 1], linear: [0, 0, 1, 1], "ease-in": [0.42, 0, 1, 1], "ease-out": [0, 0, 0.58, 1], "ease-in-out": [0.42, 0, 0.58, 1] }, b2 = 1e3 / 60 / 2, l2 = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function(e3) {
-        setTimeout(e3, b2);
-      }, r2 = window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame || window.msCancelAnimationFrame || function(e3) {
-        clearTimeout(e3);
-      }, i2 = Number.isFinite || function(e3) {
-        return "number" == typeof e3 && window.isFinite(e3);
-      }, k = [], w2 = 0, { add: function(n3, e3, t3, a3, i3, o3, l3) {
-        var r3, s3, u3, h3, p3, c3, d3, f3, y3, m3, S3, g2, _3, v3 = ++w2;
-        function E3(e4, t4) {
-          return { value: n3(t4), timeRatio: e4, outputRatio: t4 };
+  const _mod = function() {
+    var Z, w2, O2, M2, I, o2, t2, s2, h2, u2, n2, a2, e2, _2, v2, l2, r2, i2, E2, x2, p2, c2, d2, C2 = "leader-line", b2 = 1, k = 2, L2 = 3, A = 4, V2 = { top: b2, right: k, bottom: L2, left: A }, P2 = 1, N = 2, T2 = 3, W2 = 4, B2 = 5, R2 = { straight: P2, arc: N, fluid: T2, magnet: W2, grid: B2 }, Y = "behind", f2 = C2 + "-defs", y2 = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="leader-line-defs"><style><![CDATA[.leader-line{position:absolute;overflow:visible!important;pointer-events:none!important;font-size:16px}#leader-line-defs{width:0;height:0;position:absolute;left:0;top:0}.leader-line-line-path{fill:none}.leader-line-mask-bg-rect{fill:white}.leader-line-caps-mask-anchor,.leader-line-caps-mask-marker-shape{fill:black}.leader-line-caps-mask-anchor{stroke:black}.leader-line-caps-mask-line,.leader-line-plugs-face{stroke:rgba(0,0,0,0)}.leader-line-line-mask-shape{stroke:white}.leader-line-line-outline-mask-shape{stroke:black}.leader-line-plug-mask-shape{fill:white;stroke:black}.leader-line-plug-outline-mask-shape{fill:black;stroke:white}.leader-line-areaAnchor{position:absolute;overflow:visible!important}]]></style><defs><circle id="leader-line-disc" cx="0" cy="0" r="5"/><rect id="leader-line-square" x="-5" y="-5" width="10" height="10"/><polygon id="leader-line-arrow1" points="-8,-8 8,0 -8,8 -5,0"/><polygon id="leader-line-arrow2" points="-4,-8 4,0 -4,8 -7,5 -2,0 -7,-5"/><polygon id="leader-line-arrow3" points="-4,-5 8,0 -4,5"/><g id="leader-line-hand"><path style="fill: #fcfcfc" d="M9.19 11.14h4.75c1.38 0 2.49-1.11 2.49-2.49 0-.51-.15-.98-.41-1.37h1.3c1.38 0 2.49-1.11 2.49-2.49s-1.11-2.53-2.49-2.53h1.02c1.38 0 2.49-1.11 2.49-2.49s-1.11-2.49-2.49-2.49h14.96c1.37 0 2.49-1.11 2.49-2.49s-1.11-2.49-2.49-2.49H16.58C16-9.86 14.28-11.14 9.7-11.14c-4.79 0-6.55 3.42-7.87 4.73H-2.14v13.23h3.68C3.29 9.97 5.47 11.14 9.19 11.14L9.19 11.14Z"/><path style="fill: black" d="M13.95 12c1.85 0 3.35-1.5 3.35-3.35 0-.17-.02-.34-.04-.51h.07c1.85 0 3.35-1.5 3.35-3.35 0-.79-.27-1.51-.72-2.08 1.03-.57 1.74-1.67 1.74-2.93 0-.59-.16-1.15-.43-1.63h12.04c1.85 0 3.35-1.5 3.35-3.35 0-1.85-1.5-3.35-3.35-3.35H17.2C16.26-10.93 13.91-12 9.7-12 5.36-12 3.22-9.4 1.94-7.84c0 0-.29.33-.5.57-.63 0-3.58 0-3.58 0C-2.61-7.27-3-6.88-3-6.41v13.23c0 .47.39.86.86.86 0 0 2.48 0 3.2 0C2.9 10.73 5.29 12 9.19 12L13.95 12ZM9.19 10.28c-3.46 0-5.33-1.05-6.9-3.87-.15-.27-.44-.44-.75-.44 0 0-1.81 0-2.82 0V-5.55c1.06 0 3.11 0 3.11 0 .25 0 .44-.06.61-.25l.83-.95c1.23-1.49 2.91-3.53 6.43-3.53 3.45 0 4.9.74 5.57 1.72h-4.3c-.48 0-.86.38-.86.86s.39.86.86.86h22.34c.9 0 1.63.73 1.63 1.63 0 .9-.73 1.63-1.63 1.63H15.83c-.48 0-.86.38-.86.86 0 .47.39.86.86.86h2.52c.9 0 1.63.73 1.63 1.63s-.73 1.63-1.63 1.63h-3.12c-.48 0-.86.38-.86.86 0 .47.39.86.86.86h2.11c.88 0 1.63.76 1.63 1.67 0 .9-.73 1.63-1.63 1.63h-3.2c-.48 0-.86.39-.86.86 0 .47.39.86.86.86h1.36c.05.16.09.34.09.51 0 .9-.73 1.63-1.63 1.63C13.95 10.28 9.19 10.28 9.19 10.28Z"/></g><g id="leader-line-crosshair"><path d="M0-78.97c-43.54 0-78.97 35.43-78.97 78.97 0 43.54 35.43 78.97 78.97 78.97s78.97-35.43 78.97-78.97C78.97-43.54 43.55-78.97 0-78.97ZM76.51-1.21h-9.91v-9.11h-2.43v9.11h-11.45c-.64-28.12-23.38-50.86-51.5-51.5V-64.17h9.11V-66.6h-9.11v-9.91C42.46-75.86 75.86-42.45 76.51-1.21ZM-1.21-30.76h-9.11v2.43h9.11V-4.2c-1.44.42-2.57 1.54-2.98 2.98H-28.33v-9.11h-2.43v9.11H-50.29C-49.65-28-27.99-49.65-1.21-50.29V-30.76ZM-30.76 1.21v9.11h2.43v-9.11H-4.2c.42 1.44 1.54 2.57 2.98 2.98v24.13h-9.11v2.43h9.11v19.53C-27.99 49.65-49.65 28-50.29 1.21H-30.76ZM1.22 30.75h9.11v-2.43h-9.11V4.2c1.44-.42 2.56-1.54 2.98-2.98h24.13v9.11h2.43v-9.11h19.53C49.65 28 28 49.65 1.22 50.29V30.75ZM30.76-1.21v-9.11h-2.43v9.11H4.2c-.42-1.44-1.54-2.56-2.98-2.98V-28.33h9.11v-2.43h-9.11V-50.29C28-49.65 49.65-28 50.29-1.21H30.76ZM-1.21-76.51v9.91h-9.11v2.43h9.11v11.45c-28.12.64-50.86 23.38-51.5 51.5H-64.17v-9.11H-66.6v9.11h-9.91C-75.86-42.45-42.45-75.86-1.21-76.51ZM-76.51 1.21h9.91v9.11h2.43v-9.11h11.45c.64 28.12 23.38 50.86 51.5 51.5v11.45h-9.11v2.43h9.11v9.91C-42.45 75.86-75.86 42.45-76.51 1.21ZM1.22 76.51v-9.91h9.11v-2.43h-9.11v-11.45c28.12-.64 50.86-23.38 51.5-51.5h11.45v9.11h2.43v-9.11h9.91C75.86 42.45 42.45 75.86 1.22 76.51Z"/><path d="M0 83.58-7.1 96 7.1 96Z"/><path d="M0-83.58 7.1-96-7.1-96"/><path d="M83.58 0 96 7.1 96-7.1Z"/><path d="M-83.58 0-96-7.1-96 7.1Z"/></g></defs></svg>', X = { disc: { elmId: "leader-line-disc", noRotate: true, bBox: { left: -5, top: -5, width: 10, height: 10, right: 5, bottom: 5 }, widthR: 2.5, heightR: 2.5, bCircle: 5, sideLen: 5, backLen: 5, overhead: 0, outlineBase: 1, outlineMax: 4 }, square: { elmId: "leader-line-square", noRotate: true, bBox: { left: -5, top: -5, width: 10, height: 10, right: 5, bottom: 5 }, widthR: 2.5, heightR: 2.5, bCircle: 5, sideLen: 5, backLen: 5, overhead: 0, outlineBase: 1, outlineMax: 4 }, arrow1: { elmId: "leader-line-arrow1", bBox: { left: -8, top: -8, width: 16, height: 16, right: 8, bottom: 8 }, widthR: 4, heightR: 4, bCircle: 8, sideLen: 8, backLen: 8, overhead: 8, outlineBase: 2, outlineMax: 1.5 }, arrow2: { elmId: "leader-line-arrow2", bBox: { left: -7, top: -8, width: 11, height: 16, right: 4, bottom: 8 }, widthR: 2.75, heightR: 4, bCircle: 8, sideLen: 8, backLen: 7, overhead: 4, outlineBase: 1, outlineMax: 1.75 }, arrow3: { elmId: "leader-line-arrow3", bBox: { left: -4, top: -5, width: 12, height: 10, right: 8, bottom: 5 }, widthR: 3, heightR: 2.5, bCircle: 8, sideLen: 5, backLen: 4, overhead: 8, outlineBase: 1, outlineMax: 2.5 }, hand: { elmId: "leader-line-hand", bBox: { left: -3, top: -12, width: 40, height: 24, right: 37, bottom: 12 }, widthR: 10, heightR: 6, bCircle: 37, sideLen: 12, backLen: 3, overhead: 37 }, crosshair: { elmId: "leader-line-crosshair", noRotate: true, bBox: { left: -96, top: -96, width: 192, height: 192, right: 96, bottom: 96 }, widthR: 48, heightR: 48, bCircle: 96, sideLen: 96, backLen: 96, overhead: 0 } }, F2 = { behind: Y, disc: "disc", square: "square", arrow1: "arrow1", arrow2: "arrow2", arrow3: "arrow3", hand: "hand", crosshair: "crosshair" }, q = { disc: "disc", square: "square", arrow1: "arrow1", arrow2: "arrow2", arrow3: "arrow3", hand: "hand", crosshair: "crosshair" }, G = [b2, k, L2, A], D2 = "auto", Q = { x: "left", y: "top", width: "width", height: "height" }, z2 = 80, j = 4, H2 = 5, U = 120, K = 8, J = 3.75, $ = 10, ee = 30, te = 0.5522847, ne = 0.25 * Math.PI, m2 = /^\s*(\-?[\d\.]+)\s*(\%)?\s*$/, ae = "http://www.w3.org/2000/svg", S2 = "-ms-scroll-limit" in document.documentElement.style && "-ms-ime-align" in document.documentElement.style && !window.navigator.msPointerEnabled, ie2 = !S2 && !!document.uniqueID, oe = "MozAppearance" in document.documentElement.style, le = !(S2 || oe || !window.chrome || !window.CSS), re = !S2 && !ie2 && !oe && !le && !window.chrome && "WebkitAppearance" in document.documentElement.style, se = ie2 || S2 ? 0.2 : 0.1, ue = { path: T2, lineColor: "coral", lineSize: 4, plugSE: [Y, "arrow1"], plugSizeSE: [1, 1], lineOutlineEnabled: false, lineOutlineColor: "indianred", lineOutlineSize: 0.25, plugOutlineEnabledSE: [false, false], plugOutlineSizeSE: [1, 1] }, he = (p2 = {}.toString, c2 = {}.hasOwnProperty.toString, d2 = c2.call(Object), function(e3) {
+      return e3 && "[object Object]" === p2.call(e3) && (!(e3 = Object.getPrototypeOf(e3)) || (e3 = e3.hasOwnProperty("constructor") && e3.constructor) && "function" == typeof e3 && c2.call(e3) === d2);
+    }), pe = Number.isFinite || function(e3) {
+      return "number" == typeof e3 && window.isFinite(e3);
+    }, g = (_2 = { ease: [0.25, 0.1, 0.25, 1], linear: [0, 0, 1, 1], "ease-in": [0.42, 0, 1, 1], "ease-out": [0, 0, 0.58, 1], "ease-in-out": [0.42, 0, 0.58, 1] }, v2 = 1e3 / 60 / 2, l2 = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function(e3) {
+      setTimeout(e3, v2);
+    }, r2 = window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame || window.msCancelAnimationFrame || function(e3) {
+      clearTimeout(e3);
+    }, i2 = Number.isFinite || function(e3) {
+      return "number" == typeof e3 && window.isFinite(e3);
+    }, E2 = [], x2 = 0, { add: function(n3, e3, t3, a3, i3, o3, l3) {
+      var r3, s3, u3, h3, p3, c3, d3, f3, y3, m3, S3 = ++x2;
+      function g2(e4, t4) {
+        return { value: n3(t4), timeRatio: e4, outputRatio: t4 };
+      }
+      if ("string" == typeof i3 && (i3 = _2[i3]), n3 = n3 || function() {
+      }, t3 < v2)
+        r3 = [g2(0, 0), g2(1, 1)];
+      else {
+        if (s3 = v2 / t3, r3 = [g2(0, 0)], 0 === i3[0] && 0 === i3[1] && 1 === i3[2] && 1 === i3[3])
+          for (h3 = s3; h3 <= 1; h3 += s3)
+            r3.push(g2(h3, h3));
+        else
+          for (p3 = u3 = (h3 = s3) / 10; p3 <= 1; p3 += u3)
+            d3 = p3, m3 = y3 = f3 = void 0, f3 = (m3 = p3 * p3) * p3, m3 *= 3 * (y3 = 1 - p3), h3 <= (c3 = { x: (d3 = 3 * (y3 * y3) * p3) * i3[0] + m3 * i3[2] + f3, y: d3 * i3[1] + m3 * i3[3] + f3 }).x && (r3.push(g2(c3.x, c3.y)), h3 += s3);
+        r3.push(g2(1, 1));
+      }
+      return E2.push(o3 = { animId: S3, frameCallback: e3, duration: t3, count: a3, frames: r3, reverse: !!o3 }), false !== l3 && be(o3, l3), S3;
+    }, remove: function(n3) {
+      var a3;
+      E2.some(function(e3, t3) {
+        return e3.animId === n3 && (a3 = t3, !(e3.framesStart = null));
+      }) && E2.splice(a3, 1);
+    }, start: function(t3, n3, a3) {
+      E2.some(function(e3) {
+        return e3.animId === t3 && (e3.reverse = !!n3, be(e3, a3), true);
+      });
+    }, stop: function(t3, n3) {
+      var a3;
+      return E2.some(function(e3) {
+        return e3.animId === t3 && (n3 ? null != e3.lastFrame && (a3 = e3.frames[e3.lastFrame].timeRatio) : (a3 = (Date.now() - e3.framesStart) / e3.duration, (a3 = e3.reverse ? 1 - a3 : a3) < 0 ? a3 = 0 : 1 < a3 && (a3 = 1)), !(e3.framesStart = null));
+      }), a3;
+    }, validTiming: function(t3) {
+      return "string" == typeof t3 ? _2[t3] : Array.isArray(t3) && [0, 1, 2, 3].every(function(e3) {
+        return i2(t3[e3]) && 0 <= t3[e3] && t3[e3] <= 1;
+      }) ? [t3[0], t3[1], t3[2], t3[3]] : null;
+    } }), ce = function(e3, t3) {
+      e3.SVGPathElement.prototype.getPathData && e3.SVGPathElement.prototype.setPathData && !t3 || function() {
+        function i3(e4) {
+          this._string = e4, this._currentIndex = 0, this._endIndex = this._string.length, this._prevCommand = null, this._skipOptionalSpaces();
         }
-        if ("string" == typeof i3 && (i3 = x2[i3]), n3 = n3 || function() {
-        }, t3 < b2)
-          s3 = [E3(0, 0), E3(1, 1)];
-        else {
-          if (u3 = b2 / t3, s3 = [E3(0, 0)], 0 === i3[0] && 0 === i3[1] && 1 === i3[2] && 1 === i3[3])
-            for (p3 = u3; p3 <= 1; p3 += u3)
-              s3.push(E3(p3, p3));
-          else
-            for (c3 = h3 = (p3 = u3) / 10; c3 <= 1; c3 += h3)
-              _3 = g2 = S3 = m3 = y3 = void 0, m3 = (y3 = (f3 = c3) * f3) * f3, _3 = 3 * (S3 = 1 - f3) * y3, p3 <= (d3 = { x: (g2 = S3 * S3 * 3 * f3) * i3[0] + _3 * i3[2] + m3, y: g2 * i3[1] + _3 * i3[3] + m3 }).x && (s3.push(E3(d3.x, d3.y)), p3 += u3);
-          s3.push(E3(1, 1));
-        }
-        return r3 = { animId: v3, frameCallback: e3, duration: t3, count: a3, frames: s3, reverse: !!o3 }, k.push(r3), false !== l3 && ke(r3, l3), v3;
-      }, remove: function(n3) {
-        var a3;
-        k.some(function(e3, t3) {
-          return e3.animId === n3 && (a3 = t3, !(e3.framesStart = null));
-        }) && k.splice(a3, 1);
-      }, start: function(t3, n3, a3) {
-        k.some(function(e3) {
-          return e3.animId === t3 && (e3.reverse = !!n3, ke(e3, a3), true);
-        });
-      }, stop: function(t3, n3) {
-        var a3;
-        return k.some(function(e3) {
-          return e3.animId === t3 && (n3 ? null != e3.lastFrame && (a3 = e3.frames[e3.lastFrame].timeRatio) : (a3 = (Date.now() - e3.framesStart) / e3.duration, e3.reverse && (a3 = 1 - a3), a3 < 0 ? a3 = 0 : 1 < a3 && (a3 = 1)), !(e3.framesStart = null));
-        }), a3;
-      }, validTiming: function(t3) {
-        return "string" == typeof t3 ? x2[t3] : Array.isArray(t3) && [0, 1, 2, 3].every(function(e3) {
-          return i2(t3[e3]) && 0 <= t3[e3] && t3[e3] <= 1;
-        }) ? [t3[0], t3[1], t3[2], t3[3]] : null;
-      } }), _2 = function(e3) {
-        e3.SVGPathElement.prototype.getPathData && e3.SVGPathElement.prototype.setPathData || function() {
-          function i3(e4) {
-            this._string = e4, this._currentIndex = 0, this._endIndex = this._string.length, this._prevCommand = null, this._skipOptionalSpaces();
-          }
-          var o3 = { Z: "Z", M: "M", L: "L", C: "C", Q: "Q", A: "A", H: "H", V: "V", S: "S", T: "T", z: "Z", m: "m", l: "l", c: "c", q: "q", a: "a", h: "h", v: "v", s: "s", t: "t" }, l3 = -1 !== e3.navigator.userAgent.indexOf("MSIE ");
-          i3.prototype = { parseSegment: function() {
-            var e4 = this._string[this._currentIndex], t3 = o3[e4] ? o3[e4] : null;
-            if (null === t3) {
-              if (null === this._prevCommand)
-                return null;
-              if (null === (t3 = ("+" === e4 || "-" === e4 || "." === e4 || "0" <= e4 && e4 <= "9") && "Z" !== this._prevCommand ? "M" === this._prevCommand ? "L" : "m" === this._prevCommand ? "l" : this._prevCommand : null))
-                return null;
-            } else
-              this._currentIndex += 1;
-            var n4 = null, a4 = (this._prevCommand = t3).toUpperCase();
-            return "H" === a4 || "V" === a4 ? n4 = [this._parseNumber()] : "M" === a4 || "L" === a4 || "T" === a4 ? n4 = [this._parseNumber(), this._parseNumber()] : "S" === a4 || "Q" === a4 ? n4 = [this._parseNumber(), this._parseNumber(), this._parseNumber(), this._parseNumber()] : "C" === a4 ? n4 = [this._parseNumber(), this._parseNumber(), this._parseNumber(), this._parseNumber(), this._parseNumber(), this._parseNumber()] : "A" === a4 ? n4 = [this._parseNumber(), this._parseNumber(), this._parseNumber(), this._parseArcFlag(), this._parseArcFlag(), this._parseNumber(), this._parseNumber()] : "Z" === a4 && (this._skipOptionalSpaces(), n4 = []), null === n4 || 0 <= n4.indexOf(null) ? null : { type: t3, values: n4 };
-          }, hasMoreData: function() {
-            return this._currentIndex < this._endIndex;
-          }, peekSegmentType: function() {
-            var e4 = this._string[this._currentIndex];
-            return o3[e4] ? o3[e4] : null;
-          }, initialCommandIsMoveTo: function() {
-            if (!this.hasMoreData())
-              return true;
-            var e4 = this.peekSegmentType();
-            return "M" === e4 || "m" === e4;
-          }, _isCurrentSpace: function() {
-            var e4 = this._string[this._currentIndex];
-            return e4 <= " " && (" " === e4 || "\n" === e4 || "	" === e4 || "\r" === e4 || "\f" === e4);
-          }, _skipOptionalSpaces: function() {
-            for (; this._currentIndex < this._endIndex && this._isCurrentSpace(); )
-              this._currentIndex += 1;
-            return this._currentIndex < this._endIndex;
-          }, _skipOptionalSpacesOrDelimiter: function() {
-            return !(this._currentIndex < this._endIndex && !this._isCurrentSpace() && "," !== this._string[this._currentIndex]) && (this._skipOptionalSpaces() && this._currentIndex < this._endIndex && "," === this._string[this._currentIndex] && (this._currentIndex += 1, this._skipOptionalSpaces()), this._currentIndex < this._endIndex);
-          }, _parseNumber: function() {
-            var e4 = 0, t3 = 0, n4 = 1, a4 = 0, i4 = 1, o4 = 1, l4 = this._currentIndex;
-            if (this._skipOptionalSpaces(), this._currentIndex < this._endIndex && "+" === this._string[this._currentIndex] ? this._currentIndex += 1 : this._currentIndex < this._endIndex && "-" === this._string[this._currentIndex] && (this._currentIndex += 1, i4 = -1), this._currentIndex === this._endIndex || (this._string[this._currentIndex] < "0" || "9" < this._string[this._currentIndex]) && "." !== this._string[this._currentIndex])
+        var a3 = { Z: "Z", M: "M", L: "L", C: "C", Q: "Q", A: "A", H: "H", V: "V", S: "S", T: "T", z: "Z", m: "m", l: "l", c: "c", q: "q", a: "a", h: "h", v: "v", s: "s", t: "t" }, o3 = -1 !== e3.navigator.userAgent.indexOf("MSIE ");
+        i3.prototype = { parseSegment: function() {
+          var e4 = this._string[this._currentIndex], t4 = a3[e4] || null;
+          if (null === t4) {
+            if (null === this._prevCommand)
               return null;
-            for (var r4 = this._currentIndex; this._currentIndex < this._endIndex && "0" <= this._string[this._currentIndex] && this._string[this._currentIndex] <= "9"; )
-              this._currentIndex += 1;
-            if (this._currentIndex !== r4)
-              for (var s4 = this._currentIndex - 1, u3 = 1; r4 <= s4; )
-                t3 += u3 * (this._string[s4] - "0"), --s4, u3 *= 10;
-            if (this._currentIndex < this._endIndex && "." === this._string[this._currentIndex]) {
-              if (this._currentIndex += 1, this._currentIndex >= this._endIndex || this._string[this._currentIndex] < "0" || "9" < this._string[this._currentIndex])
-                return null;
-              for (; this._currentIndex < this._endIndex && "0" <= this._string[this._currentIndex] && this._string[this._currentIndex] <= "9"; )
-                n4 *= 10, a4 += (this._string.charAt(this._currentIndex) - "0") / n4, this._currentIndex += 1;
-            }
-            if (this._currentIndex !== l4 && this._currentIndex + 1 < this._endIndex && ("e" === this._string[this._currentIndex] || "E" === this._string[this._currentIndex]) && "x" !== this._string[this._currentIndex + 1] && "m" !== this._string[this._currentIndex + 1]) {
-              if (this._currentIndex += 1, "+" === this._string[this._currentIndex] ? this._currentIndex += 1 : "-" === this._string[this._currentIndex] && (this._currentIndex += 1, o4 = -1), this._currentIndex >= this._endIndex || this._string[this._currentIndex] < "0" || "9" < this._string[this._currentIndex])
-                return null;
-              for (; this._currentIndex < this._endIndex && "0" <= this._string[this._currentIndex] && this._string[this._currentIndex] <= "9"; )
-                e4 *= 10, e4 += this._string[this._currentIndex] - "0", this._currentIndex += 1;
-            }
-            var h3 = t3 + a4;
-            return h3 *= i4, e4 && (h3 *= Math.pow(10, o4 * e4)), l4 === this._currentIndex ? null : (this._skipOptionalSpacesOrDelimiter(), h3);
-          }, _parseArcFlag: function() {
-            if (this._currentIndex >= this._endIndex)
+            if (null === (t4 = ("+" === e4 || "-" === e4 || "." === e4 || "0" <= e4 && e4 <= "9") && "Z" !== this._prevCommand ? "M" === this._prevCommand ? "L" : "m" === this._prevCommand ? "l" : this._prevCommand : null))
               return null;
-            var e4 = null, t3 = this._string[this._currentIndex];
-            if (this._currentIndex += 1, "0" === t3)
-              e4 = 0;
-            else {
-              if ("1" !== t3)
-                return null;
-              e4 = 1;
-            }
-            return this._skipOptionalSpacesOrDelimiter(), e4;
-          } };
-          function a3(e4) {
-            if (!e4 || 0 === e4.length)
-              return [];
-            var t3 = new i3(e4), n4 = [];
-            if (t3.initialCommandIsMoveTo())
-              for (; t3.hasMoreData(); ) {
-                var a4 = t3.parseSegment();
-                if (null === a4)
-                  break;
-                n4.push(a4);
-              }
-            return n4;
+          } else
+            this._currentIndex += 1;
+          var n4 = null, e4 = (this._prevCommand = t4).toUpperCase();
+          return "H" === e4 || "V" === e4 ? n4 = [this._parseNumber()] : "M" === e4 || "L" === e4 || "T" === e4 ? n4 = [this._parseNumber(), this._parseNumber()] : "S" === e4 || "Q" === e4 ? n4 = [this._parseNumber(), this._parseNumber(), this._parseNumber(), this._parseNumber()] : "C" === e4 ? n4 = [this._parseNumber(), this._parseNumber(), this._parseNumber(), this._parseNumber(), this._parseNumber(), this._parseNumber()] : "A" === e4 ? n4 = [this._parseNumber(), this._parseNumber(), this._parseNumber(), this._parseArcFlag(), this._parseArcFlag(), this._parseNumber(), this._parseNumber()] : "Z" === e4 && (this._skipOptionalSpaces(), n4 = []), null === n4 || 0 <= n4.indexOf(null) ? null : { type: t4, values: n4 };
+        }, hasMoreData: function() {
+          return this._currentIndex < this._endIndex;
+        }, peekSegmentType: function() {
+          var e4 = this._string[this._currentIndex];
+          return a3[e4] || null;
+        }, initialCommandIsMoveTo: function() {
+          if (!this.hasMoreData())
+            return true;
+          var e4 = this.peekSegmentType();
+          return "M" === e4 || "m" === e4;
+        }, _isCurrentSpace: function() {
+          var e4 = this._string[this._currentIndex];
+          return e4 <= " " && (" " === e4 || "\n" === e4 || "	" === e4 || "\r" === e4 || "\f" === e4);
+        }, _skipOptionalSpaces: function() {
+          for (; this._currentIndex < this._endIndex && this._isCurrentSpace(); )
+            this._currentIndex += 1;
+          return this._currentIndex < this._endIndex;
+        }, _skipOptionalSpacesOrDelimiter: function() {
+          return !(this._currentIndex < this._endIndex && !this._isCurrentSpace() && "," !== this._string[this._currentIndex]) && (this._skipOptionalSpaces() && this._currentIndex < this._endIndex && "," === this._string[this._currentIndex] && (this._currentIndex += 1, this._skipOptionalSpaces()), this._currentIndex < this._endIndex);
+        }, _parseNumber: function() {
+          var e4 = 0, t4 = 0, n4 = 1, a4 = 0, i4 = 1, o4 = 1, l4 = this._currentIndex;
+          if (this._skipOptionalSpaces(), this._currentIndex < this._endIndex && "+" === this._string[this._currentIndex] ? this._currentIndex += 1 : this._currentIndex < this._endIndex && "-" === this._string[this._currentIndex] && (this._currentIndex += 1, i4 = -1), this._currentIndex === this._endIndex || (this._string[this._currentIndex] < "0" || "9" < this._string[this._currentIndex]) && "." !== this._string[this._currentIndex])
+            return null;
+          for (var r4 = this._currentIndex; this._currentIndex < this._endIndex && "0" <= this._string[this._currentIndex] && this._string[this._currentIndex] <= "9"; )
+            this._currentIndex += 1;
+          if (this._currentIndex !== r4)
+            for (var s4 = this._currentIndex - 1, u4 = 1; r4 <= s4; )
+              t4 += u4 * (this._string[s4] - "0"), --s4, u4 *= 10;
+          if (this._currentIndex < this._endIndex && "." === this._string[this._currentIndex]) {
+            if (this._currentIndex += 1, this._currentIndex >= this._endIndex || this._string[this._currentIndex] < "0" || "9" < this._string[this._currentIndex])
+              return null;
+            for (; this._currentIndex < this._endIndex && "0" <= this._string[this._currentIndex] && this._string[this._currentIndex] <= "9"; )
+              n4 *= 10, a4 += (this._string.charAt(this._currentIndex) - "0") / n4, this._currentIndex += 1;
           }
-          function r3(e4) {
-            return e4.map(function(e5) {
-              return { type: e5.type, values: Array.prototype.slice.call(e5.values) };
-            });
+          if (this._currentIndex !== l4 && this._currentIndex + 1 < this._endIndex && ("e" === this._string[this._currentIndex] || "E" === this._string[this._currentIndex]) && "x" !== this._string[this._currentIndex + 1] && "m" !== this._string[this._currentIndex + 1]) {
+            if (this._currentIndex += 1, "+" === this._string[this._currentIndex] ? this._currentIndex += 1 : "-" === this._string[this._currentIndex] && (this._currentIndex += 1, o4 = -1), this._currentIndex >= this._endIndex || this._string[this._currentIndex] < "0" || "9" < this._string[this._currentIndex])
+              return null;
+            for (; this._currentIndex < this._endIndex && "0" <= this._string[this._currentIndex] && this._string[this._currentIndex] <= "9"; )
+              e4 *= 10, e4 += this._string[this._currentIndex] - "0", this._currentIndex += 1;
           }
-          function d3(e4) {
-            var m3 = [], S3 = null, g2 = null, _3 = null, v3 = null, E3 = null, x3 = null, b3 = null;
-            return e4.forEach(function(e5) {
-              var t3, n4, a4, i4, o4, l4, r4, s4, u3, h3, p3, c3, d4, f4, y4;
-              "M" === e5.type ? (f4 = e5.values[0], y4 = e5.values[1], m3.push({ type: "M", values: [f4, y4] }), v3 = x3 = f4, E3 = b3 = y4) : "C" === e5.type ? (a4 = e5.values[0], i4 = e5.values[1], t3 = e5.values[2], n4 = e5.values[3], f4 = e5.values[4], y4 = e5.values[5], m3.push({ type: "C", values: [a4, i4, t3, n4, f4, y4] }), g2 = t3, _3 = n4, v3 = f4, E3 = y4) : "L" === e5.type ? (f4 = e5.values[0], y4 = e5.values[1], m3.push({ type: "L", values: [f4, y4] }), v3 = f4, E3 = y4) : "H" === e5.type ? (f4 = e5.values[0], m3.push({ type: "L", values: [f4, E3] }), v3 = f4) : "V" === e5.type ? (y4 = e5.values[0], m3.push({ type: "L", values: [v3, y4] }), E3 = y4) : "S" === e5.type ? (t3 = e5.values[0], n4 = e5.values[1], f4 = e5.values[2], y4 = e5.values[3], l4 = "C" === S3 || "S" === S3 ? (o4 = v3 + (v3 - g2), E3 + (E3 - _3)) : (o4 = v3, E3), m3.push({ type: "C", values: [o4, l4, t3, n4, f4, y4] }), g2 = t3, _3 = n4, v3 = f4, E3 = y4) : "T" === e5.type ? (f4 = e5.values[0], y4 = e5.values[1], i4 = "Q" === S3 || "T" === S3 ? (a4 = v3 + (v3 - g2), E3 + (E3 - _3)) : (a4 = v3, E3), o4 = v3 + 2 * (a4 - v3) / 3, l4 = E3 + 2 * (i4 - E3) / 3, r4 = f4 + 2 * (a4 - f4) / 3, s4 = y4 + 2 * (i4 - y4) / 3, m3.push({ type: "C", values: [o4, l4, r4, s4, f4, y4] }), g2 = a4, _3 = i4, v3 = f4, E3 = y4) : "Q" === e5.type ? (a4 = e5.values[0], i4 = e5.values[1], f4 = e5.values[2], y4 = e5.values[3], o4 = v3 + 2 * (a4 - v3) / 3, l4 = E3 + 2 * (i4 - E3) / 3, r4 = f4 + 2 * (a4 - f4) / 3, s4 = y4 + 2 * (i4 - y4) / 3, m3.push({ type: "C", values: [o4, l4, r4, s4, f4, y4] }), g2 = a4, _3 = i4, v3 = f4, E3 = y4) : "A" === e5.type ? (u3 = e5.values[0], h3 = e5.values[1], p3 = e5.values[2], c3 = e5.values[3], d4 = e5.values[4], f4 = e5.values[5], y4 = e5.values[6], 0 === u3 || 0 === h3 ? (m3.push({ type: "C", values: [v3, E3, f4, y4, f4, y4] }), v3 = f4, E3 = y4) : v3 === f4 && E3 === y4 || U2(v3, E3, f4, y4, u3, h3, p3, c3, d4).forEach(function(e6) {
-                m3.push({ type: "C", values: e6 }), v3 = f4, E3 = y4;
-              })) : "Z" === e5.type && (m3.push(e5), v3 = x3, E3 = b3), S3 = e5.type;
-            }), m3;
-          }
-          var n3 = e3.SVGPathElement.prototype.setAttribute, s3 = e3.SVGPathElement.prototype.removeAttribute, f3 = e3.Symbol ? e3.Symbol() : "__cachedPathData", y3 = e3.Symbol ? e3.Symbol() : "__cachedNormalizedPathData", U2 = function(e4, t3, n4, a4, i4, o4, l4, r4, s4, u3) {
-            function h3(e5, t4, n5) {
-              return { x: e5 * Math.cos(n5) - t4 * Math.sin(n5), y: e5 * Math.sin(n5) + t4 * Math.cos(n5) };
-            }
-            var p3, c3, d4, f4, y4, m3, S3, g2, _3, v3, E3, x3, b3, k2, w3, O3 = (p3 = l4, Math.PI * p3 / 180), M3 = [];
-            u3 ? (k2 = u3[0], w3 = u3[1], x3 = u3[2], b3 = u3[3]) : (e4 = (c3 = h3(e4, t3, -O3)).x, t3 = c3.y, 1 < (m3 = (f4 = (e4 - (n4 = (d4 = h3(n4, a4, -O3)).x)) / 2) * f4 / (i4 * i4) + (y4 = (t3 - (a4 = d4.y)) / 2) * y4 / (o4 * o4)) && (i4 *= m3 = Math.sqrt(m3), o4 *= m3), _3 = (S3 = i4 * i4) * (g2 = o4 * o4) - S3 * y4 * y4 - g2 * f4 * f4, v3 = S3 * y4 * y4 + g2 * f4 * f4, x3 = (E3 = (r4 === s4 ? -1 : 1) * Math.sqrt(Math.abs(_3 / v3))) * i4 * y4 / o4 + (e4 + n4) / 2, b3 = E3 * -o4 * f4 / i4 + (t3 + a4) / 2, k2 = Math.asin(parseFloat(((t3 - b3) / o4).toFixed(9))), w3 = Math.asin(parseFloat(((a4 - b3) / o4).toFixed(9))), e4 < x3 && (k2 = Math.PI - k2), n4 < x3 && (w3 = Math.PI - w3), k2 < 0 && (k2 = 2 * Math.PI + k2), w3 < 0 && (w3 = 2 * Math.PI + w3), s4 && w3 < k2 && (k2 -= 2 * Math.PI), !s4 && k2 < w3 && (w3 -= 2 * Math.PI));
-            var I2, C3, L3, A2 = w3 - k2;
-            Math.abs(A2) > 120 * Math.PI / 180 && (I2 = w3, C3 = n4, L3 = a4, w3 = s4 && k2 < w3 ? k2 + 120 * Math.PI / 180 * 1 : k2 + 120 * Math.PI / 180 * -1, n4 = x3 + i4 * Math.cos(w3), a4 = b3 + o4 * Math.sin(w3), M3 = U2(n4, a4, C3, L3, i4, o4, l4, 0, s4, [w3, I2, x3, b3])), A2 = w3 - k2;
-            var V3 = Math.cos(k2), P3 = Math.sin(k2), N2 = Math.cos(w3), T3 = Math.sin(w3), W3 = Math.tan(A2 / 4), B3 = 4 / 3 * i4 * W3, R3 = 4 / 3 * o4 * W3, F3 = [e4, t3], G2 = [e4 + B3 * P3, t3 - R3 * V3], D3 = [n4 + B3 * T3, a4 - R3 * N2], z3 = [n4, a4];
-            if (G2[0] = 2 * F3[0] - G2[0], G2[1] = 2 * F3[1] - G2[1], u3)
-              return [G2, D3, z3].concat(M3);
-            M3 = [G2, D3, z3].concat(M3).join().split(",");
-            var j2 = [], H3 = [];
-            return M3.forEach(function(e5, t4) {
-              t4 % 2 ? H3.push(h3(M3[t4 - 1], M3[t4], O3).y) : H3.push(h3(M3[t4], M3[t4 + 1], O3).x), 6 === H3.length && (j2.push(H3), H3 = []);
-            }), j2;
-          };
-          e3.SVGPathElement.prototype.setAttribute = function(e4, t3) {
-            "d" === e4 && (this[f3] = null, this[y3] = null), n3.call(this, e4, t3);
-          }, e3.SVGPathElement.prototype.removeAttribute = function(e4, t3) {
-            "d" === e4 && (this[f3] = null, this[y3] = null), s3.call(this, e4);
-          }, e3.SVGPathElement.prototype.getPathData = function(e4) {
-            if (e4 && e4.normalize) {
-              if (this[y3])
-                return r3(this[y3]);
-              this[f3] ? n4 = r3(this[f3]) : (n4 = a3(this.getAttribute("d") || ""), this[f3] = r3(n4));
-              var t3 = d3((s4 = [], c3 = p3 = h3 = u3 = null, n4.forEach(function(e5) {
-                var t4, n5, a4, i4, o4, l4, r4 = e5.type;
-                "M" === r4 ? (o4 = e5.values[0], l4 = e5.values[1], s4.push({ type: "M", values: [o4, l4] }), u3 = p3 = o4, h3 = c3 = l4) : "m" === r4 ? (o4 = u3 + e5.values[0], l4 = h3 + e5.values[1], s4.push({ type: "M", values: [o4, l4] }), u3 = p3 = o4, h3 = c3 = l4) : "L" === r4 ? (o4 = e5.values[0], l4 = e5.values[1], s4.push({ type: "L", values: [o4, l4] }), u3 = o4, h3 = l4) : "l" === r4 ? (o4 = u3 + e5.values[0], l4 = h3 + e5.values[1], s4.push({ type: "L", values: [o4, l4] }), u3 = o4, h3 = l4) : "C" === r4 ? (t4 = e5.values[0], n5 = e5.values[1], a4 = e5.values[2], i4 = e5.values[3], o4 = e5.values[4], l4 = e5.values[5], s4.push({ type: "C", values: [t4, n5, a4, i4, o4, l4] }), u3 = o4, h3 = l4) : "c" === r4 ? (t4 = u3 + e5.values[0], n5 = h3 + e5.values[1], a4 = u3 + e5.values[2], i4 = h3 + e5.values[3], o4 = u3 + e5.values[4], l4 = h3 + e5.values[5], s4.push({ type: "C", values: [t4, n5, a4, i4, o4, l4] }), u3 = o4, h3 = l4) : "Q" === r4 ? (t4 = e5.values[0], n5 = e5.values[1], o4 = e5.values[2], l4 = e5.values[3], s4.push({ type: "Q", values: [t4, n5, o4, l4] }), u3 = o4, h3 = l4) : "q" === r4 ? (t4 = u3 + e5.values[0], n5 = h3 + e5.values[1], o4 = u3 + e5.values[2], l4 = h3 + e5.values[3], s4.push({ type: "Q", values: [t4, n5, o4, l4] }), u3 = o4, h3 = l4) : "A" === r4 ? (o4 = e5.values[5], l4 = e5.values[6], s4.push({ type: "A", values: [e5.values[0], e5.values[1], e5.values[2], e5.values[3], e5.values[4], o4, l4] }), u3 = o4, h3 = l4) : "a" === r4 ? (o4 = u3 + e5.values[5], l4 = h3 + e5.values[6], s4.push({ type: "A", values: [e5.values[0], e5.values[1], e5.values[2], e5.values[3], e5.values[4], o4, l4] }), u3 = o4, h3 = l4) : "H" === r4 ? (o4 = e5.values[0], s4.push({ type: "H", values: [o4] }), u3 = o4) : "h" === r4 ? (o4 = u3 + e5.values[0], s4.push({ type: "H", values: [o4] }), u3 = o4) : "V" === r4 ? (l4 = e5.values[0], s4.push({ type: "V", values: [l4] }), h3 = l4) : "v" === r4 ? (l4 = h3 + e5.values[0], s4.push({ type: "V", values: [l4] }), h3 = l4) : "S" === r4 ? (a4 = e5.values[0], i4 = e5.values[1], o4 = e5.values[2], l4 = e5.values[3], s4.push({ type: "S", values: [a4, i4, o4, l4] }), u3 = o4, h3 = l4) : "s" === r4 ? (a4 = u3 + e5.values[0], i4 = h3 + e5.values[1], o4 = u3 + e5.values[2], l4 = h3 + e5.values[3], s4.push({ type: "S", values: [a4, i4, o4, l4] }), u3 = o4, h3 = l4) : "T" === r4 ? (o4 = e5.values[0], l4 = e5.values[1], s4.push({ type: "T", values: [o4, l4] }), u3 = o4, h3 = l4) : "t" === r4 ? (o4 = u3 + e5.values[0], l4 = h3 + e5.values[1], s4.push({ type: "T", values: [o4, l4] }), u3 = o4, h3 = l4) : "Z" !== r4 && "z" !== r4 || (s4.push({ type: "Z", values: [] }), u3 = p3, h3 = c3);
-              }), s4));
-              return this[y3] = r3(t3), t3;
-            }
-            if (this[f3])
-              return r3(this[f3]);
-            var s4, u3, h3, p3, c3, n4 = a3(this.getAttribute("d") || "");
-            return this[f3] = r3(n4), n4;
-          }, e3.SVGPathElement.prototype.setPathData = function(e4) {
-            if (0 === e4.length)
-              l3 ? this.setAttribute("d", "") : this.removeAttribute("d");
-            else {
-              for (var t3 = "", n4 = 0, a4 = e4.length; n4 < a4; n4 += 1) {
-                var i4 = e4[n4];
-                0 < n4 && (t3 += " "), t3 += i4.type, i4.values && 0 < i4.values.length && (t3 += " " + i4.values.join(" "));
-              }
-              this.setAttribute("d", t3);
-            }
-          }, e3.SVGRectElement.prototype.getPathData = function(e4) {
-            var t3 = this.x.baseVal.value, n4 = this.y.baseVal.value, a4 = this.width.baseVal.value, i4 = this.height.baseVal.value, o4 = this.hasAttribute("rx") ? this.rx.baseVal.value : this.ry.baseVal.value, l4 = this.hasAttribute("ry") ? this.ry.baseVal.value : this.rx.baseVal.value;
-            a4 / 2 < o4 && (o4 = a4 / 2), i4 / 2 < l4 && (l4 = i4 / 2);
-            var r4 = (r4 = [{ type: "M", values: [t3 + o4, n4] }, { type: "H", values: [t3 + a4 - o4] }, { type: "A", values: [o4, l4, 0, 0, 1, t3 + a4, n4 + l4] }, { type: "V", values: [n4 + i4 - l4] }, { type: "A", values: [o4, l4, 0, 0, 1, t3 + a4 - o4, n4 + i4] }, { type: "H", values: [t3 + o4] }, { type: "A", values: [o4, l4, 0, 0, 1, t3, n4 + i4 - l4] }, { type: "V", values: [n4 + l4] }, { type: "A", values: [o4, l4, 0, 0, 1, t3 + o4, n4] }, { type: "Z", values: [] }]).filter(function(e5) {
-              return "A" !== e5.type || 0 !== e5.values[0] && 0 !== e5.values[1];
-            });
-            return e4 && true === e4.normalize && (r4 = d3(r4)), r4;
-          }, e3.SVGCircleElement.prototype.getPathData = function(e4) {
-            var t3 = this.cx.baseVal.value, n4 = this.cy.baseVal.value, a4 = this.r.baseVal.value, i4 = [{ type: "M", values: [t3 + a4, n4] }, { type: "A", values: [a4, a4, 0, 0, 1, t3, n4 + a4] }, { type: "A", values: [a4, a4, 0, 0, 1, t3 - a4, n4] }, { type: "A", values: [a4, a4, 0, 0, 1, t3, n4 - a4] }, { type: "A", values: [a4, a4, 0, 0, 1, t3 + a4, n4] }, { type: "Z", values: [] }];
-            return e4 && true === e4.normalize && (i4 = d3(i4)), i4;
-          }, e3.SVGEllipseElement.prototype.getPathData = function(e4) {
-            var t3 = this.cx.baseVal.value, n4 = this.cy.baseVal.value, a4 = this.rx.baseVal.value, i4 = this.ry.baseVal.value, o4 = [{ type: "M", values: [t3 + a4, n4] }, { type: "A", values: [a4, i4, 0, 0, 1, t3, n4 + i4] }, { type: "A", values: [a4, i4, 0, 0, 1, t3 - a4, n4] }, { type: "A", values: [a4, i4, 0, 0, 1, t3, n4 - i4] }, { type: "A", values: [a4, i4, 0, 0, 1, t3 + a4, n4] }, { type: "Z", values: [] }];
-            return e4 && true === e4.normalize && (o4 = d3(o4)), o4;
-          }, e3.SVGLineElement.prototype.getPathData = function() {
-            return [{ type: "M", values: [this.x1.baseVal.value, this.y1.baseVal.value] }, { type: "L", values: [this.x2.baseVal.value, this.y2.baseVal.value] }];
-          }, e3.SVGPolylineElement.prototype.getPathData = function() {
-            for (var e4 = [], t3 = 0; t3 < this.points.numberOfItems; t3 += 1) {
-              var n4 = this.points.getItem(t3);
-              e4.push({ type: 0 === t3 ? "M" : "L", values: [n4.x, n4.y] });
-            }
-            return e4;
-          }, e3.SVGPolygonElement.prototype.getPathData = function() {
-            for (var e4 = [], t3 = 0; t3 < this.points.numberOfItems; t3 += 1) {
-              var n4 = this.points.getItem(t3);
-              e4.push({ type: 0 === t3 ? "M" : "L", values: [n4.x, n4.y] });
-            }
-            return e4.push({ type: "Z", values: [] }), e4;
-          };
-        }();
-      }, v2 = (a2 = {}, xe.m = n2 = [function(e3, t3, n3) {
-        n3.r(t3);
-        var a3 = 500, i3 = [], o3 = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function(e4) {
-          return setTimeout(e4, 1e3 / 60);
-        }, l3 = window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame || window.msCancelAnimationFrame || function(e4) {
-          return clearTimeout(e4);
-        }, r3 = Date.now(), s3 = void 0;
-        function u3() {
-          var n4 = void 0, e4 = void 0;
-          s3 && (l3.call(window, s3), s3 = null), i3.forEach(function(e5) {
-            var t4;
-            (t4 = e5.event) && (e5.event = null, e5.listener(t4), n4 = true);
-          }), n4 ? (r3 = Date.now(), e4 = true) : Date.now() - r3 < a3 && (e4 = true), e4 && (s3 = o3.call(window, u3));
-        }
-        function h3(n4) {
-          var a4 = -1;
-          return i3.some(function(e4, t4) {
-            return e4.listener === n4 && (a4 = t4, true);
-          }), a4;
-        }
-        var p3 = { add: function(e4) {
-          var t4 = void 0;
-          return -1 === h3(e4) ? (i3.push(t4 = { listener: e4 }), function(e5) {
-            t4.event = e5, s3 || u3();
-          }) : null;
-        }, remove: function(e4) {
-          var t4;
-          -1 < (t4 = h3(e4)) && (i3.splice(t4, 1), !i3.length && s3 && (l3.call(window, s3), s3 = null));
-        } };
-        t3.default = p3;
-      }], xe.c = a2, xe.d = function(e3, t3, n3) {
-        xe.o(e3, t3) || Object.defineProperty(e3, t3, { enumerable: true, get: n3 });
-      }, xe.r = function(e3) {
-        "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e3, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e3, "__esModule", { value: true });
-      }, xe.t = function(t3, e3) {
-        if (1 & e3 && (t3 = xe(t3)), 8 & e3)
-          return t3;
-        if (4 & e3 && "object" == typeof t3 && t3 && t3.__esModule)
-          return t3;
-        var n3 = /* @__PURE__ */ Object.create(null);
-        if (xe.r(n3), Object.defineProperty(n3, "default", { enumerable: true, value: t3 }), 2 & e3 && "string" != typeof t3)
-          for (var a3 in t3)
-            xe.d(n3, a3, (function(e4) {
-              return t3[e4];
-            }).bind(null, a3));
-        return n3;
-      }, xe.n = function(e3) {
-        var t3 = e3 && e3.__esModule ? function() {
-          return e3.default;
-        } : function() {
-          return e3;
-        };
-        return xe.d(t3, "a", t3), t3;
-      }, xe.o = function(e3, t3) {
-        return Object.prototype.hasOwnProperty.call(e3, t3);
-      }, xe.p = "", xe(xe.s = 0).default), me = { line_altColor: { iniValue: false }, line_color: {}, line_colorTra: { iniValue: false }, line_strokeWidth: {}, plug_enabled: { iniValue: false }, plug_enabledSE: { hasSE: true, iniValue: false }, plug_plugSE: { hasSE: true, iniValue: ne }, plug_colorSE: { hasSE: true }, plug_colorTraSE: { hasSE: true, iniValue: false }, plug_markerWidthSE: { hasSE: true }, plug_markerHeightSE: { hasSE: true }, lineOutline_enabled: { iniValue: false }, lineOutline_color: {}, lineOutline_colorTra: { iniValue: false }, lineOutline_strokeWidth: {}, lineOutline_inStrokeWidth: {}, plugOutline_enabledSE: { hasSE: true, iniValue: false }, plugOutline_plugSE: { hasSE: true, iniValue: ne }, plugOutline_colorSE: { hasSE: true }, plugOutline_colorTraSE: { hasSE: true, iniValue: false }, plugOutline_strokeWidthSE: { hasSE: true }, plugOutline_inStrokeWidthSE: { hasSE: true }, position_socketXYSE: { hasSE: true, hasProps: true }, position_plugOverheadSE: { hasSE: true }, position_path: {}, position_lineStrokeWidth: {}, position_socketGravitySE: { hasSE: true }, path_pathData: {}, path_edge: { hasProps: true }, viewBox_bBox: { hasProps: true }, viewBox_plugBCircleSE: { hasSE: true }, lineMask_enabled: { iniValue: false }, lineMask_outlineMode: { iniValue: false }, lineMask_x: {}, lineMask_y: {}, lineOutlineMask_x: {}, lineOutlineMask_y: {}, maskBGRect_x: {}, maskBGRect_y: {}, capsMaskAnchor_enabledSE: { hasSE: true, iniValue: false }, capsMaskAnchor_pathDataSE: { hasSE: true }, capsMaskAnchor_strokeWidthSE: { hasSE: true }, capsMaskMarker_enabled: { iniValue: false }, capsMaskMarker_enabledSE: { hasSE: true, iniValue: false }, capsMaskMarker_plugSE: { hasSE: true, iniValue: ne }, capsMaskMarker_markerWidthSE: { hasSE: true }, capsMaskMarker_markerHeightSE: { hasSE: true }, caps_enabled: { iniValue: false }, attach_plugSideLenSE: { hasSE: true }, attach_plugBackLenSE: { hasSE: true } }, E2 = { show_on: {}, show_effect: {}, show_animOptions: {}, show_animId: {}, show_inAnim: {} }, O2 = "fade", Se = [], ge = {}, _e2 = 0, ve = {}, Ee = 0;
-      function xe(e3) {
-        if (a2[e3])
-          return a2[e3].exports;
-        var t3 = a2[e3] = { i: e3, l: false, exports: {} };
-        return n2[e3].call(t3.exports, t3, t3.exports, xe), t3.l = true, t3.exports;
-      }
-      function be() {
-        var i3 = Date.now(), o3 = false;
-        e2 && (r2.call(window, e2), e2 = null), k.forEach(function(e3) {
-          var t3, n3, a3;
-          if (e3.framesStart) {
-            if ((t3 = i3 - e3.framesStart) >= e3.duration && e3.count && e3.loopsLeft <= 1)
-              return a3 = e3.frames[e3.lastFrame = e3.reverse ? 0 : e3.frames.length - 1], e3.frameCallback(a3.value, true, a3.timeRatio, a3.outputRatio), void (e3.framesStart = null);
-            if (t3 > e3.duration) {
-              if (n3 = Math.floor(t3 / e3.duration), e3.count) {
-                if (n3 >= e3.loopsLeft)
-                  return a3 = e3.frames[e3.lastFrame = e3.reverse ? 0 : e3.frames.length - 1], e3.frameCallback(a3.value, true, a3.timeRatio, a3.outputRatio), void (e3.framesStart = null);
-                e3.loopsLeft -= n3;
-              }
-              e3.framesStart += e3.duration * n3, t3 = i3 - e3.framesStart;
-            }
-            e3.reverse && (t3 = e3.duration - t3), a3 = e3.frames[e3.lastFrame = Math.round(t3 / b2)], false !== e3.frameCallback(a3.value, false, a3.timeRatio, a3.outputRatio) ? o3 = true : e3.framesStart = null;
-          }
-        }), o3 && (e2 = l2.call(window, be));
-      }
-      function ke(e3, t3) {
-        e3.framesStart = Date.now(), null != t3 && (e3.framesStart -= e3.duration * (e3.reverse ? 1 - t3 : t3)), e3.loopsLeft = e3.count, e3.lastFrame = null, be();
-      }
-      function we(t3, n3) {
-        var e3, a3;
-        return typeof t3 != typeof n3 || (e3 = fe(t3) ? "obj" : Array.isArray(t3) ? "array" : "") != (fe(n3) ? "obj" : Array.isArray(n3) ? "array" : "") || ("obj" === e3 ? we(a3 = Object.keys(t3).sort(), Object.keys(n3).sort()) || a3.some(function(e4) {
-          return we(t3[e4], n3[e4]);
-        }) : "array" === e3 ? t3.length !== n3.length || t3.some(function(e4, t4) {
-          return we(e4, n3[t4]);
-        }) : t3 !== n3);
-      }
-      function Oe(n3) {
-        return n3 ? fe(n3) ? Object.keys(n3).reduce(function(e3, t3) {
-          return e3[t3] = Oe(n3[t3]), e3;
-        }, {}) : Array.isArray(n3) ? n3.map(Oe) : n3 : n3;
-      }
-      function Me(e3) {
-        var t3, n3, a3, i3 = 1, o3 = e3 = (e3 + "").trim();
-        function l3(e4) {
-          var t4 = 1, n4 = m2.exec(e4);
-          return n4 && (t4 = parseFloat(n4[1]), n4[2] ? t4 = 0 <= t4 && t4 <= 100 ? t4 / 100 : 1 : (t4 < 0 || 1 < t4) && (t4 = 1)), t4;
-        }
-        return (t3 = /^(rgba|hsla|hwb|gray|device\-cmyk)\s*\(([\s\S]+)\)$/i.exec(e3)) ? (n3 = t3[1].toLowerCase(), a3 = t3[2].trim().split(/\s*,\s*/), "rgba" === n3 && 4 === a3.length ? (i3 = l3(a3[3]), o3 = "rgb(" + a3.slice(0, 3).join(", ") + ")") : "hsla" === n3 && 4 === a3.length ? (i3 = l3(a3[3]), o3 = "hsl(" + a3.slice(0, 3).join(", ") + ")") : "hwb" === n3 && 4 === a3.length ? (i3 = l3(a3[3]), o3 = "hwb(" + a3.slice(0, 3).join(", ") + ")") : "gray" === n3 && 2 === a3.length ? (i3 = l3(a3[1]), o3 = "gray(" + a3[0] + ")") : "device-cmyk" === n3 && 5 <= a3.length && (i3 = l3(a3[4]), o3 = "device-cmyk(" + a3.slice(0, 4).join(", ") + ")")) : (t3 = /^\#(?:([\da-f]{6})([\da-f]{2})|([\da-f]{3})([\da-f]))$/i.exec(e3)) ? o3 = t3[1] ? (i3 = parseInt(t3[2], 16) / 255, "#" + t3[1]) : (i3 = parseInt(t3[4] + t3[4], 16) / 255, "#" + t3[3]) : "transparent" === e3.toLocaleLowerCase() && (i3 = 0), [i3, o3];
-      }
-      function Ie(e3) {
-        return !(!e3 || e3.nodeType !== Node.ELEMENT_NODE || "function" != typeof e3.getBoundingClientRect);
-      }
-      function Ce(e3, t3) {
-        var n3, a3, i3, o3, l3 = {};
-        if (!(i3 = e3.ownerDocument))
-          return console.error("Cannot get document that contains the element."), null;
-        if (e3.compareDocumentPosition(i3) & Node.DOCUMENT_POSITION_DISCONNECTED)
-          return console.error("A disconnected element was passed."), null;
-        for (a3 in n3 = e3.getBoundingClientRect())
-          l3[a3] = n3[a3];
-        if (!t3) {
-          if (!(o3 = i3.defaultView))
-            return console.error("Cannot get window that contains the element."), null;
-          l3.left += o3.pageXOffset, l3.right += o3.pageXOffset, l3.top += o3.pageYOffset, l3.bottom += o3.pageYOffset;
-        }
-        return l3;
-      }
-      function Le(e3, t3) {
-        var n3, a3, i3 = [], o3 = e3;
-        for (t3 = t3 || window; ; ) {
-          if (!(n3 = o3.ownerDocument))
-            return console.error("Cannot get document that contains the element."), null;
-          if (!(a3 = n3.defaultView))
-            return console.error("Cannot get window that contains the element."), null;
-          if (a3 === t3)
-            break;
-          if (!(o3 = a3.frameElement))
-            return console.error("`baseWindow` was not found."), null;
-          i3.unshift(o3);
-        }
-        return i3;
-      }
-      function Ae(e3, t3) {
-        var n3, a3, o3 = 0, l3 = 0;
-        return (a3 = Le(e3, t3 = t3 || window)) ? a3.length ? (a3.forEach(function(e4, t4) {
-          var n4, a4, i3 = Ce(e4, 0 < t4);
-          o3 += i3.left, l3 += i3.top, a4 = (n4 = e4).ownerDocument.defaultView.getComputedStyle(n4, ""), i3 = { left: n4.clientLeft + parseFloat(a4.paddingLeft), top: n4.clientTop + parseFloat(a4.paddingTop) }, o3 += i3.left, l3 += i3.top;
-        }), (n3 = Ce(e3, true)).left += o3, n3.right += o3, n3.top += l3, n3.bottom += l3, n3) : Ce(e3) : null;
-      }
-      function Ve(e3, t3) {
-        var n3 = e3.x - t3.x, a3 = e3.y - t3.y;
-        return Math.sqrt(n3 * n3 + a3 * a3);
-      }
-      function Pe(e3, t3, n3) {
-        var a3 = t3.x - e3.x, i3 = t3.y - e3.y;
-        return { x: e3.x + a3 * n3, y: e3.y + i3 * n3, angle: Math.atan2(i3, a3) / (Math.PI / 180) };
-      }
-      function Ne(e3, t3, n3) {
-        var a3 = Math.atan2(e3.y - t3.y, t3.x - e3.x);
-        return { x: t3.x + Math.cos(a3) * n3, y: t3.y + Math.sin(a3) * n3 * -1 };
-      }
-      function Te(e3, t3, n3, a3, i3) {
-        var o3 = i3 * i3, l3 = o3 * i3, r3 = 1 - i3, s3 = r3 * r3, u3 = s3 * r3, h3 = u3 * e3.x + 3 * s3 * i3 * t3.x + 3 * r3 * o3 * n3.x + l3 * a3.x, p3 = u3 * e3.y + 3 * s3 * i3 * t3.y + 3 * r3 * o3 * n3.y + l3 * a3.y, c3 = e3.x + 2 * i3 * (t3.x - e3.x) + o3 * (n3.x - 2 * t3.x + e3.x), d3 = e3.y + 2 * i3 * (t3.y - e3.y) + o3 * (n3.y - 2 * t3.y + e3.y), f3 = t3.x + 2 * i3 * (n3.x - t3.x) + o3 * (a3.x - 2 * n3.x + t3.x), y3 = t3.y + 2 * i3 * (n3.y - t3.y) + o3 * (a3.y - 2 * n3.y + t3.y), m3 = r3 * e3.x + i3 * t3.x, S3 = r3 * e3.y + i3 * t3.y, g2 = r3 * n3.x + i3 * a3.x, _3 = r3 * n3.y + i3 * a3.y, v3 = 90 - 180 * Math.atan2(c3 - f3, d3 - y3) / Math.PI;
-        return { x: h3, y: p3, fromP2: { x: c3, y: d3 }, toP1: { x: f3, y: y3 }, fromP1: { x: m3, y: S3 }, toP2: { x: g2, y: _3 }, angle: v3 += 180 < v3 ? -180 : 180 };
-      }
-      function We(n3, a3, i3, o3, e3) {
-        function l3(e4, t3, n4, a4, i4) {
-          return e4 * (e4 * (-3 * t3 + 9 * n4 - 9 * a4 + 3 * i4) + 6 * t3 - 12 * n4 + 6 * a4) - 3 * t3 + 3 * n4;
-        }
-        var r3, s3, u3, h3, p3 = [0.2491, 0.2491, 0.2335, 0.2335, 0.2032, 0.2032, 0.1601, 0.1601, 0.1069, 0.1069, 0.0472, 0.0472], c3 = 0, d3 = (e3 = null == e3 || 1 < e3 ? 1 : e3 < 0 ? 0 : e3) / 2;
-        return [-0.1252, 0.1252, -0.3678, 0.3678, -0.5873, 0.5873, -0.7699, 0.7699, -0.9041, 0.9041, -0.9816, 0.9816].forEach(function(e4, t3) {
-          s3 = l3(r3 = d3 * e4 + d3, n3.x, a3.x, i3.x, o3.x), u3 = l3(r3, n3.y, a3.y, i3.y, o3.y), h3 = s3 * s3 + u3 * u3, c3 += p3[t3] * Math.sqrt(h3);
-        }), d3 * c3;
-      }
-      function Be(e3, t3, n3, a3, i3) {
-        for (var o3, l3 = 0.5, r3 = 1 - l3; o3 = We(e3, t3, n3, a3, r3), !(Math.abs(o3 - i3) <= 0.01); )
-          r3 += (o3 < i3 ? 1 : -1) * (l3 /= 2);
-        return r3;
-      }
-      function Re(e3, n3) {
-        var a3;
-        return e3.forEach(function(e4) {
-          var t3 = n3 ? e4.map(function(e5) {
-            var t4 = { x: e5.x, y: e5.y };
-            return n3(t4), t4;
-          }) : e4;
-          (a3 = a3 || [{ type: "M", values: [t3[0].x, t3[0].y] }]).push(t3.length ? 2 === t3.length ? { type: "L", values: [t3[1].x, t3[1].y] } : { type: "C", values: [t3[1].x, t3[1].y, t3[2].x, t3[2].y, t3[3].x, t3[3].y] } : { type: "Z", values: [] });
-        }), a3;
-      }
-      function Fe(e3) {
-        var n3 = [], a3 = 0;
-        return e3.forEach(function(e4) {
-          var t3 = (2 === e4.length ? Ve : We).apply(null, e4);
-          n3.push(t3), a3 += t3;
-        }), { segsLen: n3, lenAll: a3 };
-      }
-      function Ge(e3, a3) {
-        return null == e3 || null == a3 || e3.length !== a3.length || e3.some(function(e4, t3) {
-          var n3 = a3[t3];
-          return e4.type !== n3.type || e4.values.some(function(e5, t4) {
-            return e5 !== n3.values[t4];
-          });
-        });
-      }
-      function De(e3, t3, n3) {
-        e3.events[t3] ? e3.events[t3].indexOf(n3) < 0 && e3.events[t3].push(n3) : e3.events[t3] = [n3];
-      }
-      function ze(e3, t3, n3) {
-        var a3;
-        e3.events[t3] && -1 < (a3 = e3.events[t3].indexOf(n3)) && e3.events[t3].splice(a3, 1);
-      }
-      function je(e3) {
-        t2 && clearTimeout(t2), Se.push(e3), t2 = setTimeout(function() {
-          Se.forEach(function(e4) {
-            e4();
-          }), Se = [];
-        }, 0);
-      }
-      function He(e3, t3) {
-        e3.reflowTargets.indexOf(t3) < 0 && e3.reflowTargets.push(t3);
-      }
-      function Ue(e3) {
-        e3.reflowTargets.forEach(function(e4) {
-          var n3;
-          n3 = e4, setTimeout(function() {
-            var e5 = n3.parentNode, t3 = n3.nextSibling;
-            e5.insertBefore(e5.removeChild(n3), t3);
-          }, 0);
-        }), e3.reflowTargets = [];
-      }
-      function Ze(e3, t3, n3, a3, i3, o3, l3) {
-        var r3, s3, u3;
-        "auto-start-reverse" === n3 ? ("boolean" != typeof h2 && (t3.setAttribute("orient", "auto-start-reverse"), h2 = t3.orientType.baseVal === SVGMarkerElement.SVG_MARKER_ORIENT_UNKNOWN), h2 ? t3.setAttribute("orient", n3) : ((r3 = i3.createSVGTransform()).setRotate(180, 0, 0), o3.transform.baseVal.appendItem(r3), t3.setAttribute("orient", "auto"), u3 = true)) : (t3.setAttribute("orient", n3), false === h2 && o3.transform.baseVal.clear()), s3 = t3.viewBox.baseVal, u3 ? (s3.x = -a3.right, s3.y = -a3.bottom) : (s3.x = a3.left, s3.y = a3.top), s3.width = a3.width, s3.height = a3.height, se && He(e3, l3);
-      }
-      function Ye(e3, t3) {
-        return { prop: e3 ? "markerEnd" : "markerStart", orient: t3 ? t3.noRotate ? "0" : e3 ? "auto" : "auto-start-reverse" : null };
-      }
-      function Xe(n3, a3) {
-        Object.keys(a3).forEach(function(e3) {
-          var t3 = a3[e3];
-          n3[e3] = null != t3.iniValue ? t3.hasSE ? [t3.iniValue, t3.iniValue] : t3.iniValue : t3.hasSE ? t3.hasProps ? [{}, {}] : [] : t3.hasProps ? {} : null;
-        });
-      }
-      function qe(t3, e3, n3, a3, i3) {
-        return a3 !== e3[n3] && (e3[n3] = a3, i3 && i3.forEach(function(e4) {
-          e4(t3, a3, n3);
-        }), true);
-      }
-      function Qe(e3) {
-        function t3(e4, t4) {
-          return e4 + parseFloat(t4);
-        }
-        var n3 = e3.document, a3 = e3.getComputedStyle(n3.documentElement, ""), i3 = e3.getComputedStyle(n3.body, ""), o3 = { x: 0, y: 0 };
-        return "static" !== i3.position ? (o3.x -= [a3.marginLeft, a3.borderLeftWidth, a3.paddingLeft, i3.marginLeft, i3.borderLeftWidth].reduce(t3, 0), o3.y -= [a3.marginTop, a3.borderTopWidth, a3.paddingTop, i3.marginTop, i3.borderTopWidth].reduce(t3, 0)) : "static" !== a3.position && (o3.x -= [a3.marginLeft, a3.borderLeftWidth].reduce(t3, 0), o3.y -= [a3.marginTop, a3.borderTopWidth].reduce(t3, 0)), o3;
-      }
-      function Ke(e3) {
-        var t3, n3 = e3.document;
-        n3.getElementById(d2) || (t3 = new e3.DOMParser().parseFromString(y2, "image/svg+xml"), n3.body.appendChild(t3.documentElement), _2(e3));
-      }
-      function Je(u3) {
-        var _3, f3, v3, e3, n3, a3, i3, y3, s3, h3, p3, t3, o3, l3, r3, c3, d3, m3, S3, g2 = u3.options, E3 = u3.curStats, x3 = u3.aplStats, b3 = E3.position_socketXYSE, k2 = false;
-        function w3(e4, t4) {
-          var n4 = t4 === V2 ? { x: e4.left + e4.width / 2, y: e4.top } : t4 === P2 ? { x: e4.right, y: e4.top + e4.height / 2 } : t4 === N ? { x: e4.left + e4.width / 2, y: e4.bottom } : { x: e4.left, y: e4.top + e4.height / 2 };
-          return n4.socketId = t4, n4;
-        }
-        function O3(e4) {
-          return { x: e4.x, y: e4.y };
-        }
-        if (E3.position_path = g2.path, E3.position_lineStrokeWidth = E3.line_strokeWidth, E3.position_socketGravitySE = _3 = Oe(g2.socketGravitySE), f3 = [0, 1].map(function(e4) {
-          var t4, n4, a4, i4 = g2.anchorSE[e4], o4 = u3.optionIsAttach.anchorSE[e4], l4 = false !== o4 ? ve[i4._id] : null, r4 = false !== o4 && l4.conf.getStrokeWidth ? l4.conf.getStrokeWidth(l4, u3) : 0, s4 = false !== o4 && l4.conf.getBBoxNest ? l4.conf.getBBoxNest(l4, u3, r4) : Ae(i4, u3.baseWindow);
-          return E3.capsMaskAnchor_pathDataSE[e4] = false !== o4 && l4.conf.getPathData ? l4.conf.getPathData(l4, u3, r4) : (n4 = null != (t4 = s4).right ? t4.right : t4.left + t4.width, a4 = null != t4.bottom ? t4.bottom : t4.top + t4.height, [{ type: "M", values: [t4.left, t4.top] }, { type: "L", values: [n4, t4.top] }, { type: "L", values: [n4, a4] }, { type: "L", values: [t4.left, a4] }, { type: "Z", values: [] }]), E3.capsMaskAnchor_strokeWidthSE[e4] = r4, s4;
-        }), i3 = -1, g2.socketSE[0] && g2.socketSE[1] ? (b3[0] = w3(f3[0], g2.socketSE[0]), b3[1] = w3(f3[1], g2.socketSE[1])) : (g2.socketSE[0] || g2.socketSE[1] ? (a3 = g2.socketSE[0] ? (n3 = 0, 1) : (n3 = 1, 0), b3[n3] = w3(f3[n3], g2.socketSE[n3]), (e3 = H2.map(function(e4) {
-          return w3(f3[a3], e4);
-        })).forEach(function(e4) {
-          var t4 = Ve(e4, b3[n3]);
-          (t4 < i3 || -1 === i3) && (b3[a3] = e4, i3 = t4);
-        })) : (e3 = H2.map(function(e4) {
-          return w3(f3[1], e4);
-        }), H2.map(function(e4) {
-          return w3(f3[0], e4);
-        }).forEach(function(n4) {
-          e3.forEach(function(e4) {
-            var t4 = Ve(n4, e4);
-            (t4 < i3 || -1 === i3) && (b3[0] = n4, b3[1] = e4, i3 = t4);
-          });
-        })), [0, 1].forEach(function(e4) {
-          var t4, n4;
-          g2.socketSE[e4] || (f3[e4].width || f3[e4].height ? f3[e4].width || b3[e4].socketId !== T2 && b3[e4].socketId !== P2 ? f3[e4].height || b3[e4].socketId !== V2 && b3[e4].socketId !== N || (b3[e4].socketId = 0 <= b3[e4 ? 0 : 1].y - f3[e4].top ? N : V2) : b3[e4].socketId = 0 <= b3[e4 ? 0 : 1].x - f3[e4].left ? P2 : T2 : (t4 = b3[e4 ? 0 : 1].x - f3[e4].left, n4 = b3[e4 ? 0 : 1].y - f3[e4].top, b3[e4].socketId = Math.abs(t4) >= Math.abs(n4) ? 0 <= t4 ? P2 : T2 : 0 <= n4 ? N : V2));
-        })), E3.position_path !== x3.position_path || E3.position_lineStrokeWidth !== x3.position_lineStrokeWidth || [0, 1].some(function(e4) {
-          return E3.position_plugOverheadSE[e4] !== x3.position_plugOverheadSE[e4] || (i4 = b3[e4], o4 = x3.position_socketXYSE[e4], i4.x !== o4.x || i4.y !== o4.y || i4.socketId !== o4.socketId) || (t4 = _3[e4], n4 = x3.position_socketGravitySE[e4], (a4 = null == t4 ? "auto" : Array.isArray(t4) ? "array" : "number") != (null == n4 ? "auto" : Array.isArray(n4) ? "array" : "number") || ("array" == a4 ? t4[0] !== n4[0] || t4[1] !== n4[1] : t4 !== n4));
-          var t4, n4, a4, i4, o4;
-        })) {
-          switch (u3.pathList.baseVal = v3 = [], u3.pathList.animVal = null, E3.position_path) {
-            case B2:
-              v3.push([O3(b3[0]), O3(b3[1])]);
-              break;
-            case R2:
-              t3 = "number" == typeof _3[0] && 0 < _3[0] || "number" == typeof _3[1] && 0 < _3[1], o3 = le * (t3 ? -1 : 1), l3 = Math.atan2(b3[1].y - b3[0].y, b3[1].x - b3[0].x), r3 = o3 - l3, c3 = Math.PI - l3 - o3, d3 = Ve(b3[0], b3[1]) / Math.sqrt(2) * ee, m3 = { x: b3[0].x + Math.cos(r3) * d3, y: b3[0].y + Math.sin(r3) * d3 * -1 }, S3 = { x: b3[1].x + Math.cos(c3) * d3, y: b3[1].y + Math.sin(c3) * d3 * -1 }, v3.push([O3(b3[0]), m3, S3, O3(b3[1])]);
-              break;
-            case F2:
-            case G:
-              s3 = [_3[0], E3.position_path === G ? 0 : _3[1]], h3 = [], p3 = [], b3.forEach(function(e4, t4) {
-                var n4, a4, i4, o4, l4 = s3[t4], r4 = Array.isArray(l4) ? { x: l4[0], y: l4[1] } : "number" == typeof l4 ? e4.socketId === V2 ? { x: 0, y: -l4 } : e4.socketId === P2 ? { x: l4, y: 0 } : e4.socketId === N ? { x: 0, y: l4 } : { x: -l4, y: 0 } : (n4 = b3[t4 ? 0 : 1], i4 = 0 < (a4 = E3.position_plugOverheadSE[t4]) ? q + (Q < a4 ? (a4 - Q) * K : 0) : Z + (E3.position_lineStrokeWidth > Y ? (E3.position_lineStrokeWidth - Y) * X : 0), e4.socketId === V2 ? ((o4 = (e4.y - n4.y) / 2) < i4 && (o4 = i4), { x: 0, y: -o4 }) : e4.socketId === P2 ? ((o4 = (n4.x - e4.x) / 2) < i4 && (o4 = i4), { x: o4, y: 0 }) : e4.socketId === N ? ((o4 = (n4.y - e4.y) / 2) < i4 && (o4 = i4), { x: 0, y: o4 }) : ((o4 = (e4.x - n4.x) / 2) < i4 && (o4 = i4), { x: -o4, y: 0 }));
-                h3[t4] = e4.x + r4.x, p3[t4] = e4.y + r4.y;
-              }), v3.push([O3(b3[0]), { x: h3[0], y: p3[0] }, { x: h3[1], y: p3[1] }, O3(b3[1])]);
-              break;
-            case D2:
-              !function() {
-                var a4, o4 = 1, l4 = 2, r4 = 3, s4 = 4, u4 = [[], []], h4 = [];
-                function p4(e4) {
-                  return e4 === o4 ? r4 : e4 === l4 ? s4 : e4 === r4 ? o4 : l4;
-                }
-                function c4(e4) {
-                  return e4 === l4 || e4 === s4 ? "x" : "y";
-                }
-                function d4(e4, t4, n4) {
-                  var a5 = { x: e4.x, y: e4.y };
-                  if (n4) {
-                    if (n4 === p4(e4.dirId))
-                      throw new Error("Invalid dirId: " + n4);
-                    a5.dirId = n4;
-                  } else
-                    a5.dirId = e4.dirId;
-                  return a5.dirId === o4 ? a5.y -= t4 : a5.dirId === l4 ? a5.x += t4 : a5.dirId === r4 ? a5.y += t4 : a5.x -= t4, a5;
-                }
-                function f4(e4, t4) {
-                  return t4.dirId === o4 ? e4.y <= t4.y : t4.dirId === l4 ? e4.x >= t4.x : t4.dirId === r4 ? e4.y >= t4.y : e4.x <= t4.x;
-                }
-                function y4(e4, t4) {
-                  return t4.dirId === o4 || t4.dirId === r4 ? e4.x === t4.x : e4.y === t4.y;
-                }
-                function m4(e4) {
-                  return e4[0] ? { contain: 0, notContain: 1 } : { contain: 1, notContain: 0 };
-                }
-                function S4(e4, t4, n4) {
-                  return Math.abs(t4[n4] - e4[n4]);
-                }
-                function g3(e4, t4, n4) {
-                  return "x" === n4 ? e4.x < t4.x ? l4 : s4 : e4.y < t4.y ? r4 : o4;
-                }
-                for (b3.forEach(function(e4, t4) {
-                  var n4, a5 = O3(e4), i4 = _3[t4];
-                  n4 = Array.isArray(i4) ? i4[0] < 0 ? [s4, -i4[0]] : 0 < i4[0] ? [l4, i4[0]] : i4[1] < 0 ? [o4, -i4[1]] : 0 < i4[1] ? [r4, i4[1]] : [e4.socketId, 0] : "number" != typeof i4 ? [e4.socketId, $] : 0 <= i4 ? [e4.socketId, i4] : [p4(e4.socketId), -i4], a5.dirId = n4[0], i4 = n4[1], u4[t4].push(a5), h4[t4] = d4(a5, i4);
-                }); function() {
-                  var e4, t4, a5, i4, n4 = [f4(h4[1], h4[0]), f4(h4[0], h4[1])], o5 = [c4(h4[0].dirId), c4(h4[1].dirId)];
-                  if (o5[0] === o5[1]) {
-                    if (n4[0] && n4[1])
-                      return void (y4(h4[1], h4[0]) || (h4[0][o5[0]] === h4[1][o5[1]] ? (u4[0].push(h4[0]), u4[1].push(h4[1])) : (e4 = h4[0][o5[0]] + (h4[1][o5[1]] - h4[0][o5[0]]) / 2, u4[0].push(d4(h4[0], Math.abs(e4 - h4[0][o5[0]]))), u4[1].push(d4(h4[1], Math.abs(e4 - h4[1][o5[1]]))))));
-                    n4[0] !== n4[1] ? (t4 = m4(n4), (a5 = S4(h4[t4.notContain], h4[t4.contain], o5[t4.notContain])) < $ && (h4[t4.notContain] = d4(h4[t4.notContain], $ - a5)), u4[t4.notContain].push(h4[t4.notContain]), h4[t4.notContain] = d4(h4[t4.notContain], $, y4(h4[t4.contain], h4[t4.notContain]) ? "x" === o5[t4.notContain] ? r4 : l4 : g3(h4[t4.notContain], h4[t4.contain], "x" === o5[t4.notContain] ? "y" : "x"))) : (a5 = S4(h4[0], h4[1], "x" === o5[0] ? "y" : "x"), u4.forEach(function(e5, t5) {
-                      var n5 = 0 === t5 ? 1 : 0;
-                      e5.push(h4[t5]), h4[t5] = d4(h4[t5], $, 2 * $ <= a5 ? g3(h4[t5], h4[n5], "x" === o5[t5] ? "y" : "x") : "x" === o5[t5] ? r4 : l4);
-                    }));
-                  } else {
-                    if (n4[0] && n4[1])
-                      return void (y4(h4[1], h4[0]) ? u4[1].push(h4[1]) : y4(h4[0], h4[1]) ? u4[0].push(h4[0]) : u4[0].push("x" === o5[0] ? { x: h4[1].x, y: h4[0].y } : { x: h4[0].x, y: h4[1].y }));
-                    n4[0] !== n4[1] ? (t4 = m4(n4), u4[t4.notContain].push(h4[t4.notContain]), h4[t4.notContain] = d4(h4[t4.notContain], $, S4(h4[t4.notContain], h4[t4.contain], o5[t4.contain]) >= $ ? g3(h4[t4.notContain], h4[t4.contain], o5[t4.contain]) : h4[t4.contain].dirId)) : (i4 = [{ x: h4[0].x, y: h4[0].y }, { x: h4[1].x, y: h4[1].y }], u4.forEach(function(e5, t5) {
-                      var n5 = 0 === t5 ? 1 : 0, a6 = S4(i4[t5], i4[n5], o5[t5]);
-                      a6 < $ && (h4[t5] = d4(h4[t5], $ - a6)), e5.push(h4[t5]), h4[t5] = d4(h4[t5], $, g3(h4[t5], h4[n5], o5[n5]));
-                    }));
-                  }
-                  return 1;
-                }(); )
-                  ;
-                u4[1].reverse(), u4[0].concat(u4[1]).forEach(function(e4, t4) {
-                  var n4 = { x: e4.x, y: e4.y };
-                  0 < t4 && v3.push([a4, n4]), a4 = n4;
-                });
-              }();
-          }
-          y3 = [], E3.position_plugOverheadSE.forEach(function(e4, t4) {
-            var n4, a4, i4, o4, l4, r4, s4, u4, h4, p4, c4, d4 = !t4;
-            0 < e4 ? 2 === (n4 = v3[a4 = d4 ? 0 : v3.length - 1]).length ? (y3[a4] = y3[a4] || Ve.apply(null, n4), y3[a4] > J && (y3[a4] - e4 < J && (e4 = y3[a4] - J), i4 = Pe(n4[0], n4[1], (d4 ? e4 : y3[a4] - e4) / y3[a4]), v3[a4] = d4 ? [i4, n4[1]] : [n4[0], i4], y3[a4] -= e4)) : (y3[a4] = y3[a4] || We.apply(null, n4), y3[a4] > J && (y3[a4] - e4 < J && (e4 = y3[a4] - J), i4 = Te(n4[0], n4[1], n4[2], n4[3], Be(n4[0], n4[1], n4[2], n4[3], d4 ? e4 : y3[a4] - e4)), l4 = d4 ? (o4 = n4[0], i4.toP1) : (o4 = n4[3], i4.fromP2), r4 = Math.atan2(o4.y - i4.y, i4.x - o4.x), s4 = Ve(i4, l4), i4.x = o4.x + Math.cos(r4) * e4, i4.y = o4.y + Math.sin(r4) * e4 * -1, l4.x = i4.x + Math.cos(r4) * s4, l4.y = i4.y + Math.sin(r4) * s4 * -1, v3[a4] = d4 ? [i4, i4.toP1, i4.toP2, n4[3]] : [n4[0], i4.fromP1, i4.fromP2, i4], y3[a4] = null)) : e4 < 0 && (n4 = v3[a4 = d4 ? 0 : v3.length - 1], u4 = b3[t4].socketId, h4 = u4 === T2 || u4 === P2 ? "x" : "y", e4 < (c4 = -f3[t4]["x" == h4 ? "width" : "height"]) && (e4 = c4), p4 = e4 * (u4 === T2 || u4 === V2 ? -1 : 1), 2 === n4.length ? n4[d4 ? 0 : n4.length - 1][h4] += p4 : (d4 ? [0, 1] : [n4.length - 2, n4.length - 1]).forEach(function(e5) {
-              n4[e5][h4] += p4;
-            }), y3[a4] = null);
-          }), x3.position_socketXYSE = Oe(b3), x3.position_plugOverheadSE = Oe(E3.position_plugOverheadSE), x3.position_path = E3.position_path, x3.position_lineStrokeWidth = E3.position_lineStrokeWidth, x3.position_socketGravitySE = Oe(_3), k2 = true, u3.events.apl_position && u3.events.apl_position.forEach(function(e4) {
-            e4(u3, v3);
-          });
-        }
-        return k2;
-      }
-      function $e(t3, n3) {
-        n3 !== t3.isShown && (!!n3 != !!t3.isShown && (t3.svg.style.visibility = n3 ? "" : "hidden"), t3.isShown = n3, t3.events && t3.events.svgShow && t3.events.svgShow.forEach(function(e3) {
-          e3(t3, n3);
-        }));
-      }
-      function et(e3, t3) {
-        var n3, a3, i3, o3, l3, h3, p3, c3, d3, f3, r3, s3, u3, y3, m3, S3, g2, _3, v3, E3, x3, b3, k2, w3, O3, M3, I2, C3, L3, A2, V3, P3, N2, T3, W3, B3, R3, F3, G2, D3, z3, j2, H3, U2, Z2, Y2, X2, q2, Q2, K2, J2, $2, ee2 = {};
-        t3.line && (ee2.line = (a3 = (n3 = e3).options, i3 = n3.curStats, o3 = n3.events, l3 = false, l3 = qe(n3, i3, "line_color", a3.lineColor, o3.cur_line_color) || l3, l3 = qe(n3, i3, "line_colorTra", Me(i3.line_color)[0] < 1) || l3, l3 = qe(n3, i3, "line_strokeWidth", a3.lineSize, o3.cur_line_strokeWidth) || l3)), (t3.plug || ee2.line) && (ee2.plug = (p3 = (h3 = e3).options, c3 = h3.curStats, d3 = h3.events, f3 = false, [0, 1].forEach(function(e4) {
-          var t4, n4, a4, i4, o4, l4, r4, s4, u4 = p3.plugSE[e4];
-          f3 = qe(h3, c3.plug_enabledSE, e4, u4 !== ne) || f3, f3 = qe(h3, c3.plug_plugSE, e4, u4) || f3, f3 = qe(h3, c3.plug_colorSE, e4, s4 = p3.plugColorSE[e4] || c3.line_color, d3.cur_plug_colorSE) || f3, f3 = qe(h3, c3.plug_colorTraSE, e4, Me(s4)[0] < 1) || f3, u4 !== ne && (i4 = n4 = (t4 = ae[ie2[u4]]).widthR * p3.plugSizeSE[e4], o4 = a4 = t4.heightR * p3.plugSizeSE[e4], pe && (i4 *= c3.line_strokeWidth, o4 *= c3.line_strokeWidth), f3 = qe(h3, c3.plug_markerWidthSE, e4, i4) || f3, f3 = qe(h3, c3.plug_markerHeightSE, e4, o4) || f3, c3.capsMaskMarker_markerWidthSE[e4] = n4, c3.capsMaskMarker_markerHeightSE[e4] = a4), c3.plugOutline_plugSE[e4] = c3.capsMaskMarker_plugSE[e4] = u4, c3.plug_enabledSE[e4] ? (s4 = c3.line_strokeWidth / de.lineSize * p3.plugSizeSE[e4], c3.position_plugOverheadSE[e4] = t4.overhead * s4, c3.viewBox_plugBCircleSE[e4] = t4.bCircle * s4, l4 = t4.sideLen * s4, r4 = t4.backLen * s4) : (c3.position_plugOverheadSE[e4] = -c3.line_strokeWidth / 2, c3.viewBox_plugBCircleSE[e4] = l4 = r4 = 0), qe(h3, c3.attach_plugSideLenSE, e4, l4, d3.cur_attach_plugSideLenSE), qe(h3, c3.attach_plugBackLenSE, e4, r4, d3.cur_attach_plugBackLenSE), c3.capsMaskAnchor_enabledSE[e4] = !c3.plug_enabledSE[e4];
-        }), f3 = qe(h3, c3, "plug_enabled", c3.plug_enabledSE[0] || c3.plug_enabledSE[1]) || f3)), (t3.lineOutline || ee2.line) && (ee2.lineOutline = (u3 = (r3 = e3).options, y3 = r3.curStats, m3 = false, m3 = qe(r3, y3, "lineOutline_enabled", u3.lineOutlineEnabled) || m3, m3 = qe(r3, y3, "lineOutline_color", u3.lineOutlineColor) || m3, m3 = qe(r3, y3, "lineOutline_colorTra", Me(y3.lineOutline_color)[0] < 1) || m3, s3 = y3.line_strokeWidth * u3.lineOutlineSize, m3 = qe(r3, y3, "lineOutline_strokeWidth", y3.line_strokeWidth - 2 * s3) || m3, m3 = qe(r3, y3, "lineOutline_inStrokeWidth", y3.lineOutline_colorTra ? y3.lineOutline_strokeWidth + 2 * ce : y3.line_strokeWidth - s3) || m3)), (t3.plugOutline || ee2.line || ee2.plug || ee2.lineOutline) && (ee2.plugOutline = (g2 = (S3 = e3).options, _3 = S3.curStats, v3 = false, [0, 1].forEach(function(e4) {
-          var t4, n4 = _3.plugOutline_plugSE[e4], a4 = n4 !== ne ? ae[ie2[n4]] : null;
-          v3 = qe(S3, _3.plugOutline_enabledSE, e4, g2.plugOutlineEnabledSE[e4] && _3.plug_enabled && _3.plug_enabledSE[e4] && !!a4 && !!a4.outlineBase) || v3, v3 = qe(S3, _3.plugOutline_colorSE, e4, t4 = g2.plugOutlineColorSE[e4] || _3.lineOutline_color) || v3, v3 = qe(S3, _3.plugOutline_colorTraSE, e4, Me(t4)[0] < 1) || v3, a4 && a4.outlineBase && ((t4 = g2.plugOutlineSizeSE[e4]) > a4.outlineMax && (t4 = a4.outlineMax), t4 *= 2 * a4.outlineBase, v3 = qe(S3, _3.plugOutline_strokeWidthSE, e4, t4) || v3, v3 = qe(S3, _3.plugOutline_inStrokeWidthSE, e4, _3.plugOutline_colorTraSE[e4] ? t4 - ce / (_3.line_strokeWidth / de.lineSize) / g2.plugSizeSE[e4] * 2 : t4 / 2) || v3);
-        }), v3)), (t3.faces || ee2.line || ee2.plug || ee2.lineOutline || ee2.plugOutline) && (ee2.faces = (b3 = (E3 = e3).curStats, k2 = E3.aplStats, w3 = E3.events, O3 = false, !b3.line_altColor && qe(E3, k2, "line_color", x3 = b3.line_color, w3.apl_line_color) && (E3.lineFace.style.stroke = x3, O3 = true), qe(E3, k2, "line_strokeWidth", x3 = b3.line_strokeWidth, w3.apl_line_strokeWidth) && (E3.lineShape.style.strokeWidth = x3 + "px", O3 = true, (ue || se) && (He(E3, E3.lineShape), se && (He(E3, E3.lineFace), He(E3, E3.lineMaskCaps)))), qe(E3, k2, "lineOutline_enabled", x3 = b3.lineOutline_enabled, w3.apl_lineOutline_enabled) && (E3.lineOutlineFace.style.display = x3 ? "inline" : "none", O3 = true), b3.lineOutline_enabled && (qe(E3, k2, "lineOutline_color", x3 = b3.lineOutline_color, w3.apl_lineOutline_color) && (E3.lineOutlineFace.style.stroke = x3, O3 = true), qe(E3, k2, "lineOutline_strokeWidth", x3 = b3.lineOutline_strokeWidth, w3.apl_lineOutline_strokeWidth) && (E3.lineOutlineMaskShape.style.strokeWidth = x3 + "px", O3 = true, se && (He(E3, E3.lineOutlineMaskCaps), He(E3, E3.lineOutlineFace))), qe(E3, k2, "lineOutline_inStrokeWidth", x3 = b3.lineOutline_inStrokeWidth, w3.apl_lineOutline_inStrokeWidth) && (E3.lineMaskShape.style.strokeWidth = x3 + "px", O3 = true, se && (He(E3, E3.lineOutlineMaskCaps), He(E3, E3.lineOutlineFace)))), qe(E3, k2, "plug_enabled", x3 = b3.plug_enabled, w3.apl_plug_enabled) && (E3.plugsFace.style.display = x3 ? "inline" : "none", O3 = true), b3.plug_enabled && [0, 1].forEach(function(n4) {
-          var e4 = b3.plug_plugSE[n4], t4 = e4 !== ne ? ae[ie2[e4]] : null, a4 = Ye(n4, t4);
-          qe(E3, k2.plug_enabledSE, n4, x3 = b3.plug_enabledSE[n4], w3.apl_plug_enabledSE) && (E3.plugsFace.style[a4.prop] = x3 ? "url(#" + E3.plugMarkerIdSE[n4] + ")" : "none", O3 = true), b3.plug_enabledSE[n4] && (qe(E3, k2.plug_plugSE, n4, e4, w3.apl_plug_plugSE) && (E3.plugFaceSE[n4].href.baseVal = "#" + t4.elmId, Ze(E3, E3.plugMarkerSE[n4], a4.orient, t4.bBox, E3.svg, E3.plugMarkerShapeSE[n4], E3.plugsFace), O3 = true, ue && He(E3, E3.plugsFace)), qe(E3, k2.plug_colorSE, n4, x3 = b3.plug_colorSE[n4], w3.apl_plug_colorSE) && (E3.plugFaceSE[n4].style.fill = x3, O3 = true, (he || pe || se) && !b3.line_colorTra && He(E3, se ? E3.lineMaskCaps : E3.capsMaskLine)), ["markerWidth", "markerHeight"].forEach(function(e5) {
-            var t5 = "plug_" + e5 + "SE";
-            qe(E3, k2[t5], n4, x3 = b3[t5][n4], w3["apl_" + t5]) && (E3.plugMarkerSE[n4][e5].baseVal.value = x3, O3 = true);
-          }), qe(E3, k2.plugOutline_enabledSE, n4, x3 = b3.plugOutline_enabledSE[n4], w3.apl_plugOutline_enabledSE) && (x3 ? (E3.plugFaceSE[n4].style.mask = "url(#" + E3.plugMaskIdSE[n4] + ")", E3.plugOutlineFaceSE[n4].style.display = "inline") : (E3.plugFaceSE[n4].style.mask = "none", E3.plugOutlineFaceSE[n4].style.display = "none"), O3 = true), b3.plugOutline_enabledSE[n4] && (qe(E3, k2.plugOutline_plugSE, n4, e4, w3.apl_plugOutline_plugSE) && (E3.plugOutlineFaceSE[n4].href.baseVal = E3.plugMaskShapeSE[n4].href.baseVal = E3.plugOutlineMaskShapeSE[n4].href.baseVal = "#" + t4.elmId, [E3.plugMaskSE[n4], E3.plugOutlineMaskSE[n4]].forEach(function(e5) {
-            e5.x.baseVal.value = t4.bBox.left, e5.y.baseVal.value = t4.bBox.top, e5.width.baseVal.value = t4.bBox.width, e5.height.baseVal.value = t4.bBox.height;
-          }), O3 = true), qe(E3, k2.plugOutline_colorSE, n4, x3 = b3.plugOutline_colorSE[n4], w3.apl_plugOutline_colorSE) && (E3.plugOutlineFaceSE[n4].style.fill = x3, O3 = true, se && (He(E3, E3.lineMaskCaps), He(E3, E3.lineOutlineMaskCaps))), qe(E3, k2.plugOutline_strokeWidthSE, n4, x3 = b3.plugOutline_strokeWidthSE[n4], w3.apl_plugOutline_strokeWidthSE) && (E3.plugOutlineMaskShapeSE[n4].style.strokeWidth = x3 + "px", O3 = true), qe(E3, k2.plugOutline_inStrokeWidthSE, n4, x3 = b3.plugOutline_inStrokeWidthSE[n4], w3.apl_plugOutline_inStrokeWidthSE) && (E3.plugMaskShapeSE[n4].style.strokeWidth = x3 + "px", O3 = true)));
-        }), O3)), (t3.position || ee2.line || ee2.plug) && (ee2.position = Je(e3)), (t3.path || ee2.position) && (ee2.path = (C3 = (M3 = e3).curStats, L3 = M3.aplStats, A2 = M3.pathList.animVal || M3.pathList.baseVal, V3 = C3.path_edge, P3 = false, A2 && (V3.x1 = V3.x2 = A2[0][0].x, V3.y1 = V3.y2 = A2[0][0].y, C3.path_pathData = I2 = Re(A2, function(e4) {
-          e4.x < V3.x1 && (V3.x1 = e4.x), e4.y < V3.y1 && (V3.y1 = e4.y), e4.x > V3.x2 && (V3.x2 = e4.x), e4.y > V3.y2 && (V3.y2 = e4.y);
-        }), Ge(I2, L3.path_pathData) && (M3.linePath.setPathData(I2), L3.path_pathData = I2, P3 = true, se ? (He(M3, M3.plugsFace), He(M3, M3.lineMaskCaps)) : ue && He(M3, M3.linePath), M3.events.apl_path && M3.events.apl_path.forEach(function(e4) {
-          e4(M3, I2);
-        }))), P3)), ee2.viewBox = (T3 = (N2 = e3).curStats, W3 = N2.aplStats, B3 = T3.path_edge, R3 = T3.viewBox_bBox, F3 = W3.viewBox_bBox, G2 = N2.svg.viewBox.baseVal, D3 = N2.svg.style, z3 = false, j2 = Math.max(T3.line_strokeWidth / 2, T3.viewBox_plugBCircleSE[0] || 0, T3.viewBox_plugBCircleSE[1] || 0), H3 = { x1: B3.x1 - j2, y1: B3.y1 - j2, x2: B3.x2 + j2, y2: B3.y2 + j2 }, N2.events.new_edge4viewBox && N2.events.new_edge4viewBox.forEach(function(e4) {
-          e4(N2, H3);
-        }), R3.x = T3.lineMask_x = T3.lineOutlineMask_x = T3.maskBGRect_x = H3.x1, R3.y = T3.lineMask_y = T3.lineOutlineMask_y = T3.maskBGRect_y = H3.y1, R3.width = H3.x2 - H3.x1, R3.height = H3.y2 - H3.y1, ["x", "y", "width", "height"].forEach(function(e4) {
-          var t4;
-          (t4 = R3[e4]) !== F3[e4] && (G2[e4] = F3[e4] = t4, D3[oe[e4]] = t4 + ("x" === e4 || "y" === e4 ? N2.bodyOffset[e4] : 0) + "px", z3 = true);
-        }), z3), ee2.mask = (Y2 = (U2 = e3).curStats, X2 = U2.aplStats, q2 = false, Y2.plug_enabled ? [0, 1].forEach(function(e4) {
-          Y2.capsMaskMarker_enabledSE[e4] = Y2.plug_enabledSE[e4] && Y2.plug_colorTraSE[e4] || Y2.plugOutline_enabledSE[e4] && Y2.plugOutline_colorTraSE[e4];
-        }) : Y2.capsMaskMarker_enabledSE[0] = Y2.capsMaskMarker_enabledSE[1] = false, Y2.capsMaskMarker_enabled = Y2.capsMaskMarker_enabledSE[0] || Y2.capsMaskMarker_enabledSE[1], Y2.lineMask_outlineMode = Y2.lineOutline_enabled, Y2.caps_enabled = Y2.capsMaskMarker_enabled || Y2.capsMaskAnchor_enabledSE[0] || Y2.capsMaskAnchor_enabledSE[1], Y2.lineMask_enabled = Y2.caps_enabled || Y2.lineMask_outlineMode, (Y2.lineMask_enabled && !Y2.lineMask_outlineMode || Y2.lineOutline_enabled) && ["x", "y"].forEach(function(e4) {
-          var t4 = "maskBGRect_" + e4;
-          qe(U2, X2, t4, Z2 = Y2[t4]) && (U2.maskBGRect[e4].baseVal.value = Z2, q2 = true);
-        }), qe(U2, X2, "lineMask_enabled", Z2 = Y2.lineMask_enabled) && (U2.lineFace.style.mask = Z2 ? "url(#" + U2.lineMaskId + ")" : "none", q2 = true, pe && He(U2, U2.lineMask)), Y2.lineMask_enabled && (qe(U2, X2, "lineMask_outlineMode", Z2 = Y2.lineMask_outlineMode) && (Z2 ? (U2.lineMaskBG.style.display = "none", U2.lineMaskShape.style.display = "inline") : (U2.lineMaskBG.style.display = "inline", U2.lineMaskShape.style.display = "none"), q2 = true), ["x", "y"].forEach(function(e4) {
-          var t4 = "lineMask_" + e4;
-          qe(U2, X2, t4, Z2 = Y2[t4]) && (U2.lineMask[e4].baseVal.value = Z2, q2 = true);
-        }), qe(U2, X2, "caps_enabled", Z2 = Y2.caps_enabled) && (U2.lineMaskCaps.style.display = U2.lineOutlineMaskCaps.style.display = Z2 ? "inline" : "none", q2 = true, pe && He(U2, U2.capsMaskLine)), Y2.caps_enabled && ([0, 1].forEach(function(e4) {
-          var t4;
-          qe(U2, X2.capsMaskAnchor_enabledSE, e4, Z2 = Y2.capsMaskAnchor_enabledSE[e4]) && (U2.capsMaskAnchorSE[e4].style.display = Z2 ? "inline" : "none", q2 = true, pe && He(U2, U2.lineMask)), Y2.capsMaskAnchor_enabledSE[e4] && (Ge(t4 = Y2.capsMaskAnchor_pathDataSE[e4], X2.capsMaskAnchor_pathDataSE[e4]) && (U2.capsMaskAnchorSE[e4].setPathData(t4), X2.capsMaskAnchor_pathDataSE[e4] = t4, q2 = true), qe(U2, X2.capsMaskAnchor_strokeWidthSE, e4, Z2 = Y2.capsMaskAnchor_strokeWidthSE[e4]) && (U2.capsMaskAnchorSE[e4].style.strokeWidth = Z2 + "px", q2 = true));
-        }), qe(U2, X2, "capsMaskMarker_enabled", Z2 = Y2.capsMaskMarker_enabled) && (U2.capsMaskLine.style.display = Z2 ? "inline" : "none", q2 = true), Y2.capsMaskMarker_enabled && [0, 1].forEach(function(n4) {
-          var e4 = Y2.capsMaskMarker_plugSE[n4], t4 = e4 !== ne ? ae[ie2[e4]] : null, a4 = Ye(n4, t4);
-          qe(U2, X2.capsMaskMarker_enabledSE, n4, Z2 = Y2.capsMaskMarker_enabledSE[n4]) && (U2.capsMaskLine.style[a4.prop] = Z2 ? "url(#" + U2.lineMaskMarkerIdSE[n4] + ")" : "none", q2 = true), Y2.capsMaskMarker_enabledSE[n4] && (qe(U2, X2.capsMaskMarker_plugSE, n4, e4) && (U2.capsMaskMarkerShapeSE[n4].href.baseVal = "#" + t4.elmId, Ze(U2, U2.capsMaskMarkerSE[n4], a4.orient, t4.bBox, U2.svg, U2.capsMaskMarkerShapeSE[n4], U2.capsMaskLine), q2 = true, ue && (He(U2, U2.capsMaskLine), He(U2, U2.lineFace))), ["markerWidth", "markerHeight"].forEach(function(e5) {
-            var t5 = "capsMaskMarker_" + e5 + "SE";
-            qe(U2, X2[t5], n4, Z2 = Y2[t5][n4]) && (U2.capsMaskMarkerSE[n4][e5].baseVal.value = Z2, q2 = true);
-          }));
-        }))), Y2.lineOutline_enabled && ["x", "y"].forEach(function(e4) {
-          var t4 = "lineOutlineMask_" + e4;
-          qe(U2, X2, t4, Z2 = Y2[t4]) && (U2.lineOutlineMask[e4].baseVal.value = Z2, q2 = true);
-        }), q2), t3.effect && (J2 = (Q2 = e3).curStats, $2 = Q2.aplStats, Object.keys(te).forEach(function(e4) {
-          var t4 = te[e4], n4 = e4 + "_enabled", a4 = e4 + "_options", i4 = J2[a4];
-          qe(Q2, $2, n4, K2 = J2[n4]) ? (K2 && ($2[a4] = Oe(i4)), t4[K2 ? "init" : "remove"](Q2)) : K2 && we(i4, $2[a4]) && (t4.remove(Q2), $2[n4] = true, $2[a4] = Oe(i4), t4.init(Q2));
-        })), (he || pe) && ee2.line && !ee2.path && He(e3, e3.lineShape), he && ee2.plug && !ee2.line && He(e3, e3.plugsFace), Ue(e3);
-      }
-      function tt2(e3, t3) {
-        return { duration: ye(e3.duration) && 0 < e3.duration ? e3.duration : t3.duration, timing: g.validTiming(e3.timing) ? e3.timing : Oe(t3.timing) };
-      }
-      function nt(e3, t3, n3, a3) {
-        var i3, o3 = e3.curStats, l3 = e3.aplStats, r3 = {};
-        function s3() {
-          ["show_on", "show_effect", "show_animOptions"].forEach(function(e4) {
-            l3[e4] = o3[e4];
-          });
-        }
-        o3.show_on = t3, n3 && M2[n3] && (o3.show_effect = n3, o3.show_animOptions = tt2(fe(a3) ? a3 : {}, M2[n3].defaultAnimOptions)), r3.show_on = o3.show_on !== l3.show_on, r3.show_effect = o3.show_effect !== l3.show_effect, r3.show_animOptions = we(o3.show_animOptions, l3.show_animOptions), r3.show_effect || r3.show_animOptions ? o3.show_inAnim ? (i3 = r3.show_effect ? M2[l3.show_effect].stop(e3, true, true) : M2[l3.show_effect].stop(e3), s3(), M2[l3.show_effect].init(e3, i3)) : r3.show_on && (l3.show_effect && r3.show_effect && M2[l3.show_effect].stop(e3, true, true), s3(), M2[l3.show_effect].init(e3)) : r3.show_on && (s3(), M2[l3.show_effect].start(e3));
-      }
-      function at(e3, t3, n3) {
-        var a3 = { props: e3, optionName: n3 };
-        return e3.attachments.indexOf(t3) < 0 && (!t3.conf.bind || t3.conf.bind(t3, a3)) && (e3.attachments.push(t3), t3.boundTargets.push(a3), 1);
-      }
-      function it(n3, a3, e3) {
-        var i3 = n3.attachments.indexOf(a3);
-        -1 < i3 && n3.attachments.splice(i3, 1), a3.boundTargets.some(function(e4, t3) {
-          return e4.props === n3 && (a3.conf.unbind && a3.conf.unbind(a3, e4), i3 = t3, true);
-        }) && (a3.boundTargets.splice(i3, 1), e3 || je(function() {
-          a3.boundTargets.length || o2(a3);
-        }));
-      }
-      function ot(s3, u3) {
-        var e3, i3, a3, t3, n3, o3, l3, r3, h3, p3, c3, d3, f3, y3, m3, S3, g2, _3 = s3.options, v3 = {};
-        function E3(e4, t4, n4, a4, i4) {
-          var o4 = {};
-          return n4 ? null != a4 ? (o4.container = e4[n4], o4.key = a4) : (o4.container = e4, o4.key = n4) : (o4.container = e4, o4.key = t4), o4.default = i4, o4.acceptsAuto = null == o4.default, o4;
-        }
-        function x3(e4, t4, n4, a4, i4, o4, l4) {
-          var r4, s4, u4, h4 = E3(e4, n4, i4, o4, l4);
-          return null != t4[n4] && (s4 = (t4[n4] + "").toLowerCase()) && (h4.acceptsAuto && s4 === U || (u4 = a4[s4])) && u4 !== h4.container[h4.key] && (h4.container[h4.key] = u4, r4 = true), null != h4.container[h4.key] || h4.acceptsAuto || (h4.container[h4.key] = h4.default, r4 = true), r4;
-        }
-        function b3(e4, t4, n4, a4, i4, o4, l4, r4, s4) {
-          var u4, h4, p4, c4, d4 = E3(e4, n4, i4, o4, l4);
-          if (!a4) {
-            if (null == d4.default)
-              throw new Error("Invalid `type`: " + n4);
-            a4 = typeof d4.default;
-          }
-          return null != t4[n4] && (d4.acceptsAuto && (t4[n4] + "").toLowerCase() === U || (p4 = h4 = t4[n4], ("number" === (c4 = a4) ? ye(p4) : typeof p4 === c4) && (h4 = s4 && "string" === a4 && h4 ? h4.trim() : h4, 1) && (!r4 || r4(h4)))) && h4 !== d4.container[d4.key] && (d4.container[d4.key] = h4, u4 = true), null != d4.container[d4.key] || d4.acceptsAuto || (d4.container[d4.key] = d4.default, u4 = true), u4;
-        }
-        if (u3 = u3 || {}, ["start", "end"].forEach(function(e4, t4) {
-          var n4 = u3[e4], a4 = false;
-          if (n4 && (Ie(n4) || (a4 = L2(n4, "anchor"))) && n4 !== _3.anchorSE[t4]) {
-            if (false !== s3.optionIsAttach.anchorSE[t4] && it(s3, ve[_3.anchorSE[t4]._id]), a4 && !at(s3, ve[n4._id], e4))
-              throw new Error("Can't bind attachment");
-            _3.anchorSE[t4] = n4, s3.optionIsAttach.anchorSE[t4] = a4, i3 = v3.position = true;
-          }
-        }), !_3.anchorSE[0] || !_3.anchorSE[1] || _3.anchorSE[0] === _3.anchorSE[1])
-          throw new Error("`start` and `end` are required.");
-        function k2(e4) {
-          var t4 = o3.appendChild(S3.createElementNS(re, "mask"));
-          return t4.id = e4, t4.maskUnits.baseVal = SVGUnitTypes.SVG_UNIT_TYPE_USERSPACEONUSE, [t4.x, t4.y, t4.width, t4.height].forEach(function(e5) {
-            e5.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PX, 0);
-          }), t4;
-        }
-        function w3(e4) {
-          var t4 = o3.appendChild(S3.createElementNS(re, "marker"));
-          return t4.id = e4, t4.markerUnits.baseVal = SVGMarkerElement.SVG_MARKERUNITS_STROKEWIDTH, t4.viewBox.baseVal || t4.setAttribute("viewBox", "0 0 0 0"), t4;
-        }
-        function O3(e4) {
-          return [e4.width, e4.height].forEach(function(e5) {
-            e5.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PERCENTAGE, 100);
-          }), e4;
-        }
-        i3 && (e3 = function(e4, t4) {
-          var n4, a4, i4;
-          if (!(n4 = Le(e4)) || !(a4 = Le(t4)))
-            throw new Error("Cannot get frames.");
-          return n4.length && a4.length && (n4.reverse(), a4.reverse(), n4.some(function(t5) {
-            return a4.some(function(e5) {
-              return e5 === t5 && (i4 = e5.contentWindow, true);
-            });
-          })), i4 || window;
-        }(false !== s3.optionIsAttach.anchorSE[0] ? ve[_3.anchorSE[0]._id].element : _3.anchorSE[0], false !== s3.optionIsAttach.anchorSE[1] ? ve[_3.anchorSE[1]._id].element : _3.anchorSE[1])) !== s3.baseWindow && (t3 = e3, m3 = (a3 = s3).aplStats, S3 = t3.document, g2 = A + "-" + a3._id, a3.pathList = {}, Xe(m3, me), Object.keys(te).forEach(function(e4) {
-          var t4 = e4 + "_enabled";
-          m3[t4] && (te[e4].remove(a3), m3[t4] = false);
-        }), a3.baseWindow && a3.svg && a3.baseWindow.document.body.removeChild(a3.svg), Ke(a3.baseWindow = t3), a3.bodyOffset = Qe(t3), a3.svg = n3 = S3.createElementNS(re, "svg"), n3.className.baseVal = A, n3.viewBox.baseVal || n3.setAttribute("viewBox", "0 0 0 0"), a3.defs = o3 = n3.appendChild(S3.createElementNS(re, "defs")), a3.linePath = r3 = o3.appendChild(S3.createElementNS(re, "path")), r3.id = h3 = g2 + "-line-path", r3.className.baseVal = A + "-line-path", pe && (r3.style.fill = "none"), a3.lineShape = r3 = o3.appendChild(S3.createElementNS(re, "use")), r3.id = p3 = g2 + "-line-shape", r3.href.baseVal = "#" + h3, (l3 = o3.appendChild(S3.createElementNS(re, "g"))).id = c3 = g2 + "-caps", a3.capsMaskAnchorSE = [0, 1].map(function() {
-          var e4 = l3.appendChild(S3.createElementNS(re, "path"));
-          return e4.className.baseVal = A + "-caps-mask-anchor", e4;
-        }), a3.lineMaskMarkerIdSE = [g2 + "-caps-mask-marker-0", g2 + "-caps-mask-marker-1"], a3.capsMaskMarkerSE = [0, 1].map(function(e4) {
-          return w3(a3.lineMaskMarkerIdSE[e4]);
-        }), a3.capsMaskMarkerShapeSE = [0, 1].map(function(e4) {
-          var t4 = a3.capsMaskMarkerSE[e4].appendChild(S3.createElementNS(re, "use"));
-          return t4.className.baseVal = A + "-caps-mask-marker-shape", t4;
-        }), a3.capsMaskLine = r3 = l3.appendChild(S3.createElementNS(re, "use")), r3.className.baseVal = A + "-caps-mask-line", r3.href.baseVal = "#" + p3, a3.maskBGRect = r3 = O3(o3.appendChild(S3.createElementNS(re, "rect"))), r3.id = d3 = g2 + "-mask-bg-rect", r3.className.baseVal = A + "-mask-bg-rect", pe && (r3.style.fill = "white"), a3.lineMask = O3(k2(a3.lineMaskId = g2 + "-line-mask")), a3.lineMaskBG = r3 = a3.lineMask.appendChild(S3.createElementNS(re, "use")), r3.href.baseVal = "#" + d3, a3.lineMaskShape = r3 = a3.lineMask.appendChild(S3.createElementNS(re, "use")), r3.className.baseVal = A + "-line-mask-shape", r3.href.baseVal = "#" + h3, r3.style.display = "none", a3.lineMaskCaps = r3 = a3.lineMask.appendChild(S3.createElementNS(re, "use")), r3.href.baseVal = "#" + c3, a3.lineOutlineMask = O3(k2(f3 = g2 + "-line-outline-mask")), (r3 = a3.lineOutlineMask.appendChild(S3.createElementNS(re, "use"))).href.baseVal = "#" + d3, a3.lineOutlineMaskShape = r3 = a3.lineOutlineMask.appendChild(S3.createElementNS(re, "use")), r3.className.baseVal = A + "-line-outline-mask-shape", r3.href.baseVal = "#" + h3, a3.lineOutlineMaskCaps = r3 = a3.lineOutlineMask.appendChild(S3.createElementNS(re, "use")), r3.href.baseVal = "#" + c3, a3.face = n3.appendChild(S3.createElementNS(re, "g")), a3.lineFace = r3 = a3.face.appendChild(S3.createElementNS(re, "use")), r3.href.baseVal = "#" + p3, a3.lineOutlineFace = r3 = a3.face.appendChild(S3.createElementNS(re, "use")), r3.href.baseVal = "#" + p3, r3.style.mask = "url(#" + f3 + ")", r3.style.display = "none", a3.plugMaskIdSE = [g2 + "-plug-mask-0", g2 + "-plug-mask-1"], a3.plugMaskSE = [0, 1].map(function(e4) {
-          return k2(a3.plugMaskIdSE[e4]);
-        }), a3.plugMaskShapeSE = [0, 1].map(function(e4) {
-          var t4 = a3.plugMaskSE[e4].appendChild(S3.createElementNS(re, "use"));
-          return t4.className.baseVal = A + "-plug-mask-shape", t4;
-        }), y3 = [], a3.plugOutlineMaskSE = [0, 1].map(function(e4) {
-          return k2(y3[e4] = g2 + "-plug-outline-mask-" + e4);
-        }), a3.plugOutlineMaskShapeSE = [0, 1].map(function(e4) {
-          var t4 = a3.plugOutlineMaskSE[e4].appendChild(S3.createElementNS(re, "use"));
-          return t4.className.baseVal = A + "-plug-outline-mask-shape", t4;
-        }), a3.plugMarkerIdSE = [g2 + "-plug-marker-0", g2 + "-plug-marker-1"], a3.plugMarkerSE = [0, 1].map(function(e4) {
-          var t4 = w3(a3.plugMarkerIdSE[e4]);
-          return pe && (t4.markerUnits.baseVal = SVGMarkerElement.SVG_MARKERUNITS_USERSPACEONUSE), t4;
-        }), a3.plugMarkerShapeSE = [0, 1].map(function(e4) {
-          return a3.plugMarkerSE[e4].appendChild(S3.createElementNS(re, "g"));
-        }), a3.plugFaceSE = [0, 1].map(function(e4) {
-          return a3.plugMarkerShapeSE[e4].appendChild(S3.createElementNS(re, "use"));
-        }), a3.plugOutlineFaceSE = [0, 1].map(function(e4) {
-          var t4 = a3.plugMarkerShapeSE[e4].appendChild(S3.createElementNS(re, "use"));
-          return t4.style.mask = "url(#" + y3[e4] + ")", t4.style.display = "none", t4;
-        }), a3.plugsFace = r3 = a3.face.appendChild(S3.createElementNS(re, "use")), r3.className.baseVal = A + "-plugs-face", r3.href.baseVal = "#" + p3, r3.style.display = "none", a3.curStats.show_inAnim ? (a3.isShown = 1, M2[m3.show_effect].stop(a3, true)) : a3.isShown || (n3.style.visibility = "hidden"), S3.body.appendChild(n3), [0, 1, 2].forEach(function(e4) {
-          var t4, n4 = a3.options.labelSEM[e4];
-          n4 && L2(n4, "label") && (t4 = ve[n4._id]).conf.initSvg && t4.conf.initSvg(t4, a3);
-        }), v3.line = v3.plug = v3.lineOutline = v3.plugOutline = v3.faces = v3.effect = true), v3.position = x3(_3, u3, "path", z2, null, null, de.path) || v3.position, v3.position = x3(_3, u3, "startSocket", W2, "socketSE", 0) || v3.position, v3.position = x3(_3, u3, "endSocket", W2, "socketSE", 1) || v3.position, [u3.startSocketGravity, u3.endSocketGravity].forEach(function(e4, t4) {
-          var n4, a4, i4 = false;
-          null != e4 && (Array.isArray(e4) ? ye(e4[0]) && ye(e4[1]) && (i4 = [e4[0], e4[1]], Array.isArray(_3.socketGravitySE[t4]) && (n4 = i4, a4 = _3.socketGravitySE[t4], n4.length === a4.length && n4.every(function(e5, t5) {
-            return e5 === a4[t5];
-          })) && (i4 = false)) : ((e4 + "").toLowerCase() === U ? i4 = null : ye(e4) && 0 <= e4 && (i4 = e4), i4 === _3.socketGravitySE[t4] && (i4 = false)), false !== i4 && (_3.socketGravitySE[t4] = i4, v3.position = true));
-        }), v3.line = b3(_3, u3, "color", null, "lineColor", null, de.lineColor, null, true) || v3.line, v3.line = b3(_3, u3, "size", null, "lineSize", null, de.lineSize, function(e4) {
-          return 0 < e4;
-        }) || v3.line, ["startPlug", "endPlug"].forEach(function(e4, t4) {
-          v3.plug = x3(_3, u3, e4, j, "plugSE", t4, de.plugSE[t4]) || v3.plug, v3.plug = b3(_3, u3, e4 + "Color", "string", "plugColorSE", t4, null, null, true) || v3.plug, v3.plug = b3(_3, u3, e4 + "Size", null, "plugSizeSE", t4, de.plugSizeSE[t4], function(e5) {
-            return 0 < e5;
-          }) || v3.plug;
-        }), v3.lineOutline = b3(_3, u3, "outline", null, "lineOutlineEnabled", null, de.lineOutlineEnabled) || v3.lineOutline, v3.lineOutline = b3(_3, u3, "outlineColor", null, "lineOutlineColor", null, de.lineOutlineColor, null, true) || v3.lineOutline, v3.lineOutline = b3(_3, u3, "outlineSize", null, "lineOutlineSize", null, de.lineOutlineSize, function(e4) {
-          return 0 < e4 && e4 <= 0.48;
-        }) || v3.lineOutline, ["startPlugOutline", "endPlugOutline"].forEach(function(e4, t4) {
-          v3.plugOutline = b3(_3, u3, e4, null, "plugOutlineEnabledSE", t4, de.plugOutlineEnabledSE[t4]) || v3.plugOutline, v3.plugOutline = b3(_3, u3, e4 + "Color", "string", "plugOutlineColorSE", t4, null, null, true) || v3.plugOutline, v3.plugOutline = b3(_3, u3, e4 + "Size", null, "plugOutlineSizeSE", t4, de.plugOutlineSizeSE[t4], function(e5) {
-            return 1 <= e5;
-          }) || v3.plugOutline;
-        }), ["startLabel", "endLabel", "middleLabel"].forEach(function(e4, t4) {
-          var n4, a4, i4, o4 = u3[e4], l4 = _3.labelSEM[t4] && !s3.optionIsAttach.labelSEM[t4] ? ve[_3.labelSEM[t4]._id].text : _3.labelSEM[t4], r4 = false;
-          if ((n4 = "string" == typeof o4) && (o4 = o4.trim()), (n4 || o4 && (r4 = L2(o4, "label"))) && o4 !== l4) {
-            if (_3.labelSEM[t4] && (it(s3, ve[_3.labelSEM[t4]._id]), _3.labelSEM[t4] = ""), o4) {
-              if (r4 ? (a4 = ve[(i4 = o4)._id]).boundTargets.slice().forEach(function(e5) {
-                a4.conf.removeOption(a4, e5);
-              }) : i4 = new C2(I.captionLabel, [o4]), !at(s3, ve[i4._id], e4))
-                throw new Error("Can't bind attachment");
-              _3.labelSEM[t4] = i4;
-            }
-            s3.optionIsAttach.labelSEM[t4] = r4;
-          }
-        }), Object.keys(te).forEach(function(a4) {
-          var e4, t4, o4 = te[a4], n4 = a4 + "_enabled", i4 = a4 + "_options";
-          function l4(a5) {
-            var i5 = {};
-            return o4.optionsConf.forEach(function(e5) {
-              var t5 = e5[0], n5 = e5[3];
-              null == e5[4] || i5[n5] || (i5[n5] = []), ("function" == typeof t5 ? t5 : "id" === t5 ? x3 : b3).apply(null, [i5, a5].concat(e5.slice(1)));
-            }), i5;
-          }
-          function r4(e5) {
-            var t5, n5 = a4 + "_animOptions";
-            return e5.hasOwnProperty("animation") ? fe(e5.animation) ? t5 = s3.curStats[n5] = tt2(e5.animation, o4.defaultAnimOptions) : (t5 = !!e5.animation, s3.curStats[n5] = t5 ? tt2({}, o4.defaultAnimOptions) : null) : (t5 = !!o4.defaultEnabled, s3.curStats[n5] = t5 ? tt2({}, o4.defaultAnimOptions) : null), t5;
-          }
-          u3.hasOwnProperty(a4) && (e4 = u3[a4], fe(e4) ? (s3.curStats[n4] = true, t4 = s3.curStats[i4] = l4(e4), o4.anim && (s3.curStats[i4].animation = r4(e4))) : (t4 = s3.curStats[n4] = !!e4) && (s3.curStats[i4] = l4({}), o4.anim && (s3.curStats[i4].animation = r4({}))), we(t4, _3[a4]) && (_3[a4] = t4, v3.effect = true));
-        }), et(s3, v3);
-      }
-      function lt(e3, t3, n3) {
-        var a3 = { options: { anchorSE: [], socketSE: [], socketGravitySE: [], plugSE: [], plugColorSE: [], plugSizeSE: [], plugOutlineEnabledSE: [], plugOutlineColorSE: [], plugOutlineSizeSE: [], labelSEM: ["", "", ""] }, optionIsAttach: { anchorSE: [false, false], labelSEM: [false, false, false] }, curStats: {}, aplStats: {}, attachments: [], events: {}, reflowTargets: [] };
-        Xe(a3.curStats, me), Xe(a3.aplStats, me), Object.keys(te).forEach(function(e4) {
-          var t4 = te[e4].stats;
-          Xe(a3.curStats, t4), Xe(a3.aplStats, t4), a3.options[e4] = false;
-        }), Xe(a3.curStats, E2), Xe(a3.aplStats, E2), a3.curStats.show_effect = O2, a3.curStats.show_animOptions = Oe(M2[O2].defaultAnimOptions), Object.defineProperty(this, "_id", { value: ++_e2 }), a3._id = this._id, ge[this._id] = a3, 1 === arguments.length && (n3 = e3, e3 = null), n3 = n3 || {}, (e3 || t3) && (n3 = Oe(n3), e3 && (n3.start = e3), t3 && (n3.end = t3)), a3.isShown = a3.aplStats.show_on = !n3.hide, this.setOptions(n3);
-      }
-      function rt(n3) {
-        return function(e3) {
-          var t3 = {};
-          t3[n3] = e3, this.setOptions(t3);
-        };
-      }
-      function st(e3, t3) {
-        var n3, a3 = { conf: e3, curStats: {}, aplStats: {}, boundTargets: [] }, i3 = {};
-        e3.argOptions.every(function(e4) {
-          return !(!t3.length || ("string" == typeof e4.type ? typeof t3[0] !== e4.type : "function" != typeof e4.type || !e4.type(t3[0]))) && (i3[e4.optionName] = t3.shift(), true);
-        }), n3 = t3.length && fe(t3[0]) ? Oe(t3[0]) : {}, Object.keys(i3).forEach(function(e4) {
-          n3[e4] = i3[e4];
-        }), e3.stats && (Xe(a3.curStats, e3.stats), Xe(a3.aplStats, e3.stats)), Object.defineProperty(this, "_id", { value: ++Ee }), Object.defineProperty(this, "isRemoved", { get: function() {
-          return !ve[this._id];
-        } }), a3._id = this._id, e3.init && !e3.init(a3, n3) || (ve[this._id] = a3);
-      }
-      return te = { dash: { stats: { dash_len: {}, dash_gap: {}, dash_maxOffset: {} }, anim: true, defaultAnimOptions: { duration: 1e3, timing: "linear" }, optionsConf: [["type", "len", "number", null, null, null, function(e3) {
-        return 0 < e3;
-      }], ["type", "gap", "number", null, null, null, function(e3) {
-        return 0 < e3;
-      }]], init: function(e3) {
-        De(e3, "apl_line_strokeWidth", te.dash.update), e3.lineFace.style.strokeDashoffset = 0, te.dash.update(e3);
-      }, remove: function(e3) {
-        var t3 = e3.curStats;
-        ze(e3, "apl_line_strokeWidth", te.dash.update), t3.dash_animId && (g.remove(t3.dash_animId), t3.dash_animId = null), e3.lineFace.style.strokeDasharray = "none", e3.lineFace.style.strokeDashoffset = 0, Xe(e3.aplStats, te.dash.stats);
-      }, update: function(t3) {
-        var e3, n3 = t3.curStats, a3 = t3.aplStats, i3 = a3.dash_options, o3 = false;
-        n3.dash_len = i3.len || 2 * a3.line_strokeWidth, n3.dash_gap = i3.gap || a3.line_strokeWidth, n3.dash_maxOffset = n3.dash_len + n3.dash_gap, o3 = qe(t3, a3, "dash_len", n3.dash_len) || o3, (o3 = qe(t3, a3, "dash_gap", n3.dash_gap) || o3) && (t3.lineFace.style.strokeDasharray = a3.dash_len + "," + a3.dash_gap), n3.dash_animOptions ? (o3 = qe(t3, a3, "dash_maxOffset", n3.dash_maxOffset), a3.dash_animOptions && (o3 || we(n3.dash_animOptions, a3.dash_animOptions)) && (n3.dash_animId && (e3 = g.stop(n3.dash_animId), g.remove(n3.dash_animId)), a3.dash_animOptions = null), a3.dash_animOptions || (n3.dash_animId = g.add(function(e4) {
-          return (1 - e4) * a3.dash_maxOffset + "px";
-        }, function(e4) {
-          t3.lineFace.style.strokeDashoffset = e4;
-        }, n3.dash_animOptions.duration, 0, n3.dash_animOptions.timing, false, e3), a3.dash_animOptions = Oe(n3.dash_animOptions))) : a3.dash_animOptions && (n3.dash_animId && (g.remove(n3.dash_animId), n3.dash_animId = null), t3.lineFace.style.strokeDashoffset = 0, a3.dash_animOptions = null);
-      } }, gradient: { stats: { gradient_colorSE: { hasSE: true }, gradient_pointSE: { hasSE: true, hasProps: true } }, optionsConf: [["type", "startColor", "string", "colorSE", 0, null, null, true], ["type", "endColor", "string", "colorSE", 1, null, null, true]], init: function(e3) {
-        var t3, a3 = e3.baseWindow.document, n3 = e3.defs, i3 = A + "-" + e3._id + "-gradient";
-        e3.efc_gradient_gradient = t3 = n3.appendChild(a3.createElementNS(re, "linearGradient")), t3.id = i3, t3.gradientUnits.baseVal = SVGUnitTypes.SVG_UNIT_TYPE_USERSPACEONUSE, [t3.x1, t3.y1, t3.x2, t3.y2].forEach(function(e4) {
-          e4.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PX, 0);
-        }), e3.efc_gradient_stopSE = [0, 1].map(function(t4) {
-          var n4 = e3.efc_gradient_gradient.appendChild(a3.createElementNS(re, "stop"));
-          try {
-            n4.offset.baseVal = t4;
-          } catch (e4) {
-            if (e4.code !== DOMException.NO_MODIFICATION_ALLOWED_ERR)
-              throw e4;
-            n4.setAttribute("offset", t4);
-          }
-          return n4;
-        }), De(e3, "cur_plug_colorSE", te.gradient.update), De(e3, "apl_path", te.gradient.update), e3.curStats.line_altColor = true, e3.lineFace.style.stroke = "url(#" + i3 + ")", te.gradient.update(e3);
-      }, remove: function(e3) {
-        e3.efc_gradient_gradient && (e3.defs.removeChild(e3.efc_gradient_gradient), e3.efc_gradient_gradient = e3.efc_gradient_stopSE = null), ze(e3, "cur_plug_colorSE", te.gradient.update), ze(e3, "apl_path", te.gradient.update), e3.curStats.line_altColor = false, e3.lineFace.style.stroke = e3.curStats.line_color, Xe(e3.aplStats, te.gradient.stats);
-      }, update: function(a3) {
-        var e3, t3, i3 = a3.curStats, o3 = a3.aplStats, n3 = o3.gradient_options, l3 = a3.pathList.animVal || a3.pathList.baseVal;
-        [0, 1].forEach(function(e4) {
-          i3.gradient_colorSE[e4] = n3.colorSE[e4] || i3.plug_colorSE[e4];
-        }), t3 = l3[0][0], i3.gradient_pointSE[0] = { x: t3.x, y: t3.y }, t3 = (e3 = l3[l3.length - 1])[e3.length - 1], i3.gradient_pointSE[1] = { x: t3.x, y: t3.y }, [0, 1].forEach(function(t4) {
-          var n4;
-          qe(a3, o3.gradient_colorSE, t4, n4 = i3.gradient_colorSE[t4]) && (pe ? (n4 = Me(n4), a3.efc_gradient_stopSE[t4].style.stopColor = n4[1], a3.efc_gradient_stopSE[t4].style.stopOpacity = n4[0]) : a3.efc_gradient_stopSE[t4].style.stopColor = n4), ["x", "y"].forEach(function(e4) {
-            (n4 = i3.gradient_pointSE[t4][e4]) !== o3.gradient_pointSE[t4][e4] && (a3.efc_gradient_gradient[e4 + (t4 + 1)].baseVal.value = o3.gradient_pointSE[t4][e4] = n4);
-          });
-        });
-      } }, dropShadow: { stats: { dropShadow_dx: {}, dropShadow_dy: {}, dropShadow_blur: {}, dropShadow_color: {}, dropShadow_opacity: {}, dropShadow_x: {}, dropShadow_y: {} }, optionsConf: [["type", "dx", null, null, null, 2], ["type", "dy", null, null, null, 4], ["type", "blur", null, null, null, 3, function(e3) {
-        return 0 <= e3;
-      }], ["type", "color", null, null, null, "#000", null, true], ["type", "opacity", null, null, null, 0.8, function(e3) {
-        return 0 <= e3 && e3 <= 1;
-      }]], init: function(t3) {
-        var e3, n3, a3, i3, o3, l3 = t3.baseWindow.document, r3 = t3.defs, s3 = A + "-" + t3._id + "-dropShadow", u3 = (e3 = l3, n3 = s3, o3 = {}, "boolean" != typeof p2 && (p2 = !!window.SVGFEDropShadowElement && !pe), o3.elmsAppend = [o3.elmFilter = a3 = e3.createElementNS(re, "filter")], a3.filterUnits.baseVal = SVGUnitTypes.SVG_UNIT_TYPE_USERSPACEONUSE, a3.x.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PX, 0), a3.y.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PX, 0), a3.width.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PERCENTAGE, 100), a3.height.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PERCENTAGE, 100), a3.id = n3, p2 ? (o3.elmOffset = o3.elmBlur = i3 = a3.appendChild(e3.createElementNS(re, "feDropShadow")), o3.styleFlood = i3.style) : (o3.elmBlur = a3.appendChild(e3.createElementNS(re, "feGaussianBlur")), o3.elmOffset = i3 = a3.appendChild(e3.createElementNS(re, "feOffset")), i3.result.baseVal = "offsetblur", i3 = a3.appendChild(e3.createElementNS(re, "feFlood")), o3.styleFlood = i3.style, (i3 = a3.appendChild(e3.createElementNS(re, "feComposite"))).in2.baseVal = "offsetblur", i3.operator.baseVal = SVGFECompositeElement.SVG_FECOMPOSITE_OPERATOR_IN, (i3 = a3.appendChild(e3.createElementNS(re, "feMerge"))).appendChild(e3.createElementNS(re, "feMergeNode")), i3.appendChild(e3.createElementNS(re, "feMergeNode")).in1.baseVal = "SourceGraphic"), o3);
-        ["elmFilter", "elmOffset", "elmBlur", "styleFlood", "elmsAppend"].forEach(function(e4) {
-          t3["efc_dropShadow_" + e4] = u3[e4];
-        }), u3.elmsAppend.forEach(function(e4) {
-          r3.appendChild(e4);
-        }), t3.face.setAttribute("filter", "url(#" + s3 + ")"), De(t3, "new_edge4viewBox", te.dropShadow.adjustEdge), te.dropShadow.update(t3);
-      }, remove: function(e3) {
-        var t3 = e3.defs;
-        e3.efc_dropShadow_elmsAppend && (e3.efc_dropShadow_elmsAppend.forEach(function(e4) {
-          t3.removeChild(e4);
-        }), e3.efc_dropShadow_elmFilter = e3.efc_dropShadow_elmOffset = e3.efc_dropShadow_elmBlur = e3.efc_dropShadow_styleFlood = e3.efc_dropShadow_elmsAppend = null), ze(e3, "new_edge4viewBox", te.dropShadow.adjustEdge), et(e3, {}), e3.face.removeAttribute("filter"), Xe(e3.aplStats, te.dropShadow.stats);
-      }, update: function(e3) {
-        var t3, n3, a3 = e3.curStats, i3 = e3.aplStats, o3 = i3.dropShadow_options;
-        a3.dropShadow_dx = t3 = o3.dx, qe(e3, i3, "dropShadow_dx", t3) && (e3.efc_dropShadow_elmOffset.dx.baseVal = t3, n3 = true), a3.dropShadow_dy = t3 = o3.dy, qe(e3, i3, "dropShadow_dy", t3) && (e3.efc_dropShadow_elmOffset.dy.baseVal = t3, n3 = true), a3.dropShadow_blur = t3 = o3.blur, qe(e3, i3, "dropShadow_blur", t3) && (e3.efc_dropShadow_elmBlur.setStdDeviation(t3, t3), n3 = true), n3 && et(e3, {}), a3.dropShadow_color = t3 = o3.color, qe(e3, i3, "dropShadow_color", t3) && (e3.efc_dropShadow_styleFlood.floodColor = t3), a3.dropShadow_opacity = t3 = o3.opacity, qe(e3, i3, "dropShadow_opacity", t3) && (e3.efc_dropShadow_styleFlood.floodOpacity = t3);
-      }, adjustEdge: function(a3, i3) {
-        var e3, t3, o3 = a3.curStats, l3 = a3.aplStats;
-        null != o3.dropShadow_dx && (e3 = 3 * o3.dropShadow_blur, (t3 = { x1: i3.x1 - e3 + o3.dropShadow_dx, y1: i3.y1 - e3 + o3.dropShadow_dy, x2: i3.x2 + e3 + o3.dropShadow_dx, y2: i3.y2 + e3 + o3.dropShadow_dy }).x1 < i3.x1 && (i3.x1 = t3.x1), t3.y1 < i3.y1 && (i3.y1 = t3.y1), t3.x2 > i3.x2 && (i3.x2 = t3.x2), t3.y2 > i3.y2 && (i3.y2 = t3.y2), ["x", "y"].forEach(function(e4) {
-          var t4, n3 = "dropShadow_" + e4;
-          o3[n3] = t4 = i3[e4 + "1"], qe(a3, l3, n3, t4) && (a3.efc_dropShadow_elmFilter[e4].baseVal.value = t4);
-        }));
-      } } }, Object.keys(te).forEach(function(e3) {
-        var t3 = te[e3], n3 = t3.stats;
-        n3[e3 + "_enabled"] = { iniValue: false }, n3[e3 + "_options"] = { hasProps: true }, t3.anim && (n3[e3 + "_animOptions"] = {}, n3[e3 + "_animId"] = {});
-      }), M2 = { none: { defaultAnimOptions: {}, init: function(e3, t3) {
-        var n3 = e3.curStats;
-        n3.show_animId && (g.remove(n3.show_animId), n3.show_animId = null), M2.none.start(e3, t3);
-      }, start: function(e3, t3) {
-        M2.none.stop(e3, true);
-      }, stop: function(e3, t3, n3) {
-        var a3 = e3.curStats;
-        return n3 = null != n3 ? n3 : e3.aplStats.show_on, a3.show_inAnim = false, t3 && $e(e3, n3), n3 ? 1 : 0;
-      } }, fade: { defaultAnimOptions: { duration: 300, timing: "linear" }, init: function(n3, e3) {
-        var t3 = n3.curStats, a3 = n3.aplStats;
-        t3.show_animId && g.remove(t3.show_animId), t3.show_animId = g.add(function(e4) {
-          return e4;
-        }, function(e4, t4) {
-          t4 ? M2.fade.stop(n3, true) : (n3.svg.style.opacity = e4 + "", se && (He(n3, n3.svg), Ue(n3)));
-        }, a3.show_animOptions.duration, 1, a3.show_animOptions.timing, null, false), M2.fade.start(n3, e3);
-      }, start: function(e3, t3) {
-        var n3, a3 = e3.curStats;
-        a3.show_inAnim && (n3 = g.stop(a3.show_animId)), $e(e3, 1), a3.show_inAnim = true, g.start(a3.show_animId, !e3.aplStats.show_on, null != t3 ? t3 : n3);
-      }, stop: function(e3, t3, n3) {
-        var a3, i3 = e3.curStats;
-        return n3 = null != n3 ? n3 : e3.aplStats.show_on, a3 = i3.show_inAnim ? g.stop(i3.show_animId) : n3 ? 1 : 0, i3.show_inAnim = false, t3 && (e3.svg.style.opacity = n3 ? "" : "0", $e(e3, n3)), a3;
-      } }, draw: { defaultAnimOptions: { duration: 500, timing: [0.58, 0, 0.42, 1] }, init: function(n3, e3) {
-        var t3 = n3.curStats, a3 = n3.aplStats, l3 = n3.pathList.baseVal, i3 = Fe(l3), r3 = i3.segsLen, s3 = i3.lenAll;
-        t3.show_animId && g.remove(t3.show_animId), t3.show_animId = g.add(function(e4) {
-          var t4, n4, a4, i4, o3 = -1;
-          if (0 === e4)
-            n4 = [[l3[0][0], l3[0][0]]];
-          else if (1 === e4)
-            n4 = l3;
+          var h3 = t4 + a4;
+          return h3 *= i4, e4 && (h3 *= Math.pow(10, o4 * e4)), l4 === this._currentIndex ? null : (this._skipOptionalSpacesOrDelimiter(), h3);
+        }, _parseArcFlag: function() {
+          if (this._currentIndex >= this._endIndex)
+            return null;
+          var e4 = null, t4 = this._string[this._currentIndex];
+          if (this._currentIndex += 1, "0" === t4)
+            e4 = 0;
           else {
-            for (t4 = s3 * e4, n4 = []; t4 >= r3[++o3]; )
-              n4.push(l3[o3]), t4 -= r3[o3];
-            t4 && (2 === (a4 = l3[o3]).length ? n4.push([a4[0], Pe(a4[0], a4[1], t4 / r3[o3])]) : (i4 = Te(a4[0], a4[1], a4[2], a4[3], Be(a4[0], a4[1], a4[2], a4[3], t4)), n4.push([a4[0], i4.fromP1, i4.fromP2, i4])));
+            if ("1" !== t4)
+              return null;
+            e4 = 1;
           }
-          return n4;
-        }, function(e4, t4) {
-          t4 ? M2.draw.stop(n3, true) : (n3.pathList.animVal = e4, et(n3, { path: true }));
-        }, a3.show_animOptions.duration, 1, a3.show_animOptions.timing, null, false), M2.draw.start(n3, e3);
-      }, start: function(e3, t3) {
-        var n3, a3 = e3.curStats;
-        a3.show_inAnim && (n3 = g.stop(a3.show_animId)), $e(e3, 1), a3.show_inAnim = true, De(e3, "apl_position", M2.draw.update), g.start(a3.show_animId, !e3.aplStats.show_on, null != t3 ? t3 : n3);
-      }, stop: function(e3, t3, n3) {
-        var a3, i3 = e3.curStats;
-        return n3 = null != n3 ? n3 : e3.aplStats.show_on, a3 = i3.show_inAnim ? g.stop(i3.show_animId) : n3 ? 1 : 0, i3.show_inAnim = false, t3 && (e3.pathList.animVal = n3 ? null : [[e3.pathList.baseVal[0][0], e3.pathList.baseVal[0][0]]], et(e3, { path: true }), $e(e3, n3)), a3;
-      }, update: function(e3) {
-        ze(e3, "apl_position", M2.draw.update), e3.curStats.show_inAnim ? M2.draw.init(e3, M2.draw.stop(e3)) : e3.aplStats.show_animOptions = {};
-      } } }, [["start", "anchorSE", 0], ["end", "anchorSE", 1], ["color", "lineColor"], ["size", "lineSize"], ["startSocketGravity", "socketGravitySE", 0], ["endSocketGravity", "socketGravitySE", 1], ["startPlugColor", "plugColorSE", 0], ["endPlugColor", "plugColorSE", 1], ["startPlugSize", "plugSizeSE", 0], ["endPlugSize", "plugSizeSE", 1], ["outline", "lineOutlineEnabled"], ["outlineColor", "lineOutlineColor"], ["outlineSize", "lineOutlineSize"], ["startPlugOutline", "plugOutlineEnabledSE", 0], ["endPlugOutline", "plugOutlineEnabledSE", 1], ["startPlugOutlineColor", "plugOutlineColorSE", 0], ["endPlugOutlineColor", "plugOutlineColorSE", 1], ["startPlugOutlineSize", "plugOutlineSizeSE", 0], ["endPlugOutlineSize", "plugOutlineSizeSE", 1]].forEach(function(e3) {
-        var t3 = e3[0], n3 = e3[1], a3 = e3[2];
-        Object.defineProperty(lt.prototype, t3, { get: function() {
-          var e4 = null != a3 ? ge[this._id].options[n3][a3] : n3 ? ge[this._id].options[n3] : ge[this._id].options[t3];
-          return null == e4 ? U : Oe(e4);
-        }, set: rt(t3), enumerable: true });
-      }), [["path", z2], ["startSocket", W2, "socketSE", 0], ["endSocket", W2, "socketSE", 1], ["startPlug", j, "plugSE", 0], ["endPlug", j, "plugSE", 1]].forEach(function(e3) {
-        var a3 = e3[0], i3 = e3[1], o3 = e3[2], l3 = e3[3];
-        Object.defineProperty(lt.prototype, a3, { get: function() {
-          var t3, n3 = null != l3 ? ge[this._id].options[o3][l3] : o3 ? ge[this._id].options[o3] : ge[this._id].options[a3];
-          return n3 ? Object.keys(i3).some(function(e4) {
-            return i3[e4] === n3 && (t3 = e4, true);
-          }) ? t3 : new Error("It's broken") : U;
-        }, set: rt(a3), enumerable: true });
-      }), Object.keys(te).forEach(function(n3) {
-        var a3 = te[n3];
-        Object.defineProperty(lt.prototype, n3, { get: function() {
-          var u3, e3, t3 = ge[this._id].options[n3];
-          return fe(t3) ? (u3 = t3, e3 = a3.optionsConf.reduce(function(e4, t4) {
-            var n4, a4 = t4[0], i3 = t4[1], o3 = t4[2], l3 = t4[3], r3 = t4[4], s3 = null != r3 ? u3[l3][r3] : l3 ? u3[l3] : u3[i3];
-            return e4[i3] = "id" === a4 ? s3 ? Object.keys(o3).some(function(e5) {
-              return o3[e5] === s3 && (n4 = e5, true);
-            }) ? n4 : new Error("It's broken") : U : null == s3 ? U : Oe(s3), e4;
-          }, {}), a3.anim && (e3.animation = Oe(u3.animation)), e3) : t3;
-        }, set: rt(n3), enumerable: true });
-      }), ["startLabel", "endLabel", "middleLabel"].forEach(function(e3, n3) {
-        Object.defineProperty(lt.prototype, e3, { get: function() {
-          var e4 = ge[this._id], t3 = e4.options;
-          return t3.labelSEM[n3] && !e4.optionIsAttach.labelSEM[n3] ? ve[t3.labelSEM[n3]._id].text : t3.labelSEM[n3] || "";
-        }, set: rt(e3), enumerable: true });
-      }), lt.prototype.setOptions = function(e3) {
-        return ot(ge[this._id], e3), this;
-      }, lt.prototype.position = function() {
-        return et(ge[this._id], { position: true }), this;
-      }, lt.prototype.remove = function() {
-        var t3 = ge[this._id], n3 = t3.curStats;
-        Object.keys(te).forEach(function(e3) {
-          var t4 = e3 + "_animId";
-          n3[t4] && g.remove(n3[t4]);
-        }), n3.show_animId && g.remove(n3.show_animId), t3.attachments.slice().forEach(function(e3) {
-          it(t3, e3);
-        }), t3.baseWindow && t3.svg && t3.baseWindow.document.body.removeChild(t3.svg), delete ge[this._id];
-      }, lt.prototype.show = function(e3, t3) {
-        return nt(ge[this._id], true, e3, t3), this;
-      }, lt.prototype.hide = function(e3, t3) {
-        return nt(ge[this._id], false, e3, t3), this;
-      }, o2 = function(t3) {
-        t3 && ve[t3._id] && (t3.boundTargets.slice().forEach(function(e3) {
-          it(e3.props, t3, true);
-        }), t3.conf.remove && t3.conf.remove(t3), delete ve[t3._id]);
-      }, st.prototype.remove = function() {
-        var t3 = this, n3 = ve[t3._id];
-        n3 && (n3.boundTargets.slice().forEach(function(e3) {
-          n3.conf.removeOption(n3, e3);
-        }), je(function() {
-          var e3 = ve[t3._id];
-          e3 && (console.error("LeaderLineAttachment was not removed by removeOption"), o2(e3));
-        }));
-      }, C2 = st, window.LeaderLineAttachment = C2, L2 = function(e3, t3) {
-        return e3 instanceof C2 && (!(e3.isRemoved || t3 && ve[e3._id].conf.type !== t3) || null);
-      }, I = { pointAnchor: { type: "anchor", argOptions: [{ optionName: "element", type: Ie }], init: function(e3, t3) {
-        return e3.element = I.pointAnchor.checkElement(t3.element), e3.x = I.pointAnchor.parsePercent(t3.x, true) || [0.5, true], e3.y = I.pointAnchor.parsePercent(t3.y, true) || [0.5, true], true;
-      }, removeOption: function(e3, t3) {
-        var n3 = t3.props, a3 = {}, i3 = e3.element, o3 = n3.options.anchorSE["start" === t3.optionName ? 1 : 0];
-        i3 === o3 && (i3 = o3 === document.body ? new C2(I.pointAnchor, [i3]) : document.body), a3[t3.optionName] = i3, ot(n3, a3);
-      }, getBBoxNest: function(e3, t3) {
-        var n3 = Ae(e3.element, t3.baseWindow), a3 = n3.width, i3 = n3.height;
-        return n3.width = n3.height = 0, n3.left = n3.right = n3.left + e3.x[0] * (e3.x[1] ? a3 : 1), n3.top = n3.bottom = n3.top + e3.y[0] * (e3.y[1] ? i3 : 1), n3;
-      }, parsePercent: function(e3, t3) {
-        var n3, a3, i3 = false;
-        return ye(e3) ? a3 = e3 : "string" == typeof e3 && (n3 = m2.exec(e3)) && n3[2] && (i3 = 0 !== (a3 = parseFloat(n3[1]) / 100)), null != a3 && (t3 || 0 <= a3) ? [a3, i3] : null;
-      }, checkElement: function(e3) {
-        if (null == e3)
-          e3 = document.body;
-        else if (!Ie(e3))
-          throw new Error("`element` must be Element");
-        return e3;
-      } }, areaAnchor: { type: "anchor", argOptions: [{ optionName: "element", type: Ie }, { optionName: "shape", type: "string" }], stats: { color: {}, strokeWidth: {}, elementWidth: {}, elementHeight: {}, elementLeft: {}, elementTop: {}, pathListRel: {}, bBoxRel: {}, pathData: {}, viewBoxBBox: { hasProps: true }, dashLen: {}, dashGap: {} }, init: function(i3, e3) {
-        var t3, n3, a3, o3 = [];
-        return i3.element = I.pointAnchor.checkElement(e3.element), "string" == typeof e3.color && (i3.color = e3.color.trim()), "string" == typeof e3.fillColor && (i3.fill = e3.fillColor.trim()), ye(e3.size) && 0 <= e3.size && (i3.size = e3.size), e3.dash && (i3.dash = true, ye(e3.dash.len) && 0 < e3.dash.len && (i3.dashLen = e3.dash.len), ye(e3.dash.gap) && 0 < e3.dash.gap && (i3.dashGap = e3.dash.gap)), "circle" === e3.shape ? i3.shape = e3.shape : "polygon" === e3.shape && Array.isArray(e3.points) && 3 <= e3.points.length && e3.points.every(function(e4) {
-          var t4 = {};
-          return !(!(t4.x = I.pointAnchor.parsePercent(e4[0], true)) || !(t4.y = I.pointAnchor.parsePercent(e4[1], true))) && (o3.push(t4), (t4.x[1] || t4.y[1]) && (i3.hasRatio = true), true);
-        }) ? (i3.shape = e3.shape, i3.points = o3) : (i3.shape = "rect", i3.radius = ye(e3.radius) && 0 <= e3.radius ? e3.radius : 0), "rect" !== i3.shape && "circle" !== i3.shape || (i3.x = I.pointAnchor.parsePercent(e3.x, true) || [-0.05, true], i3.y = I.pointAnchor.parsePercent(e3.y, true) || [-0.05, true], i3.width = I.pointAnchor.parsePercent(e3.width) || [1.1, true], i3.height = I.pointAnchor.parsePercent(e3.height) || [1.1, true], (i3.x[1] || i3.y[1] || i3.width[1] || i3.height[1]) && (i3.hasRatio = true)), t3 = i3.element.ownerDocument, i3.svg = n3 = t3.createElementNS(re, "svg"), n3.className.baseVal = A + "-areaAnchor", n3.viewBox.baseVal || n3.setAttribute("viewBox", "0 0 0 0"), i3.path = n3.appendChild(t3.createElementNS(re, "path")), i3.path.style.fill = i3.fill || "none", i3.isShown = false, n3.style.visibility = "hidden", t3.body.appendChild(n3), Ke(a3 = t3.defaultView), i3.bodyOffset = Qe(a3), i3.updateColor = function() {
-          var e4, t4 = i3.curStats, n4 = i3.aplStats, a4 = i3.boundTargets.length ? i3.boundTargets[0].props.curStats : null;
-          t4.color = e4 = i3.color || (a4 ? a4.line_color : de.lineColor), qe(i3, n4, "color", e4) && (i3.path.style.stroke = e4);
-        }, i3.updateShow = function() {
-          $e(i3, i3.boundTargets.some(function(e4) {
-            return true === e4.props.isShown;
-          }));
-        }, true;
-      }, bind: function(e3, t3) {
-        var n3 = t3.props;
-        return e3.color || De(n3, "cur_line_color", e3.updateColor), De(n3, "svgShow", e3.updateShow), je(function() {
-          e3.updateColor(), e3.updateShow();
-        }), true;
-      }, unbind: function(e3, t3) {
-        var n3 = t3.props;
-        e3.color || ze(n3, "cur_line_color", e3.updateColor), ze(n3, "svgShow", e3.updateShow), 1 < e3.boundTargets.length && je(function() {
-          e3.updateColor(), e3.updateShow(), I.areaAnchor.update(e3) && e3.boundTargets.forEach(function(e4) {
-            et(e4.props, { position: true });
-          });
-        });
-      }, removeOption: function(e3, t3) {
-        I.pointAnchor.removeOption(e3, t3);
-      }, remove: function(t3) {
-        t3.boundTargets.length && (console.error("LeaderLineAttachment was not unbound by remove"), t3.boundTargets.forEach(function(e3) {
-          I.areaAnchor.unbind(t3, e3);
-        })), t3.svg.parentNode.removeChild(t3.svg);
-      }, getStrokeWidth: function(e3, t3) {
-        return I.areaAnchor.update(e3) && 1 < e3.boundTargets.length && je(function() {
-          e3.boundTargets.forEach(function(e4) {
-            e4.props !== t3 && et(e4.props, { position: true });
-          });
-        }), e3.curStats.strokeWidth;
-      }, getPathData: function(e3, t3) {
-        var n3 = Ae(e3.element, t3.baseWindow);
-        return Re(e3.curStats.pathListRel, function(e4) {
-          e4.x += n3.left, e4.y += n3.top;
-        });
-      }, getBBoxNest: function(e3, t3) {
-        var n3 = Ae(e3.element, t3.baseWindow), a3 = e3.curStats.bBoxRel;
-        return { left: a3.left + n3.left, top: a3.top + n3.top, right: a3.right + n3.left, bottom: a3.bottom + n3.top, width: a3.width, height: a3.height };
-      }, update: function(t3) {
-        var a3, n3, i3, o3, e3, l3, r3, s3, u3, h3, p3, c3, d3, f3, y3, m3, S3, g2, _3, v3, E3, x3, b3, k2, w3, O3, M3, I2, C3, L3, A2, V3, P3 = t3.curStats, N2 = t3.aplStats, T3 = t3.boundTargets.length ? t3.boundTargets[0].props.curStats : null, W3 = {};
-        if (W3.strokeWidth = qe(t3, P3, "strokeWidth", null != t3.size ? t3.size : T3 ? T3.line_strokeWidth : de.lineSize), a3 = Ce(t3.element), W3.elementWidth = qe(t3, P3, "elementWidth", a3.width), W3.elementHeight = qe(t3, P3, "elementHeight", a3.height), W3.elementLeft = qe(t3, P3, "elementLeft", a3.left), W3.elementTop = qe(t3, P3, "elementTop", a3.top), W3.strokeWidth || t3.hasRatio && (W3.elementWidth || W3.elementHeight)) {
-          switch (t3.shape) {
-            case "rect":
-              (I2 = { left: t3.x[0] * (t3.x[1] ? a3.width : 1), top: t3.y[0] * (t3.y[1] ? a3.height : 1), width: t3.width[0] * (t3.width[1] ? a3.width : 1), height: t3.height[0] * (t3.height[1] ? a3.height : 1) }).right = I2.left + I2.width, I2.bottom = I2.top + I2.height, b3 = P3.strokeWidth / 2, E3 = (x3 = Math.min(I2.width, I2.height)) ? x3 / 2 * Math.SQRT2 + b3 : 0, O3 = (v3 = t3.radius ? t3.radius <= E3 ? t3.radius : E3 : 0) ? (w3 = v3 - (k2 = (v3 - b3) / Math.SQRT2), M3 = v3 * ee, O3 = [{ x: I2.left - w3, y: I2.top + k2 }, { x: I2.left + k2, y: I2.top - w3 }, { x: I2.right - k2, y: I2.top - w3 }, { x: I2.right + w3, y: I2.top + k2 }, { x: I2.right + w3, y: I2.bottom - k2 }, { x: I2.right - k2, y: I2.bottom + w3 }, { x: I2.left + k2, y: I2.bottom + w3 }, { x: I2.left - w3, y: I2.bottom - k2 }], P3.pathListRel = [[O3[0], { x: O3[0].x, y: O3[0].y - M3 }, { x: O3[1].x - M3, y: O3[1].y }, O3[1]]], O3[1].x !== O3[2].x && P3.pathListRel.push([O3[1], O3[2]]), P3.pathListRel.push([O3[2], { x: O3[2].x + M3, y: O3[2].y }, { x: O3[3].x, y: O3[3].y - M3 }, O3[3]]), O3[3].y !== O3[4].y && P3.pathListRel.push([O3[3], O3[4]]), P3.pathListRel.push([O3[4], { x: O3[4].x, y: O3[4].y + M3 }, { x: O3[5].x + M3, y: O3[5].y }, O3[5]]), O3[5].x !== O3[6].x && P3.pathListRel.push([O3[5], O3[6]]), P3.pathListRel.push([O3[6], { x: O3[6].x - M3, y: O3[6].y }, { x: O3[7].x, y: O3[7].y + M3 }, O3[7]]), O3[7].y !== O3[0].y && P3.pathListRel.push([O3[7], O3[0]]), P3.pathListRel.push([]), w3 = v3 - k2 + P3.strokeWidth / 2, [{ x: I2.left - w3, y: I2.top - w3 }, { x: I2.right + w3, y: I2.bottom + w3 }]) : (w3 = P3.strokeWidth / 2, O3 = [{ x: I2.left - w3, y: I2.top - w3 }, { x: I2.right + w3, y: I2.bottom + w3 }], P3.pathListRel = [[O3[0], { x: O3[1].x, y: O3[0].y }], [{ x: O3[1].x, y: O3[0].y }, O3[1]], [O3[1], { x: O3[0].x, y: O3[1].y }], []], [{ x: I2.left - P3.strokeWidth, y: I2.top - P3.strokeWidth }, { x: I2.right + P3.strokeWidth, y: I2.bottom + P3.strokeWidth }]), P3.bBoxRel = { left: O3[0].x, top: O3[0].y, right: O3[1].x, bottom: O3[1].y, width: O3[1].x - O3[0].x, height: O3[1].y - O3[0].y };
-              break;
-            case "circle":
-              (_3 = { left: t3.x[0] * (t3.x[1] ? a3.width : 1), top: t3.y[0] * (t3.y[1] ? a3.height : 1), width: t3.width[0] * (t3.width[1] ? a3.width : 1), height: t3.height[0] * (t3.height[1] ? a3.height : 1) }).width || _3.height || (_3.width = _3.height = 10), _3.width || (_3.width = _3.height), _3.height || (_3.height = _3.width), _3.right = _3.left + _3.width, _3.bottom = _3.top + _3.height, r3 = _3.left + _3.width / 2, s3 = _3.top + _3.height / 2, d3 = P3.strokeWidth / 2, f3 = _3.width / 2, y3 = _3.height / 2, u3 = f3 * Math.SQRT2 + d3, h3 = y3 * Math.SQRT2 + d3, p3 = u3 * ee, c3 = h3 * ee, g2 = [{ x: r3 - u3, y: s3 }, { x: r3, y: s3 - h3 }, { x: r3 + u3, y: s3 }, { x: r3, y: s3 + h3 }], P3.pathListRel = [[g2[0], { x: g2[0].x, y: g2[0].y - c3 }, { x: g2[1].x - p3, y: g2[1].y }, g2[1]], [g2[1], { x: g2[1].x + p3, y: g2[1].y }, { x: g2[2].x, y: g2[2].y - c3 }, g2[2]], [g2[2], { x: g2[2].x, y: g2[2].y + c3 }, { x: g2[3].x + p3, y: g2[3].y }, g2[3]], [g2[3], { x: g2[3].x - p3, y: g2[3].y }, { x: g2[0].x, y: g2[0].y + c3 }, g2[0]], []], m3 = u3 - f3 + P3.strokeWidth / 2, S3 = h3 - y3 + P3.strokeWidth / 2, g2 = [{ x: _3.left - m3, y: _3.top - S3 }, { x: _3.right + m3, y: _3.bottom + S3 }], P3.bBoxRel = { left: g2[0].x, top: g2[0].y, right: g2[1].x, bottom: g2[1].y, width: g2[1].x - g2[0].x, height: g2[1].y - g2[0].y };
-              break;
-            case "polygon":
-              t3.points.forEach(function(e4) {
-                var t4 = e4.x[0] * (e4.x[1] ? a3.width : 1), n4 = e4.y[0] * (e4.y[1] ? a3.height : 1);
-                i3 ? (t4 < i3.left && (i3.left = t4), t4 > i3.right && (i3.right = t4), n4 < i3.top && (i3.top = n4), n4 > i3.bottom && (i3.bottom = n4)) : i3 = { left: t4, right: t4, top: n4, bottom: n4 }, o3 ? P3.pathListRel.push([o3, { x: t4, y: n4 }]) : P3.pathListRel = [], o3 = { x: t4, y: n4 };
-              }), P3.pathListRel.push([]), e3 = P3.strokeWidth / 2, l3 = [{ x: i3.left - e3, y: i3.top - e3 }, { x: i3.right + e3, y: i3.bottom + e3 }], P3.bBoxRel = { left: l3[0].x, top: l3[0].y, right: l3[1].x, bottom: l3[1].y, width: l3[1].x - l3[0].x, height: l3[1].y - l3[0].y };
-          }
-          W3.pathListRel = W3.bBoxRel = true;
-        }
-        return (W3.pathListRel || W3.elementLeft || W3.elementTop) && (P3.pathData = Re(P3.pathListRel, function(e4) {
-          e4.x += a3.left, e4.y += a3.top;
-        })), qe(t3, N2, "strokeWidth", n3 = P3.strokeWidth) && (t3.path.style.strokeWidth = n3 + "px"), Ge(n3 = P3.pathData, N2.pathData) && (t3.path.setPathData(n3), N2.pathData = n3, W3.pathData = true), t3.dash && (!W3.pathData && (!W3.strokeWidth || t3.dashLen && t3.dashGap) || (P3.dashLen = t3.dashLen || 2 * P3.strokeWidth, P3.dashGap = t3.dashGap || P3.strokeWidth), W3.dash = qe(t3, N2, "dashLen", P3.dashLen) || W3.dash, W3.dash = qe(t3, N2, "dashGap", P3.dashGap) || W3.dash, W3.dash && (t3.path.style.strokeDasharray = N2.dashLen + "," + N2.dashGap)), C3 = P3.viewBoxBBox, L3 = N2.viewBoxBBox, A2 = t3.svg.viewBox.baseVal, V3 = t3.svg.style, C3.x = P3.bBoxRel.left + a3.left, C3.y = P3.bBoxRel.top + a3.top, C3.width = P3.bBoxRel.width, C3.height = P3.bBoxRel.height, ["x", "y", "width", "height"].forEach(function(e4) {
-          (n3 = C3[e4]) !== L3[e4] && (A2[e4] = L3[e4] = n3, V3[oe[e4]] = n3 + ("x" === e4 || "y" === e4 ? t3.bodyOffset[e4] : 0) + "px");
-        }), W3.strokeWidth || W3.pathListRel || W3.bBoxRel;
-      } }, mouseHoverAnchor: { type: "anchor", argOptions: [{ optionName: "element", type: Ie }, { optionName: "showEffectName", type: "string" }], style: { backgroundImage: "url('data:image/svg+xml;charset=utf-8;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ij48cG9seWdvbiBwb2ludHM9IjI0LDAgMCw4IDgsMTEgMCwxOSA1LDI0IDEzLDE2IDE2LDI0IiBmaWxsPSJjb3JhbCIvPjwvc3ZnPg==')", backgroundSize: "", backgroundRepeat: "no-repeat", backgroundColor: "#f8f881", cursor: "default" }, hoverStyle: { backgroundImage: "none", backgroundColor: "#fadf8f" }, padding: { top: 1, right: 15, bottom: 1, left: 2 }, minHeight: 15, backgroundPosition: { right: 2, top: 2 }, backgroundSize: { width: 12, height: 12 }, dirKeys: [["top", "Top"], ["right", "Right"], ["bottom", "Bottom"], ["left", "Left"]], init: function(a3, i3) {
-        var o3, t3, e3, n3, l3, r3, s3, u3, h3, p3, c3, d3 = I.mouseHoverAnchor, f3 = {};
-        if (a3.element = I.pointAnchor.checkElement(i3.element), u3 = a3.element, !((p3 = u3.ownerDocument) && (h3 = p3.defaultView) && h3.HTMLElement && u3 instanceof h3.HTMLElement))
-          throw new Error("`element` must be HTML element");
-        return d3.style.backgroundSize = d3.backgroundSize.width + "px " + d3.backgroundSize.height + "px", ["style", "hoverStyle"].forEach(function(e4) {
-          var n4 = d3[e4];
-          a3[e4] = Object.keys(n4).reduce(function(e5, t4) {
-            return e5[t4] = n4[t4], e5;
-          }, {});
-        }), "inline" === (o3 = a3.element.ownerDocument.defaultView.getComputedStyle(a3.element, "")).display ? a3.style.display = "inline-block" : "none" === o3.display && (a3.style.display = "block"), I.mouseHoverAnchor.dirKeys.forEach(function(e4) {
-          var t4 = e4[0], n4 = "padding" + e4[1];
-          parseFloat(o3[n4]) < d3.padding[t4] && (a3.style[n4] = d3.padding[t4] + "px");
-        }), a3.style.display && (n3 = a3.element.style.display, a3.element.style.display = a3.style.display), I.mouseHoverAnchor.dirKeys.forEach(function(e4) {
-          var t4 = "padding" + e4[1];
-          a3.style[t4] && (f3[t4] = a3.element.style[t4], a3.element.style[t4] = a3.style[t4]);
-        }), (e3 = a3.element.getBoundingClientRect()).height < d3.minHeight && (se ? (c3 = d3.minHeight, "content-box" === o3.boxSizing ? c3 -= parseFloat(o3.borderTopWidth) + parseFloat(o3.borderBottomWidth) + parseFloat(o3.paddingTop) + parseFloat(o3.paddingBottom) : "padding-box" === o3.boxSizing && (c3 -= parseFloat(o3.borderTopWidth) + parseFloat(o3.borderBottomWidth)), a3.style.height = c3 + "px") : a3.style.height = parseFloat(o3.height) + (d3.minHeight - e3.height) + "px"), a3.style.backgroundPosition = pe ? e3.width - d3.backgroundSize.width - d3.backgroundPosition.right + "px " + d3.backgroundPosition.top + "px" : "right " + d3.backgroundPosition.right + "px top " + d3.backgroundPosition.top + "px", a3.style.display && (a3.element.style.display = n3), I.mouseHoverAnchor.dirKeys.forEach(function(e4) {
-          var t4 = "padding" + e4[1];
-          a3.style[t4] && (a3.element.style[t4] = f3[t4]);
-        }), ["style", "hoverStyle"].forEach(function(e4) {
-          var t4 = a3[e4], n4 = i3[e4];
-          fe(n4) && Object.keys(n4).forEach(function(e5) {
-            "string" == typeof n4[e5] || ye(n4[e5]) ? t4[e5] = n4[e5] : null == n4[e5] && delete t4[e5];
-          });
-        }), "function" == typeof i3.onSwitch && (s3 = i3.onSwitch), i3.showEffectName && M2[i3.showEffectName] && (a3.showEffectName = l3 = i3.showEffectName), r3 = i3.animOptions, a3.elmStyle = t3 = a3.element.style, a3.mouseenter = function(e4) {
-          a3.hoverStyleSave = d3.getStyles(t3, Object.keys(a3.hoverStyle)), d3.setStyles(t3, a3.hoverStyle), a3.boundTargets.forEach(function(e5) {
-            nt(e5.props, true, l3, r3);
-          }), s3 && s3(e4);
-        }, a3.mouseleave = function(e4) {
-          d3.setStyles(t3, a3.hoverStyleSave), a3.boundTargets.forEach(function(e5) {
-            nt(e5.props, false, l3, r3);
-          }), s3 && s3(e4);
-        }, true;
-      }, bind: function(e3, t3) {
-        var n3, a3, i3, o3, l3;
-        return t3.props.svg ? I.mouseHoverAnchor.llShow(t3.props, false, e3.showEffectName) : je(function() {
-          I.mouseHoverAnchor.llShow(t3.props, false, e3.showEffectName);
-        }), e3.enabled || (e3.styleSave = I.mouseHoverAnchor.getStyles(e3.elmStyle, Object.keys(e3.style)), I.mouseHoverAnchor.setStyles(e3.elmStyle, e3.style), e3.removeEventListener = (n3 = e3.element, a3 = e3.mouseenter, i3 = e3.mouseleave, "onmouseenter" in n3 && "onmouseleave" in n3 ? (n3.addEventListener("mouseenter", a3, false), n3.addEventListener("mouseleave", i3, false), function() {
-          n3.removeEventListener("mouseenter", a3, false), n3.removeEventListener("mouseleave", i3, false);
-        }) : (console.warn("mouseenter and mouseleave events polyfill is enabled."), o3 = function(e4) {
-          e4.relatedTarget && (e4.relatedTarget === this || this.compareDocumentPosition(e4.relatedTarget) & Node.DOCUMENT_POSITION_CONTAINED_BY) || a3.apply(this, arguments);
-        }, n3.addEventListener("mouseover", o3), l3 = function(e4) {
-          e4.relatedTarget && (e4.relatedTarget === this || this.compareDocumentPosition(e4.relatedTarget) & Node.DOCUMENT_POSITION_CONTAINED_BY) || i3.apply(this, arguments);
-        }, n3.addEventListener("mouseout", l3), function() {
-          n3.removeEventListener("mouseover", o3, false), n3.removeEventListener("mouseout", l3, false);
-        })), e3.enabled = true), true;
-      }, unbind: function(e3, t3) {
-        e3.enabled && e3.boundTargets.length <= 1 && (e3.removeEventListener(), I.mouseHoverAnchor.setStyles(e3.elmStyle, e3.styleSave), e3.enabled = false), I.mouseHoverAnchor.llShow(t3.props, true, e3.showEffectName);
-      }, removeOption: function(e3, t3) {
-        I.pointAnchor.removeOption(e3, t3);
-      }, remove: function(t3) {
-        t3.boundTargets.length && (console.error("LeaderLineAttachment was not unbound by remove"), t3.boundTargets.forEach(function(e3) {
-          I.mouseHoverAnchor.unbind(t3, e3);
-        }));
-      }, getBBoxNest: function(e3, t3) {
-        return Ae(e3.element, t3.baseWindow);
-      }, llShow: function(e3, t3, n3) {
-        M2[n3 || e3.curStats.show_effect].stop(e3, true, t3), e3.aplStats.show_on = t3;
-      }, getStyles: function(n3, e3) {
-        return e3.reduce(function(e4, t3) {
-          return e4[t3] = n3[t3], e4;
-        }, {});
-      }, setStyles: function(t3, n3) {
-        Object.keys(n3).forEach(function(e3) {
-          t3[e3] = n3[e3];
-        });
-      } }, captionLabel: { type: "label", argOptions: [{ optionName: "text", type: "string" }], stats: { color: {}, x: {}, y: {} }, textStyleProps: ["fontFamily", "fontStyle", "fontVariant", "fontWeight", "fontStretch", "fontSize", "fontSizeAdjust", "kerning", "letterSpacing", "wordSpacing", "textDecoration"], init: function(u3, t3) {
-        return "string" == typeof t3.text && (u3.text = t3.text.trim()), !!u3.text && ("string" == typeof t3.color && (u3.color = t3.color.trim()), u3.outlineColor = "string" == typeof t3.outlineColor ? t3.outlineColor.trim() : "#fff", Array.isArray(t3.offset) && ye(t3.offset[0]) && ye(t3.offset[1]) && (u3.offset = { x: t3.offset[0], y: t3.offset[1] }), ye(t3.lineOffset) && (u3.lineOffset = t3.lineOffset), I.captionLabel.textStyleProps.forEach(function(e3) {
-          null != t3[e3] && (u3[e3] = t3[e3]);
-        }), u3.updateColor = function(e3) {
-          I.captionLabel.updateColor(u3, e3);
-        }, u3.updateSocketXY = function(e3) {
-          var t4, n3, a3, i3, o3 = u3.curStats, l3 = u3.aplStats, r3 = e3.curStats, s3 = r3.position_socketXYSE[u3.socketIndex];
-          null != s3.x && (u3.offset ? (o3.x = s3.x + u3.offset.x, o3.y = s3.y + u3.offset.y) : (t4 = u3.height / 2, n3 = Math.max(r3.attach_plugSideLenSE[u3.socketIndex] || 0, r3.line_strokeWidth / 2), a3 = r3.position_socketXYSE[u3.socketIndex ? 0 : 1], s3.socketId === T2 || s3.socketId === P2 ? (o3.x = s3.socketId === T2 ? s3.x - t4 - u3.width : s3.x + t4, o3.y = a3.y < s3.y ? s3.y + n3 + t4 : s3.y - n3 - t4 - u3.height) : (o3.x = a3.x < s3.x ? s3.x + n3 + t4 : s3.x - n3 - t4 - u3.width, o3.y = s3.socketId === V2 ? s3.y - t4 - u3.height : s3.y + t4)), qe(u3, l3, "x", i3 = o3.x) && (u3.elmPosition.x.baseVal.getItem(0).value = i3), qe(u3, l3, "y", i3 = o3.y) && (u3.elmPosition.y.baseVal.getItem(0).value = i3 + u3.height));
-        }, u3.updatePath = function(e3) {
-          var t4, n3, a3 = u3.curStats, i3 = u3.aplStats, o3 = e3.pathList.animVal || e3.pathList.baseVal;
-          o3 && (t4 = I.captionLabel.getMidPoint(o3, u3.lineOffset), a3.x = t4.x - u3.width / 2, a3.y = t4.y - u3.height / 2, qe(u3, i3, "x", n3 = a3.x) && (u3.elmPosition.x.baseVal.getItem(0).value = n3), qe(u3, i3, "y", n3 = a3.y) && (u3.elmPosition.y.baseVal.getItem(0).value = n3 + u3.height));
-        }, u3.updateShow = function(e3) {
-          I.captionLabel.updateShow(u3, e3);
-        }, pe && (u3.adjustEdge = function(e3, t4) {
-          var n3 = u3.curStats;
-          null != n3.x && I.captionLabel.adjustEdge(t4, { x: n3.x, y: n3.y, width: u3.width, height: u3.height }, u3.strokeWidth / 2);
-        }), true);
-      }, updateColor: function(e3, t3) {
-        var n3, a3 = e3.curStats, i3 = e3.aplStats, o3 = t3.curStats;
-        a3.color = n3 = e3.color || o3.line_color, qe(e3, i3, "color", n3) && (e3.styleFill.fill = n3);
-      }, updateShow: function(e3, t3) {
-        var n3 = true === t3.isShown;
-        n3 !== e3.isShown && (e3.styleShow.visibility = n3 ? "" : "hidden", e3.isShown = n3);
-      }, adjustEdge: function(e3, t3, n3) {
-        var a3 = { x1: t3.x - n3, y1: t3.y - n3, x2: t3.x + t3.width + n3, y2: t3.y + t3.height + n3 };
-        a3.x1 < e3.x1 && (e3.x1 = a3.x1), a3.y1 < e3.y1 && (e3.y1 = a3.y1), a3.x2 > e3.x2 && (e3.x2 = a3.x2), a3.y2 > e3.y2 && (e3.y2 = a3.y2);
-      }, newText: function(e3, t3, n3, a3, i3) {
-        var o3, l3, r3, s3, u3, h3 = t3.createElementNS(re, "text");
-        return h3.textContent = e3, [h3.x, h3.y].forEach(function(e4) {
-          var t4 = n3.createSVGLength();
-          t4.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PX, 0), e4.baseVal.initialize(t4);
-        }), "boolean" != typeof f2 && (f2 = "paintOrder" in h3.style), i3 && !f2 ? (l3 = t3.createElementNS(re, "defs"), h3.id = a3, l3.appendChild(h3), (s3 = (o3 = t3.createElementNS(re, "g")).appendChild(t3.createElementNS(re, "use"))).href.baseVal = "#" + a3, (r3 = o3.appendChild(t3.createElementNS(re, "use"))).href.baseVal = "#" + a3, (u3 = s3.style).strokeLinejoin = "round", { elmPosition: h3, styleText: h3.style, styleFill: r3.style, styleStroke: u3, styleShow: o3.style, elmsAppend: [l3, o3] }) : (u3 = h3.style, i3 && (u3.strokeLinejoin = "round", u3.paintOrder = "stroke"), { elmPosition: h3, styleText: u3, styleFill: u3, styleStroke: i3 ? u3 : null, styleShow: u3, elmsAppend: [h3] });
-      }, getMidPoint: function(e3, t3) {
-        var n3, a3, i3 = Fe(e3), o3 = i3.segsLen, l3 = i3.lenAll, r3 = -1, s3 = l3 / 2 + (t3 || 0);
-        if (s3 <= 0)
-          return 2 === (n3 = e3[0]).length ? Pe(n3[0], n3[1], 0) : Te(n3[0], n3[1], n3[2], n3[3], 0);
-        if (l3 <= s3)
-          return 2 === (n3 = e3[e3.length - 1]).length ? Pe(n3[0], n3[1], 1) : Te(n3[0], n3[1], n3[2], n3[3], 1);
-        for (a3 = []; s3 > o3[++r3]; )
-          a3.push(e3[r3]), s3 -= o3[r3];
-        return 2 === (n3 = e3[r3]).length ? Pe(n3[0], n3[1], s3 / o3[r3]) : Te(n3[0], n3[1], n3[2], n3[3], Be(n3[0], n3[1], n3[2], n3[3], s3));
-      }, initSvg: function(t3, n3) {
-        var e3, a3, i3 = I.captionLabel.newText(t3.text, n3.baseWindow.document, n3.svg, A + "-captionLabel-" + t3._id, t3.outlineColor);
-        ["elmPosition", "styleFill", "styleShow", "elmsAppend"].forEach(function(e4) {
-          t3[e4] = i3[e4];
-        }), t3.isShown = false, t3.styleShow.visibility = "hidden", I.captionLabel.textStyleProps.forEach(function(e4) {
-          null != t3[e4] && (i3.styleText[e4] = t3[e4]);
-        }), i3.elmsAppend.forEach(function(e4) {
-          n3.svg.appendChild(e4);
-        }), e3 = i3.elmPosition.getBBox(), t3.width = e3.width, t3.height = e3.height, t3.outlineColor && (a3 = 10 < (a3 = e3.height / 9) ? 10 : a3 < 2 ? 2 : a3, i3.styleStroke.strokeWidth = a3 + "px", i3.styleStroke.stroke = t3.outlineColor), t3.strokeWidth = a3 || 0, Xe(t3.aplStats, I.captionLabel.stats), t3.updateColor(n3), t3.refSocketXY ? t3.updateSocketXY(n3) : t3.updatePath(n3), pe && et(n3, {}), t3.updateShow(n3);
-      }, bind: function(e3, t3) {
-        var n3 = t3.props;
-        return e3.color || De(n3, "cur_line_color", e3.updateColor), (e3.refSocketXY = "startLabel" === t3.optionName || "endLabel" === t3.optionName) ? (e3.socketIndex = "startLabel" === t3.optionName ? 0 : 1, De(n3, "apl_position", e3.updateSocketXY), e3.offset || (De(n3, "cur_attach_plugSideLenSE", e3.updateSocketXY), De(n3, "cur_line_strokeWidth", e3.updateSocketXY))) : De(n3, "apl_path", e3.updatePath), De(n3, "svgShow", e3.updateShow), pe && De(n3, "new_edge4viewBox", e3.adjustEdge), I.captionLabel.initSvg(e3, n3), true;
-      }, unbind: function(e3, t3) {
-        var n3 = t3.props;
-        e3.elmsAppend && (e3.elmsAppend.forEach(function(e4) {
-          n3.svg.removeChild(e4);
-        }), e3.elmPosition = e3.styleFill = e3.styleShow = e3.elmsAppend = null), Xe(e3.curStats, I.captionLabel.stats), Xe(e3.aplStats, I.captionLabel.stats), e3.color || ze(n3, "cur_line_color", e3.updateColor), e3.refSocketXY ? (ze(n3, "apl_position", e3.updateSocketXY), e3.offset || (ze(n3, "cur_attach_plugSideLenSE", e3.updateSocketXY), ze(n3, "cur_line_strokeWidth", e3.updateSocketXY))) : ze(n3, "apl_path", e3.updatePath), ze(n3, "svgShow", e3.updateShow), pe && (ze(n3, "new_edge4viewBox", e3.adjustEdge), et(n3, {}));
-      }, removeOption: function(e3, t3) {
-        var n3 = t3.props, a3 = {};
-        a3[t3.optionName] = "", ot(n3, a3);
-      }, remove: function(t3) {
-        t3.boundTargets.length && (console.error("LeaderLineAttachment was not unbound by remove"), t3.boundTargets.forEach(function(e3) {
-          I.captionLabel.unbind(t3, e3);
-        }));
-      } }, pathLabel: { type: "label", argOptions: [{ optionName: "text", type: "string" }], stats: { color: {}, startOffset: {}, pathData: {} }, init: function(s3, t3) {
-        return "string" == typeof t3.text && (s3.text = t3.text.trim()), !!s3.text && ("string" == typeof t3.color && (s3.color = t3.color.trim()), s3.outlineColor = "string" == typeof t3.outlineColor ? t3.outlineColor.trim() : "#fff", ye(t3.lineOffset) && (s3.lineOffset = t3.lineOffset), I.captionLabel.textStyleProps.forEach(function(e3) {
-          null != t3[e3] && (s3[e3] = t3[e3]);
-        }), s3.updateColor = function(e3) {
-          I.captionLabel.updateColor(s3, e3);
-        }, s3.updatePath = function(e3) {
-          var t4, n3 = s3.curStats, a3 = s3.aplStats, i3 = e3.curStats, o3 = e3.pathList.animVal || e3.pathList.baseVal;
-          o3 && (n3.pathData = t4 = I.pathLabel.getOffsetPathData(o3, i3.line_strokeWidth / 2 + s3.strokeWidth / 2 + s3.height / 4, 1.25 * s3.height), Ge(t4, a3.pathData) && (s3.elmPath.setPathData(t4), a3.pathData = t4, s3.bBox = s3.elmPosition.getBBox(), s3.updateStartOffset(e3)));
-        }, s3.updateStartOffset = function(e3) {
-          var t4, i3, n3, a3, o3 = s3.curStats, l3 = s3.aplStats, r3 = e3.curStats;
-          o3.pathData && (2 === s3.semIndex && !s3.lineOffset || (n3 = o3.pathData.reduce(function(e4, t5) {
-            var n4, a4 = t5.values;
-            switch (t5.type) {
-              case "M":
-                i3 = { x: a4[0], y: a4[1] };
+          return this._skipOptionalSpacesOrDelimiter(), e4;
+        } };
+        function n3(e4) {
+          if (!e4 || 0 === e4.length)
+            return [];
+          var t4 = new i3(e4), n4 = [];
+          if (t4.initialCommandIsMoveTo())
+            for (; t4.hasMoreData(); ) {
+              var a4 = t4.parseSegment();
+              if (null === a4)
                 break;
-              case "L":
-                n4 = { x: a4[0], y: a4[1] }, i3 && (e4 += Ve(i3, n4)), i3 = n4;
-                break;
-              case "C":
-                n4 = { x: a4[4], y: a4[5] }, i3 && (e4 += We(i3, { x: a4[0], y: a4[1] }, { x: a4[2], y: a4[3] }, n4)), i3 = n4;
+              n4.push(a4);
             }
-            return e4;
-          }, 0), a3 = 0 === s3.semIndex ? 0 : 1 === s3.semIndex ? n3 : n3 / 2, 2 !== s3.semIndex && (t4 = Math.max(r3.attach_plugBackLenSE[s3.semIndex] || 0, r3.line_strokeWidth / 2) + s3.strokeWidth / 2 + s3.height / 4, a3 = (a3 += 0 === s3.semIndex ? t4 : -t4) < 0 ? 0 : n3 < a3 ? n3 : a3), s3.lineOffset && (a3 = (a3 += s3.lineOffset) < 0 ? 0 : n3 < a3 ? n3 : a3), o3.startOffset = a3, qe(s3, l3, "startOffset", a3) && (s3.elmOffset.startOffset.baseVal.value = a3)));
-        }, s3.updateShow = function(e3) {
-          I.captionLabel.updateShow(s3, e3);
-        }, pe && (s3.adjustEdge = function(e3, t4) {
-          s3.bBox && I.captionLabel.adjustEdge(t4, s3.bBox, s3.strokeWidth / 2);
-        }), true);
-      }, getOffsetPathData: function(e3, x3, n3) {
-        var b3, a3, k2 = [];
-        function w3(e4, t3) {
-          return Math.abs(e4.x - t3.x) < 3 && Math.abs(e4.y - t3.y) < 3;
+          return n4;
         }
-        return e3.forEach(function(e4) {
-          var t3, n4, a4, i3, o3, l3, r3, s3, u3, h3, p3, c3, d3, f3, y3, m3, S3, g2, _3, v3, E3;
-          2 === e4.length ? (g2 = e4[0], _3 = e4[1], v3 = x3, E3 = Math.atan2(g2.y - _3.y, _3.x - g2.x) + 0.5 * Math.PI, t3 = [{ x: g2.x + Math.cos(E3) * v3, y: g2.y + Math.sin(E3) * v3 * -1 }, { x: _3.x + Math.cos(E3) * v3, y: _3.y + Math.sin(E3) * v3 * -1 }], b3 ? (a4 = b3.points, 0 <= (i3 = Math.atan2(a4[1].y - a4[0].y, a4[0].x - a4[1].x) - Math.atan2(e4[0].y - e4[1].y, e4[1].x - e4[0].x)) && i3 <= Math.PI ? n4 = { type: "line", points: t3, inside: true } : (l3 = Ne(a4[0], a4[1], x3), o3 = Ne(t3[1], t3[0], x3), s3 = a4[0], h3 = o3, p3 = t3[1], c3 = (u3 = l3).x - s3.x, d3 = u3.y - s3.y, f3 = p3.x - h3.x, y3 = p3.y - h3.y, m3 = (-d3 * (s3.x - h3.x) + c3 * (s3.y - h3.y)) / (-f3 * d3 + c3 * y3), S3 = (f3 * (s3.y - h3.y) - y3 * (s3.x - h3.x)) / (-f3 * d3 + c3 * y3), n4 = (r3 = 0 <= m3 && m3 <= 1 && 0 <= S3 && S3 <= 1 ? { x: s3.x + S3 * c3, y: s3.y + S3 * d3 } : null) ? { type: "line", points: [a4[1] = r3, t3[1]] } : (a4[1] = w3(o3, l3) ? o3 : l3, { type: "line", points: [o3, t3[1]] }), b3.len = Ve(a4[0], a4[1]))) : n4 = { type: "line", points: t3 }, n4.len = Ve(n4.points[0], n4.points[1]), k2.push(b3 = n4)) : (k2.push({ type: "cubic", points: function(e5, t4, n5, a5, i4, o4) {
-            for (var l4, r4, s4 = We(e5, t4, n5, a5) / o4, u4 = 1 / (o4 < i4 ? i4 / o4 * s4 : s4), h4 = [], p4 = 0; r4 = (90 - (l4 = Te(e5, t4, n5, a5, p4)).angle) * (Math.PI / 180), h4.push({ x: l4.x + Math.cos(r4) * i4, y: l4.y + Math.sin(r4) * i4 * -1 }), !(1 <= p4); )
-              1 < (p4 += u4) && (p4 = 1);
-            return h4;
-          }(e4[0], e4[1], e4[2], e4[3], x3, 16) }), b3 = null);
-        }), b3 = null, k2.forEach(function(e4) {
-          var t3;
-          b3 = "line" === e4.type ? (e4.inside && (b3.len > x3 ? ((t3 = b3.points)[1] = Ne(t3[0], t3[1], -x3), b3.len = Ve(t3[0], t3[1])) : (b3.points = null, b3.len = 0), e4.len > x3 + n3 ? ((t3 = e4.points)[0] = Ne(t3[1], t3[0], -(x3 + n3)), e4.len = Ve(t3[0], t3[1])) : (e4.points = null, e4.len = 0)), e4) : null;
-        }), k2.reduce(function(t3, e4) {
-          var n4 = e4.points;
-          return n4 && (a3 && w3(n4[0], a3) || t3.push({ type: "M", values: [n4[0].x, n4[0].y] }), "line" === e4.type ? t3.push({ type: "L", values: [n4[1].x, n4[1].y] }) : (n4.shift(), n4.forEach(function(e5) {
-            t3.push({ type: "L", values: [e5.x, e5.y] });
-          })), a3 = n4[n4.length - 1]), t3;
-        }, []);
-      }, newText: function(e3, t3, n3, a3) {
-        var i3, o3, l3, r3, s3, u3, h3, p3, c3 = t3.createElementNS(re, "defs"), d3 = c3.appendChild(t3.createElementNS(re, "path"));
-        return d3.id = i3 = n3 + "-path", (r3 = (l3 = t3.createElementNS(re, "text")).appendChild(t3.createElementNS(re, "textPath"))).href.baseVal = "#" + i3, r3.startOffset.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PX, 0), r3.textContent = e3, "boolean" != typeof f2 && (f2 = "paintOrder" in l3.style), a3 && !f2 ? (l3.id = o3 = n3 + "-text", c3.appendChild(l3), (h3 = (s3 = t3.createElementNS(re, "g")).appendChild(t3.createElementNS(re, "use"))).href.baseVal = "#" + o3, (u3 = s3.appendChild(t3.createElementNS(re, "use"))).href.baseVal = "#" + o3, (p3 = h3.style).strokeLinejoin = "round", { elmPosition: l3, elmPath: d3, elmOffset: r3, styleText: l3.style, styleFill: u3.style, styleStroke: p3, styleShow: s3.style, elmsAppend: [c3, s3] }) : (p3 = l3.style, a3 && (p3.strokeLinejoin = "round", p3.paintOrder = "stroke"), { elmPosition: l3, elmPath: d3, elmOffset: r3, styleText: p3, styleFill: p3, styleStroke: a3 ? p3 : null, styleShow: p3, elmsAppend: [c3, l3] });
-      }, initSvg: function(t3, n3) {
-        var e3, a3, i3 = I.pathLabel.newText(t3.text, n3.baseWindow.document, A + "-pathLabel-" + t3._id, t3.outlineColor);
-        ["elmPosition", "elmPath", "elmOffset", "styleFill", "styleShow", "elmsAppend"].forEach(function(e4) {
-          t3[e4] = i3[e4];
-        }), t3.isShown = false, t3.styleShow.visibility = "hidden", I.captionLabel.textStyleProps.forEach(function(e4) {
-          null != t3[e4] && (i3.styleText[e4] = t3[e4]);
-        }), i3.elmsAppend.forEach(function(e4) {
-          n3.svg.appendChild(e4);
-        }), i3.elmPath.setPathData([{ type: "M", values: [0, 100] }, { type: "h", values: [100] }]), e3 = i3.elmPosition.getBBox(), i3.styleText.textAnchor = ["start", "end", "middle"][t3.semIndex], 2 !== t3.semIndex || t3.lineOffset || i3.elmOffset.startOffset.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PERCENTAGE, 50), t3.height = e3.height, t3.outlineColor && (a3 = 10 < (a3 = e3.height / 9) ? 10 : a3 < 2 ? 2 : a3, i3.styleStroke.strokeWidth = a3 + "px", i3.styleStroke.stroke = t3.outlineColor), t3.strokeWidth = a3 || 0, Xe(t3.aplStats, I.pathLabel.stats), t3.updateColor(n3), t3.updatePath(n3), t3.updateStartOffset(n3), pe && et(n3, {}), t3.updateShow(n3);
-      }, bind: function(e3, t3) {
-        var n3 = t3.props;
-        return e3.color || De(n3, "cur_line_color", e3.updateColor), De(n3, "cur_line_strokeWidth", e3.updatePath), De(n3, "apl_path", e3.updatePath), e3.semIndex = "startLabel" === t3.optionName ? 0 : "endLabel" === t3.optionName ? 1 : 2, 2 === e3.semIndex && !e3.lineOffset || De(n3, "cur_attach_plugBackLenSE", e3.updateStartOffset), De(n3, "svgShow", e3.updateShow), pe && De(n3, "new_edge4viewBox", e3.adjustEdge), I.pathLabel.initSvg(e3, n3), true;
-      }, unbind: function(e3, t3) {
-        var n3 = t3.props;
-        e3.elmsAppend && (e3.elmsAppend.forEach(function(e4) {
-          n3.svg.removeChild(e4);
-        }), e3.elmPosition = e3.elmPath = e3.elmOffset = e3.styleFill = e3.styleShow = e3.elmsAppend = null), Xe(e3.curStats, I.pathLabel.stats), Xe(e3.aplStats, I.pathLabel.stats), e3.color || ze(n3, "cur_line_color", e3.updateColor), ze(n3, "cur_line_strokeWidth", e3.updatePath), ze(n3, "apl_path", e3.updatePath), 2 === e3.semIndex && !e3.lineOffset || ze(n3, "cur_attach_plugBackLenSE", e3.updateStartOffset), ze(n3, "svgShow", e3.updateShow), pe && (ze(n3, "new_edge4viewBox", e3.adjustEdge), et(n3, {}));
-      }, removeOption: function(e3, t3) {
-        var n3 = t3.props, a3 = {};
-        a3[t3.optionName] = "", ot(n3, a3);
-      }, remove: function(t3) {
-        t3.boundTargets.length && (console.error("LeaderLineAttachment was not unbound by remove"), t3.boundTargets.forEach(function(e3) {
-          I.pathLabel.unbind(t3, e3);
-        }));
-      } } }, Object.keys(I).forEach(function(e3) {
-        lt[e3] = function() {
-          return new C2(I[e3], Array.prototype.slice.call(arguments));
+        function l3(e4) {
+          return e4.map(function(e5) {
+            return { type: e5.type, values: Array.prototype.slice.call(e5.values) };
+          });
+        }
+        function r3(e4) {
+          var u4 = [], h3 = null, p3 = null, c3 = null, d4 = null, f4 = null, y3 = null, m3 = null;
+          return e4.forEach(function(e5) {
+            var t4, n4, a4, i4, o4, l4, r4, s4;
+            "M" === e5.type ? (r4 = e5.values[0], s4 = e5.values[1], u4.push({ type: "M", values: [r4, s4] }), d4 = y3 = r4, f4 = m3 = s4) : "C" === e5.type ? (o4 = e5.values[0], l4 = e5.values[1], t4 = e5.values[2], n4 = e5.values[3], r4 = e5.values[4], s4 = e5.values[5], u4.push({ type: "C", values: [o4, l4, t4, n4, r4, s4] }), p3 = t4, c3 = n4, d4 = r4, f4 = s4) : "L" === e5.type ? (r4 = e5.values[0], s4 = e5.values[1], u4.push({ type: "L", values: [r4, s4] }), d4 = r4, f4 = s4) : "H" === e5.type ? (r4 = e5.values[0], u4.push({ type: "L", values: [r4, f4] }), d4 = r4) : "V" === e5.type ? (s4 = e5.values[0], u4.push({ type: "L", values: [d4, s4] }), f4 = s4) : "S" === e5.type ? (t4 = e5.values[0], n4 = e5.values[1], r4 = e5.values[2], s4 = e5.values[3], i4 = "C" === h3 || "S" === h3 ? (a4 = d4 + (d4 - p3), f4 + (f4 - c3)) : (a4 = d4, f4), u4.push({ type: "C", values: [a4, i4, t4, n4, r4, s4] }), p3 = t4, c3 = n4, d4 = r4, f4 = s4) : "T" === e5.type ? (r4 = e5.values[0], s4 = e5.values[1], l4 = "Q" === h3 || "T" === h3 ? (o4 = d4 + (d4 - p3), f4 + (f4 - c3)) : (o4 = d4, f4), u4.push({ type: "C", values: [a4 = d4 + 2 * (o4 - d4) / 3, i4 = f4 + 2 * (l4 - f4) / 3, r4 + 2 * (o4 - r4) / 3, s4 + 2 * (l4 - s4) / 3, r4, s4] }), p3 = o4, c3 = l4, d4 = r4, f4 = s4) : "Q" === e5.type ? (o4 = e5.values[0], l4 = e5.values[1], r4 = e5.values[2], s4 = e5.values[3], u4.push({ type: "C", values: [a4 = d4 + 2 * (o4 - d4) / 3, i4 = f4 + 2 * (l4 - f4) / 3, r4 + 2 * (o4 - r4) / 3, s4 + 2 * (l4 - s4) / 3, r4, s4] }), p3 = o4, c3 = l4, d4 = r4, f4 = s4) : "A" === e5.type ? (n4 = e5.values[0], a4 = e5.values[1], i4 = e5.values[2], o4 = e5.values[3], l4 = e5.values[4], r4 = e5.values[5], s4 = e5.values[6], 0 === n4 || 0 === a4 ? (u4.push({ type: "C", values: [d4, f4, r4, s4, r4, s4] }), d4 = r4, f4 = s4) : d4 === r4 && f4 === s4 || b3(d4, f4, r4, s4, n4, a4, i4, o4, l4).forEach(function(e6) {
+              u4.push({ type: "C", values: e6 }), d4 = r4, f4 = s4;
+            })) : "Z" === e5.type && (u4.push(e5), d4 = y3, f4 = m3), h3 = e5.type;
+          }), u4;
+        }
+        var s3 = e3.SVGPathElement.prototype.setAttribute, u3 = e3.SVGPathElement.prototype.removeAttribute, d3 = e3.Symbol ? e3.Symbol() : "__cachedPathData", f3 = e3.Symbol ? e3.Symbol() : "__cachedNormalizedPathData", b3 = function(e4, t4, n4, a4, i4, o4, l4, r4, s4, u4) {
+          function h3(e5, t5, n5) {
+            return { x: e5 * Math.cos(n5) - t5 * Math.sin(n5), y: e5 * Math.sin(n5) + t5 * Math.cos(n5) };
+          }
+          var p3 = Math.PI * l4 / 180, c3 = [];
+          u4 ? (_3 = u4[0], v3 = u4[1], S3 = u4[2], g2 = u4[3]) : (e4 = (m3 = h3(e4, t4, -p3)).x, t4 = m3.y, 1 < (m3 = (y3 = (e4 - (n4 = (f4 = h3(n4, a4, -p3)).x)) / 2) * y3 / (i4 * i4) + (d4 = (t4 - (a4 = f4.y)) / 2) * d4 / (o4 * o4)) && (i4 *= m3 = Math.sqrt(m3), o4 *= m3), f4 = i4 * i4, m3 = o4 * o4, S3 = (f4 = (r4 === s4 ? -1 : 1) * Math.sqrt(Math.abs((f4 * m3 - f4 * d4 * d4 - m3 * y3 * y3) / (f4 * d4 * d4 + m3 * y3 * y3)))) * i4 * d4 / o4 + (e4 + n4) / 2, g2 = f4 * -o4 * y3 / i4 + (t4 + a4) / 2, _3 = Math.asin(parseFloat(((t4 - g2) / o4).toFixed(9))), v3 = Math.asin(parseFloat(((a4 - g2) / o4).toFixed(9))), e4 < S3 && (_3 = Math.PI - _3), n4 < S3 && (v3 = Math.PI - v3), _3 < 0 && (_3 = 2 * Math.PI + _3), v3 < 0 && (v3 = 2 * Math.PI + v3), s4 && v3 < _3 && (_3 -= 2 * Math.PI), !s4 && _3 < v3 && (v3 -= 2 * Math.PI));
+          var d4, f4, y3, m3 = v3 - _3;
+          Math.abs(m3) > 120 * Math.PI / 180 && (d4 = v3, f4 = n4, y3 = a4, v3 = s4 && _3 < v3 ? _3 + 120 * Math.PI / 180 * 1 : _3 + 120 * Math.PI / 180 * -1, n4 = S3 + i4 * Math.cos(v3), a4 = g2 + o4 * Math.sin(v3), c3 = b3(n4, a4, f4, y3, i4, o4, l4, 0, s4, [v3, d4, S3, g2]));
+          var m3 = v3 - _3, S3 = Math.cos(_3), g2 = Math.sin(_3), _3 = Math.cos(v3), v3 = Math.sin(v3), m3 = Math.tan(m3 / 4), i4 = 4 / 3 * i4 * m3, o4 = 4 / 3 * o4 * m3, m3 = [e4, t4], S3 = [e4 + i4 * g2, t4 - o4 * S3], _3 = [n4 + i4 * v3, a4 - o4 * _3], a4 = [n4, a4];
+          if (S3[0] = 2 * m3[0] - S3[0], S3[1] = 2 * m3[1] - S3[1], u4)
+            return [S3, _3, a4].concat(c3);
+          var c3 = [S3, _3, a4].concat(c3).join().split(","), E3 = [], x3 = [];
+          return c3.forEach(function(e5, t5) {
+            t5 % 2 ? x3.push(h3(c3[t5 - 1], c3[t5], p3).y) : x3.push(h3(c3[t5], c3[t5 + 1], p3).x), 6 === x3.length && (E3.push(x3), x3 = []);
+          }), E3;
         };
-      }), lt.positionByWindowResize = true, window.addEventListener("resize", v2.add(function() {
-        lt.positionByWindowResize && Object.keys(ge).forEach(function(e3) {
-          et(ge[e3], { position: true });
+        e3.SVGPathElement.prototype.setAttribute = function(e4, t4) {
+          "d" === e4 && (this[d3] = null, this[f3] = null), s3.call(this, e4, t4);
+        }, e3.SVGPathElement.prototype.removeAttribute = function(e4, t4) {
+          "d" === e4 && (this[d3] = null, this[f3] = null), u3.call(this, e4);
+        }, e3.SVGPathElement.prototype.getPathData = function(e4) {
+          if (e4 && e4.normalize) {
+            if (this[f3])
+              return l3(this[f3]);
+            this[d3] ? t4 = l3(this[d3]) : (t4 = n3(this.getAttribute("d") || ""), this[d3] = l3(t4));
+            e4 = r3((s4 = [], c3 = p3 = h3 = u4 = null, t4.forEach(function(e5) {
+              var t5, n4, a4, i4, o4, l4, r4 = e5.type;
+              "M" === r4 ? (o4 = e5.values[0], l4 = e5.values[1], s4.push({ type: "M", values: [o4, l4] }), u4 = p3 = o4, h3 = c3 = l4) : "m" === r4 ? (o4 = u4 + e5.values[0], l4 = h3 + e5.values[1], s4.push({ type: "M", values: [o4, l4] }), u4 = p3 = o4, h3 = c3 = l4) : "L" === r4 ? (o4 = e5.values[0], l4 = e5.values[1], s4.push({ type: "L", values: [o4, l4] }), u4 = o4, h3 = l4) : "l" === r4 ? (o4 = u4 + e5.values[0], l4 = h3 + e5.values[1], s4.push({ type: "L", values: [o4, l4] }), u4 = o4, h3 = l4) : "C" === r4 ? (t5 = e5.values[0], n4 = e5.values[1], a4 = e5.values[2], i4 = e5.values[3], o4 = e5.values[4], l4 = e5.values[5], s4.push({ type: "C", values: [t5, n4, a4, i4, o4, l4] }), u4 = o4, h3 = l4) : "c" === r4 ? (t5 = u4 + e5.values[0], n4 = h3 + e5.values[1], a4 = u4 + e5.values[2], i4 = h3 + e5.values[3], o4 = u4 + e5.values[4], l4 = h3 + e5.values[5], s4.push({ type: "C", values: [t5, n4, a4, i4, o4, l4] }), u4 = o4, h3 = l4) : "Q" === r4 ? (t5 = e5.values[0], n4 = e5.values[1], o4 = e5.values[2], l4 = e5.values[3], s4.push({ type: "Q", values: [t5, n4, o4, l4] }), u4 = o4, h3 = l4) : "q" === r4 ? (t5 = u4 + e5.values[0], n4 = h3 + e5.values[1], o4 = u4 + e5.values[2], l4 = h3 + e5.values[3], s4.push({ type: "Q", values: [t5, n4, o4, l4] }), u4 = o4, h3 = l4) : "A" === r4 ? (o4 = e5.values[5], l4 = e5.values[6], s4.push({ type: "A", values: [e5.values[0], e5.values[1], e5.values[2], e5.values[3], e5.values[4], o4, l4] }), u4 = o4, h3 = l4) : "a" === r4 ? (o4 = u4 + e5.values[5], l4 = h3 + e5.values[6], s4.push({ type: "A", values: [e5.values[0], e5.values[1], e5.values[2], e5.values[3], e5.values[4], o4, l4] }), u4 = o4, h3 = l4) : "H" === r4 ? (o4 = e5.values[0], s4.push({ type: "H", values: [o4] }), u4 = o4) : "h" === r4 ? (o4 = u4 + e5.values[0], s4.push({ type: "H", values: [o4] }), u4 = o4) : "V" === r4 ? (l4 = e5.values[0], s4.push({ type: "V", values: [l4] }), h3 = l4) : "v" === r4 ? (l4 = h3 + e5.values[0], s4.push({ type: "V", values: [l4] }), h3 = l4) : "S" === r4 ? (a4 = e5.values[0], i4 = e5.values[1], o4 = e5.values[2], l4 = e5.values[3], s4.push({ type: "S", values: [a4, i4, o4, l4] }), u4 = o4, h3 = l4) : "s" === r4 ? (a4 = u4 + e5.values[0], i4 = h3 + e5.values[1], o4 = u4 + e5.values[2], l4 = h3 + e5.values[3], s4.push({ type: "S", values: [a4, i4, o4, l4] }), u4 = o4, h3 = l4) : "T" === r4 ? (o4 = e5.values[0], l4 = e5.values[1], s4.push({ type: "T", values: [o4, l4] }), u4 = o4, h3 = l4) : "t" === r4 ? (o4 = u4 + e5.values[0], l4 = h3 + e5.values[1], s4.push({ type: "T", values: [o4, l4] }), u4 = o4, h3 = l4) : "Z" !== r4 && "z" !== r4 || (s4.push({ type: "Z", values: [] }), u4 = p3, h3 = c3);
+            }), s4));
+            return this[f3] = l3(e4), e4;
+          }
+          if (this[d3])
+            return l3(this[d3]);
+          var s4, u4, h3, p3, c3, t4 = n3(this.getAttribute("d") || "");
+          return this[d3] = l3(t4), t4;
+        }, e3.SVGPathElement.prototype.setPathData = function(e4) {
+          if (0 === e4.length)
+            o3 ? this.setAttribute("d", "") : this.removeAttribute("d");
+          else {
+            for (var t4 = "", n4 = 0, a4 = e4.length; n4 < a4; n4 += 1) {
+              var i4 = e4[n4];
+              0 < n4 && (t4 += " "), t4 += i4.type, i4.values && 0 < i4.values.length && (t4 += " " + i4.values.join(" "));
+            }
+            this.setAttribute("d", t4);
+          }
+        }, e3.SVGRectElement.prototype.getPathData = function(e4) {
+          var t4 = this.x.baseVal.value, n4 = this.y.baseVal.value, a4 = this.width.baseVal.value, i4 = this.height.baseVal.value, o4 = (this.hasAttribute("rx") ? this.rx : this.ry).baseVal.value, l4 = (this.hasAttribute("ry") ? this.ry : this.rx).baseVal.value, n4 = (n4 = [{ type: "M", values: [t4 + (o4 = a4 / 2 < o4 ? a4 / 2 : o4), n4] }, { type: "H", values: [t4 + a4 - o4] }, { type: "A", values: [o4, l4 = i4 / 2 < l4 ? i4 / 2 : l4, 0, 0, 1, t4 + a4, n4 + l4] }, { type: "V", values: [n4 + i4 - l4] }, { type: "A", values: [o4, l4, 0, 0, 1, t4 + a4 - o4, n4 + i4] }, { type: "H", values: [t4 + o4] }, { type: "A", values: [o4, l4, 0, 0, 1, t4, n4 + i4 - l4] }, { type: "V", values: [n4 + l4] }, { type: "A", values: [o4, l4, 0, 0, 1, t4 + o4, n4] }, { type: "Z", values: [] }]).filter(function(e5) {
+            return "A" !== e5.type || 0 !== e5.values[0] && 0 !== e5.values[1];
+          });
+          return n4 = e4 && true === e4.normalize ? r3(n4) : n4;
+        }, e3.SVGCircleElement.prototype.getPathData = function(e4) {
+          var t4 = this.cx.baseVal.value, n4 = this.cy.baseVal.value, a4 = this.r.baseVal.value, n4 = [{ type: "M", values: [t4 + a4, n4] }, { type: "A", values: [a4, a4, 0, 0, 1, t4, n4 + a4] }, { type: "A", values: [a4, a4, 0, 0, 1, t4 - a4, n4] }, { type: "A", values: [a4, a4, 0, 0, 1, t4, n4 - a4] }, { type: "A", values: [a4, a4, 0, 0, 1, t4 + a4, n4] }, { type: "Z", values: [] }];
+          return n4 = e4 && true === e4.normalize ? r3(n4) : n4;
+        }, e3.SVGEllipseElement.prototype.getPathData = function(e4) {
+          var t4 = this.cx.baseVal.value, n4 = this.cy.baseVal.value, a4 = this.rx.baseVal.value, i4 = this.ry.baseVal.value, n4 = [{ type: "M", values: [t4 + a4, n4] }, { type: "A", values: [a4, i4, 0, 0, 1, t4, n4 + i4] }, { type: "A", values: [a4, i4, 0, 0, 1, t4 - a4, n4] }, { type: "A", values: [a4, i4, 0, 0, 1, t4, n4 - i4] }, { type: "A", values: [a4, i4, 0, 0, 1, t4 + a4, n4] }, { type: "Z", values: [] }];
+          return n4 = e4 && true === e4.normalize ? r3(n4) : n4;
+        }, e3.SVGLineElement.prototype.getPathData = function() {
+          return [{ type: "M", values: [this.x1.baseVal.value, this.y1.baseVal.value] }, { type: "L", values: [this.x2.baseVal.value, this.y2.baseVal.value] }];
+        }, e3.SVGPolylineElement.prototype.getPathData = function() {
+          for (var e4 = [], t4 = 0; t4 < this.points.numberOfItems; t4 += 1) {
+            var n4 = this.points.getItem(t4);
+            e4.push({ type: 0 === t4 ? "M" : "L", values: [n4.x, n4.y] });
+          }
+          return e4;
+        }, e3.SVGPolygonElement.prototype.getPathData = function() {
+          for (var e4 = [], t4 = 0; t4 < this.points.numberOfItems; t4 += 1) {
+            var n4 = this.points.getItem(t4);
+            e4.push({ type: 0 === t4 ? "M" : "L", values: [n4.x, n4.y] });
+          }
+          return e4.push({ type: "Z", values: [] }), e4;
+        };
+      }();
+    }, S2 = (a2 = {}, Ee.m = n2 = [function(e3, t3, n3) {
+      n3.r(t3);
+      var a3 = 500, i3 = [], o3 = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function(e4) {
+        return setTimeout(e4, 1e3 / 60);
+      }, l3 = window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame || window.msCancelAnimationFrame || function(e4) {
+        return clearTimeout(e4);
+      }, r3 = Date.now(), s3 = void 0;
+      function u3() {
+        var n4 = void 0, e4 = void 0;
+        s3 && (l3.call(window, s3), s3 = null), i3.forEach(function(e5) {
+          var t4;
+          (t4 = e5.event) && (e5.event = null, e5.listener(t4), n4 = true);
+        }), n4 ? (r3 = Date.now(), e4 = true) : Date.now() - r3 < a3 && (e4 = true), e4 && (s3 = o3.call(window, u3));
+      }
+      function h3(n4) {
+        var a4 = -1;
+        return i3.some(function(e4, t4) {
+          return e4.listener === n4 && (a4 = t4, true);
+        }), a4;
+      }
+      t3.default = { add: function(e4) {
+        var t4 = void 0;
+        return -1 === h3(e4) ? (i3.push(t4 = { listener: e4 }), function(e5) {
+          t4.event = e5, s3 || u3();
+        }) : null;
+      }, remove: function(e4) {
+        -1 < (e4 = h3(e4)) && (i3.splice(e4, 1), !i3.length && s3 && (l3.call(window, s3), s3 = null));
+      } };
+    }], Ee.c = a2, Ee.d = function(e3, t3, n3) {
+      Ee.o(e3, t3) || Object.defineProperty(e3, t3, { enumerable: true, get: n3 });
+    }, Ee.r = function(e3) {
+      "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e3, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e3, "__esModule", { value: true });
+    }, Ee.t = function(t3, e3) {
+      if (1 & e3 && (t3 = Ee(t3)), 8 & e3)
+        return t3;
+      if (4 & e3 && "object" == typeof t3 && t3 && t3.__esModule)
+        return t3;
+      var n3 = /* @__PURE__ */ Object.create(null);
+      if (Ee.r(n3), Object.defineProperty(n3, "default", { enumerable: true, value: t3 }), 2 & e3 && "string" != typeof t3)
+        for (var a3 in t3)
+          Ee.d(n3, a3, (function(e4) {
+            return t3[e4];
+          }).bind(null, a3));
+      return n3;
+    }, Ee.n = function(e3) {
+      var t3 = e3 && e3.__esModule ? function() {
+        return e3.default;
+      } : function() {
+        return e3;
+      };
+      return Ee.d(t3, "a", t3), t3;
+    }, Ee.o = function(e3, t3) {
+      return Object.prototype.hasOwnProperty.call(e3, t3);
+    }, Ee.p = "", Ee(Ee.s = 0).default), de = { line_altColor: { iniValue: false }, line_color: {}, line_colorTra: { iniValue: false }, line_strokeWidth: {}, plug_enabled: { iniValue: false }, plug_enabledSE: { hasSE: true, iniValue: false }, plug_plugSE: { hasSE: true, iniValue: Y }, plug_colorSE: { hasSE: true }, plug_colorTraSE: { hasSE: true, iniValue: false }, plug_markerWidthSE: { hasSE: true }, plug_markerHeightSE: { hasSE: true }, lineOutline_enabled: { iniValue: false }, lineOutline_color: {}, lineOutline_colorTra: { iniValue: false }, lineOutline_strokeWidth: {}, lineOutline_inStrokeWidth: {}, plugOutline_enabledSE: { hasSE: true, iniValue: false }, plugOutline_plugSE: { hasSE: true, iniValue: Y }, plugOutline_colorSE: { hasSE: true }, plugOutline_colorTraSE: { hasSE: true, iniValue: false }, plugOutline_strokeWidthSE: { hasSE: true }, plugOutline_inStrokeWidthSE: { hasSE: true }, position_socketXYSE: { hasSE: true, hasProps: true }, position_plugOverheadSE: { hasSE: true }, position_path: {}, position_lineStrokeWidth: {}, position_socketGravitySE: { hasSE: true }, path_pathData: {}, path_edge: { hasProps: true }, viewBox_bBox: { hasProps: true }, viewBox_plugBCircleSE: { hasSE: true }, lineMask_enabled: { iniValue: false }, lineMask_outlineMode: { iniValue: false }, lineMask_x: {}, lineMask_y: {}, lineOutlineMask_x: {}, lineOutlineMask_y: {}, maskBGRect_x: {}, maskBGRect_y: {}, capsMaskAnchor_enabledSE: { hasSE: true, iniValue: false }, capsMaskAnchor_pathDataSE: { hasSE: true }, capsMaskAnchor_strokeWidthSE: { hasSE: true }, capsMaskMarker_enabled: { iniValue: false }, capsMaskMarker_enabledSE: { hasSE: true, iniValue: false }, capsMaskMarker_plugSE: { hasSE: true, iniValue: Y }, capsMaskMarker_markerWidthSE: { hasSE: true }, capsMaskMarker_markerHeightSE: { hasSE: true }, caps_enabled: { iniValue: false }, attach_plugSideLenSE: { hasSE: true }, attach_plugBackLenSE: { hasSE: true } }, fe = { show_on: {}, show_effect: {}, show_animOptions: {}, show_animId: {}, show_inAnim: {} }, ye = "fade", me = [], Se = {}, ge = 0, _e2 = {}, ve = 0;
+    function Ee(e3) {
+      if (a2[e3])
+        return a2[e3].exports;
+      var t3 = a2[e3] = { i: e3, l: false, exports: {} };
+      return n2[e3].call(t3.exports, t3, t3.exports, Ee), t3.l = true, t3.exports;
+    }
+    function xe() {
+      var i3 = Date.now(), o3 = false;
+      e2 && (r2.call(window, e2), e2 = null), E2.forEach(function(e3) {
+        var t3, n3, a3;
+        if (e3.framesStart) {
+          if ((t3 = i3 - e3.framesStart) >= e3.duration && e3.count && e3.loopsLeft <= 1)
+            return a3 = e3.frames[e3.lastFrame = e3.reverse ? 0 : e3.frames.length - 1], e3.frameCallback(a3.value, true, a3.timeRatio, a3.outputRatio), void (e3.framesStart = null);
+          if (t3 > e3.duration) {
+            if (n3 = Math.floor(t3 / e3.duration), e3.count) {
+              if (n3 >= e3.loopsLeft)
+                return a3 = e3.frames[e3.lastFrame = e3.reverse ? 0 : e3.frames.length - 1], e3.frameCallback(a3.value, true, a3.timeRatio, a3.outputRatio), void (e3.framesStart = null);
+              e3.loopsLeft -= n3;
+            }
+            e3.framesStart += e3.duration * n3, t3 = i3 - e3.framesStart;
+          }
+          e3.reverse && (t3 = e3.duration - t3), a3 = e3.frames[e3.lastFrame = Math.round(t3 / v2)], false !== e3.frameCallback(a3.value, false, a3.timeRatio, a3.outputRatio) ? o3 = true : e3.framesStart = null;
+        }
+      }), o3 && (e2 = l2.call(window, xe));
+    }
+    function be(e3, t3) {
+      e3.framesStart = Date.now(), null != t3 && (e3.framesStart -= e3.duration * (e3.reverse ? 1 - t3 : t3)), e3.loopsLeft = e3.count, e3.lastFrame = null, xe();
+    }
+    function ke(t3, n3) {
+      var e3, a3;
+      return typeof t3 != typeof n3 || (e3 = he(t3) ? "obj" : Array.isArray(t3) ? "array" : "") != (he(n3) ? "obj" : Array.isArray(n3) ? "array" : "") || ("obj" === e3 ? ke(a3 = Object.keys(t3).sort(), Object.keys(n3).sort()) || a3.some(function(e4) {
+        return ke(t3[e4], n3[e4]);
+      }) : "array" === e3 ? t3.length !== n3.length || t3.some(function(e4, t4) {
+        return ke(e4, n3[t4]);
+      }) : t3 !== n3);
+    }
+    function we(n3) {
+      return n3 && (he(n3) ? Object.keys(n3).reduce(function(e3, t3) {
+        return e3[t3] = we(n3[t3]), e3;
+      }, {}) : Array.isArray(n3) ? n3.map(we) : n3);
+    }
+    function Oe(e3) {
+      var t3, n3, a3, i3 = 1, o3 = e3 = (e3 + "").trim();
+      function l3(e4) {
+        var t4 = 1, e4 = m2.exec(e4);
+        return e4 && (t4 = parseFloat(e4[1]), e4[2] ? t4 = 0 <= t4 && t4 <= 100 ? t4 / 100 : 1 : (t4 < 0 || 1 < t4) && (t4 = 1)), t4;
+      }
+      return (t3 = /^(rgba|hsla|hwb|gray|device\-cmyk)\s*\(([\s\S]+)\)$/i.exec(e3)) ? (n3 = t3[1].toLowerCase(), a3 = t3[2].trim().split(/\s*,\s*/), "rgba" === n3 && 4 === a3.length ? (i3 = l3(a3[3]), o3 = "rgb(" + a3.slice(0, 3).join(", ") + ")") : "hsla" === n3 && 4 === a3.length ? (i3 = l3(a3[3]), o3 = "hsl(" + a3.slice(0, 3).join(", ") + ")") : "hwb" === n3 && 4 === a3.length ? (i3 = l3(a3[3]), o3 = "hwb(" + a3.slice(0, 3).join(", ") + ")") : "gray" === n3 && 2 === a3.length ? (i3 = l3(a3[1]), o3 = "gray(" + a3[0] + ")") : "device-cmyk" === n3 && 5 <= a3.length && (i3 = l3(a3[4]), o3 = "device-cmyk(" + a3.slice(0, 4).join(", ") + ")")) : (t3 = /^\#(?:([\da-f]{6})([\da-f]{2})|([\da-f]{3})([\da-f]))$/i.exec(e3)) ? o3 = t3[1] ? (i3 = parseInt(t3[2], 16) / 255, "#" + t3[1]) : (i3 = parseInt(t3[4] + t3[4], 16) / 255, "#" + t3[3]) : "transparent" === e3.toLocaleLowerCase() && (i3 = 0), [i3, o3];
+    }
+    function Me(e3) {
+      return !(!e3 || e3.nodeType !== Node.ELEMENT_NODE || "function" != typeof e3.getBoundingClientRect);
+    }
+    function Ie(e3, t3) {
+      var n3, a3, i3, o3 = {};
+      if (!(i3 = e3.ownerDocument))
+        return console.error("Cannot get document that contains the element."), null;
+      if (e3.compareDocumentPosition(i3) & Node.DOCUMENT_POSITION_DISCONNECTED)
+        return console.error("A disconnected element was passed."), null;
+      for (a3 in n3 = e3.getBoundingClientRect())
+        o3[a3] = n3[a3];
+      if (!t3) {
+        if (!(i3 = i3.defaultView))
+          return console.error("Cannot get window that contains the element."), null;
+        o3.left += i3.pageXOffset, o3.right += i3.pageXOffset, o3.top += i3.pageYOffset, o3.bottom += i3.pageYOffset;
+      }
+      return o3;
+    }
+    function Ce(e3, t3) {
+      var n3, a3 = [], i3 = e3;
+      for (t3 = t3 || window; ; ) {
+        if (!(n3 = i3.ownerDocument))
+          return console.error("Cannot get document that contains the element."), null;
+        if (!(n3 = n3.defaultView))
+          return console.error("Cannot get window that contains the element."), null;
+        if (n3 === t3)
+          break;
+        if (!(i3 = n3.frameElement))
+          return console.error("`baseWindow` was not found."), null;
+        a3.unshift(i3);
+      }
+      return a3;
+    }
+    function Le(e3, t3) {
+      var a3 = 0, i3 = 0;
+      return (t3 = Ce(e3, t3 = t3 || window)) ? t3.length ? (t3.forEach(function(e4, t4) {
+        var n3 = Ie(e4, 0 < t4);
+        a3 += n3.left, i3 += n3.top, e4 = (t4 = e4).ownerDocument.defaultView.getComputedStyle(t4, ""), n3 = { left: t4.clientLeft + parseFloat(e4.paddingLeft), top: t4.clientTop + parseFloat(e4.paddingTop) }, a3 += n3.left, i3 += n3.top;
+      }), (t3 = Ie(e3, true)).left += a3, t3.right += a3, t3.top += i3, t3.bottom += i3, t3) : Ie(e3) : null;
+    }
+    function Ae(e3, t3) {
+      var n3 = e3.x - t3.x, t3 = e3.y - t3.y;
+      return Math.sqrt(n3 * n3 + t3 * t3);
+    }
+    function Ve(e3, t3, n3) {
+      var a3 = t3.x - e3.x, t3 = t3.y - e3.y;
+      return { x: e3.x + a3 * n3, y: e3.y + t3 * n3, angle: Math.atan2(t3, a3) / (Math.PI / 180) };
+    }
+    function Pe(e3, t3, n3) {
+      e3 = Math.atan2(e3.y - t3.y, t3.x - e3.x);
+      return { x: t3.x + Math.cos(e3) * n3, y: t3.y + Math.sin(e3) * n3 * -1 };
+    }
+    function Ne(e3, t3, n3, a3, i3) {
+      var o3 = i3 * i3, l3 = o3 * i3, r3 = 1 - i3, s3 = r3 * r3, u3 = s3 * r3, h3 = u3 * e3.x + 3 * s3 * i3 * t3.x + 3 * r3 * o3 * n3.x + l3 * a3.x, p3 = u3 * e3.y + 3 * s3 * i3 * t3.y + 3 * r3 * o3 * n3.y + l3 * a3.y, c3 = e3.x + 2 * i3 * (t3.x - e3.x) + o3 * (n3.x - 2 * t3.x + e3.x), u3 = e3.y + 2 * i3 * (t3.y - e3.y) + o3 * (n3.y - 2 * t3.y + e3.y), s3 = t3.x + 2 * i3 * (n3.x - t3.x) + o3 * (a3.x - 2 * n3.x + t3.x), l3 = t3.y + 2 * i3 * (n3.y - t3.y) + o3 * (a3.y - 2 * n3.y + t3.y), o3 = r3 * e3.x + i3 * t3.x, e3 = r3 * e3.y + i3 * t3.y, t3 = r3 * n3.x + i3 * a3.x, i3 = r3 * n3.y + i3 * a3.y, a3 = 90 - 180 * Math.atan2(c3 - s3, u3 - l3) / Math.PI;
+      return { x: h3, y: p3, fromP2: { x: c3, y: u3 }, toP1: { x: s3, y: l3 }, fromP1: { x: o3, y: e3 }, toP2: { x: t3, y: i3 }, angle: a3 += 180 < a3 ? -180 : 180 };
+    }
+    function Te(n3, a3, i3, o3, e3) {
+      function l3(e4, t3, n4, a4, i4) {
+        return e4 * (e4 * (-3 * t3 + 9 * n4 - 9 * a4 + 3 * i4) + 6 * t3 - 12 * n4 + 6 * a4) - 3 * t3 + 3 * n4;
+      }
+      var r3, s3, u3 = [0.2491, 0.2491, 0.2335, 0.2335, 0.2032, 0.2032, 0.1601, 0.1601, 0.1069, 0.1069, 0.0472, 0.0472], h3 = 0, p3 = (e3 = null == e3 || 1 < e3 ? 1 : e3 < 0 ? 0 : e3) / 2;
+      return [-0.1252, 0.1252, -0.3678, 0.3678, -0.5873, 0.5873, -0.7699, 0.7699, -0.9041, 0.9041, -0.9816, 0.9816].forEach(function(e4, t3) {
+        r3 = l3(s3 = p3 * e4 + p3, n3.x, a3.x, i3.x, o3.x), s3 = l3(s3, n3.y, a3.y, i3.y, o3.y), s3 = r3 * r3 + s3 * s3, h3 += u3[t3] * Math.sqrt(s3);
+      }), p3 * h3;
+    }
+    function We(e3, t3, n3, a3, i3) {
+      for (var o3, l3 = 0.5, r3 = 1 - l3; o3 = Te(e3, t3, n3, a3, r3), !(Math.abs(o3 - i3) <= 0.01); )
+        r3 += (o3 < i3 ? 1 : -1) * (l3 /= 2);
+      return r3;
+    }
+    function Be(e3, t3) {
+      var n3;
+      return e3.forEach(function(e4) {
+        e4 = t3 ? e4.map(function(e5) {
+          e5 = { x: e5.x, y: e5.y };
+          return t3(e5), e5;
+        }) : e4;
+        (n3 = n3 || [{ type: "M", values: [e4[0].x, e4[0].y] }]).push(e4.length ? 2 === e4.length ? { type: "L", values: [e4[1].x, e4[1].y] } : { type: "C", values: [e4[1].x, e4[1].y, e4[2].x, e4[2].y, e4[3].x, e4[3].y] } : { type: "Z", values: [] });
+      }), n3;
+    }
+    function Re(e3) {
+      var t3 = [], n3 = 0;
+      return e3.forEach(function(e4) {
+        e4 = (2 === e4.length ? Ae : Te).apply(null, e4);
+        t3.push(e4), n3 += e4;
+      }), { segsLen: t3, lenAll: n3 };
+    }
+    function Fe(e3, a3) {
+      return null == e3 || null == a3 || e3.length !== a3.length || e3.some(function(e4, t3) {
+        var n3 = a3[t3];
+        return e4.type !== n3.type || e4.values.some(function(e5, t4) {
+          return e5 !== n3.values[t4];
         });
-      }), false), lt;
-    }();
-    !function(e2, t2) {
-      module.exports = t2();
-    }(commonjsGlobal, function() {
-      return LeaderLine2;
-    });
-  })(leaderLine_min);
-  var leaderLine_minExports = leaderLine_min.exports;
-  const LeaderLine = /* @__PURE__ */ getDefaultExportFromCjs(leaderLine_minExports);
+      });
+    }
+    function Ge(e3, t3, n3) {
+      e3.events[t3] ? e3.events[t3].indexOf(n3) < 0 && e3.events[t3].push(n3) : e3.events[t3] = [n3];
+    }
+    function De(e3, t3, n3) {
+      var a3;
+      e3.events[t3] && -1 < (a3 = e3.events[t3].indexOf(n3)) && e3.events[t3].splice(a3, 1);
+    }
+    function ze(e3) {
+      t2 && clearTimeout(t2), me.push(e3), t2 = setTimeout(function() {
+        me.forEach(function(e4) {
+          e4();
+        }), me = [];
+      }, 0);
+    }
+    function je(e3, t3) {
+      e3.reflowTargets.indexOf(t3) < 0 && e3.reflowTargets.push(t3);
+    }
+    function He(e3) {
+      e3.reflowTargets.forEach(function(e4) {
+        var n3;
+        n3 = e4, setTimeout(function() {
+          var e5 = n3.parentNode, t3 = n3.nextSibling;
+          e5.insertBefore(e5.removeChild(n3), t3);
+        }, 0);
+      }), e3.reflowTargets = [];
+    }
+    function Ue(e3, t3, n3, a3, i3, o3, l3) {
+      var r3;
+      "auto-start-reverse" === n3 ? ("boolean" != typeof s2 && (t3.setAttribute("orient", "auto-start-reverse"), s2 = t3.orientType.baseVal === SVGMarkerElement.SVG_MARKER_ORIENT_UNKNOWN), s2 ? t3.setAttribute("orient", n3) : ((r3 = i3.createSVGTransform()).setRotate(180, 0, 0), o3.transform.baseVal.appendItem(r3), t3.setAttribute("orient", "auto"), r3 = true)) : (t3.setAttribute("orient", n3), false === s2 && o3.transform.baseVal.clear()), t3 = t3.viewBox.baseVal, r3 ? (t3.x = -a3.right, t3.y = -a3.bottom) : (t3.x = a3.left, t3.y = a3.top), t3.width = a3.width, t3.height = a3.height, ie2 && je(e3, l3);
+    }
+    function Ze(e3, t3) {
+      return { prop: e3 ? "markerEnd" : "markerStart", orient: t3 ? t3.noRotate ? "0" : e3 ? "auto" : "auto-start-reverse" : null };
+    }
+    function Ye(n3, a3) {
+      Object.keys(a3).forEach(function(e3) {
+        var t3 = a3[e3];
+        n3[e3] = null != t3.iniValue ? t3.hasSE ? [t3.iniValue, t3.iniValue] : t3.iniValue : t3.hasSE ? t3.hasProps ? [{}, {}] : [] : t3.hasProps ? {} : null;
+      });
+    }
+    function Xe(t3, e3, n3, a3, i3) {
+      return a3 !== e3[n3] && (e3[n3] = a3, i3 && i3.forEach(function(e4) {
+        e4(t3, a3, n3);
+      }), true);
+    }
+    function qe(e3) {
+      function t3(e4, t4) {
+        return e4 + parseFloat(t4);
+      }
+      var n3 = e3.document, a3 = e3.getComputedStyle(n3.documentElement, ""), e3 = e3.getComputedStyle(n3.body, ""), n3 = { x: 0, y: 0 };
+      return "static" !== e3.position ? (n3.x -= [a3.marginLeft, a3.borderLeftWidth, a3.paddingLeft, e3.marginLeft, e3.borderLeftWidth].reduce(t3, 0), n3.y -= [a3.marginTop, a3.borderTopWidth, a3.paddingTop, e3.marginTop, e3.borderTopWidth].reduce(t3, 0)) : "static" !== a3.position && (n3.x -= [a3.marginLeft, a3.borderLeftWidth].reduce(t3, 0), n3.y -= [a3.marginTop, a3.borderTopWidth].reduce(t3, 0)), n3;
+    }
+    function Qe(e3) {
+      var t3, n3 = e3.document;
+      n3.getElementById(f2) || (t3 = new e3.DOMParser().parseFromString(y2, "image/svg+xml"), n3.body.appendChild(t3.documentElement), ce(e3, oe));
+    }
+    function Ke(l3) {
+      var g2, c3, _3, e3, n3, a3, i3, d3, o3, r3, s3, t3, u3, h3, p3 = l3.options, f3 = l3.curStats, y3 = l3.aplStats, v3 = f3.position_socketXYSE, m3 = false;
+      function S3(e4, t4) {
+        e4 = t4 === b2 ? { x: e4.left + e4.width / 2, y: e4.top } : t4 === k ? { x: e4.right, y: e4.top + e4.height / 2 } : t4 === L2 ? { x: e4.left + e4.width / 2, y: e4.bottom } : { x: e4.left, y: e4.top + e4.height / 2 };
+        return e4.socketId = t4, e4;
+      }
+      function E3(e4) {
+        return { x: e4.x, y: e4.y };
+      }
+      if (f3.position_path = p3.path, f3.position_lineStrokeWidth = f3.line_strokeWidth, f3.position_socketGravitySE = g2 = we(p3.socketGravitySE), c3 = [0, 1].map(function(e4) {
+        var t4 = p3.anchorSE[e4], n4 = l3.optionIsAttach.anchorSE[e4], a4 = false !== n4 ? _e2[t4._id] : null, i4 = false !== n4 && a4.conf.getStrokeWidth ? a4.conf.getStrokeWidth(a4, l3) : 0, o4 = false !== n4 && a4.conf.getBBoxNest ? a4.conf.getBBoxNest(a4, l3, i4) : Le(t4, l3.baseWindow);
+        return f3.capsMaskAnchor_pathDataSE[e4] = false !== n4 && a4.conf.getPathData ? a4.conf.getPathData(a4, l3, i4) : (n4 = null != (t4 = o4).right ? t4.right : t4.left + t4.width, a4 = null != t4.bottom ? t4.bottom : t4.top + t4.height, [{ type: "M", values: [t4.left, t4.top] }, { type: "L", values: [n4, t4.top] }, { type: "L", values: [n4, a4] }, { type: "L", values: [t4.left, a4] }, { type: "Z", values: [] }]), f3.capsMaskAnchor_strokeWidthSE[e4] = i4, o4;
+      }), i3 = -1, p3.socketSE[0] && p3.socketSE[1] ? (v3[0] = S3(c3[0], p3.socketSE[0]), v3[1] = S3(c3[1], p3.socketSE[1])) : (p3.socketSE[0] || p3.socketSE[1] ? (a3 = p3.socketSE[0] ? (n3 = 0, 1) : (n3 = 1, 0), v3[n3] = S3(c3[n3], p3.socketSE[n3]), (e3 = G.map(function(e4) {
+        return S3(c3[a3], e4);
+      })).forEach(function(e4) {
+        var t4 = Ae(e4, v3[n3]);
+        (t4 < i3 || -1 === i3) && (v3[a3] = e4, i3 = t4);
+      })) : (e3 = G.map(function(e4) {
+        return S3(c3[1], e4);
+      }), G.map(function(e4) {
+        return S3(c3[0], e4);
+      }).forEach(function(n4) {
+        e3.forEach(function(e4) {
+          var t4 = Ae(n4, e4);
+          (t4 < i3 || -1 === i3) && (v3[0] = n4, v3[1] = e4, i3 = t4);
+        });
+      })), [0, 1].forEach(function(e4) {
+        var t4, n4;
+        p3.socketSE[e4] || (c3[e4].width || c3[e4].height ? c3[e4].width || v3[e4].socketId !== A && v3[e4].socketId !== k ? c3[e4].height || v3[e4].socketId !== b2 && v3[e4].socketId !== L2 || (v3[e4].socketId = 0 <= v3[e4 ? 0 : 1].y - c3[e4].top ? L2 : b2) : v3[e4].socketId = 0 <= v3[e4 ? 0 : 1].x - c3[e4].left ? k : A : (t4 = v3[e4 ? 0 : 1].x - c3[e4].left, n4 = v3[e4 ? 0 : 1].y - c3[e4].top, v3[e4].socketId = Math.abs(t4) >= Math.abs(n4) ? 0 <= t4 ? k : A : 0 <= n4 ? L2 : b2));
+      })), f3.position_path !== y3.position_path || f3.position_lineStrokeWidth !== y3.position_lineStrokeWidth || [0, 1].some(function(e4) {
+        return f3.position_plugOverheadSE[e4] !== y3.position_plugOverheadSE[e4] || (t4 = v3[e4], n4 = y3.position_socketXYSE[e4], t4.x !== n4.x || t4.y !== n4.y || t4.socketId !== n4.socketId) || (t4 = g2[e4], n4 = y3.position_socketGravitySE[e4], (e4 = null == t4 ? "auto" : Array.isArray(t4) ? "array" : "number") != (null == n4 ? "auto" : Array.isArray(n4) ? "array" : "number") || ("array" == e4 ? t4[0] !== n4[0] || t4[1] !== n4[1] : t4 !== n4));
+        var t4, n4;
+      })) {
+        switch (l3.pathList.baseVal = _3 = [], l3.pathList.animVal = null, f3.position_path) {
+          case P2:
+            _3.push([E3(v3[0]), E3(v3[1])]);
+            break;
+          case N:
+            t3 = "number" == typeof g2[0] && 0 < g2[0] || "number" == typeof g2[1] && 0 < g2[1], u3 = ne * (t3 ? -1 : 1), h3 = Math.atan2(v3[1].y - v3[0].y, v3[1].x - v3[0].x), t3 = u3 - h3, h3 = Math.PI - h3 - u3, u3 = Ae(v3[0], v3[1]) / Math.sqrt(2) * te, t3 = { x: v3[0].x + Math.cos(t3) * u3, y: v3[0].y + Math.sin(t3) * u3 * -1 }, u3 = { x: v3[1].x + Math.cos(h3) * u3, y: v3[1].y + Math.sin(h3) * u3 * -1 }, _3.push([E3(v3[0]), t3, u3, E3(v3[1])]);
+            break;
+          case T2:
+          case W2:
+            o3 = [g2[0], f3.position_path === W2 ? 0 : g2[1]], r3 = [], s3 = [], v3.forEach(function(e4, t4) {
+              var n4, a4 = o3[t4], i4 = Array.isArray(a4) ? { x: a4[0], y: a4[1] } : "number" == typeof a4 ? e4.socketId === b2 ? { x: 0, y: -a4 } : e4.socketId === k ? { x: a4, y: 0 } : e4.socketId === L2 ? { x: 0, y: a4 } : { x: -a4, y: 0 } : (n4 = v3[t4 ? 0 : 1], a4 = 0 < (a4 = f3.position_plugOverheadSE[t4]) ? U + (K < a4 ? (a4 - K) * J : 0) : z2 + (f3.position_lineStrokeWidth > j ? (f3.position_lineStrokeWidth - j) * H2 : 0), e4.socketId === b2 ? { x: 0, y: -(i4 = (i4 = (e4.y - n4.y) / 2) < a4 ? a4 : i4) } : e4.socketId === k ? { x: i4 = (i4 = (n4.x - e4.x) / 2) < a4 ? a4 : i4, y: 0 } : e4.socketId === L2 ? { x: 0, y: i4 = (i4 = (n4.y - e4.y) / 2) < a4 ? a4 : i4 } : { x: -(i4 = (i4 = (e4.x - n4.x) / 2) < a4 ? a4 : i4), y: 0 });
+              r3[t4] = e4.x + i4.x, s3[t4] = e4.y + i4.y;
+            }), _3.push([E3(v3[0]), { x: r3[0], y: s3[0] }, { x: r3[1], y: s3[1] }, E3(v3[1])]);
+            break;
+          case B2:
+            !function() {
+              var n4, i4 = 1, l4 = 2, r4 = 3, o4 = 4, s4 = [[], []], u4 = [];
+              function h4(e4) {
+                return e4 === i4 ? r4 : e4 === l4 ? o4 : e4 === r4 ? i4 : l4;
+              }
+              function p4(e4) {
+                return e4 === l4 || e4 === o4 ? "x" : "y";
+              }
+              function c4(e4, t4, n5) {
+                var a4 = { x: e4.x, y: e4.y };
+                if (n5) {
+                  if (n5 === h4(e4.dirId))
+                    throw new Error("Invalid dirId: " + n5);
+                  a4.dirId = n5;
+                } else
+                  a4.dirId = e4.dirId;
+                return a4.dirId === i4 ? a4.y -= t4 : a4.dirId === l4 ? a4.x += t4 : a4.dirId === r4 ? a4.y += t4 : a4.x -= t4, a4;
+              }
+              function d4(e4, t4) {
+                return t4.dirId === i4 ? e4.y <= t4.y : t4.dirId === l4 ? e4.x >= t4.x : t4.dirId === r4 ? e4.y >= t4.y : e4.x <= t4.x;
+              }
+              function f4(e4, t4) {
+                return t4.dirId === i4 || t4.dirId === r4 ? e4.x === t4.x : e4.y === t4.y;
+              }
+              function y4(e4) {
+                return e4[0] ? { contain: 0, notContain: 1 } : { contain: 1, notContain: 0 };
+              }
+              function m4(e4, t4, n5) {
+                return Math.abs(t4[n5] - e4[n5]);
+              }
+              function S4(e4, t4, n5) {
+                return "x" === n5 ? e4.x < t4.x ? l4 : o4 : e4.y < t4.y ? r4 : i4;
+              }
+              for (v3.forEach(function(e4, t4) {
+                var n5 = E3(e4), a4 = g2[t4];
+                e4 = Array.isArray(a4) ? a4[0] < 0 ? [o4, -a4[0]] : 0 < a4[0] ? [l4, a4[0]] : a4[1] < 0 ? [i4, -a4[1]] : 0 < a4[1] ? [r4, a4[1]] : [e4.socketId, 0] : "number" != typeof a4 ? [e4.socketId, ee] : 0 <= a4 ? [e4.socketId, a4] : [h4(e4.socketId), -a4], n5.dirId = e4[0], a4 = e4[1], s4[t4].push(n5), u4[t4] = c4(n5, a4);
+              }); function() {
+                var e4, t4, a4, i5, n5 = [d4(u4[1], u4[0]), d4(u4[0], u4[1])], o5 = [p4(u4[0].dirId), p4(u4[1].dirId)];
+                if (o5[0] === o5[1]) {
+                  if (n5[0] && n5[1])
+                    return void (f4(u4[1], u4[0]) || (u4[0][o5[0]] === u4[1][o5[1]] ? (s4[0].push(u4[0]), s4[1].push(u4[1])) : (e4 = u4[0][o5[0]] + (u4[1][o5[1]] - u4[0][o5[0]]) / 2, s4[0].push(c4(u4[0], Math.abs(e4 - u4[0][o5[0]]))), s4[1].push(c4(u4[1], Math.abs(e4 - u4[1][o5[1]]))))));
+                  n5[0] !== n5[1] ? (t4 = y4(n5), (a4 = m4(u4[t4.notContain], u4[t4.contain], o5[t4.notContain])) < ee && (u4[t4.notContain] = c4(u4[t4.notContain], ee - a4)), s4[t4.notContain].push(u4[t4.notContain]), u4[t4.notContain] = c4(u4[t4.notContain], ee, f4(u4[t4.contain], u4[t4.notContain]) ? "x" === o5[t4.notContain] ? r4 : l4 : S4(u4[t4.notContain], u4[t4.contain], "x" === o5[t4.notContain] ? "y" : "x"))) : (a4 = m4(u4[0], u4[1], "x" === o5[0] ? "y" : "x"), s4.forEach(function(e5, t5) {
+                    var n6 = 0 === t5 ? 1 : 0;
+                    e5.push(u4[t5]), u4[t5] = c4(u4[t5], ee, 2 * ee <= a4 ? S4(u4[t5], u4[n6], "x" === o5[t5] ? "y" : "x") : "x" === o5[t5] ? r4 : l4);
+                  }));
+                } else {
+                  if (n5[0] && n5[1])
+                    return void (f4(u4[1], u4[0]) ? s4[1].push(u4[1]) : f4(u4[0], u4[1]) ? s4[0].push(u4[0]) : s4[0].push("x" === o5[0] ? { x: u4[1].x, y: u4[0].y } : { x: u4[0].x, y: u4[1].y }));
+                  n5[0] !== n5[1] ? (t4 = y4(n5), s4[t4.notContain].push(u4[t4.notContain]), u4[t4.notContain] = c4(u4[t4.notContain], ee, m4(u4[t4.notContain], u4[t4.contain], o5[t4.contain]) >= ee ? S4(u4[t4.notContain], u4[t4.contain], o5[t4.contain]) : u4[t4.contain].dirId)) : (i5 = [{ x: u4[0].x, y: u4[0].y }, { x: u4[1].x, y: u4[1].y }], s4.forEach(function(e5, t5) {
+                    var n6 = 0 === t5 ? 1 : 0, a5 = m4(i5[t5], i5[n6], o5[t5]);
+                    a5 < ee && (u4[t5] = c4(u4[t5], ee - a5)), e5.push(u4[t5]), u4[t5] = c4(u4[t5], ee, S4(u4[t5], u4[n6], o5[n6]));
+                  }));
+                }
+                return 1;
+              }(); )
+                ;
+              s4[1].reverse(), s4[0].concat(s4[1]).forEach(function(e4, t4) {
+                e4 = { x: e4.x, y: e4.y };
+                0 < t4 && _3.push([n4, e4]), n4 = e4;
+              });
+            }();
+        }
+        d3 = [], f3.position_plugOverheadSE.forEach(function(e4, t4) {
+          var n4, a4, i4, o4, l4, r4, s4, u4, h4, p4 = !t4;
+          0 < e4 ? 2 === (n4 = _3[a4 = p4 ? 0 : _3.length - 1]).length ? (d3[a4] = d3[a4] || Ae.apply(null, n4), d3[a4] > $ && (d3[a4] - e4 < $ && (e4 = d3[a4] - $), s4 = Ve(n4[0], n4[1], (p4 ? e4 : d3[a4] - e4) / d3[a4]), _3[a4] = p4 ? [s4, n4[1]] : [n4[0], s4], d3[a4] -= e4)) : (d3[a4] = d3[a4] || Te.apply(null, n4), d3[a4] > $ && (d3[a4] - e4 < $ && (e4 = d3[a4] - $), s4 = Ne(n4[0], n4[1], n4[2], n4[3], We(n4[0], n4[1], n4[2], n4[3], p4 ? e4 : d3[a4] - e4)), o4 = p4 ? (i4 = n4[0], s4.toP1) : (i4 = n4[3], s4.fromP2), l4 = Math.atan2(i4.y - s4.y, s4.x - i4.x), r4 = Ae(s4, o4), s4.x = i4.x + Math.cos(l4) * e4, s4.y = i4.y + Math.sin(l4) * e4 * -1, o4.x = s4.x + Math.cos(l4) * r4, o4.y = s4.y + Math.sin(l4) * r4 * -1, _3[a4] = p4 ? [s4, s4.toP1, s4.toP2, n4[3]] : [n4[0], s4.fromP1, s4.fromP2, s4], d3[a4] = null)) : e4 < 0 && (n4 = _3[a4 = p4 ? 0 : _3.length - 1], s4 = v3[t4].socketId, t4 = -c3[t4]["x" == (u4 = s4 === A || s4 === k ? "x" : "y") ? "width" : "height"], h4 = (e4 = e4 < t4 ? t4 : e4) * (s4 === A || s4 === b2 ? -1 : 1), 2 === n4.length ? n4[p4 ? 0 : n4.length - 1][u4] += h4 : (p4 ? [0, 1] : [n4.length - 2, n4.length - 1]).forEach(function(e5) {
+            n4[e5][u4] += h4;
+          }), d3[a4] = null);
+        }), y3.position_socketXYSE = we(v3), y3.position_plugOverheadSE = we(f3.position_plugOverheadSE), y3.position_path = f3.position_path, y3.position_lineStrokeWidth = f3.position_lineStrokeWidth, y3.position_socketGravitySE = we(g2), m3 = true, l3.events.apl_position && l3.events.apl_position.forEach(function(e4) {
+          e4(l3, _3);
+        });
+      }
+      return m3;
+    }
+    function Je(t3, n3) {
+      n3 !== t3.isShown && (!!n3 != !!t3.isShown && (t3.svg.style.visibility = n3 ? "" : "hidden"), t3.isShown = n3, t3.events && t3.events.svgShow && t3.events.svgShow.forEach(function(e3) {
+        e3(t3, n3);
+      }));
+    }
+    function $e(e3, t3) {
+      var n3, a3, h3, p3, c3, d3, f3, i3, o3, l3, r3, s3, u3, y3, m3, S3, g2, _3, v3, E3, x3, b3, k2, w3, O3, M3, I2, C3, L3, A2, V3, P3, N2, T3, W3, B3, R3, F3, G2, D3, z3, j2, H3, U2 = {};
+      t3.line && (U2.line = (i3 = (n3 = e3).options, a3 = n3.curStats, o3 = n3.events, l3 = false, l3 = Xe(n3, a3, "line_color", i3.lineColor, o3.cur_line_color) || l3, l3 = Xe(n3, a3, "line_colorTra", Oe(a3.line_color)[0] < 1) || l3, l3 = Xe(n3, a3, "line_strokeWidth", i3.lineSize, o3.cur_line_strokeWidth) || l3)), (t3.plug || U2.line) && (U2.plug = (p3 = (h3 = e3).options, c3 = h3.curStats, d3 = h3.events, f3 = false, [0, 1].forEach(function(e4) {
+        var t4, n4, a4, i4, o4, l4, r4, s4, u4 = p3.plugSE[e4];
+        f3 = Xe(h3, c3.plug_enabledSE, e4, u4 !== Y) || f3, f3 = Xe(h3, c3.plug_plugSE, e4, u4) || f3, f3 = Xe(h3, c3.plug_colorSE, e4, s4 = p3.plugColorSE[e4] || c3.line_color, d3.cur_plug_colorSE) || f3, f3 = Xe(h3, c3.plug_colorTraSE, e4, Oe(s4)[0] < 1) || f3, u4 !== Y && (i4 = n4 = (t4 = X[q[u4]]).widthR * p3.plugSizeSE[e4], o4 = a4 = t4.heightR * p3.plugSizeSE[e4], re && (i4 *= c3.line_strokeWidth, o4 *= c3.line_strokeWidth), f3 = Xe(h3, c3.plug_markerWidthSE, e4, i4) || f3, f3 = Xe(h3, c3.plug_markerHeightSE, e4, o4) || f3, c3.capsMaskMarker_markerWidthSE[e4] = n4, c3.capsMaskMarker_markerHeightSE[e4] = a4), c3.plugOutline_plugSE[e4] = c3.capsMaskMarker_plugSE[e4] = u4, c3.plug_enabledSE[e4] ? (s4 = c3.line_strokeWidth / ue.lineSize * p3.plugSizeSE[e4], c3.position_plugOverheadSE[e4] = t4.overhead * s4, c3.viewBox_plugBCircleSE[e4] = t4.bCircle * s4, l4 = t4.sideLen * s4, r4 = t4.backLen * s4) : (c3.position_plugOverheadSE[e4] = -c3.line_strokeWidth / 2, c3.viewBox_plugBCircleSE[e4] = l4 = r4 = 0), Xe(h3, c3.attach_plugSideLenSE, e4, l4, d3.cur_attach_plugSideLenSE), Xe(h3, c3.attach_plugBackLenSE, e4, r4, d3.cur_attach_plugBackLenSE), c3.capsMaskAnchor_enabledSE[e4] = !c3.plug_enabledSE[e4];
+      }), f3 = Xe(h3, c3, "plug_enabled", c3.plug_enabledSE[0] || c3.plug_enabledSE[1]) || f3)), (t3.lineOutline || U2.line) && (U2.lineOutline = (o3 = (i3 = e3).options, l3 = i3.curStats, k2 = false, k2 = Xe(i3, l3, "lineOutline_enabled", o3.lineOutlineEnabled) || k2, k2 = Xe(i3, l3, "lineOutline_color", o3.lineOutlineColor) || k2, k2 = Xe(i3, l3, "lineOutline_colorTra", Oe(l3.lineOutline_color)[0] < 1) || k2, o3 = l3.line_strokeWidth * o3.lineOutlineSize, k2 = Xe(i3, l3, "lineOutline_strokeWidth", l3.line_strokeWidth - 2 * o3) || k2, k2 = Xe(i3, l3, "lineOutline_inStrokeWidth", l3.lineOutline_colorTra ? l3.lineOutline_strokeWidth + 2 * se : l3.line_strokeWidth - o3) || k2)), (t3.plugOutline || U2.line || U2.plug || U2.lineOutline) && (U2.plugOutline = (s3 = (r3 = e3).options, u3 = r3.curStats, y3 = false, [0, 1].forEach(function(e4) {
+        var t4 = u3.plugOutline_plugSE[e4], n4 = t4 !== Y ? X[q[t4]] : null;
+        y3 = Xe(r3, u3.plugOutline_enabledSE, e4, s3.plugOutlineEnabledSE[e4] && u3.plug_enabled && u3.plug_enabledSE[e4] && !!n4 && !!n4.outlineBase) || y3, y3 = Xe(r3, u3.plugOutline_colorSE, e4, t4 = s3.plugOutlineColorSE[e4] || u3.lineOutline_color) || y3, y3 = Xe(r3, u3.plugOutline_colorTraSE, e4, Oe(t4)[0] < 1) || y3, n4 && n4.outlineBase && ((t4 = s3.plugOutlineSizeSE[e4]) > n4.outlineMax && (t4 = n4.outlineMax), t4 *= 2 * n4.outlineBase, y3 = Xe(r3, u3.plugOutline_strokeWidthSE, e4, t4) || y3, y3 = Xe(r3, u3.plugOutline_inStrokeWidthSE, e4, u3.plugOutline_colorTraSE[e4] ? t4 - se / (u3.line_strokeWidth / ue.lineSize) / s3.plugSizeSE[e4] * 2 : t4 / 2) || y3);
+      }), y3)), (t3.faces || U2.line || U2.plug || U2.lineOutline || U2.plugOutline) && (U2.faces = (g2 = (m3 = e3).curStats, _3 = m3.aplStats, v3 = m3.events, E3 = false, !g2.line_altColor && Xe(m3, _3, "line_color", S3 = g2.line_color, v3.apl_line_color) && (m3.lineFace.style.stroke = S3, E3 = true), Xe(m3, _3, "line_strokeWidth", S3 = g2.line_strokeWidth, v3.apl_line_strokeWidth) && (m3.lineShape.style.strokeWidth = S3 + "px", E3 = true, (oe || ie2) && (je(m3, m3.lineShape), ie2 && (je(m3, m3.lineFace), je(m3, m3.lineMaskCaps)))), Xe(m3, _3, "lineOutline_enabled", S3 = g2.lineOutline_enabled, v3.apl_lineOutline_enabled) && (m3.lineOutlineFace.style.display = S3 ? "inline" : "none", E3 = true), g2.lineOutline_enabled && (Xe(m3, _3, "lineOutline_color", S3 = g2.lineOutline_color, v3.apl_lineOutline_color) && (m3.lineOutlineFace.style.stroke = S3, E3 = true), Xe(m3, _3, "lineOutline_strokeWidth", S3 = g2.lineOutline_strokeWidth, v3.apl_lineOutline_strokeWidth) && (m3.lineOutlineMaskShape.style.strokeWidth = S3 + "px", E3 = true, ie2 && (je(m3, m3.lineOutlineMaskCaps), je(m3, m3.lineOutlineFace))), Xe(m3, _3, "lineOutline_inStrokeWidth", S3 = g2.lineOutline_inStrokeWidth, v3.apl_lineOutline_inStrokeWidth) && (m3.lineMaskShape.style.strokeWidth = S3 + "px", E3 = true, ie2 && (je(m3, m3.lineOutlineMaskCaps), je(m3, m3.lineOutlineFace)))), Xe(m3, _3, "plug_enabled", S3 = g2.plug_enabled, v3.apl_plug_enabled) && (m3.plugsFace.style.display = S3 ? "inline" : "none", E3 = true), g2.plug_enabled && [0, 1].forEach(function(n4) {
+        var e4 = g2.plug_plugSE[n4], t4 = e4 !== Y ? X[q[e4]] : null, a4 = Ze(n4, t4);
+        Xe(m3, _3.plug_enabledSE, n4, S3 = g2.plug_enabledSE[n4], v3.apl_plug_enabledSE) && (m3.plugsFace.style[a4.prop] = S3 ? "url(#" + m3.plugMarkerIdSE[n4] + ")" : "none", E3 = true), g2.plug_enabledSE[n4] && (Xe(m3, _3.plug_plugSE, n4, e4, v3.apl_plug_plugSE) && (m3.plugFaceSE[n4].href.baseVal = "#" + t4.elmId, Ue(m3, m3.plugMarkerSE[n4], a4.orient, t4.bBox, m3.svg, m3.plugMarkerShapeSE[n4], m3.plugsFace), E3 = true, oe && je(m3, m3.plugsFace)), Xe(m3, _3.plug_colorSE, n4, S3 = g2.plug_colorSE[n4], v3.apl_plug_colorSE) && (m3.plugFaceSE[n4].style.fill = S3, E3 = true, (le || re || ie2) && !g2.line_colorTra && je(m3, ie2 ? m3.lineMaskCaps : m3.capsMaskLine)), ["markerWidth", "markerHeight"].forEach(function(e5) {
+          var t5 = "plug_" + e5 + "SE";
+          Xe(m3, _3[t5], n4, S3 = g2[t5][n4], v3["apl_" + t5]) && (m3.plugMarkerSE[n4][e5].baseVal.value = S3, E3 = true);
+        }), Xe(m3, _3.plugOutline_enabledSE, n4, S3 = g2.plugOutline_enabledSE[n4], v3.apl_plugOutline_enabledSE) && (S3 ? (m3.plugFaceSE[n4].style.mask = "url(#" + m3.plugMaskIdSE[n4] + ")", m3.plugOutlineFaceSE[n4].style.display = "inline") : (m3.plugFaceSE[n4].style.mask = "none", m3.plugOutlineFaceSE[n4].style.display = "none"), E3 = true), g2.plugOutline_enabledSE[n4] && (Xe(m3, _3.plugOutline_plugSE, n4, e4, v3.apl_plugOutline_plugSE) && (m3.plugOutlineFaceSE[n4].href.baseVal = m3.plugMaskShapeSE[n4].href.baseVal = m3.plugOutlineMaskShapeSE[n4].href.baseVal = "#" + t4.elmId, [m3.plugMaskSE[n4], m3.plugOutlineMaskSE[n4]].forEach(function(e5) {
+          e5.x.baseVal.value = t4.bBox.left, e5.y.baseVal.value = t4.bBox.top, e5.width.baseVal.value = t4.bBox.width, e5.height.baseVal.value = t4.bBox.height;
+        }), E3 = true), Xe(m3, _3.plugOutline_colorSE, n4, S3 = g2.plugOutline_colorSE[n4], v3.apl_plugOutline_colorSE) && (m3.plugOutlineFaceSE[n4].style.fill = S3, E3 = true, ie2 && (je(m3, m3.lineMaskCaps), je(m3, m3.lineOutlineMaskCaps))), Xe(m3, _3.plugOutline_strokeWidthSE, n4, S3 = g2.plugOutline_strokeWidthSE[n4], v3.apl_plugOutline_strokeWidthSE) && (m3.plugOutlineMaskShapeSE[n4].style.strokeWidth = S3 + "px", E3 = true), Xe(m3, _3.plugOutline_inStrokeWidthSE, n4, S3 = g2.plugOutline_inStrokeWidthSE[n4], v3.apl_plugOutline_inStrokeWidthSE) && (m3.plugMaskShapeSE[n4].style.strokeWidth = S3 + "px", E3 = true)));
+      }), E3)), (t3.position || U2.line || U2.plug) && (U2.position = Ke(e3)), (t3.path || U2.position) && (U2.path = (k2 = (x3 = e3).curStats, I2 = x3.aplStats, M3 = x3.pathList.animVal || x3.pathList.baseVal, w3 = k2.path_edge, C3 = false, M3 && (w3.x1 = w3.x2 = M3[0][0].x, w3.y1 = w3.y2 = M3[0][0].y, k2.path_pathData = b3 = Be(M3, function(e4) {
+        e4.x < w3.x1 && (w3.x1 = e4.x), e4.y < w3.y1 && (w3.y1 = e4.y), e4.x > w3.x2 && (w3.x2 = e4.x), e4.y > w3.y2 && (w3.y2 = e4.y);
+      }), Fe(b3, I2.path_pathData) && (x3.linePath.setPathData(b3), I2.path_pathData = b3, C3 = true, ie2 ? (je(x3, x3.plugsFace), je(x3, x3.lineMaskCaps)) : oe && je(x3, x3.linePath), x3.events.apl_path && x3.events.apl_path.forEach(function(e4) {
+        e4(x3, b3);
+      }))), C3)), U2.viewBox = (M3 = (O3 = e3).curStats, I2 = O3.aplStats, C3 = M3.path_edge, L3 = M3.viewBox_bBox, A2 = I2.viewBox_bBox, V3 = O3.svg.viewBox.baseVal, P3 = O3.svg.style, N2 = false, I2 = Math.max(M3.line_strokeWidth / 2, M3.viewBox_plugBCircleSE[0] || 0, M3.viewBox_plugBCircleSE[1] || 0), T3 = { x1: C3.x1 - I2, y1: C3.y1 - I2, x2: C3.x2 + I2, y2: C3.y2 + I2 }, O3.events.new_edge4viewBox && O3.events.new_edge4viewBox.forEach(function(e4) {
+        e4(O3, T3);
+      }), L3.x = M3.lineMask_x = M3.lineOutlineMask_x = M3.maskBGRect_x = T3.x1, L3.y = M3.lineMask_y = M3.lineOutlineMask_y = M3.maskBGRect_y = T3.y1, L3.width = T3.x2 - T3.x1, L3.height = T3.y2 - T3.y1, ["x", "y", "width", "height"].forEach(function(e4) {
+        var t4;
+        (t4 = L3[e4]) !== A2[e4] && (V3[e4] = A2[e4] = t4, P3[Q[e4]] = t4 + ("x" === e4 || "y" === e4 ? O3.bodyOffset[e4] : 0) + "px", N2 = true);
+      }), N2), U2.mask = (R3 = (W3 = e3).curStats, F3 = W3.aplStats, G2 = false, R3.plug_enabled ? [0, 1].forEach(function(e4) {
+        R3.capsMaskMarker_enabledSE[e4] = R3.plug_enabledSE[e4] && R3.plug_colorTraSE[e4] || R3.plugOutline_enabledSE[e4] && R3.plugOutline_colorTraSE[e4];
+      }) : R3.capsMaskMarker_enabledSE[0] = R3.capsMaskMarker_enabledSE[1] = false, R3.capsMaskMarker_enabled = R3.capsMaskMarker_enabledSE[0] || R3.capsMaskMarker_enabledSE[1], R3.lineMask_outlineMode = R3.lineOutline_enabled, R3.caps_enabled = R3.capsMaskMarker_enabled || R3.capsMaskAnchor_enabledSE[0] || R3.capsMaskAnchor_enabledSE[1], R3.lineMask_enabled = R3.caps_enabled || R3.lineMask_outlineMode, (R3.lineMask_enabled && !R3.lineMask_outlineMode || R3.lineOutline_enabled) && ["x", "y"].forEach(function(e4) {
+        var t4 = "maskBGRect_" + e4;
+        Xe(W3, F3, t4, B3 = R3[t4]) && (W3.maskBGRect[e4].baseVal.value = B3, G2 = true);
+      }), Xe(W3, F3, "lineMask_enabled", B3 = R3.lineMask_enabled) && (W3.lineFace.style.mask = B3 ? "url(#" + W3.lineMaskId + ")" : "none", G2 = true, re && je(W3, W3.lineMask)), R3.lineMask_enabled && (Xe(W3, F3, "lineMask_outlineMode", B3 = R3.lineMask_outlineMode) && (B3 ? (W3.lineMaskBG.style.display = "none", W3.lineMaskShape.style.display = "inline") : (W3.lineMaskBG.style.display = "inline", W3.lineMaskShape.style.display = "none"), G2 = true), ["x", "y"].forEach(function(e4) {
+        var t4 = "lineMask_" + e4;
+        Xe(W3, F3, t4, B3 = R3[t4]) && (W3.lineMask[e4].baseVal.value = B3, G2 = true);
+      }), Xe(W3, F3, "caps_enabled", B3 = R3.caps_enabled) && (W3.lineMaskCaps.style.display = W3.lineOutlineMaskCaps.style.display = B3 ? "inline" : "none", G2 = true, re && je(W3, W3.capsMaskLine)), R3.caps_enabled && ([0, 1].forEach(function(e4) {
+        var t4;
+        Xe(W3, F3.capsMaskAnchor_enabledSE, e4, B3 = R3.capsMaskAnchor_enabledSE[e4]) && (W3.capsMaskAnchorSE[e4].style.display = B3 ? "inline" : "none", G2 = true, re && je(W3, W3.lineMask)), R3.capsMaskAnchor_enabledSE[e4] && (Fe(t4 = R3.capsMaskAnchor_pathDataSE[e4], F3.capsMaskAnchor_pathDataSE[e4]) && (W3.capsMaskAnchorSE[e4].setPathData(t4), F3.capsMaskAnchor_pathDataSE[e4] = t4, G2 = true), Xe(W3, F3.capsMaskAnchor_strokeWidthSE, e4, B3 = R3.capsMaskAnchor_strokeWidthSE[e4]) && (W3.capsMaskAnchorSE[e4].style.strokeWidth = B3 + "px", G2 = true));
+      }), Xe(W3, F3, "capsMaskMarker_enabled", B3 = R3.capsMaskMarker_enabled) && (W3.capsMaskLine.style.display = B3 ? "inline" : "none", G2 = true), R3.capsMaskMarker_enabled && [0, 1].forEach(function(n4) {
+        var e4 = R3.capsMaskMarker_plugSE[n4], t4 = e4 !== Y ? X[q[e4]] : null, a4 = Ze(n4, t4);
+        Xe(W3, F3.capsMaskMarker_enabledSE, n4, B3 = R3.capsMaskMarker_enabledSE[n4]) && (W3.capsMaskLine.style[a4.prop] = B3 ? "url(#" + W3.lineMaskMarkerIdSE[n4] + ")" : "none", G2 = true), R3.capsMaskMarker_enabledSE[n4] && (Xe(W3, F3.capsMaskMarker_plugSE, n4, e4) && (W3.capsMaskMarkerShapeSE[n4].href.baseVal = "#" + t4.elmId, Ue(W3, W3.capsMaskMarkerSE[n4], a4.orient, t4.bBox, W3.svg, W3.capsMaskMarkerShapeSE[n4], W3.capsMaskLine), G2 = true, oe && (je(W3, W3.capsMaskLine), je(W3, W3.lineFace))), ["markerWidth", "markerHeight"].forEach(function(e5) {
+          var t5 = "capsMaskMarker_" + e5 + "SE";
+          Xe(W3, F3[t5], n4, B3 = R3[t5][n4]) && (W3.capsMaskMarkerSE[n4][e5].baseVal.value = B3, G2 = true);
+        }));
+      }))), R3.lineOutline_enabled && ["x", "y"].forEach(function(e4) {
+        var t4 = "lineOutlineMask_" + e4;
+        Xe(W3, F3, t4, B3 = R3[t4]) && (W3.lineOutlineMask[e4].baseVal.value = B3, G2 = true);
+      }), G2), t3.effect && (j2 = (D3 = e3).curStats, H3 = D3.aplStats, Object.keys(Z).forEach(function(e4) {
+        var t4 = Z[e4], n4 = e4 + "_enabled", a4 = e4 + "_options", e4 = j2[a4];
+        Xe(D3, H3, n4, z3 = j2[n4]) ? (z3 && (H3[a4] = we(e4)), t4[z3 ? "init" : "remove"](D3)) : z3 && ke(e4, H3[a4]) && (t4.remove(D3), H3[n4] = true, H3[a4] = we(e4), t4.init(D3));
+      })), (le || re) && U2.line && !U2.path && je(e3, e3.lineShape), le && U2.plug && !U2.line && je(e3, e3.plugsFace), He(e3);
+    }
+    function et(e3, t3) {
+      return { duration: (pe(e3.duration) && 0 < e3.duration ? e3 : t3).duration, timing: g.validTiming(e3.timing) ? e3.timing : we(t3.timing) };
+    }
+    function tt2(e3, t3, n3, a3) {
+      var i3 = e3.curStats, o3 = e3.aplStats, l3 = {};
+      function r3() {
+        ["show_on", "show_effect", "show_animOptions"].forEach(function(e4) {
+          o3[e4] = i3[e4];
+        });
+      }
+      i3.show_on = t3, n3 && w2[n3] && (i3.show_effect = n3, i3.show_animOptions = et(he(a3) ? a3 : {}, w2[n3].defaultAnimOptions)), l3.show_on = i3.show_on !== o3.show_on, l3.show_effect = i3.show_effect !== o3.show_effect, l3.show_animOptions = ke(i3.show_animOptions, o3.show_animOptions), l3.show_effect || l3.show_animOptions ? i3.show_inAnim ? (n3 = l3.show_effect ? w2[o3.show_effect].stop(e3, true, true) : w2[o3.show_effect].stop(e3), r3(), w2[o3.show_effect].init(e3, n3)) : l3.show_on && (o3.show_effect && l3.show_effect && w2[o3.show_effect].stop(e3, true, true), r3(), w2[o3.show_effect].init(e3)) : l3.show_on && (r3(), w2[o3.show_effect].start(e3));
+    }
+    function nt(e3, t3, n3) {
+      n3 = { props: e3, optionName: n3 };
+      return e3.attachments.indexOf(t3) < 0 && (!t3.conf.bind || t3.conf.bind(t3, n3)) && (e3.attachments.push(t3), t3.boundTargets.push(n3), 1);
+    }
+    function at(n3, a3, e3) {
+      var i3 = n3.attachments.indexOf(a3);
+      -1 < i3 && n3.attachments.splice(i3, 1), a3.boundTargets.some(function(e4, t3) {
+        return e4.props === n3 && (a3.conf.unbind && a3.conf.unbind(a3, e4), i3 = t3, true);
+      }) && (a3.boundTargets.splice(i3, 1), e3 || ze(function() {
+        a3.boundTargets.length || o2(a3);
+      }));
+    }
+    function it(s3, u3) {
+      var i3, n3, e3, t3, a3, o3, l3, r3, h3, p3, c3, d3, f3, y3, m3, S3 = s3.options, g2 = {};
+      function _3(e4, t4, n4, a4, i4) {
+        var o4 = {};
+        return n4 ? null != a4 ? (o4.container = e4[n4], o4.key = a4) : (o4.container = e4, o4.key = n4) : (o4.container = e4, o4.key = t4), o4.default = i4, o4.acceptsAuto = null == o4.default, o4;
+      }
+      function v3(e4, t4, n4, a4, i4, o4, l4) {
+        var r4, s4, u4, l4 = _3(e4, n4, i4, o4, l4);
+        return null != t4[n4] && (s4 = (t4[n4] + "").toLowerCase()) && (l4.acceptsAuto && s4 === D2 || (u4 = a4[s4])) && u4 !== l4.container[l4.key] && (l4.container[l4.key] = u4, r4 = true), null != l4.container[l4.key] || l4.acceptsAuto || (l4.container[l4.key] = l4.default, r4 = true), r4;
+      }
+      function E3(e4, t4, n4, a4, i4, o4, l4, r4, s4) {
+        var u4, h4, p4, c4, l4 = _3(e4, n4, i4, o4, l4);
+        if (!a4) {
+          if (null == l4.default)
+            throw new Error("Invalid `type`: " + n4);
+          a4 = typeof l4.default;
+        }
+        return null != t4[n4] && (l4.acceptsAuto && (t4[n4] + "").toLowerCase() === D2 || (p4 = h4 = t4[n4], ("number" === (c4 = a4) ? pe(p4) : typeof p4 === c4) && (h4 = s4 && "string" === a4 && h4 ? h4.trim() : h4, 1) && (!r4 || r4(h4)))) && h4 !== l4.container[l4.key] && (l4.container[l4.key] = h4, u4 = true), null != l4.container[l4.key] || l4.acceptsAuto || (l4.container[l4.key] = l4.default, u4 = true), u4;
+      }
+      if (u3 = u3 || {}, ["start", "end"].forEach(function(e4, t4) {
+        var n4 = u3[e4], a4 = false;
+        if (n4 && (Me(n4) || (a4 = I(n4, "anchor"))) && n4 !== S3.anchorSE[t4]) {
+          if (false !== s3.optionIsAttach.anchorSE[t4] && at(s3, _e2[S3.anchorSE[t4]._id]), a4 && !nt(s3, _e2[n4._id], e4))
+            throw new Error("Can't bind attachment");
+          S3.anchorSE[t4] = n4, s3.optionIsAttach.anchorSE[t4] = a4, i3 = g2.position = true;
+        }
+      }), !S3.anchorSE[0] || !S3.anchorSE[1] || S3.anchorSE[0] === S3.anchorSE[1])
+        throw new Error("`start` and `end` are required.");
+      function x3(e4) {
+        var t4 = a3.appendChild(y3.createElementNS(ae, "mask"));
+        return t4.id = e4, t4.maskUnits.baseVal = SVGUnitTypes.SVG_UNIT_TYPE_USERSPACEONUSE, [t4.x, t4.y, t4.width, t4.height].forEach(function(e5) {
+          e5.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PX, 0);
+        }), t4;
+      }
+      function b3(e4) {
+        var t4 = a3.appendChild(y3.createElementNS(ae, "marker"));
+        return t4.id = e4, t4.markerUnits.baseVal = SVGMarkerElement.SVG_MARKERUNITS_STROKEWIDTH, t4.viewBox.baseVal || t4.setAttribute("viewBox", "0 0 0 0"), t4;
+      }
+      function k2(e4) {
+        return [e4.width, e4.height].forEach(function(e5) {
+          e5.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PERCENTAGE, 100);
+        }), e4;
+      }
+      i3 && (c3 = function(e4, t4) {
+        var n4, a4;
+        if (!(e4 = Ce(e4)) || !(n4 = Ce(t4)))
+          throw new Error("Cannot get frames.");
+        return e4.length && n4.length && (e4.reverse(), n4.reverse(), e4.some(function(t5) {
+          return n4.some(function(e5) {
+            return e5 === t5 && (a4 = e5.contentWindow, true);
+          });
+        })), a4 || window;
+      }(false !== s3.optionIsAttach.anchorSE[0] ? _e2[S3.anchorSE[0]._id].element : S3.anchorSE[0], false !== s3.optionIsAttach.anchorSE[1] ? _e2[S3.anchorSE[1]._id].element : S3.anchorSE[1])) !== s3.baseWindow && (e3 = c3, f3 = (n3 = s3).aplStats, y3 = e3.document, m3 = C2 + "-" + n3._id, n3.pathList = {}, Ye(f3, de), Object.keys(Z).forEach(function(e4) {
+        var t4 = e4 + "_enabled";
+        f3[t4] && (Z[e4].remove(n3), f3[t4] = false);
+      }), n3.baseWindow && n3.svg && n3.baseWindow.document.body.removeChild(n3.svg), Qe(n3.baseWindow = e3), n3.bodyOffset = qe(e3), n3.svg = t3 = y3.createElementNS(ae, "svg"), t3.className.baseVal = C2, t3.viewBox.baseVal || t3.setAttribute("viewBox", "0 0 0 0"), n3.defs = a3 = t3.appendChild(y3.createElementNS(ae, "defs")), n3.linePath = l3 = a3.appendChild(y3.createElementNS(ae, "path")), l3.id = r3 = m3 + "-line-path", l3.className.baseVal = C2 + "-line-path", re && (l3.style.fill = "none"), n3.lineShape = l3 = a3.appendChild(y3.createElementNS(ae, "use")), l3.id = h3 = m3 + "-line-shape", l3.href.baseVal = "#" + r3, (o3 = a3.appendChild(y3.createElementNS(ae, "g"))).id = p3 = m3 + "-caps", n3.capsMaskAnchorSE = [0, 1].map(function() {
+        var e4 = o3.appendChild(y3.createElementNS(ae, "path"));
+        return e4.className.baseVal = C2 + "-caps-mask-anchor", e4;
+      }), n3.lineMaskMarkerIdSE = [m3 + "-caps-mask-marker-0", m3 + "-caps-mask-marker-1"], n3.capsMaskMarkerSE = [0, 1].map(function(e4) {
+        return b3(n3.lineMaskMarkerIdSE[e4]);
+      }), n3.capsMaskMarkerShapeSE = [0, 1].map(function(e4) {
+        e4 = n3.capsMaskMarkerSE[e4].appendChild(y3.createElementNS(ae, "use"));
+        return e4.className.baseVal = C2 + "-caps-mask-marker-shape", e4;
+      }), n3.capsMaskLine = l3 = o3.appendChild(y3.createElementNS(ae, "use")), l3.className.baseVal = C2 + "-caps-mask-line", l3.href.baseVal = "#" + h3, n3.maskBGRect = l3 = k2(a3.appendChild(y3.createElementNS(ae, "rect"))), l3.id = c3 = m3 + "-mask-bg-rect", l3.className.baseVal = C2 + "-mask-bg-rect", re && (l3.style.fill = "white"), n3.lineMask = k2(x3(n3.lineMaskId = m3 + "-line-mask")), n3.lineMaskBG = l3 = n3.lineMask.appendChild(y3.createElementNS(ae, "use")), l3.href.baseVal = "#" + c3, n3.lineMaskShape = l3 = n3.lineMask.appendChild(y3.createElementNS(ae, "use")), l3.className.baseVal = C2 + "-line-mask-shape", l3.href.baseVal = "#" + r3, l3.style.display = "none", n3.lineMaskCaps = l3 = n3.lineMask.appendChild(y3.createElementNS(ae, "use")), l3.href.baseVal = "#" + p3, n3.lineOutlineMask = k2(x3(e3 = m3 + "-line-outline-mask")), (l3 = n3.lineOutlineMask.appendChild(y3.createElementNS(ae, "use"))).href.baseVal = "#" + c3, n3.lineOutlineMaskShape = l3 = n3.lineOutlineMask.appendChild(y3.createElementNS(ae, "use")), l3.className.baseVal = C2 + "-line-outline-mask-shape", l3.href.baseVal = "#" + r3, n3.lineOutlineMaskCaps = l3 = n3.lineOutlineMask.appendChild(y3.createElementNS(ae, "use")), l3.href.baseVal = "#" + p3, n3.face = t3.appendChild(y3.createElementNS(ae, "g")), n3.lineFace = l3 = n3.face.appendChild(y3.createElementNS(ae, "use")), l3.href.baseVal = "#" + h3, n3.lineOutlineFace = l3 = n3.face.appendChild(y3.createElementNS(ae, "use")), l3.href.baseVal = "#" + h3, l3.style.mask = "url(#" + e3 + ")", l3.style.display = "none", n3.plugMaskIdSE = [m3 + "-plug-mask-0", m3 + "-plug-mask-1"], n3.plugMaskSE = [0, 1].map(function(e4) {
+        return x3(n3.plugMaskIdSE[e4]);
+      }), n3.plugMaskShapeSE = [0, 1].map(function(e4) {
+        e4 = n3.plugMaskSE[e4].appendChild(y3.createElementNS(ae, "use"));
+        return e4.className.baseVal = C2 + "-plug-mask-shape", e4;
+      }), d3 = [], n3.plugOutlineMaskSE = [0, 1].map(function(e4) {
+        return x3(d3[e4] = m3 + "-plug-outline-mask-" + e4);
+      }), n3.plugOutlineMaskShapeSE = [0, 1].map(function(e4) {
+        e4 = n3.plugOutlineMaskSE[e4].appendChild(y3.createElementNS(ae, "use"));
+        return e4.className.baseVal = C2 + "-plug-outline-mask-shape", e4;
+      }), n3.plugMarkerIdSE = [m3 + "-plug-marker-0", m3 + "-plug-marker-1"], n3.plugMarkerSE = [0, 1].map(function(e4) {
+        e4 = b3(n3.plugMarkerIdSE[e4]);
+        return re && (e4.markerUnits.baseVal = SVGMarkerElement.SVG_MARKERUNITS_USERSPACEONUSE), e4;
+      }), n3.plugMarkerShapeSE = [0, 1].map(function(e4) {
+        return n3.plugMarkerSE[e4].appendChild(y3.createElementNS(ae, "g"));
+      }), n3.plugFaceSE = [0, 1].map(function(e4) {
+        return n3.plugMarkerShapeSE[e4].appendChild(y3.createElementNS(ae, "use"));
+      }), n3.plugOutlineFaceSE = [0, 1].map(function(e4) {
+        var t4 = n3.plugMarkerShapeSE[e4].appendChild(y3.createElementNS(ae, "use"));
+        return t4.style.mask = "url(#" + d3[e4] + ")", t4.style.display = "none", t4;
+      }), n3.plugsFace = l3 = n3.face.appendChild(y3.createElementNS(ae, "use")), l3.className.baseVal = C2 + "-plugs-face", l3.href.baseVal = "#" + h3, l3.style.display = "none", n3.curStats.show_inAnim ? (n3.isShown = 1, w2[f3.show_effect].stop(n3, true)) : n3.isShown || (t3.style.visibility = "hidden"), y3.body.appendChild(t3), [0, 1, 2].forEach(function(e4) {
+        var t4, e4 = n3.options.labelSEM[e4];
+        e4 && I(e4, "label") && (t4 = _e2[e4._id]).conf.initSvg && t4.conf.initSvg(t4, n3);
+      }), g2.line = g2.plug = g2.lineOutline = g2.plugOutline = g2.faces = g2.effect = true), g2.position = v3(S3, u3, "path", R2, null, null, ue.path) || g2.position, g2.position = v3(S3, u3, "startSocket", V2, "socketSE", 0) || g2.position, g2.position = v3(S3, u3, "endSocket", V2, "socketSE", 1) || g2.position, [u3.startSocketGravity, u3.endSocketGravity].forEach(function(e4, t4) {
+        var n4, a4, i4 = false;
+        null != e4 && (Array.isArray(e4) ? pe(e4[0]) && pe(e4[1]) && (i4 = [e4[0], e4[1]], Array.isArray(S3.socketGravitySE[t4]) && (n4 = i4, a4 = S3.socketGravitySE[t4], n4.length === a4.length && n4.every(function(e5, t5) {
+          return e5 === a4[t5];
+        })) && (i4 = false)) : ((e4 + "").toLowerCase() === D2 ? i4 = null : pe(e4) && 0 <= e4 && (i4 = e4), i4 === S3.socketGravitySE[t4] && (i4 = false)), false !== i4 && (S3.socketGravitySE[t4] = i4, g2.position = true));
+      }), g2.line = E3(S3, u3, "color", null, "lineColor", null, ue.lineColor, null, true) || g2.line, g2.line = E3(S3, u3, "size", null, "lineSize", null, ue.lineSize, function(e4) {
+        return 0 < e4;
+      }) || g2.line, ["startPlug", "endPlug"].forEach(function(e4, t4) {
+        g2.plug = v3(S3, u3, e4, F2, "plugSE", t4, ue.plugSE[t4]) || g2.plug, g2.plug = E3(S3, u3, e4 + "Color", "string", "plugColorSE", t4, null, null, true) || g2.plug, g2.plug = E3(S3, u3, e4 + "Size", null, "plugSizeSE", t4, ue.plugSizeSE[t4], function(e5) {
+          return 0 < e5;
+        }) || g2.plug;
+      }), g2.lineOutline = E3(S3, u3, "outline", null, "lineOutlineEnabled", null, ue.lineOutlineEnabled) || g2.lineOutline, g2.lineOutline = E3(S3, u3, "outlineColor", null, "lineOutlineColor", null, ue.lineOutlineColor, null, true) || g2.lineOutline, g2.lineOutline = E3(S3, u3, "outlineSize", null, "lineOutlineSize", null, ue.lineOutlineSize, function(e4) {
+        return 0 < e4 && e4 <= 0.48;
+      }) || g2.lineOutline, ["startPlugOutline", "endPlugOutline"].forEach(function(e4, t4) {
+        g2.plugOutline = E3(S3, u3, e4, null, "plugOutlineEnabledSE", t4, ue.plugOutlineEnabledSE[t4]) || g2.plugOutline, g2.plugOutline = E3(S3, u3, e4 + "Color", "string", "plugOutlineColorSE", t4, null, null, true) || g2.plugOutline, g2.plugOutline = E3(S3, u3, e4 + "Size", null, "plugOutlineSizeSE", t4, ue.plugOutlineSizeSE[t4], function(e5) {
+          return 1 <= e5;
+        }) || g2.plugOutline;
+      }), ["startLabel", "endLabel", "middleLabel"].forEach(function(e4, t4) {
+        var n4, a4, i4, o4 = u3[e4], l4 = S3.labelSEM[t4] && !s3.optionIsAttach.labelSEM[t4] ? _e2[S3.labelSEM[t4]._id].text : S3.labelSEM[t4], r4 = false;
+        if ((n4 = "string" == typeof o4) && (o4 = o4.trim()), (n4 || o4 && (r4 = I(o4, "label"))) && o4 !== l4) {
+          if (S3.labelSEM[t4] && (at(s3, _e2[S3.labelSEM[t4]._id]), S3.labelSEM[t4] = ""), o4) {
+            if (r4 ? (a4 = _e2[(i4 = o4)._id]).boundTargets.slice().forEach(function(e5) {
+              a4.conf.removeOption(a4, e5);
+            }) : i4 = new M2(O2.captionLabel, [o4]), !nt(s3, _e2[i4._id], e4))
+              throw new Error("Can't bind attachment");
+            S3.labelSEM[t4] = i4;
+          }
+          s3.optionIsAttach.labelSEM[t4] = r4;
+        }
+      }), Object.keys(Z).forEach(function(a4) {
+        var e4, t4, o4 = Z[a4], n4 = a4 + "_enabled", i4 = a4 + "_options";
+        function l4(a5) {
+          var i5 = {};
+          return o4.optionsConf.forEach(function(e5) {
+            var t5 = e5[0], n5 = e5[3];
+            null == e5[4] || i5[n5] || (i5[n5] = []), ("function" == typeof t5 ? t5 : "id" === t5 ? v3 : E3).apply(null, [i5, a5].concat(e5.slice(1)));
+          }), i5;
+        }
+        function r4(e5) {
+          var t5, n5 = a4 + "_animOptions";
+          return e5.hasOwnProperty("animation") ? he(e5.animation) ? t5 = s3.curStats[n5] = et(e5.animation, o4.defaultAnimOptions) : (t5 = !!e5.animation, s3.curStats[n5] = t5 ? et({}, o4.defaultAnimOptions) : null) : (t5 = !!o4.defaultEnabled, s3.curStats[n5] = t5 ? et({}, o4.defaultAnimOptions) : null), t5;
+        }
+        u3.hasOwnProperty(a4) && (e4 = u3[a4], he(e4) ? (s3.curStats[n4] = true, t4 = s3.curStats[i4] = l4(e4), o4.anim && (s3.curStats[i4].animation = r4(e4))) : (t4 = s3.curStats[n4] = !!e4) && (s3.curStats[i4] = l4({}), o4.anim && (s3.curStats[i4].animation = r4({}))), ke(t4, S3[a4]) && (S3[a4] = t4, g2.effect = true));
+      }), $e(s3, g2);
+    }
+    function ot(e3, t3, n3) {
+      var a3 = { options: { anchorSE: [], socketSE: [], socketGravitySE: [], plugSE: [], plugColorSE: [], plugSizeSE: [], plugOutlineEnabledSE: [], plugOutlineColorSE: [], plugOutlineSizeSE: [], labelSEM: ["", "", ""] }, optionIsAttach: { anchorSE: [false, false], labelSEM: [false, false, false] }, curStats: {}, aplStats: {}, attachments: [], events: {}, reflowTargets: [] };
+      Ye(a3.curStats, de), Ye(a3.aplStats, de), Object.keys(Z).forEach(function(e4) {
+        var t4 = Z[e4].stats;
+        Ye(a3.curStats, t4), Ye(a3.aplStats, t4), a3.options[e4] = false;
+      }), Ye(a3.curStats, fe), Ye(a3.aplStats, fe), a3.curStats.show_effect = ye, a3.curStats.show_animOptions = we(w2[ye].defaultAnimOptions), Object.defineProperty(this, "_id", { value: ++ge }), a3._id = this._id, Se[this._id] = a3, 1 === arguments.length && (n3 = e3, e3 = null), n3 = n3 || {}, (e3 || t3) && (n3 = we(n3), e3 && (n3.start = e3), t3 && (n3.end = t3)), a3.isShown = a3.aplStats.show_on = !n3.hide, this.setOptions(n3);
+    }
+    function lt(n3) {
+      return function(e3) {
+        var t3 = {};
+        t3[n3] = e3, this.setOptions(t3);
+      };
+    }
+    function rt(e3, t3) {
+      var n3, a3 = { conf: e3, curStats: {}, aplStats: {}, boundTargets: [] }, i3 = {};
+      e3.argOptions.every(function(e4) {
+        return !(!t3.length || ("string" == typeof e4.type ? typeof t3[0] !== e4.type : "function" != typeof e4.type || !e4.type(t3[0]))) && (i3[e4.optionName] = t3.shift(), true);
+      }), n3 = t3.length && he(t3[0]) ? we(t3[0]) : {}, Object.keys(i3).forEach(function(e4) {
+        n3[e4] = i3[e4];
+      }), e3.stats && (Ye(a3.curStats, e3.stats), Ye(a3.aplStats, e3.stats)), Object.defineProperty(this, "_id", { value: ++ve }), Object.defineProperty(this, "isRemoved", { get: function() {
+        return !_e2[this._id];
+      } }), a3._id = this._id, e3.init && !e3.init(a3, n3) || (_e2[this._id] = a3);
+    }
+    return Z = { dash: { stats: { dash_len: {}, dash_gap: {}, dash_maxOffset: {} }, anim: true, defaultAnimOptions: { duration: 1e3, timing: "linear" }, optionsConf: [["type", "len", "number", null, null, null, function(e3) {
+      return 0 < e3;
+    }], ["type", "gap", "number", null, null, null, function(e3) {
+      return 0 < e3;
+    }]], init: function(e3) {
+      Ge(e3, "apl_line_strokeWidth", Z.dash.update), e3.lineFace.style.strokeDashoffset = 0, Z.dash.update(e3);
+    }, remove: function(e3) {
+      var t3 = e3.curStats;
+      De(e3, "apl_line_strokeWidth", Z.dash.update), t3.dash_animId && (g.remove(t3.dash_animId), t3.dash_animId = null), e3.lineFace.style.strokeDasharray = "none", e3.lineFace.style.strokeDashoffset = 0, Ye(e3.aplStats, Z.dash.stats);
+    }, update: function(t3) {
+      var e3, n3 = t3.curStats, a3 = t3.aplStats, i3 = a3.dash_options, o3 = false;
+      n3.dash_len = i3.len || 2 * a3.line_strokeWidth, n3.dash_gap = i3.gap || a3.line_strokeWidth, n3.dash_maxOffset = n3.dash_len + n3.dash_gap, o3 = Xe(t3, a3, "dash_len", n3.dash_len) || o3, (o3 = Xe(t3, a3, "dash_gap", n3.dash_gap) || o3) && (t3.lineFace.style.strokeDasharray = a3.dash_len + "," + a3.dash_gap), n3.dash_animOptions ? (o3 = Xe(t3, a3, "dash_maxOffset", n3.dash_maxOffset), a3.dash_animOptions && (o3 || ke(n3.dash_animOptions, a3.dash_animOptions)) && (n3.dash_animId && (e3 = g.stop(n3.dash_animId), g.remove(n3.dash_animId)), a3.dash_animOptions = null), a3.dash_animOptions || (n3.dash_animId = g.add(function(e4) {
+        return (1 - e4) * a3.dash_maxOffset + "px";
+      }, function(e4) {
+        t3.lineFace.style.strokeDashoffset = e4;
+      }, n3.dash_animOptions.duration, 0, n3.dash_animOptions.timing, false, e3), a3.dash_animOptions = we(n3.dash_animOptions))) : a3.dash_animOptions && (n3.dash_animId && (g.remove(n3.dash_animId), n3.dash_animId = null), t3.lineFace.style.strokeDashoffset = 0, a3.dash_animOptions = null);
+    } }, gradient: { stats: { gradient_colorSE: { hasSE: true }, gradient_pointSE: { hasSE: true, hasProps: true } }, optionsConf: [["type", "startColor", "string", "colorSE", 0, null, null, true], ["type", "endColor", "string", "colorSE", 1, null, null, true]], init: function(e3) {
+      var a3 = e3.baseWindow.document, t3 = e3.defs, n3 = C2 + "-" + e3._id + "-gradient";
+      e3.efc_gradient_gradient = t3 = t3.appendChild(a3.createElementNS(ae, "linearGradient")), t3.id = n3, t3.gradientUnits.baseVal = SVGUnitTypes.SVG_UNIT_TYPE_USERSPACEONUSE, [t3.x1, t3.y1, t3.x2, t3.y2].forEach(function(e4) {
+        e4.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PX, 0);
+      }), e3.efc_gradient_stopSE = [0, 1].map(function(t4) {
+        var n4 = e3.efc_gradient_gradient.appendChild(a3.createElementNS(ae, "stop"));
+        try {
+          n4.offset.baseVal = t4;
+        } catch (e4) {
+          if (e4.code !== DOMException.NO_MODIFICATION_ALLOWED_ERR)
+            throw e4;
+          n4.setAttribute("offset", t4);
+        }
+        return n4;
+      }), Ge(e3, "cur_plug_colorSE", Z.gradient.update), Ge(e3, "apl_path", Z.gradient.update), e3.curStats.line_altColor = true, e3.lineFace.style.stroke = "url(#" + n3 + ")", Z.gradient.update(e3);
+    }, remove: function(e3) {
+      e3.efc_gradient_gradient && (e3.defs.removeChild(e3.efc_gradient_gradient), e3.efc_gradient_gradient = e3.efc_gradient_stopSE = null), De(e3, "cur_plug_colorSE", Z.gradient.update), De(e3, "apl_path", Z.gradient.update), e3.curStats.line_altColor = false, e3.lineFace.style.stroke = e3.curStats.line_color, Ye(e3.aplStats, Z.gradient.stats);
+    }, update: function(a3) {
+      var e3, i3 = a3.curStats, o3 = a3.aplStats, t3 = o3.gradient_options, n3 = a3.pathList.animVal || a3.pathList.baseVal;
+      [0, 1].forEach(function(e4) {
+        i3.gradient_colorSE[e4] = t3.colorSE[e4] || i3.plug_colorSE[e4];
+      }), e3 = n3[0][0], i3.gradient_pointSE[0] = { x: e3.x, y: e3.y }, e3 = (n3 = n3[n3.length - 1])[n3.length - 1], i3.gradient_pointSE[1] = { x: e3.x, y: e3.y }, [0, 1].forEach(function(t4) {
+        var n4;
+        Xe(a3, o3.gradient_colorSE, t4, n4 = i3.gradient_colorSE[t4]) && (re ? (n4 = Oe(n4), a3.efc_gradient_stopSE[t4].style.stopColor = n4[1], a3.efc_gradient_stopSE[t4].style.stopOpacity = n4[0]) : a3.efc_gradient_stopSE[t4].style.stopColor = n4), ["x", "y"].forEach(function(e4) {
+          (n4 = i3.gradient_pointSE[t4][e4]) !== o3.gradient_pointSE[t4][e4] && (a3.efc_gradient_gradient[e4 + (t4 + 1)].baseVal.value = o3.gradient_pointSE[t4][e4] = n4);
+        });
+      });
+    } }, dropShadow: { stats: { dropShadow_dx: {}, dropShadow_dy: {}, dropShadow_blur: {}, dropShadow_color: {}, dropShadow_opacity: {}, dropShadow_x: {}, dropShadow_y: {} }, optionsConf: [["type", "dx", null, null, null, 2], ["type", "dy", null, null, null, 4], ["type", "blur", null, null, null, 3, function(e3) {
+      return 0 <= e3;
+    }], ["type", "color", null, null, null, "#000", null, true], ["type", "opacity", null, null, null, 0.8, function(e3) {
+      return 0 <= e3 && e3 <= 1;
+    }]], init: function(t3) {
+      var e3, n3, a3, i3, o3 = t3.baseWindow.document, l3 = t3.defs, r3 = C2 + "-" + t3._id + "-dropShadow", s3 = (e3 = o3, n3 = r3, i3 = {}, "boolean" != typeof u2 && (u2 = !!window.SVGFEDropShadowElement && !re), i3.elmsAppend = [i3.elmFilter = o3 = e3.createElementNS(ae, "filter")], o3.filterUnits.baseVal = SVGUnitTypes.SVG_UNIT_TYPE_USERSPACEONUSE, o3.x.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PX, 0), o3.y.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PX, 0), o3.width.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PERCENTAGE, 100), o3.height.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PERCENTAGE, 100), o3.id = n3, u2 ? (i3.elmOffset = i3.elmBlur = a3 = o3.appendChild(e3.createElementNS(ae, "feDropShadow")), i3.styleFlood = a3.style) : (i3.elmBlur = o3.appendChild(e3.createElementNS(ae, "feGaussianBlur")), i3.elmOffset = a3 = o3.appendChild(e3.createElementNS(ae, "feOffset")), a3.result.baseVal = "offsetblur", a3 = o3.appendChild(e3.createElementNS(ae, "feFlood")), i3.styleFlood = a3.style, (a3 = o3.appendChild(e3.createElementNS(ae, "feComposite"))).in2.baseVal = "offsetblur", a3.operator.baseVal = SVGFECompositeElement.SVG_FECOMPOSITE_OPERATOR_IN, (a3 = o3.appendChild(e3.createElementNS(ae, "feMerge"))).appendChild(e3.createElementNS(ae, "feMergeNode")), a3.appendChild(e3.createElementNS(ae, "feMergeNode")).in1.baseVal = "SourceGraphic"), i3);
+      ["elmFilter", "elmOffset", "elmBlur", "styleFlood", "elmsAppend"].forEach(function(e4) {
+        t3["efc_dropShadow_" + e4] = s3[e4];
+      }), s3.elmsAppend.forEach(function(e4) {
+        l3.appendChild(e4);
+      }), t3.face.setAttribute("filter", "url(#" + r3 + ")"), Ge(t3, "new_edge4viewBox", Z.dropShadow.adjustEdge), Z.dropShadow.update(t3);
+    }, remove: function(e3) {
+      var t3 = e3.defs;
+      e3.efc_dropShadow_elmsAppend && (e3.efc_dropShadow_elmsAppend.forEach(function(e4) {
+        t3.removeChild(e4);
+      }), e3.efc_dropShadow_elmFilter = e3.efc_dropShadow_elmOffset = e3.efc_dropShadow_elmBlur = e3.efc_dropShadow_styleFlood = e3.efc_dropShadow_elmsAppend = null), De(e3, "new_edge4viewBox", Z.dropShadow.adjustEdge), $e(e3, {}), e3.face.removeAttribute("filter"), Ye(e3.aplStats, Z.dropShadow.stats);
+    }, update: function(e3) {
+      var t3, n3, a3 = e3.curStats, i3 = e3.aplStats, o3 = i3.dropShadow_options;
+      a3.dropShadow_dx = t3 = o3.dx, Xe(e3, i3, "dropShadow_dx", t3) && (e3.efc_dropShadow_elmOffset.dx.baseVal = t3, n3 = true), a3.dropShadow_dy = t3 = o3.dy, Xe(e3, i3, "dropShadow_dy", t3) && (e3.efc_dropShadow_elmOffset.dy.baseVal = t3, n3 = true), a3.dropShadow_blur = t3 = o3.blur, Xe(e3, i3, "dropShadow_blur", t3) && (e3.efc_dropShadow_elmBlur.setStdDeviation(t3, t3), n3 = true), n3 && $e(e3, {}), a3.dropShadow_color = t3 = o3.color, Xe(e3, i3, "dropShadow_color", t3) && (e3.efc_dropShadow_styleFlood.floodColor = t3), a3.dropShadow_opacity = t3 = o3.opacity, Xe(e3, i3, "dropShadow_opacity", t3) && (e3.efc_dropShadow_styleFlood.floodOpacity = t3);
+    }, adjustEdge: function(a3, i3) {
+      var e3, o3 = a3.curStats, l3 = a3.aplStats;
+      null != o3.dropShadow_dx && (e3 = 3 * o3.dropShadow_blur, (e3 = { x1: i3.x1 - e3 + o3.dropShadow_dx, y1: i3.y1 - e3 + o3.dropShadow_dy, x2: i3.x2 + e3 + o3.dropShadow_dx, y2: i3.y2 + e3 + o3.dropShadow_dy }).x1 < i3.x1 && (i3.x1 = e3.x1), e3.y1 < i3.y1 && (i3.y1 = e3.y1), e3.x2 > i3.x2 && (i3.x2 = e3.x2), e3.y2 > i3.y2 && (i3.y2 = e3.y2), ["x", "y"].forEach(function(e4) {
+        var t3, n3 = "dropShadow_" + e4;
+        o3[n3] = t3 = i3[e4 + "1"], Xe(a3, l3, n3, t3) && (a3.efc_dropShadow_elmFilter[e4].baseVal.value = t3);
+      }));
+    } } }, Object.keys(Z).forEach(function(e3) {
+      var t3 = Z[e3], n3 = t3.stats;
+      n3[e3 + "_enabled"] = { iniValue: false }, n3[e3 + "_options"] = { hasProps: true }, t3.anim && (n3[e3 + "_animOptions"] = {}, n3[e3 + "_animId"] = {});
+    }), w2 = { none: { defaultAnimOptions: {}, init: function(e3, t3) {
+      var n3 = e3.curStats;
+      n3.show_animId && (g.remove(n3.show_animId), n3.show_animId = null), w2.none.start(e3, t3);
+    }, start: function(e3, t3) {
+      w2.none.stop(e3, true);
+    }, stop: function(e3, t3, n3) {
+      var a3 = e3.curStats;
+      return n3 = null != n3 ? n3 : e3.aplStats.show_on, a3.show_inAnim = false, t3 && Je(e3, n3), n3 ? 1 : 0;
+    } }, fade: { defaultAnimOptions: { duration: 300, timing: "linear" }, init: function(n3, e3) {
+      var t3 = n3.curStats, a3 = n3.aplStats;
+      t3.show_animId && g.remove(t3.show_animId), t3.show_animId = g.add(function(e4) {
+        return e4;
+      }, function(e4, t4) {
+        t4 ? w2.fade.stop(n3, true) : (n3.svg.style.opacity = e4 + "", ie2 && (je(n3, n3.svg), He(n3)));
+      }, a3.show_animOptions.duration, 1, a3.show_animOptions.timing, null, false), w2.fade.start(n3, e3);
+    }, start: function(e3, t3) {
+      var n3, a3 = e3.curStats;
+      a3.show_inAnim && (n3 = g.stop(a3.show_animId)), Je(e3, 1), a3.show_inAnim = true, g.start(a3.show_animId, !e3.aplStats.show_on, null != t3 ? t3 : n3);
+    }, stop: function(e3, t3, n3) {
+      var a3, i3 = e3.curStats;
+      return n3 = null != n3 ? n3 : e3.aplStats.show_on, a3 = i3.show_inAnim ? g.stop(i3.show_animId) : n3 ? 1 : 0, i3.show_inAnim = false, t3 && (e3.svg.style.opacity = n3 ? "" : "0", Je(e3, n3)), a3;
+    } }, draw: { defaultAnimOptions: { duration: 500, timing: [0.58, 0, 0.42, 1] }, init: function(n3, e3) {
+      var t3 = n3.curStats, a3 = n3.aplStats, o3 = n3.pathList.baseVal, i3 = Re(o3), l3 = i3.segsLen, r3 = i3.lenAll;
+      t3.show_animId && g.remove(t3.show_animId), t3.show_animId = g.add(function(e4) {
+        var t4, n4, a4, i4 = -1;
+        if (0 === e4)
+          n4 = [[o3[0][0], o3[0][0]]];
+        else if (1 === e4)
+          n4 = o3;
+        else {
+          for (t4 = r3 * e4, n4 = []; t4 >= l3[++i4]; )
+            n4.push(o3[i4]), t4 -= l3[i4];
+          t4 && (2 === (a4 = o3[i4]).length ? n4.push([a4[0], Ve(a4[0], a4[1], t4 / l3[i4])]) : (e4 = Ne(a4[0], a4[1], a4[2], a4[3], We(a4[0], a4[1], a4[2], a4[3], t4)), n4.push([a4[0], e4.fromP1, e4.fromP2, e4])));
+        }
+        return n4;
+      }, function(e4, t4) {
+        t4 ? w2.draw.stop(n3, true) : (n3.pathList.animVal = e4, $e(n3, { path: true }));
+      }, a3.show_animOptions.duration, 1, a3.show_animOptions.timing, null, false), w2.draw.start(n3, e3);
+    }, start: function(e3, t3) {
+      var n3, a3 = e3.curStats;
+      a3.show_inAnim && (n3 = g.stop(a3.show_animId)), Je(e3, 1), a3.show_inAnim = true, Ge(e3, "apl_position", w2.draw.update), g.start(a3.show_animId, !e3.aplStats.show_on, null != t3 ? t3 : n3);
+    }, stop: function(e3, t3, n3) {
+      var a3, i3 = e3.curStats;
+      return n3 = null != n3 ? n3 : e3.aplStats.show_on, a3 = i3.show_inAnim ? g.stop(i3.show_animId) : n3 ? 1 : 0, i3.show_inAnim = false, t3 && (e3.pathList.animVal = n3 ? null : [[e3.pathList.baseVal[0][0], e3.pathList.baseVal[0][0]]], $e(e3, { path: true }), Je(e3, n3)), a3;
+    }, update: function(e3) {
+      De(e3, "apl_position", w2.draw.update), e3.curStats.show_inAnim ? w2.draw.init(e3, w2.draw.stop(e3)) : e3.aplStats.show_animOptions = {};
+    } } }, [["start", "anchorSE", 0], ["end", "anchorSE", 1], ["color", "lineColor"], ["size", "lineSize"], ["startSocketGravity", "socketGravitySE", 0], ["endSocketGravity", "socketGravitySE", 1], ["startPlugColor", "plugColorSE", 0], ["endPlugColor", "plugColorSE", 1], ["startPlugSize", "plugSizeSE", 0], ["endPlugSize", "plugSizeSE", 1], ["outline", "lineOutlineEnabled"], ["outlineColor", "lineOutlineColor"], ["outlineSize", "lineOutlineSize"], ["startPlugOutline", "plugOutlineEnabledSE", 0], ["endPlugOutline", "plugOutlineEnabledSE", 1], ["startPlugOutlineColor", "plugOutlineColorSE", 0], ["endPlugOutlineColor", "plugOutlineColorSE", 1], ["startPlugOutlineSize", "plugOutlineSizeSE", 0], ["endPlugOutlineSize", "plugOutlineSizeSE", 1]].forEach(function(e3) {
+      var t3 = e3[0], n3 = e3[1], a3 = e3[2];
+      Object.defineProperty(ot.prototype, t3, { get: function() {
+        var e4 = null != a3 ? Se[this._id].options[n3][a3] : n3 ? Se[this._id].options[n3] : Se[this._id].options[t3];
+        return null == e4 ? D2 : we(e4);
+      }, set: lt(t3), enumerable: true });
+    }), [["path", R2], ["startSocket", V2, "socketSE", 0], ["endSocket", V2, "socketSE", 1], ["startPlug", F2, "plugSE", 0], ["endPlug", F2, "plugSE", 1]].forEach(function(e3) {
+      var a3 = e3[0], i3 = e3[1], o3 = e3[2], l3 = e3[3];
+      Object.defineProperty(ot.prototype, a3, { get: function() {
+        var t3, n3 = null != l3 ? Se[this._id].options[o3][l3] : o3 ? Se[this._id].options[o3] : Se[this._id].options[a3];
+        return n3 ? Object.keys(i3).some(function(e4) {
+          return i3[e4] === n3 && (t3 = e4, true);
+        }) ? t3 : new Error("It's broken") : D2;
+      }, set: lt(a3), enumerable: true });
+    }), Object.keys(Z).forEach(function(n3) {
+      var a3 = Z[n3];
+      Object.defineProperty(ot.prototype, n3, { get: function() {
+        var s3, e3, t3 = Se[this._id].options[n3];
+        return he(t3) ? (s3 = t3, e3 = a3.optionsConf.reduce(function(e4, t4) {
+          var n4, a4 = t4[0], i3 = t4[1], o3 = t4[2], l3 = t4[3], t4 = t4[4], r3 = null != t4 ? s3[l3][t4] : l3 ? s3[l3] : s3[i3];
+          return e4[i3] = "id" === a4 ? r3 ? Object.keys(o3).some(function(e5) {
+            return o3[e5] === r3 && (n4 = e5, true);
+          }) ? n4 : new Error("It's broken") : D2 : null == r3 ? D2 : we(r3), e4;
+        }, {}), a3.anim && (e3.animation = we(s3.animation)), e3) : t3;
+      }, set: lt(n3), enumerable: true });
+    }), ["startLabel", "endLabel", "middleLabel"].forEach(function(e3, n3) {
+      Object.defineProperty(ot.prototype, e3, { get: function() {
+        var e4 = Se[this._id], t3 = e4.options;
+        return t3.labelSEM[n3] && !e4.optionIsAttach.labelSEM[n3] ? _e2[t3.labelSEM[n3]._id].text : t3.labelSEM[n3] || "";
+      }, set: lt(e3), enumerable: true });
+    }), ot.prototype.setOptions = function(e3) {
+      return it(Se[this._id], e3), this;
+    }, ot.prototype.position = function() {
+      return $e(Se[this._id], { position: true }), this;
+    }, ot.prototype.remove = function() {
+      var t3 = Se[this._id], n3 = t3.curStats;
+      Object.keys(Z).forEach(function(e3) {
+        e3 += "_animId";
+        n3[e3] && g.remove(n3[e3]);
+      }), n3.show_animId && g.remove(n3.show_animId), t3.attachments.slice().forEach(function(e3) {
+        at(t3, e3);
+      }), t3.baseWindow && t3.svg && t3.baseWindow.document.body.removeChild(t3.svg), delete Se[this._id];
+    }, ot.prototype.show = function(e3, t3) {
+      return tt2(Se[this._id], true, e3, t3), this;
+    }, ot.prototype.hide = function(e3, t3) {
+      return tt2(Se[this._id], false, e3, t3), this;
+    }, o2 = function(t3) {
+      t3 && _e2[t3._id] && (t3.boundTargets.slice().forEach(function(e3) {
+        at(e3.props, t3, true);
+      }), t3.conf.remove && t3.conf.remove(t3), delete _e2[t3._id]);
+    }, rt.prototype.remove = function() {
+      var t3 = this, n3 = _e2[t3._id];
+      n3 && (n3.boundTargets.slice().forEach(function(e3) {
+        n3.conf.removeOption(n3, e3);
+      }), ze(function() {
+        var e3 = _e2[t3._id];
+        e3 && (console.error("LeaderLineAttachment was not removed by removeOption"), o2(e3));
+      }));
+    }, M2 = rt, window.LeaderLineAttachment = M2, I = function(e3, t3) {
+      return e3 instanceof M2 && (!(e3.isRemoved || t3 && _e2[e3._id].conf.type !== t3) || null);
+    }, O2 = { pointAnchor: { type: "anchor", argOptions: [{ optionName: "element", type: Me }], init: function(e3, t3) {
+      return e3.element = O2.pointAnchor.checkElement(t3.element), e3.x = O2.pointAnchor.parsePercent(t3.x, true) || [0.5, true], e3.y = O2.pointAnchor.parsePercent(t3.y, true) || [0.5, true], true;
+    }, removeOption: function(e3, t3) {
+      var n3 = t3.props, a3 = {}, i3 = e3.element, e3 = n3.options.anchorSE["start" === t3.optionName ? 1 : 0];
+      i3 === e3 && (i3 = e3 === document.body ? new M2(O2.pointAnchor, [i3]) : document.body), a3[t3.optionName] = i3, it(n3, a3);
+    }, getBBoxNest: function(e3, t3) {
+      var n3 = Le(e3.element, t3.baseWindow), a3 = n3.width, t3 = n3.height;
+      return n3.width = n3.height = 0, n3.left = n3.right = n3.left + e3.x[0] * (e3.x[1] ? a3 : 1), n3.top = n3.bottom = n3.top + e3.y[0] * (e3.y[1] ? t3 : 1), n3;
+    }, parsePercent: function(e3, t3) {
+      var n3, a3, i3 = false;
+      return pe(e3) ? a3 = e3 : "string" == typeof e3 && (n3 = m2.exec(e3)) && n3[2] && (i3 = 0 !== (a3 = parseFloat(n3[1]) / 100)), null != a3 && (t3 || 0 <= a3) ? [a3, i3] : null;
+    }, checkElement: function(e3) {
+      if (null == e3)
+        e3 = document.body;
+      else if (!Me(e3))
+        throw new Error("`element` must be Element");
+      return e3;
+    } }, areaAnchor: { type: "anchor", argOptions: [{ optionName: "element", type: Me }, { optionName: "shape", type: "string" }], stats: { color: {}, strokeWidth: {}, elementWidth: {}, elementHeight: {}, elementLeft: {}, elementTop: {}, pathListRel: {}, bBoxRel: {}, pathData: {}, viewBoxBBox: { hasProps: true }, dashLen: {}, dashGap: {} }, init: function(a3, e3) {
+      var t3, n3 = [];
+      return a3.element = O2.pointAnchor.checkElement(e3.element), "string" == typeof e3.color && (a3.color = e3.color.trim()), "string" == typeof e3.fillColor && (a3.fill = e3.fillColor.trim()), pe(e3.size) && 0 <= e3.size && (a3.size = e3.size), e3.dash && (a3.dash = true, pe(e3.dash.len) && 0 < e3.dash.len && (a3.dashLen = e3.dash.len), pe(e3.dash.gap) && 0 < e3.dash.gap && (a3.dashGap = e3.dash.gap)), "circle" === e3.shape ? a3.shape = e3.shape : "polygon" === e3.shape && Array.isArray(e3.points) && 3 <= e3.points.length && e3.points.every(function(e4) {
+        var t4 = {};
+        return !(!(t4.x = O2.pointAnchor.parsePercent(e4[0], true)) || !(t4.y = O2.pointAnchor.parsePercent(e4[1], true))) && (n3.push(t4), (t4.x[1] || t4.y[1]) && (a3.hasRatio = true), true);
+      }) ? (a3.shape = e3.shape, a3.points = n3) : (a3.shape = "rect", a3.radius = pe(e3.radius) && 0 <= e3.radius ? e3.radius : 0), "rect" !== a3.shape && "circle" !== a3.shape || (a3.x = O2.pointAnchor.parsePercent(e3.x, true) || [-0.05, true], a3.y = O2.pointAnchor.parsePercent(e3.y, true) || [-0.05, true], a3.width = O2.pointAnchor.parsePercent(e3.width) || [1.1, true], a3.height = O2.pointAnchor.parsePercent(e3.height) || [1.1, true], (a3.x[1] || a3.y[1] || a3.width[1] || a3.height[1]) && (a3.hasRatio = true)), t3 = a3.element.ownerDocument, a3.svg = e3 = t3.createElementNS(ae, "svg"), e3.className.baseVal = C2 + "-areaAnchor", e3.viewBox.baseVal || e3.setAttribute("viewBox", "0 0 0 0"), a3.path = e3.appendChild(t3.createElementNS(ae, "path")), a3.path.style.fill = a3.fill || "none", a3.isShown = false, e3.style.visibility = "hidden", t3.body.appendChild(e3), Qe(t3 = t3.defaultView), a3.bodyOffset = qe(t3), a3.updateColor = function() {
+        var e4 = a3.curStats, t4 = a3.aplStats, n4 = a3.boundTargets.length ? a3.boundTargets[0].props.curStats : null;
+        e4.color = n4 = a3.color || (n4 ? n4.line_color : ue.lineColor), Xe(a3, t4, "color", n4) && (a3.path.style.stroke = n4);
+      }, a3.updateShow = function() {
+        Je(a3, a3.boundTargets.some(function(e4) {
+          return true === e4.props.isShown;
+        }));
+      }, true;
+    }, bind: function(e3, t3) {
+      t3 = t3.props;
+      return e3.color || Ge(t3, "cur_line_color", e3.updateColor), Ge(t3, "svgShow", e3.updateShow), ze(function() {
+        e3.updateColor(), e3.updateShow();
+      }), true;
+    }, unbind: function(e3, t3) {
+      t3 = t3.props;
+      e3.color || De(t3, "cur_line_color", e3.updateColor), De(t3, "svgShow", e3.updateShow), 1 < e3.boundTargets.length && ze(function() {
+        e3.updateColor(), e3.updateShow(), O2.areaAnchor.update(e3) && e3.boundTargets.forEach(function(e4) {
+          $e(e4.props, { position: true });
+        });
+      });
+    }, removeOption: function(e3, t3) {
+      O2.pointAnchor.removeOption(e3, t3);
+    }, remove: function(t3) {
+      t3.boundTargets.length && (console.error("LeaderLineAttachment was not unbound by remove"), t3.boundTargets.forEach(function(e3) {
+        O2.areaAnchor.unbind(t3, e3);
+      })), t3.svg.parentNode.removeChild(t3.svg);
+    }, getStrokeWidth: function(e3, t3) {
+      return O2.areaAnchor.update(e3) && 1 < e3.boundTargets.length && ze(function() {
+        e3.boundTargets.forEach(function(e4) {
+          e4.props !== t3 && $e(e4.props, { position: true });
+        });
+      }), e3.curStats.strokeWidth;
+    }, getPathData: function(e3, t3) {
+      var n3 = Le(e3.element, t3.baseWindow);
+      return Be(e3.curStats.pathListRel, function(e4) {
+        e4.x += n3.left, e4.y += n3.top;
+      });
+    }, getBBoxNest: function(e3, t3) {
+      t3 = Le(e3.element, t3.baseWindow), e3 = e3.curStats.bBoxRel;
+      return { left: e3.left + t3.left, top: e3.top + t3.top, right: e3.right + t3.left, bottom: e3.bottom + t3.top, width: e3.width, height: e3.height };
+    }, update: function(t3) {
+      var n3, a3, i3, o3, e3, l3, r3, s3, u3, h3, p3, c3, d3, f3, y3, m3, S3 = t3.curStats, g2 = t3.aplStats, _3 = t3.boundTargets.length ? t3.boundTargets[0].props.curStats : null, v3 = {};
+      if (v3.strokeWidth = Xe(t3, S3, "strokeWidth", null != t3.size ? t3.size : _3 ? _3.line_strokeWidth : ue.lineSize), n3 = Ie(t3.element), v3.elementWidth = Xe(t3, S3, "elementWidth", n3.width), v3.elementHeight = Xe(t3, S3, "elementHeight", n3.height), v3.elementLeft = Xe(t3, S3, "elementLeft", n3.left), v3.elementTop = Xe(t3, S3, "elementTop", n3.top), v3.strokeWidth || t3.hasRatio && (v3.elementWidth || v3.elementHeight)) {
+        switch (t3.shape) {
+          case "rect":
+            (c3 = { left: t3.x[0] * (t3.x[1] ? n3.width : 1), top: t3.y[0] * (t3.y[1] ? n3.height : 1), width: t3.width[0] * (t3.width[1] ? n3.width : 1), height: t3.height[0] * (t3.height[1] ? n3.height : 1) }).right = c3.left + c3.width, c3.bottom = c3.top + c3.height, p3 = S3.strokeWidth / 2, s3 = (r3 = Math.min(c3.width, c3.height)) ? r3 / 2 * Math.SQRT2 + p3 : 0, h3 = (r3 = t3.radius ? t3.radius <= s3 ? t3.radius : s3 : 0) ? (s3 = (r3 - p3) / Math.SQRT2, h3 = [{ x: c3.left - (u3 = r3 - s3), y: c3.top + s3 }, { x: c3.left + s3, y: c3.top - u3 }, { x: c3.right - s3, y: c3.top - u3 }, { x: c3.right + u3, y: c3.top + s3 }, { x: c3.right + u3, y: c3.bottom - s3 }, { x: c3.right - s3, y: c3.bottom + u3 }, { x: c3.left + s3, y: c3.bottom + u3 }, { x: c3.left - u3, y: c3.bottom - s3 }], S3.pathListRel = [[h3[0], { x: h3[0].x, y: h3[0].y - (p3 = r3 * te) }, { x: h3[1].x - p3, y: h3[1].y }, h3[1]]], h3[1].x !== h3[2].x && S3.pathListRel.push([h3[1], h3[2]]), S3.pathListRel.push([h3[2], { x: h3[2].x + p3, y: h3[2].y }, { x: h3[3].x, y: h3[3].y - p3 }, h3[3]]), h3[3].y !== h3[4].y && S3.pathListRel.push([h3[3], h3[4]]), S3.pathListRel.push([h3[4], { x: h3[4].x, y: h3[4].y + p3 }, { x: h3[5].x + p3, y: h3[5].y }, h3[5]]), h3[5].x !== h3[6].x && S3.pathListRel.push([h3[5], h3[6]]), S3.pathListRel.push([h3[6], { x: h3[6].x - p3, y: h3[6].y }, { x: h3[7].x, y: h3[7].y + p3 }, h3[7]]), h3[7].y !== h3[0].y && S3.pathListRel.push([h3[7], h3[0]]), S3.pathListRel.push([]), u3 = r3 - s3 + S3.strokeWidth / 2, [{ x: c3.left - u3, y: c3.top - u3 }, { x: c3.right + u3, y: c3.bottom + u3 }]) : (u3 = S3.strokeWidth / 2, h3 = [{ x: c3.left - u3, y: c3.top - u3 }, { x: c3.right + u3, y: c3.bottom + u3 }], S3.pathListRel = [[h3[0], { x: h3[1].x, y: h3[0].y }], [{ x: h3[1].x, y: h3[0].y }, h3[1]], [h3[1], { x: h3[0].x, y: h3[1].y }], []], [{ x: c3.left - S3.strokeWidth, y: c3.top - S3.strokeWidth }, { x: c3.right + S3.strokeWidth, y: c3.bottom + S3.strokeWidth }]), S3.bBoxRel = { left: h3[0].x, top: h3[0].y, right: h3[1].x, bottom: h3[1].y, width: h3[1].x - h3[0].x, height: h3[1].y - h3[0].y };
+            break;
+          case "circle":
+            (l3 = { left: t3.x[0] * (t3.x[1] ? n3.width : 1), top: t3.y[0] * (t3.y[1] ? n3.height : 1), width: t3.width[0] * (t3.width[1] ? n3.width : 1), height: t3.height[0] * (t3.height[1] ? n3.height : 1) }).width || l3.height || (l3.width = l3.height = 10), l3.width || (l3.width = l3.height), l3.height || (l3.height = l3.width), l3.right = l3.left + l3.width, l3.bottom = l3.top + l3.height, p3 = l3.left + l3.width / 2, r3 = l3.top + l3.height / 2, e3 = S3.strokeWidth / 2, s3 = l3.width / 2, u3 = l3.height / 2, c3 = s3 * Math.SQRT2 + e3, h3 = u3 * Math.SQRT2 + e3, S3.pathListRel = [[(e3 = [{ x: p3 - c3, y: r3 }, { x: p3, y: r3 - h3 }, { x: p3 + c3, y: r3 }, { x: p3, y: r3 + h3 }])[0], { x: e3[0].x, y: e3[0].y - (p3 = h3 * te) }, { x: e3[1].x - (r3 = c3 * te), y: e3[1].y }, e3[1]], [e3[1], { x: e3[1].x + r3, y: e3[1].y }, { x: e3[2].x, y: e3[2].y - p3 }, e3[2]], [e3[2], { x: e3[2].x, y: e3[2].y + p3 }, { x: e3[3].x + r3, y: e3[3].y }, e3[3]], [e3[3], { x: e3[3].x - r3, y: e3[3].y }, { x: e3[0].x, y: e3[0].y + p3 }, e3[0]], []], s3 = c3 - s3 + S3.strokeWidth / 2, u3 = h3 - u3 + S3.strokeWidth / 2, e3 = [{ x: l3.left - s3, y: l3.top - u3 }, { x: l3.right + s3, y: l3.bottom + u3 }], S3.bBoxRel = { left: e3[0].x, top: e3[0].y, right: e3[1].x, bottom: e3[1].y, width: e3[1].x - e3[0].x, height: e3[1].y - e3[0].y };
+            break;
+          case "polygon":
+            t3.points.forEach(function(e4) {
+              var t4 = e4.x[0] * (e4.x[1] ? n3.width : 1), e4 = e4.y[0] * (e4.y[1] ? n3.height : 1);
+              i3 ? (t4 < i3.left && (i3.left = t4), t4 > i3.right && (i3.right = t4), e4 < i3.top && (i3.top = e4), e4 > i3.bottom && (i3.bottom = e4)) : i3 = { left: t4, right: t4, top: e4, bottom: e4 }, o3 ? S3.pathListRel.push([o3, { x: t4, y: e4 }]) : S3.pathListRel = [], o3 = { x: t4, y: e4 };
+            }), S3.pathListRel.push([]), e3 = S3.strokeWidth / 2, e3 = [{ x: i3.left - e3, y: i3.top - e3 }, { x: i3.right + e3, y: i3.bottom + e3 }], S3.bBoxRel = { left: e3[0].x, top: e3[0].y, right: e3[1].x, bottom: e3[1].y, width: e3[1].x - e3[0].x, height: e3[1].y - e3[0].y };
+        }
+        v3.pathListRel = v3.bBoxRel = true;
+      }
+      return (v3.pathListRel || v3.elementLeft || v3.elementTop) && (S3.pathData = Be(S3.pathListRel, function(e4) {
+        e4.x += n3.left, e4.y += n3.top;
+      })), Xe(t3, g2, "strokeWidth", a3 = S3.strokeWidth) && (t3.path.style.strokeWidth = a3 + "px"), Fe(a3 = S3.pathData, g2.pathData) && (t3.path.setPathData(a3), g2.pathData = a3, v3.pathData = true), t3.dash && (!v3.pathData && (!v3.strokeWidth || t3.dashLen && t3.dashGap) || (S3.dashLen = t3.dashLen || 2 * S3.strokeWidth, S3.dashGap = t3.dashGap || S3.strokeWidth), v3.dash = Xe(t3, g2, "dashLen", S3.dashLen) || v3.dash, v3.dash = Xe(t3, g2, "dashGap", S3.dashGap) || v3.dash, v3.dash && (t3.path.style.strokeDasharray = g2.dashLen + "," + g2.dashGap)), d3 = S3.viewBoxBBox, f3 = g2.viewBoxBBox, y3 = t3.svg.viewBox.baseVal, m3 = t3.svg.style, d3.x = S3.bBoxRel.left + n3.left, d3.y = S3.bBoxRel.top + n3.top, d3.width = S3.bBoxRel.width, d3.height = S3.bBoxRel.height, ["x", "y", "width", "height"].forEach(function(e4) {
+        (a3 = d3[e4]) !== f3[e4] && (y3[e4] = f3[e4] = a3, m3[Q[e4]] = a3 + ("x" === e4 || "y" === e4 ? t3.bodyOffset[e4] : 0) + "px");
+      }), v3.strokeWidth || v3.pathListRel || v3.bBoxRel;
+    } }, mouseHoverAnchor: { type: "anchor", argOptions: [{ optionName: "element", type: Me }, { optionName: "showEffectName", type: "string" }], style: { backgroundImage: "url('data:image/svg+xml;charset=utf-8;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ij48cG9seWdvbiBwb2ludHM9IjI0LDAgMCw4IDgsMTEgMCwxOSA1LDI0IDEzLDE2IDE2LDI0IiBmaWxsPSJjb3JhbCIvPjwvc3ZnPg==')", backgroundSize: "", backgroundRepeat: "no-repeat", backgroundColor: "#f8f881", cursor: "default" }, hoverStyle: { backgroundImage: "none", backgroundColor: "#fadf8f" }, padding: { top: 1, right: 15, bottom: 1, left: 2 }, minHeight: 15, backgroundPosition: { right: 2, top: 2 }, backgroundSize: { width: 12, height: 12 }, dirKeys: [["top", "Top"], ["right", "Right"], ["bottom", "Bottom"], ["left", "Left"]], init: function(a3, i3) {
+      var n3, t3, e3, o3, l3, r3, s3, u3, h3, p3 = O2.mouseHoverAnchor, c3 = {};
+      if (a3.element = O2.pointAnchor.checkElement(i3.element), s3 = a3.element, !((u3 = s3.ownerDocument) && (h3 = u3.defaultView) && h3.HTMLElement && s3 instanceof h3.HTMLElement))
+        throw new Error("`element` must be HTML element");
+      return p3.style.backgroundSize = p3.backgroundSize.width + "px " + p3.backgroundSize.height + "px", ["style", "hoverStyle"].forEach(function(e4) {
+        var n4 = p3[e4];
+        a3[e4] = Object.keys(n4).reduce(function(e5, t4) {
+          return e5[t4] = n4[t4], e5;
+        }, {});
+      }), "inline" === (n3 = a3.element.ownerDocument.defaultView.getComputedStyle(a3.element, "")).display ? a3.style.display = "inline-block" : "none" === n3.display && (a3.style.display = "block"), O2.mouseHoverAnchor.dirKeys.forEach(function(e4) {
+        var t4 = e4[0], e4 = "padding" + e4[1];
+        parseFloat(n3[e4]) < p3.padding[t4] && (a3.style[e4] = p3.padding[t4] + "px");
+      }), a3.style.display && (e3 = a3.element.style.display, a3.element.style.display = a3.style.display), O2.mouseHoverAnchor.dirKeys.forEach(function(e4) {
+        e4 = "padding" + e4[1];
+        a3.style[e4] && (c3[e4] = a3.element.style[e4], a3.element.style[e4] = a3.style[e4]);
+      }), (s3 = a3.element.getBoundingClientRect()).height < p3.minHeight && (ie2 ? (h3 = p3.minHeight, "content-box" === n3.boxSizing ? h3 -= parseFloat(n3.borderTopWidth) + parseFloat(n3.borderBottomWidth) + parseFloat(n3.paddingTop) + parseFloat(n3.paddingBottom) : "padding-box" === n3.boxSizing && (h3 -= parseFloat(n3.borderTopWidth) + parseFloat(n3.borderBottomWidth)), a3.style.height = h3 + "px") : a3.style.height = parseFloat(n3.height) + (p3.minHeight - s3.height) + "px"), a3.style.backgroundPosition = re ? s3.width - p3.backgroundSize.width - p3.backgroundPosition.right + "px " + p3.backgroundPosition.top + "px" : "right " + p3.backgroundPosition.right + "px top " + p3.backgroundPosition.top + "px", a3.style.display && (a3.element.style.display = e3), O2.mouseHoverAnchor.dirKeys.forEach(function(e4) {
+        e4 = "padding" + e4[1];
+        a3.style[e4] && (a3.element.style[e4] = c3[e4]);
+      }), ["style", "hoverStyle"].forEach(function(e4) {
+        var t4 = a3[e4], n4 = i3[e4];
+        he(n4) && Object.keys(n4).forEach(function(e5) {
+          "string" == typeof n4[e5] || pe(n4[e5]) ? t4[e5] = n4[e5] : null == n4[e5] && delete t4[e5];
+        });
+      }), "function" == typeof i3.onSwitch && (r3 = i3.onSwitch), i3.showEffectName && w2[i3.showEffectName] && (a3.showEffectName = o3 = i3.showEffectName), l3 = i3.animOptions, a3.elmStyle = t3 = a3.element.style, a3.mouseenter = function(e4) {
+        a3.hoverStyleSave = p3.getStyles(t3, Object.keys(a3.hoverStyle)), p3.setStyles(t3, a3.hoverStyle), a3.boundTargets.forEach(function(e5) {
+          tt2(e5.props, true, o3, l3);
+        }), r3 && r3(e4);
+      }, a3.mouseleave = function(e4) {
+        p3.setStyles(t3, a3.hoverStyleSave), a3.boundTargets.forEach(function(e5) {
+          tt2(e5.props, false, o3, l3);
+        }), r3 && r3(e4);
+      }, true;
+    }, bind: function(e3, t3) {
+      var n3, a3, i3, o3, l3;
+      return t3.props.svg ? O2.mouseHoverAnchor.llShow(t3.props, false, e3.showEffectName) : ze(function() {
+        O2.mouseHoverAnchor.llShow(t3.props, false, e3.showEffectName);
+      }), e3.enabled || (e3.styleSave = O2.mouseHoverAnchor.getStyles(e3.elmStyle, Object.keys(e3.style)), O2.mouseHoverAnchor.setStyles(e3.elmStyle, e3.style), e3.removeEventListener = (n3 = e3.element, a3 = e3.mouseenter, i3 = e3.mouseleave, "onmouseenter" in n3 && "onmouseleave" in n3 ? (n3.addEventListener("mouseenter", a3, false), n3.addEventListener("mouseleave", i3, false), function() {
+        n3.removeEventListener("mouseenter", a3, false), n3.removeEventListener("mouseleave", i3, false);
+      }) : (console.warn("mouseenter and mouseleave events polyfill is enabled."), n3.addEventListener("mouseover", o3 = function(e4) {
+        e4.relatedTarget && (e4.relatedTarget === this || this.compareDocumentPosition(e4.relatedTarget) & Node.DOCUMENT_POSITION_CONTAINED_BY) || a3.apply(this, arguments);
+      }), n3.addEventListener("mouseout", l3 = function(e4) {
+        e4.relatedTarget && (e4.relatedTarget === this || this.compareDocumentPosition(e4.relatedTarget) & Node.DOCUMENT_POSITION_CONTAINED_BY) || i3.apply(this, arguments);
+      }), function() {
+        n3.removeEventListener("mouseover", o3, false), n3.removeEventListener("mouseout", l3, false);
+      })), e3.enabled = true), true;
+    }, unbind: function(e3, t3) {
+      e3.enabled && e3.boundTargets.length <= 1 && (e3.removeEventListener(), O2.mouseHoverAnchor.setStyles(e3.elmStyle, e3.styleSave), e3.enabled = false), O2.mouseHoverAnchor.llShow(t3.props, true, e3.showEffectName);
+    }, removeOption: function(e3, t3) {
+      O2.pointAnchor.removeOption(e3, t3);
+    }, remove: function(t3) {
+      t3.boundTargets.length && (console.error("LeaderLineAttachment was not unbound by remove"), t3.boundTargets.forEach(function(e3) {
+        O2.mouseHoverAnchor.unbind(t3, e3);
+      }));
+    }, getBBoxNest: function(e3, t3) {
+      return Le(e3.element, t3.baseWindow);
+    }, llShow: function(e3, t3, n3) {
+      w2[n3 || e3.curStats.show_effect].stop(e3, true, t3), e3.aplStats.show_on = t3;
+    }, getStyles: function(n3, e3) {
+      return e3.reduce(function(e4, t3) {
+        return e4[t3] = n3[t3], e4;
+      }, {});
+    }, setStyles: function(t3, n3) {
+      Object.keys(n3).forEach(function(e3) {
+        t3[e3] = n3[e3];
+      });
+    } }, captionLabel: { type: "label", argOptions: [{ optionName: "text", type: "string" }], stats: { color: {}, x: {}, y: {} }, textStyleProps: ["fontFamily", "fontStyle", "fontVariant", "fontWeight", "fontStretch", "fontSize", "fontSizeAdjust", "kerning", "letterSpacing", "wordSpacing", "textDecoration"], init: function(l3, t3) {
+      return "string" == typeof t3.text && (l3.text = t3.text.trim()), !!l3.text && ("string" == typeof t3.color && (l3.color = t3.color.trim()), l3.outlineColor = "string" == typeof t3.outlineColor ? t3.outlineColor.trim() : "#fff", Array.isArray(t3.offset) && pe(t3.offset[0]) && pe(t3.offset[1]) && (l3.offset = { x: t3.offset[0], y: t3.offset[1] }), pe(t3.lineOffset) && (l3.lineOffset = t3.lineOffset), O2.captionLabel.textStyleProps.forEach(function(e3) {
+        null != t3[e3] && (l3[e3] = t3[e3]);
+      }), l3.updateColor = function(e3) {
+        O2.captionLabel.updateColor(l3, e3);
+      }, l3.updateSocketXY = function(e3) {
+        var t4, n3 = l3.curStats, a3 = l3.aplStats, i3 = e3.curStats, o3 = i3.position_socketXYSE[l3.socketIndex];
+        null != o3.x && (l3.offset ? (n3.x = o3.x + l3.offset.x, n3.y = o3.y + l3.offset.y) : (t4 = l3.height / 2, e3 = Math.max(i3.attach_plugSideLenSE[l3.socketIndex] || 0, i3.line_strokeWidth / 2), i3 = i3.position_socketXYSE[l3.socketIndex ? 0 : 1], o3.socketId === A || o3.socketId === k ? (n3.x = o3.socketId === A ? o3.x - t4 - l3.width : o3.x + t4, n3.y = i3.y < o3.y ? o3.y + e3 + t4 : o3.y - e3 - t4 - l3.height) : (n3.x = i3.x < o3.x ? o3.x + e3 + t4 : o3.x - e3 - t4 - l3.width, n3.y = o3.socketId === b2 ? o3.y - t4 - l3.height : o3.y + t4)), Xe(l3, a3, "x", t4 = n3.x) && (l3.elmPosition.x.baseVal.getItem(0).value = t4), Xe(l3, a3, "y", t4 = n3.y) && (l3.elmPosition.y.baseVal.getItem(0).value = t4 + l3.height));
+      }, l3.updatePath = function(e3) {
+        var t4 = l3.curStats, n3 = l3.aplStats, e3 = e3.pathList.animVal || e3.pathList.baseVal;
+        e3 && (e3 = O2.captionLabel.getMidPoint(e3, l3.lineOffset), t4.x = e3.x - l3.width / 2, t4.y = e3.y - l3.height / 2, Xe(l3, n3, "x", e3 = t4.x) && (l3.elmPosition.x.baseVal.getItem(0).value = e3), Xe(l3, n3, "y", e3 = t4.y) && (l3.elmPosition.y.baseVal.getItem(0).value = e3 + l3.height));
+      }, l3.updateShow = function(e3) {
+        O2.captionLabel.updateShow(l3, e3);
+      }, re && (l3.adjustEdge = function(e3, t4) {
+        var n3 = l3.curStats;
+        null != n3.x && O2.captionLabel.adjustEdge(t4, { x: n3.x, y: n3.y, width: l3.width, height: l3.height }, l3.strokeWidth / 2);
+      }), true);
+    }, updateColor: function(e3, t3) {
+      var n3 = e3.curStats, a3 = e3.aplStats, t3 = t3.curStats;
+      n3.color = t3 = e3.color || t3.line_color, Xe(e3, a3, "color", t3) && (e3.styleFill.fill = t3);
+    }, updateShow: function(e3, t3) {
+      t3 = true === t3.isShown;
+      t3 !== e3.isShown && (e3.styleShow.visibility = t3 ? "" : "hidden", e3.isShown = t3);
+    }, adjustEdge: function(e3, t3, n3) {
+      n3 = { x1: t3.x - n3, y1: t3.y - n3, x2: t3.x + t3.width + n3, y2: t3.y + t3.height + n3 };
+      n3.x1 < e3.x1 && (e3.x1 = n3.x1), n3.y1 < e3.y1 && (e3.y1 = n3.y1), n3.x2 > e3.x2 && (e3.x2 = n3.x2), n3.y2 > e3.y2 && (e3.y2 = n3.y2);
+    }, newText: function(e3, t3, n3, a3, i3) {
+      var o3, l3, r3 = t3.createElementNS(ae, "text");
+      return r3.textContent = e3, [r3.x, r3.y].forEach(function(e4) {
+        var t4 = n3.createSVGLength();
+        t4.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PX, 0), e4.baseVal.initialize(t4);
+      }), "boolean" != typeof h2 && (h2 = "paintOrder" in r3.style), i3 && !h2 ? (o3 = t3.createElementNS(ae, "defs"), r3.id = a3, o3.appendChild(r3), (l3 = (e3 = t3.createElementNS(ae, "g")).appendChild(t3.createElementNS(ae, "use"))).href.baseVal = "#" + a3, (t3 = e3.appendChild(t3.createElementNS(ae, "use"))).href.baseVal = "#" + a3, (l3 = l3.style).strokeLinejoin = "round", { elmPosition: r3, styleText: r3.style, styleFill: t3.style, styleStroke: l3, styleShow: e3.style, elmsAppend: [o3, e3] }) : (l3 = r3.style, i3 && (l3.strokeLinejoin = "round", l3.paintOrder = "stroke"), { elmPosition: r3, styleText: l3, styleFill: l3, styleStroke: i3 ? l3 : null, styleShow: l3, elmsAppend: [r3] });
+    }, getMidPoint: function(e3, t3) {
+      var n3, a3, i3 = Re(e3), o3 = i3.segsLen, i3 = i3.lenAll, l3 = -1, r3 = i3 / 2 + (t3 || 0);
+      if (r3 <= 0)
+        return 2 === (n3 = e3[0]).length ? Ve(n3[0], n3[1], 0) : Ne(n3[0], n3[1], n3[2], n3[3], 0);
+      if (i3 <= r3)
+        return 2 === (n3 = e3[e3.length - 1]).length ? Ve(n3[0], n3[1], 1) : Ne(n3[0], n3[1], n3[2], n3[3], 1);
+      for (a3 = []; r3 > o3[++l3]; )
+        a3.push(e3[l3]), r3 -= o3[l3];
+      return 2 === (n3 = e3[l3]).length ? Ve(n3[0], n3[1], r3 / o3[l3]) : Ne(n3[0], n3[1], n3[2], n3[3], We(n3[0], n3[1], n3[2], n3[3], r3));
+    }, initSvg: function(t3, n3) {
+      var e3, a3, i3 = O2.captionLabel.newText(t3.text, n3.baseWindow.document, n3.svg, C2 + "-captionLabel-" + t3._id, t3.outlineColor);
+      ["elmPosition", "styleFill", "styleShow", "elmsAppend"].forEach(function(e4) {
+        t3[e4] = i3[e4];
+      }), t3.isShown = false, t3.styleShow.visibility = "hidden", O2.captionLabel.textStyleProps.forEach(function(e4) {
+        null != t3[e4] && (i3.styleText[e4] = t3[e4]);
+      }), i3.elmsAppend.forEach(function(e4) {
+        n3.svg.appendChild(e4);
+      }), e3 = i3.elmPosition.getBBox(), t3.width = e3.width, t3.height = e3.height, t3.outlineColor && (a3 = e3.height / 9, i3.styleStroke.strokeWidth = (a3 = 10 < a3 ? 10 : a3 < 2 ? 2 : a3) + "px", i3.styleStroke.stroke = t3.outlineColor), t3.strokeWidth = a3 || 0, Ye(t3.aplStats, O2.captionLabel.stats), t3.updateColor(n3), t3.refSocketXY ? t3.updateSocketXY(n3) : t3.updatePath(n3), re && $e(n3, {}), t3.updateShow(n3);
+    }, bind: function(e3, t3) {
+      var n3 = t3.props;
+      return e3.color || Ge(n3, "cur_line_color", e3.updateColor), (e3.refSocketXY = "startLabel" === t3.optionName || "endLabel" === t3.optionName) ? (e3.socketIndex = "startLabel" === t3.optionName ? 0 : 1, Ge(n3, "apl_position", e3.updateSocketXY), e3.offset || (Ge(n3, "cur_attach_plugSideLenSE", e3.updateSocketXY), Ge(n3, "cur_line_strokeWidth", e3.updateSocketXY))) : Ge(n3, "apl_path", e3.updatePath), Ge(n3, "svgShow", e3.updateShow), re && Ge(n3, "new_edge4viewBox", e3.adjustEdge), O2.captionLabel.initSvg(e3, n3), true;
+    }, unbind: function(e3, t3) {
+      var n3 = t3.props;
+      e3.elmsAppend && (e3.elmsAppend.forEach(function(e4) {
+        n3.svg.removeChild(e4);
+      }), e3.elmPosition = e3.styleFill = e3.styleShow = e3.elmsAppend = null), Ye(e3.curStats, O2.captionLabel.stats), Ye(e3.aplStats, O2.captionLabel.stats), e3.color || De(n3, "cur_line_color", e3.updateColor), e3.refSocketXY ? (De(n3, "apl_position", e3.updateSocketXY), e3.offset || (De(n3, "cur_attach_plugSideLenSE", e3.updateSocketXY), De(n3, "cur_line_strokeWidth", e3.updateSocketXY))) : De(n3, "apl_path", e3.updatePath), De(n3, "svgShow", e3.updateShow), re && (De(n3, "new_edge4viewBox", e3.adjustEdge), $e(n3, {}));
+    }, removeOption: function(e3, t3) {
+      var n3 = t3.props, a3 = {};
+      a3[t3.optionName] = "", it(n3, a3);
+    }, remove: function(t3) {
+      t3.boundTargets.length && (console.error("LeaderLineAttachment was not unbound by remove"), t3.boundTargets.forEach(function(e3) {
+        O2.captionLabel.unbind(t3, e3);
+      }));
+    } }, pathLabel: { type: "label", argOptions: [{ optionName: "text", type: "string" }], stats: { color: {}, startOffset: {}, pathData: {} }, init: function(l3, t3) {
+      return "string" == typeof t3.text && (l3.text = t3.text.trim()), !!l3.text && ("string" == typeof t3.color && (l3.color = t3.color.trim()), l3.outlineColor = "string" == typeof t3.outlineColor ? t3.outlineColor.trim() : "#fff", pe(t3.lineOffset) && (l3.lineOffset = t3.lineOffset), O2.captionLabel.textStyleProps.forEach(function(e3) {
+        null != t3[e3] && (l3[e3] = t3[e3]);
+      }), l3.updateColor = function(e3) {
+        O2.captionLabel.updateColor(l3, e3);
+      }, l3.updatePath = function(e3) {
+        var t4 = l3.curStats, n3 = l3.aplStats, a3 = e3.curStats, i3 = e3.pathList.animVal || e3.pathList.baseVal;
+        i3 && (t4.pathData = a3 = O2.pathLabel.getOffsetPathData(i3, a3.line_strokeWidth / 2 + l3.strokeWidth / 2 + l3.height / 4, 1.25 * l3.height), Fe(a3, n3.pathData) && (l3.elmPath.setPathData(a3), n3.pathData = a3, l3.bBox = l3.elmPosition.getBBox(), l3.updateStartOffset(e3)));
+      }, l3.updateStartOffset = function(e3) {
+        var i3, t4, n3 = l3.curStats, a3 = l3.aplStats, o3 = e3.curStats;
+        n3.pathData && (2 === l3.semIndex && !l3.lineOffset || (t4 = n3.pathData.reduce(function(e4, t5) {
+          var n4, a4 = t5.values;
+          switch (t5.type) {
+            case "M":
+              i3 = { x: a4[0], y: a4[1] };
+              break;
+            case "L":
+              n4 = { x: a4[0], y: a4[1] }, i3 && (e4 += Ae(i3, n4)), i3 = n4;
+              break;
+            case "C":
+              n4 = { x: a4[4], y: a4[5] }, i3 && (e4 += Te(i3, { x: a4[0], y: a4[1] }, { x: a4[2], y: a4[3] }, n4)), i3 = n4;
+          }
+          return e4;
+        }, 0), e3 = 0 === l3.semIndex ? 0 : 1 === l3.semIndex ? t4 : t4 / 2, 2 !== l3.semIndex && (o3 = Math.max(o3.attach_plugBackLenSE[l3.semIndex] || 0, o3.line_strokeWidth / 2) + l3.strokeWidth / 2 + l3.height / 4, e3 = (e3 += 0 === l3.semIndex ? o3 : -o3) < 0 ? 0 : t4 < e3 ? t4 : e3), l3.lineOffset && (e3 = (e3 += l3.lineOffset) < 0 ? 0 : t4 < e3 ? t4 : e3), n3.startOffset = e3, Xe(l3, a3, "startOffset", e3) && (l3.elmOffset.startOffset.baseVal.value = e3)));
+      }, l3.updateShow = function(e3) {
+        O2.captionLabel.updateShow(l3, e3);
+      }, re && (l3.adjustEdge = function(e3, t4) {
+        l3.bBox && O2.captionLabel.adjustEdge(t4, l3.bBox, l3.strokeWidth / 2);
+      }), true);
+    }, getOffsetPathData: function(e3, c3, n3) {
+      var d3, a3, f3 = [];
+      function y3(e4, t3) {
+        return Math.abs(e4.x - t3.x) < 3 && Math.abs(e4.y - t3.y) < 3;
+      }
+      return e3.forEach(function(e4) {
+        var t3, n4, a4, i3, o3, l3, r3, s3, u3, h3, p3;
+        2 === e4.length ? (s3 = e4[0], u3 = e4[1], h3 = c3, p3 = Math.atan2(s3.y - u3.y, u3.x - s3.x) + 0.5 * Math.PI, t3 = [{ x: s3.x + Math.cos(p3) * h3, y: s3.y + Math.sin(p3) * h3 * -1 }, { x: u3.x + Math.cos(p3) * h3, y: u3.y + Math.sin(p3) * h3 * -1 }], d3 ? (a4 = d3.points, 0 <= (r3 = Math.atan2(a4[1].y - a4[0].y, a4[0].x - a4[1].x) - Math.atan2(e4[0].y - e4[1].y, e4[1].x - e4[0].x)) && r3 <= Math.PI ? n4 = { type: "line", points: t3, inside: true } : (o3 = Pe(a4[0], a4[1], c3), i3 = Pe(t3[1], t3[0], c3), l3 = a4[0], s3 = t3[1], p3 = (u3 = o3).x - l3.x, h3 = u3.y - l3.y, r3 = s3.x - i3.x, u3 = s3.y - i3.y, s3 = (-h3 * (l3.x - i3.x) + p3 * (l3.y - i3.y)) / (-r3 * h3 + p3 * u3), u3 = (r3 * (l3.y - i3.y) - u3 * (l3.x - i3.x)) / (-r3 * h3 + p3 * u3), n4 = (h3 = 0 <= s3 && s3 <= 1 && 0 <= u3 && u3 <= 1 ? { x: l3.x + u3 * p3, y: l3.y + u3 * h3 } : null) ? { type: "line", points: [a4[1] = h3, t3[1]] } : (a4[1] = y3(i3, o3) ? i3 : o3, { type: "line", points: [i3, t3[1]] }), d3.len = Ae(a4[0], a4[1]))) : n4 = { type: "line", points: t3 }, n4.len = Ae(n4.points[0], n4.points[1]), f3.push(d3 = n4)) : (f3.push({ type: "cubic", points: function(e5, t4, n5, a5, i4, o4) {
+          for (var l4, r4, s4 = Te(e5, t4, n5, a5) / o4, u4 = 1 / (o4 < i4 ? i4 / o4 * s4 : s4), h4 = [], p4 = 0; r4 = (90 - (l4 = Ne(e5, t4, n5, a5, p4)).angle) * (Math.PI / 180), h4.push({ x: l4.x + Math.cos(r4) * i4, y: l4.y + Math.sin(r4) * i4 * -1 }), !(1 <= p4); )
+            1 < (p4 += u4) && (p4 = 1);
+          return h4;
+        }(e4[0], e4[1], e4[2], e4[3], c3, 16) }), d3 = null);
+      }), d3 = null, f3.forEach(function(e4) {
+        var t3;
+        d3 = "line" === e4.type ? (e4.inside && (d3.len > c3 ? ((t3 = d3.points)[1] = Pe(t3[0], t3[1], -c3), d3.len = Ae(t3[0], t3[1])) : (d3.points = null, d3.len = 0), e4.len > c3 + n3 ? ((t3 = e4.points)[0] = Pe(t3[1], t3[0], -(c3 + n3)), e4.len = Ae(t3[0], t3[1])) : (e4.points = null, e4.len = 0)), e4) : null;
+      }), f3.reduce(function(t3, e4) {
+        var n4 = e4.points;
+        return n4 && (a3 && y3(n4[0], a3) || t3.push({ type: "M", values: [n4[0].x, n4[0].y] }), "line" === e4.type ? t3.push({ type: "L", values: [n4[1].x, n4[1].y] }) : (n4.shift(), n4.forEach(function(e5) {
+          t3.push({ type: "L", values: [e5.x, e5.y] });
+        })), a3 = n4[n4.length - 1]), t3;
+      }, []);
+    }, newText: function(e3, t3, n3, a3) {
+      var i3, o3, l3, r3, s3 = t3.createElementNS(ae, "defs"), u3 = s3.appendChild(t3.createElementNS(ae, "path"));
+      return u3.id = i3 = n3 + "-path", (l3 = (o3 = t3.createElementNS(ae, "text")).appendChild(t3.createElementNS(ae, "textPath"))).href.baseVal = "#" + i3, l3.startOffset.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PX, 0), l3.textContent = e3, "boolean" != typeof h2 && (h2 = "paintOrder" in o3.style), a3 && !h2 ? (o3.id = e3 = n3 + "-text", s3.appendChild(o3), (r3 = (n3 = t3.createElementNS(ae, "g")).appendChild(t3.createElementNS(ae, "use"))).href.baseVal = "#" + e3, (t3 = n3.appendChild(t3.createElementNS(ae, "use"))).href.baseVal = "#" + e3, (r3 = r3.style).strokeLinejoin = "round", { elmPosition: o3, elmPath: u3, elmOffset: l3, styleText: o3.style, styleFill: t3.style, styleStroke: r3, styleShow: n3.style, elmsAppend: [s3, n3] }) : (r3 = o3.style, a3 && (r3.strokeLinejoin = "round", r3.paintOrder = "stroke"), { elmPosition: o3, elmPath: u3, elmOffset: l3, styleText: r3, styleFill: r3, styleStroke: a3 ? r3 : null, styleShow: r3, elmsAppend: [s3, o3] });
+    }, initSvg: function(t3, n3) {
+      var e3, a3, i3, o3 = O2.pathLabel.newText(t3.text, n3.baseWindow.document, C2 + "-pathLabel-" + t3._id, t3.outlineColor);
+      ["elmPosition", "elmPath", "elmOffset", "styleFill", "styleShow", "elmsAppend"].forEach(function(e4) {
+        t3[e4] = o3[e4];
+      }), t3.isShown = false, t3.styleShow.visibility = "hidden", O2.captionLabel.textStyleProps.forEach(function(e4) {
+        null != t3[e4] && (o3.styleText[e4] = t3[e4]);
+      }), o3.elmsAppend.forEach(function(e4) {
+        n3.svg.appendChild(e4);
+      }), o3.elmPath.setPathData([{ type: "M", values: [0, 100] }, { type: "h", values: [100] }]), le && (i3 = o3.elmOffset.href.baseVal, o3.elmOffset.href.baseVal = ""), e3 = o3.elmPosition.getBBox(), le && (o3.elmOffset.href.baseVal = i3), o3.styleText.textAnchor = ["start", "end", "middle"][t3.semIndex], 2 !== t3.semIndex || t3.lineOffset || o3.elmOffset.startOffset.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PERCENTAGE, 50), t3.height = e3.height, t3.outlineColor && (a3 = e3.height / 9, o3.styleStroke.strokeWidth = (a3 = 10 < a3 ? 10 : a3 < 2 ? 2 : a3) + "px", o3.styleStroke.stroke = t3.outlineColor), t3.strokeWidth = a3 || 0, Ye(t3.aplStats, O2.pathLabel.stats), t3.updateColor(n3), t3.updatePath(n3), t3.updateStartOffset(n3), re && $e(n3, {}), t3.updateShow(n3);
+    }, bind: function(e3, t3) {
+      var n3 = t3.props;
+      return e3.color || Ge(n3, "cur_line_color", e3.updateColor), Ge(n3, "cur_line_strokeWidth", e3.updatePath), Ge(n3, "apl_path", e3.updatePath), e3.semIndex = "startLabel" === t3.optionName ? 0 : "endLabel" === t3.optionName ? 1 : 2, 2 === e3.semIndex && !e3.lineOffset || Ge(n3, "cur_attach_plugBackLenSE", e3.updateStartOffset), Ge(n3, "svgShow", e3.updateShow), re && Ge(n3, "new_edge4viewBox", e3.adjustEdge), O2.pathLabel.initSvg(e3, n3), true;
+    }, unbind: function(e3, t3) {
+      var n3 = t3.props;
+      e3.elmsAppend && (e3.elmsAppend.forEach(function(e4) {
+        n3.svg.removeChild(e4);
+      }), e3.elmPosition = e3.elmPath = e3.elmOffset = e3.styleFill = e3.styleShow = e3.elmsAppend = null), Ye(e3.curStats, O2.pathLabel.stats), Ye(e3.aplStats, O2.pathLabel.stats), e3.color || De(n3, "cur_line_color", e3.updateColor), De(n3, "cur_line_strokeWidth", e3.updatePath), De(n3, "apl_path", e3.updatePath), 2 === e3.semIndex && !e3.lineOffset || De(n3, "cur_attach_plugBackLenSE", e3.updateStartOffset), De(n3, "svgShow", e3.updateShow), re && (De(n3, "new_edge4viewBox", e3.adjustEdge), $e(n3, {}));
+    }, removeOption: function(e3, t3) {
+      var n3 = t3.props, a3 = {};
+      a3[t3.optionName] = "", it(n3, a3);
+    }, remove: function(t3) {
+      t3.boundTargets.length && (console.error("LeaderLineAttachment was not unbound by remove"), t3.boundTargets.forEach(function(e3) {
+        O2.pathLabel.unbind(t3, e3);
+      }));
+    } } }, Object.keys(O2).forEach(function(e3) {
+      ot[e3] = function() {
+        return new M2(O2[e3], Array.prototype.slice.call(arguments));
+      };
+    }), ot.positionByWindowResize = true, window.addEventListener("resize", S2.add(function() {
+      ot.positionByWindowResize && Object.keys(Se).forEach(function(e3) {
+        $e(Se[e3], { position: true });
+      });
+    }), false), ot;
+  }();
+  let mod = _mod;
   let ConfigContext = React.createContext({});
   let CodeContext$1 = React.createContext(void 0);
   let PathContext = React.createContext([]);
@@ -47838,7 +47822,7 @@ var __publicField = (obj, key, value) => {
       }))
     )
   );
-  LeaderLine.positionByWindowResize = false;
+  mod.positionByWindowResize = false;
   const PALETTE = {
     // to_rgb(sns.color_palette("rocket", 15)[:6])
     light: [
@@ -47896,7 +47880,7 @@ var __publicField = (obj, key, value) => {
           let startSocket = srcRegion === "heap" && dstRegion === "stack" ? "left" : "right";
           let dstAnchor;
           if (ptr.dstRange) {
-            dstAnchor = LeaderLine.areaAnchor(ptr.dst, {
+            dstAnchor = mod.areaAnchor(ptr.dst, {
               shape: "rect",
               width: ptr.dstRange.offsetLeft + ptr.dst.offsetWidth - ptr.dst.offsetLeft,
               height: 2,
@@ -47904,7 +47888,7 @@ var __publicField = (obj, key, value) => {
               fillColor: mdbookEmbed ? "var(--search-mark-bg)" : "red"
             });
           } else if (srcRegion === "stack" && dstRegion === "stack") {
-            dstAnchor = LeaderLine.pointAnchor(ptr.dst, { x: "100%", y: "75%" });
+            dstAnchor = mod.pointAnchor(ptr.dst, { x: "100%", y: "75%" });
           } else if (ptr.endSocket === "bottom") {
             dstAnchor = ptr.dst;
           } else {
@@ -47915,7 +47899,7 @@ var __publicField = (obj, key, value) => {
               index: ptr.dstIndex,
               total: dstCounts[ptr.dstSel] - 1
             });
-            dstAnchor = LeaderLine.pointAnchor(ptr.dst, {
+            dstAnchor = mod.pointAnchor(ptr.dst, {
               x: `${x2}%`,
               y: `${y2}%`
             });
@@ -47935,7 +47919,7 @@ var __publicField = (obj, key, value) => {
             startSocketGravity = 60;
             endSocketGravity = 100 - i2 * 10;
           }
-          let line = new LeaderLine(ptr.src, dstAnchor, {
+          let line = new mod(ptr.src, dstAnchor, {
             color,
             size: 1,
             endPlugSize: 2,

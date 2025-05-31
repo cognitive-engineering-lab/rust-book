@@ -539,7 +539,7 @@ case, we print the reason for not changing <code>setting_value</code>, and it do
 changed.</p>
 <p>In all other cases (if either <code>setting_value</code> or <code>new_setting_value</code> is <code>None</code>)
 expressed by the <code>_</code> pattern in the second arm, we want to allow
-<code>new_setting_value</code> to become <code>setting_value</code>.</p>
+<code>setting_value</code> to be set to <code>new_setting_value</code>.</p>
 <p>We can also use underscores in multiple places within one pattern to ignore
 particular values. Listing 19-19 shows an example of ignoring the second and
 fourth values in a tuple of five items.</p>
