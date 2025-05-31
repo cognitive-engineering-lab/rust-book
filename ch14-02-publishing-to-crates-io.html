@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,10 +7,10 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -36,14 +36,17 @@
         <link rel="stylesheet" href="js-extensions/packages/consent-form/dist/index.css">
         <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index.css">
 
-    </head>
-    <body>
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -65,41 +68,49 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('no-js')
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            html.classList.add("js");
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
+            sidebar_toggle.checked = sidebar === 'visible';
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="experiment-intro.html">Experiment Introduction</a></li><li class="chapter-item expanded affix "><a href="title-page.html">The Rust Programming Language</a></li><li class="chapter-item expanded affix "><a href="foreword.html">Foreword</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> Hello, World!</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html"><strong aria-hidden="true">1.3.</strong> Hello, Cargo!</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html"><strong aria-hidden="true">2.</strong> Programming a Guessing Game</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> Common Programming Concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html"><strong aria-hidden="true">3.1.</strong> Variables and Mutability</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html"><strong aria-hidden="true">3.2.</strong> Data Types</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html"><strong aria-hidden="true">3.3.</strong> Functions</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> Comments</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html"><strong aria-hidden="true">3.5.</strong> Control Flow</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> Understanding Ownership</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html"><strong aria-hidden="true">4.1.</strong> What is Ownership?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> References and Borrowing</a></li><li class="chapter-item expanded "><a href="ch04-03-fixing-ownership-errors.html"><strong aria-hidden="true">4.3.</strong> Fixing Ownership Errors</a></li><li class="chapter-item expanded "><a href="ch04-04-slices.html"><strong aria-hidden="true">4.4.</strong> The Slice Type</a></li><li class="chapter-item expanded "><a href="ch04-05-ownership-recap.html"><strong aria-hidden="true">4.5.</strong> Ownership Recap</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> Using Structs to Structure Related Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> Defining and Instantiating Structs</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> An Example Program Using Structs</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> Method Syntax</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> Enums and Pattern Matching</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html"><strong aria-hidden="true">6.1.</strong> Defining an Enum</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> The match Control Flow Construct</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> Concise Control Flow with if let</a></li><li class="chapter-item expanded "><a href="ch06-04-inventory.html"><strong aria-hidden="true">6.4.</strong> Ownership Inventory #1</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-managing-growing-projects-with-packages-crates-and-modules.html"><strong aria-hidden="true">7.</strong> Managing Growing Projects with Packages, Crates, and Modules</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-packages-and-crates.html"><strong aria-hidden="true">7.1.</strong> Packages and Crates</a></li><li class="chapter-item expanded "><a href="ch07-02-defining-modules-to-control-scope-and-privacy.html"><strong aria-hidden="true">7.2.</strong> Defining Modules to Control Scope and Privacy</a></li><li class="chapter-item expanded "><a href="ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html"><strong aria-hidden="true">7.3.</strong> Paths for Referring to an Item in the Module Tree</a></li><li class="chapter-item expanded "><a href="ch07-04-bringing-paths-into-scope-with-the-use-keyword.html"><strong aria-hidden="true">7.4.</strong> Bringing Paths Into Scope with the use Keyword</a></li><li class="chapter-item expanded "><a href="ch07-05-separating-modules-into-different-files.html"><strong aria-hidden="true">7.5.</strong> Separating Modules into Different Files</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> Common Collections</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> Storing Lists of Values with Vectors</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> Storing UTF-8 Encoded Text with Strings</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> Storing Keys with Associated Values in Hash Maps</a></li><li class="chapter-item expanded "><a href="ch08-04-inventory.html"><strong aria-hidden="true">8.4.</strong> Ownership Inventory #2</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> Error Handling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> Unrecoverable Errors with panic!</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> Recoverable Errors with Result</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> To panic! or Not to panic!</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> Generic Types, Traits, and Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html"><strong aria-hidden="true">10.1.</strong> Generic Data Types</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html"><strong aria-hidden="true">10.2.</strong> Traits: Defining Shared Behavior</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html"><strong aria-hidden="true">10.3.</strong> Validating References with Lifetimes</a></li><li class="chapter-item expanded "><a href="ch10-04-inventory.html"><strong aria-hidden="true">10.4.</strong> Ownership Inventory #3</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Writing Automated Tests</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> How to Write Tests</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Controlling How Tests Are Run</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Test Organization</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> An I/O Project: Building a Command Line Program</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> Accepting Command Line Arguments</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> Reading a File</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> Refactoring to Improve Modularity and Error Handling</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> Developing the Library’s Functionality with Test Driven Development</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> Working with Environment Variables</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> Writing Error Messages to Standard Error Instead of Standard Output</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> Functional Language Features: Iterators and Closures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html"><strong aria-hidden="true">13.1.</strong> Closures: Anonymous Functions that Capture Their Environment</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Processing a Series of Items with Iterators</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> Improving Our I/O Project</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Comparing Performance: Loops vs. Iterators</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> More about Cargo and Crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Customizing Builds with Release Profiles</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html" class="active"><strong aria-hidden="true">14.2.</strong> Publishing a Crate to Crates.io</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Cargo Workspaces</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Installing Binaries from Crates.io with cargo install</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Extending Cargo with Custom Commands</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> Smart Pointers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> Using Box&lt;T&gt; to Point to Data on the Heap</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> Treating Smart Pointers Like Regular References with the Deref Trait</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> Running Code on Cleanup with the Drop Trait</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> Rc&lt;T&gt;, the Reference Counted Smart Pointer</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> RefCell&lt;T&gt; and the Interior Mutability Pattern</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> Reference Cycles Can Leak Memory</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Fearless Concurrency</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch16-01-threads.html"><strong aria-hidden="true">16.1.</strong> Using Threads to Run Code Simultaneously</a></li><li class="chapter-item expanded "><a href="ch16-02-message-passing.html"><strong aria-hidden="true">16.2.</strong> Using Message Passing to Transfer Data Between Threads</a></li><li class="chapter-item expanded "><a href="ch16-03-shared-state.html"><strong aria-hidden="true">16.3.</strong> Shared-State Concurrency</a></li><li class="chapter-item expanded "><a href="ch16-04-extensible-concurrency-sync-and-send.html"><strong aria-hidden="true">16.4.</strong> Extensible Concurrency with the Sync and Send Traits</a></li></ol></li><li class="chapter-item expanded "><a href="ch17-00-async-await.html"><strong aria-hidden="true">17.</strong> Async and Await</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-futures-and-syntax.html"><strong aria-hidden="true">17.1.</strong> Futures and the Async Syntax</a></li><li class="chapter-item expanded "><a href="ch17-02-concurrency-with-async.html"><strong aria-hidden="true">17.2.</strong> Concurrency With Async</a></li><li class="chapter-item expanded "><a href="ch17-03-more-futures.html"><strong aria-hidden="true">17.3.</strong> Working With Any Number of Futures</a></li><li class="chapter-item expanded "><a href="ch17-04-streams.html"><strong aria-hidden="true">17.4.</strong> Streams</a></li><li class="chapter-item expanded "><a href="ch17-05-traits-for-async.html"><strong aria-hidden="true">17.5.</strong> Digging Into the Traits for Async</a></li><li class="chapter-item expanded "><a href="ch17-06-futures-tasks-threads.html"><strong aria-hidden="true">17.6.</strong> Futures, Tasks, and Threads</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-oop.html"><strong aria-hidden="true">18.</strong> Object Oriented Programming Features of Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch18-01-what-is-oo.html"><strong aria-hidden="true">18.1.</strong> Characteristics of Object-Oriented Languages</a></li><li class="chapter-item expanded "><a href="ch18-02-trait-objects.html"><strong aria-hidden="true">18.2.</strong> Using Trait Objects That Allow for Values of Different Types</a></li><li class="chapter-item expanded "><a href="ch18-03-oo-design-patterns.html"><strong aria-hidden="true">18.3.</strong> Implementing an Object-Oriented Design Pattern</a></li><li class="chapter-item expanded "><a href="ch18-04-inventory.html"><strong aria-hidden="true">18.4.</strong> Ownership Inventory #4</a></li><li class="chapter-item expanded "><a href="ch18-05-design-challenge.html"><strong aria-hidden="true">18.5.</strong> Design Trade-offs</a></li></ol></li><li class="chapter-item expanded "><a href="ch19-00-patterns.html"><strong aria-hidden="true">19.</strong> Patterns and Matching</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch19-01-all-the-places-for-patterns.html"><strong aria-hidden="true">19.1.</strong> All the Places Patterns Can Be Used</a></li><li class="chapter-item expanded "><a href="ch19-02-refutability.html"><strong aria-hidden="true">19.2.</strong> Refutability: Whether a Pattern Might Fail to Match</a></li><li class="chapter-item expanded "><a href="ch19-03-pattern-syntax.html"><strong aria-hidden="true">19.3.</strong> Pattern Syntax</a></li></ol></li><li class="chapter-item expanded "><a href="ch20-00-advanced-features.html"><strong aria-hidden="true">20.</strong> Advanced Features</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch20-01-unsafe-rust.html"><strong aria-hidden="true">20.1.</strong> Unsafe Rust</a></li><li class="chapter-item expanded "><a href="ch20-03-advanced-traits.html"><strong aria-hidden="true">20.2.</strong> Advanced Traits</a></li><li class="chapter-item expanded "><a href="ch20-04-advanced-types.html"><strong aria-hidden="true">20.3.</strong> Advanced Types</a></li><li class="chapter-item expanded "><a href="ch20-05-advanced-functions-and-closures.html"><strong aria-hidden="true">20.4.</strong> Advanced Functions and Closures</a></li><li class="chapter-item expanded "><a href="ch20-06-macros.html"><strong aria-hidden="true">20.5.</strong> Macros</a></li></ol></li><li class="chapter-item expanded "><a href="ch21-00-final-project-a-web-server.html"><strong aria-hidden="true">21.</strong> Final Project: Building a Multithreaded Web Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch21-01-single-threaded.html"><strong aria-hidden="true">21.1.</strong> Building a Single-Threaded Web Server</a></li><li class="chapter-item expanded "><a href="ch21-02-multithreaded.html"><strong aria-hidden="true">21.2.</strong> Turning Our Single-Threaded Server into a Multithreaded Server</a></li><li class="chapter-item expanded "><a href="ch21-03-graceful-shutdown-and-cleanup.html"><strong aria-hidden="true">21.3.</strong> Graceful Shutdown and Cleanup</a></li></ol></li><li class="chapter-item expanded "><a href="end-of-experiment.html"><strong aria-hidden="true">22.</strong> End of Experiment</a></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">23.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">23.1.</strong> A - Keywords</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">23.2.</strong> B - Operators and Symbols</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">23.3.</strong> C - Derivable Traits</a></li><li class="chapter-item expanded "><a href="appendix-04-useful-development-tools.html"><strong aria-hidden="true">23.4.</strong> D - Useful Development Tools</a></li><li class="chapter-item expanded "><a href="appendix-05-editions.html"><strong aria-hidden="true">23.5.</strong> E - Editions</a></li><li class="chapter-item expanded "><a href="appendix-06-translation.html"><strong aria-hidden="true">23.6.</strong> F - Translations of the Book</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html"><strong aria-hidden="true">23.7.</strong> G - How Rust is Made and “Nightly Rust”</a></li></ol></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -172,7 +183,7 @@ your crate is <em>implemented</em>.</p>
 Markdown notation for formatting the text. Place documentation comments just
 before the item they’re documenting. Listing 14-1 shows documentation comments
 for an <code>add_one</code> function in a crate named <code>my_crate</code>.</p>
-<figure class="listing">
+<figure class="listing" id="listing-14-1">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore">/// Adds one to the number given.
 ///
@@ -187,7 +198,7 @@ for an <code>add_one</code> function in a crate named <code>my_crate</code>.</p>
 pub fn add_one(x: i32) -&gt; i32 {
     x + 1
 }</code></pre>
-<figcaption>Listing 14-1: A documentation comment for a function</figcaption>
+<figcaption><a href="#listing-14-1">Listing 14-1</a>: A documentation comment for a function</figcaption>
 </figure>
 <p>Here, we give a description of what the <code>add_one</code> function does, start a
 section with the heading <code>Examples</code>, and then provide code that demonstrates
@@ -216,7 +227,7 @@ errors that might occur and what conditions might cause those errors to be
 returned can be helpful to callers so they can write code to handle the
 different kinds of errors in different ways.</li>
 <li><strong>Safety</strong>: If the function is <code>unsafe</code> to call (we discuss unsafety in
-20), there should be a section explaining why the function is unsafe
+Chapter 20), there should be a section explaining why the function is unsafe
 and covering the invariants that the function expects callers to uphold.</li>
 </ul>
 <p>Most documentation comments don’t need all of these sections, but this is a
@@ -228,7 +239,8 @@ how to use your library, and doing so has an additional bonus: running <code>car
 better than documentation with examples. But nothing is worse than examples
 that don’t work because the code has changed since the documentation was
 written. If we run <code>cargo test</code> with the documentation for the <code>add_one</code>
-function from Listing 14-1, we will see a section in the test results like this:</p>
+function from Listing 14-1, we will see a section in the test results that looks
+like this:</p>
 <!-- manual-regeneration
 cd listings/ch14-more-about-cargo/listing-14-01/
 cargo test
@@ -241,7 +253,7 @@ test src/lib.rs - add_one (line 5) ... ok
 
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s
 </code></pre>
-<p>Now if we change either the function or the example so the <code>assert_eq!</code> in the
+<p>Now, if we change either the function or the example so the <code>assert_eq!</code> in the
 example panics and run <code>cargo test</code> again, we’ll see that the doc tests catch
 that the example and the code are out of sync with each other!</p>
 <h4 id="commenting-contained-items"><a class="header" href="#commenting-contained-items">Commenting Contained Items</a></h4>
@@ -253,7 +265,7 @@ inside a module to document the crate or the module as a whole.</p>
 crate that contains the <code>add_one</code> function, we add documentation comments that
 start with <code>//!</code> to the beginning of the <em>src/lib.rs</em> file, as shown in Listing
 14-2:</p>
-<figure class="listing">
+<figure class="listing" id="listing-14-2">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore">//! # My Crate
 //!
@@ -274,7 +286,7 @@ start with <code>//!</code> to the beginning of the <em>src/lib.rs</em> file, as
 </span><span class="boring">pub fn add_one(x: i32) -&gt; i32 {
 </span><span class="boring">    x + 1
 </span><span class="boring">}</span></code></pre>
-<figcaption>Listing 14-2: Documentation for the <code>my_crate</code> crate as a whole</figcaption>
+<figcaption><a href="#listing-14-2">Listing 14-2</a>: Documentation for the <code>my_crate</code> crate as a whole</figcaption>
 </figure>
 <p>Notice there isn’t any code after the last line that begins with <code>//!</code>. Because
 we started the comments with <code>//!</code> instead of <code>///</code>, we’re documenting the item
@@ -283,7 +295,7 @@ this case, that item is the <em>src/lib.rs</em> file, which is the crate root. T
 comments describe the entire crate.</p>
 <p>When we run <code>cargo doc --open</code>, these comments will display on the front
 page of the documentation for <code>my_crate</code> above the list of public items in the
-crate, as shown in Figure 14-2:</p>
+crate, as shown in Figure 14-2.</p>
 <img alt="Rendered HTML documentation with a comment for the crate as a whole" src="img/trpl14-02.png" class="center" />
 <p><span class="caption">Figure 14-2: Rendered documentation for <code>my_crate</code>,
 including the comment describing the crate as a whole</span></p>
@@ -308,14 +320,14 @@ They might also be annoyed at having to enter <code>use</code>
 <p>The good news is that if the structure <em>isn’t</em> convenient for others to use
 from another library, you don’t have to rearrange your internal organization:
 instead, you can re-export items to make a public structure that’s different
-from your private structure by using <code>pub use</code>. Re-exporting takes a public
+from your private structure by using <code>pub use</code>. <em>Re-exporting</em> takes a public
 item in one location and makes it public in another location, as if it were
 defined in the other location instead.</p>
 <p>For example, say we made a library named <code>art</code> for modeling artistic concepts.
 Within this library are two modules: a <code>kinds</code> module containing two enums
 named <code>PrimaryColor</code> and <code>SecondaryColor</code> and a <code>utils</code> module containing a
 function named <code>mix</code>, as shown in Listing 14-3:</p>
-<figure class="listing">
+<figure class="listing" id="listing-14-3">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground test_harness">//! # Art
 //!
@@ -347,7 +359,7 @@ pub mod utils {
 <span class="boring">        unimplemented!();
 </span>    }
 }</code></pre>
-<figcaption>Listing 14-3: An <code>art</code> library with items organized into <code>kinds</code> and <code>utils</code> modules</figcaption>
+<figcaption><a href="#listing-14-3">Listing 14-3</a>: An <code>art</code> library with items organized into <code>kinds</code> and <code>utils</code> modules</figcaption>
 </figure>
 <p>Figure 14-3 shows what the front page of the documentation for this crate
 generated by <code>cargo doc</code> would look like:</p>
@@ -361,7 +373,7 @@ see them.</p>
 bring the items from <code>art</code> into scope, specifying the module structure that’s
 currently defined. Listing 14-4 shows an example of a crate that uses the
 <code>PrimaryColor</code> and <code>mix</code> items from the <code>art</code> crate:</p>
-<figure class="listing">
+<figure class="listing" id="listing-14-4">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore">use art::kinds::PrimaryColor;
 use art::utils::mix;
@@ -371,7 +383,7 @@ fn main() {
     let yellow = PrimaryColor::Yellow;
     mix(red, yellow);
 }</code></pre>
-<figcaption>Listing 14-4: A crate using the <code>art</code> crate’s items with its internal structure exported</figcaption>
+<figcaption><a href="#listing-14-4">Listing 14-4</a>: A crate using the <code>art</code> crate’s items with its internal structure exported</figcaption>
 </figure>
 <p>The author of the code in Listing 14-4, which uses the <code>art</code> crate, had to
 figure out that <code>PrimaryColor</code> is in the <code>kinds</code> module and <code>mix</code> is in the
@@ -384,7 +396,7 @@ module names in the <code>use</code> statements.</p>
 <p>To remove the internal organization from the public API, we can modify the
 <code>art</code> crate code in Listing 14-3 to add <code>pub use</code> statements to re-export the
 items at the top level, as shown in Listing 14-5:</p>
-<figure class="listing">
+<figure class="listing" id="listing-14-5">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore">//! # Art
 //!
@@ -421,7 +433,7 @@ pub mod utils {
 </span><span class="boring">        SecondaryColor::Orange
 </span><span class="boring">    }
 </span>}</code></pre>
-<figcaption>Listing 14-5: Adding <code>pub use</code> statements to re-export items</figcaption>
+<figcaption><a href="#listing-14-5">Listing 14-5</a>: Adding <code>pub use</code> statements to re-export items</figcaption>
 </figure>
 <p>The API documentation that <code>cargo doc</code> generates for this crate will now list
 and link re-exports on the front page, as shown in Figure 14-4, making the
@@ -432,10 +444,10 @@ that lists the re-exports</span></p>
 <p>The <code>art</code> crate users can still see and use the internal structure from Listing
 14-3 as demonstrated in Listing 14-4, or they can use the more convenient
 structure in Listing 14-5, as shown in Listing 14-6:</p>
-<figure class="listing">
+<figure class="listing" id="listing-14-6">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><code class="language-rust ignore">use art::mix;
-use art::PrimaryColor;
+<pre><code class="language-rust ignore">use art::PrimaryColor;
+use art::mix;
 
 fn main() {
     // --snip--
@@ -443,7 +455,7 @@ fn main() {
 </span><span class="boring">    let yellow = PrimaryColor::Yellow;
 </span><span class="boring">    mix(red, yellow);
 </span>}</code></pre>
-<figcaption>Listing 14-6: A program using the re-exported items from the <code>art</code> crate</figcaption>
+<figcaption><a href="#listing-14-6">Listing 14-6</a>: A program using the re-exported items from the <code>art</code> crate</figcaption>
 </figure>
 <p>In cases where there are many nested modules, re-exporting the types at the top
 level with <code>pub use</code> can make a significant difference in the experience of
@@ -486,12 +498,13 @@ edit the <code>name</code> field in the <em>Cargo.toml</em> file under the <code
 use the new name for publishing, like so:</p>
 <p><span class="filename">Filename: Cargo.toml</span></p>
 <pre><code class="language-toml">[package]
-name = &quot;guessing_game&quot;
+name = "guessing_game"
 </code></pre>
 <p>Even if you’ve chosen a unique name, when you run <code>cargo publish</code> to publish
 the crate at this point, you’ll get a warning and then an error:</p>
 <!-- manual-regeneration
-cd listings/ch14-more-about-cargo/listing-14-01/
+Create a new package with an unregistered name, making no further modifications
+  to the generated package, so it is missing the description and license fields.
 cargo publish
 copy just the relevant lines below
 -->
@@ -503,20 +516,20 @@ See https://doc.rust-lang.org/cargo/reference/manifest.html#package-metadata for
 error: failed to publish to registry at https://crates.io
 
 Caused by:
-  the remote server responded with an error: missing or empty metadata fields: description, license. Please see https://doc.rust-lang.org/cargo/reference/manifest.html for how to upload metadata
+  the remote server responded with an error (status 400 Bad Request): missing or empty metadata fields: description, license. Please see https://doc.rust-lang.org/cargo/reference/manifest.html for more information on configuring these fields
 </code></pre>
-<p>This errors because you’re missing some crucial information: a description and
-license are required so people will know what your crate does and under what
-terms they can use it. In <em>Cargo.toml</em>, add a description that’s just a
-sentence or two, because it will appear with your crate in search results. For
-the <code>license</code> field, you need to give a <em>license identifier value</em>. The <a href="http://spdx.org/licenses/">Linux
-Foundation’s Software Package Data Exchange (SPDX)</a> lists the identifiers
-you can use for this value. For example, to specify that you’ve licensed your
-crate using the MIT License, add the <code>MIT</code> identifier:</p>
+<p>This results in an error because you’re missing some crucial information: a
+description and license are required so people will know what your crate does
+and under what terms they can use it. In <em>Cargo.toml</em>, add a description that’s
+just a sentence or two, because it will appear with your crate in search
+results. For the <code>license</code> field, you need to give a <em>license identifier value</em>.
+The <a href="http://spdx.org/licenses/">Linux Foundation’s Software Package Data Exchange (SPDX)</a> lists the
+identifiers you can use for this value. For example, to specify that you’ve
+licensed your crate using the MIT License, add the <code>MIT</code> identifier:</p>
 <p><span class="filename">Filename: Cargo.toml</span></p>
 <pre><code class="language-toml">[package]
-name = &quot;guessing_game&quot;
-license = &quot;MIT&quot;
+name = "guessing_game"
+license = "MIT"
 </code></pre>
 <p>If you want to use a license that doesn’t appear in the SPDX, you need to place
 the text of that license in a file, include the file in your project, and then
@@ -531,11 +544,11 @@ by <code>OR</code> to have multiple licenses for your project.</p>
 <em>Cargo.toml</em> file for a project that is ready to publish might look like this:</p>
 <p><span class="filename">Filename: Cargo.toml</span></p>
 <pre><code class="language-toml">[package]
-name = &quot;guessing_game&quot;
-version = &quot;0.1.0&quot;
-edition = &quot;2021&quot;
-description = &quot;A fun game where you guess what number the computer has chosen.&quot;
-license = &quot;MIT OR Apache-2.0&quot;
+name = "guessing_game"
+version = "0.1.0"
+edition = "2024"
+description = "A fun game where you guess what number the computer has chosen."
+license = "MIT OR Apache-2.0"
 
 [dependencies]
 </code></pre>
@@ -566,7 +579,7 @@ copy just the relevant lines below
    Verifying guessing_game v0.1.0 (file:///projects/guessing_game)
    Compiling guessing_game v0.1.0
 (file:///projects/guessing_game/target/package/guessing_game-0.1.0)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.19s
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.19s
    Uploading guessing_game v0.1.0 (file:///projects/guessing_game)
 </code></pre>
 <p>Congratulations! You’ve now shared your code with the Rust community, and
@@ -583,8 +596,8 @@ Then run <code>cargo publish</code> to upload the new version.</p>
 <p>Although you can’t remove previous versions of a crate, you can prevent any
 future projects from adding them as a new dependency. This is useful when a
 crate version is broken for one reason or another. In such situations, Cargo
-supports <em>yanking</em> a crate version.</p>
-<p>Yanking a version prevents new projects from depending on that version while
+supports yanking a crate version.</p>
+<p><em>Yanking</em> a version prevents new projects from depending on that version while
 allowing all existing projects that depend on it to continue. Essentially, a
 yank means that all projects with a <em>Cargo.lock</em> will not break, and any future
 <em>Cargo.lock</em> files generated will not use the yanked version.</p>
@@ -611,6 +624,7 @@ to start depending on a version again:</p>
 uploaded secrets. If that happens, you must reset those secrets immediately.</p>
 <div class="quiz-placeholder" data-quiz-name="&quot;ch14-02-publishing-to-crates-io-sec2&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;Crates.io does not allow overwriting of published versions. The best option in these situations is to yank the buggy version\nand then publish a new version such as `v0.1.1`.\n&quot;,&quot;id&quot;:&quot;7e4eeb62-55c2-443b-a8cc-fba060501245&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;It is impossible to overwrite a published crate at a given version&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;Add the flag `--overwrite-published` to the `cargo publish` command&quot;,&quot;Login to Crates.io and delete `v0.1.0` of the published crate&quot;,&quot;Run `cargo yank` and then run `cargo publish`&quot;],&quot;prompt&quot;:&quot;Say you are publishing a library `foobar v0.1.0`. After running `cargo publish`, you realize there is a bug in one\nof your functions. Which of the following best describes how to overwrite the published crate at the same `v0.1.0` version?\n&quot;}},{&quot;context&quot;:&quot;Adding documentation to public functions is certainly recommended, but not required by default. Note that if you\nwant Rust to treat undocumented code as an error, you can add the following statement at the root of your library:\n\n```\n#![deny(missing_docs)]\n```\n&quot;,&quot;id&quot;:&quot;84ac16a8-2460-4baf-8913-06da6e3603e6&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Adding documentation to each public function in the crate&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;Adding a license to the `[package]` section of `Cargo.toml`&quot;,&quot;Registering and logging in to Crates.io&quot;,&quot;Selecting a crate name that is not registered on Crates.io&quot;],&quot;prompt&quot;:&quot;Which of the following steps is NOT required to publish a crate to Crates.io?\n&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
 <script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css">
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -619,7 +633,7 @@ uploaded secrets. If that happens, you must reset those secrets immediately.</p>
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="ch14-03-cargo-workspaces.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="ch14-03-cargo-workspaces.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -633,7 +647,7 @@ uploaded secrets. If that happens, you must reset those secrets immediately.</p>
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="ch14-03-cargo-workspaces.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="ch14-03-cargo-workspaces.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -663,5 +677,6 @@ uploaded secrets. If that happens, you must reset those secrets immediately.</p>
         <script src="js-extensions/packages/feedback/dist/index.js"></script>
 
 
+    </div>
     </body>
 </html>

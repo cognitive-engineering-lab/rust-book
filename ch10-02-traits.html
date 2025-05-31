@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,10 +7,10 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -36,14 +36,17 @@
         <link rel="stylesheet" href="js-extensions/packages/consent-form/dist/index.css">
         <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index.css">
 
-    </head>
-    <body>
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -65,41 +68,49 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('no-js')
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            html.classList.add("js");
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
+            sidebar_toggle.checked = sidebar === 'visible';
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="experiment-intro.html">Experiment Introduction</a></li><li class="chapter-item expanded affix "><a href="title-page.html">The Rust Programming Language</a></li><li class="chapter-item expanded affix "><a href="foreword.html">Foreword</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> Hello, World!</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html"><strong aria-hidden="true">1.3.</strong> Hello, Cargo!</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html"><strong aria-hidden="true">2.</strong> Programming a Guessing Game</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> Common Programming Concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html"><strong aria-hidden="true">3.1.</strong> Variables and Mutability</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html"><strong aria-hidden="true">3.2.</strong> Data Types</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html"><strong aria-hidden="true">3.3.</strong> Functions</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> Comments</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html"><strong aria-hidden="true">3.5.</strong> Control Flow</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> Understanding Ownership</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html"><strong aria-hidden="true">4.1.</strong> What is Ownership?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> References and Borrowing</a></li><li class="chapter-item expanded "><a href="ch04-03-fixing-ownership-errors.html"><strong aria-hidden="true">4.3.</strong> Fixing Ownership Errors</a></li><li class="chapter-item expanded "><a href="ch04-04-slices.html"><strong aria-hidden="true">4.4.</strong> The Slice Type</a></li><li class="chapter-item expanded "><a href="ch04-05-ownership-recap.html"><strong aria-hidden="true">4.5.</strong> Ownership Recap</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> Using Structs to Structure Related Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> Defining and Instantiating Structs</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> An Example Program Using Structs</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> Method Syntax</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> Enums and Pattern Matching</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html"><strong aria-hidden="true">6.1.</strong> Defining an Enum</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> The match Control Flow Construct</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> Concise Control Flow with if let</a></li><li class="chapter-item expanded "><a href="ch06-04-inventory.html"><strong aria-hidden="true">6.4.</strong> Ownership Inventory #1</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-managing-growing-projects-with-packages-crates-and-modules.html"><strong aria-hidden="true">7.</strong> Managing Growing Projects with Packages, Crates, and Modules</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-packages-and-crates.html"><strong aria-hidden="true">7.1.</strong> Packages and Crates</a></li><li class="chapter-item expanded "><a href="ch07-02-defining-modules-to-control-scope-and-privacy.html"><strong aria-hidden="true">7.2.</strong> Defining Modules to Control Scope and Privacy</a></li><li class="chapter-item expanded "><a href="ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html"><strong aria-hidden="true">7.3.</strong> Paths for Referring to an Item in the Module Tree</a></li><li class="chapter-item expanded "><a href="ch07-04-bringing-paths-into-scope-with-the-use-keyword.html"><strong aria-hidden="true">7.4.</strong> Bringing Paths Into Scope with the use Keyword</a></li><li class="chapter-item expanded "><a href="ch07-05-separating-modules-into-different-files.html"><strong aria-hidden="true">7.5.</strong> Separating Modules into Different Files</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> Common Collections</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> Storing Lists of Values with Vectors</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> Storing UTF-8 Encoded Text with Strings</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> Storing Keys with Associated Values in Hash Maps</a></li><li class="chapter-item expanded "><a href="ch08-04-inventory.html"><strong aria-hidden="true">8.4.</strong> Ownership Inventory #2</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> Error Handling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> Unrecoverable Errors with panic!</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> Recoverable Errors with Result</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> To panic! or Not to panic!</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> Generic Types, Traits, and Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html"><strong aria-hidden="true">10.1.</strong> Generic Data Types</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html" class="active"><strong aria-hidden="true">10.2.</strong> Traits: Defining Shared Behavior</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html"><strong aria-hidden="true">10.3.</strong> Validating References with Lifetimes</a></li><li class="chapter-item expanded "><a href="ch10-04-inventory.html"><strong aria-hidden="true">10.4.</strong> Ownership Inventory #3</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Writing Automated Tests</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> How to Write Tests</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Controlling How Tests Are Run</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Test Organization</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> An I/O Project: Building a Command Line Program</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> Accepting Command Line Arguments</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> Reading a File</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> Refactoring to Improve Modularity and Error Handling</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> Developing the Library’s Functionality with Test Driven Development</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> Working with Environment Variables</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> Writing Error Messages to Standard Error Instead of Standard Output</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> Functional Language Features: Iterators and Closures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html"><strong aria-hidden="true">13.1.</strong> Closures: Anonymous Functions that Capture Their Environment</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Processing a Series of Items with Iterators</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> Improving Our I/O Project</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Comparing Performance: Loops vs. Iterators</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> More about Cargo and Crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Customizing Builds with Release Profiles</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html"><strong aria-hidden="true">14.2.</strong> Publishing a Crate to Crates.io</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Cargo Workspaces</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Installing Binaries from Crates.io with cargo install</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Extending Cargo with Custom Commands</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> Smart Pointers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> Using Box&lt;T&gt; to Point to Data on the Heap</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> Treating Smart Pointers Like Regular References with the Deref Trait</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> Running Code on Cleanup with the Drop Trait</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> Rc&lt;T&gt;, the Reference Counted Smart Pointer</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> RefCell&lt;T&gt; and the Interior Mutability Pattern</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> Reference Cycles Can Leak Memory</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Fearless Concurrency</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch16-01-threads.html"><strong aria-hidden="true">16.1.</strong> Using Threads to Run Code Simultaneously</a></li><li class="chapter-item expanded "><a href="ch16-02-message-passing.html"><strong aria-hidden="true">16.2.</strong> Using Message Passing to Transfer Data Between Threads</a></li><li class="chapter-item expanded "><a href="ch16-03-shared-state.html"><strong aria-hidden="true">16.3.</strong> Shared-State Concurrency</a></li><li class="chapter-item expanded "><a href="ch16-04-extensible-concurrency-sync-and-send.html"><strong aria-hidden="true">16.4.</strong> Extensible Concurrency with the Sync and Send Traits</a></li></ol></li><li class="chapter-item expanded "><a href="ch17-00-async-await.html"><strong aria-hidden="true">17.</strong> Async and Await</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-futures-and-syntax.html"><strong aria-hidden="true">17.1.</strong> Futures and the Async Syntax</a></li><li class="chapter-item expanded "><a href="ch17-02-concurrency-with-async.html"><strong aria-hidden="true">17.2.</strong> Concurrency With Async</a></li><li class="chapter-item expanded "><a href="ch17-03-more-futures.html"><strong aria-hidden="true">17.3.</strong> Working With Any Number of Futures</a></li><li class="chapter-item expanded "><a href="ch17-04-streams.html"><strong aria-hidden="true">17.4.</strong> Streams</a></li><li class="chapter-item expanded "><a href="ch17-05-traits-for-async.html"><strong aria-hidden="true">17.5.</strong> Digging Into the Traits for Async</a></li><li class="chapter-item expanded "><a href="ch17-06-futures-tasks-threads.html"><strong aria-hidden="true">17.6.</strong> Futures, Tasks, and Threads</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-oop.html"><strong aria-hidden="true">18.</strong> Object Oriented Programming Features of Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch18-01-what-is-oo.html"><strong aria-hidden="true">18.1.</strong> Characteristics of Object-Oriented Languages</a></li><li class="chapter-item expanded "><a href="ch18-02-trait-objects.html"><strong aria-hidden="true">18.2.</strong> Using Trait Objects That Allow for Values of Different Types</a></li><li class="chapter-item expanded "><a href="ch18-03-oo-design-patterns.html"><strong aria-hidden="true">18.3.</strong> Implementing an Object-Oriented Design Pattern</a></li><li class="chapter-item expanded "><a href="ch18-04-inventory.html"><strong aria-hidden="true">18.4.</strong> Ownership Inventory #4</a></li><li class="chapter-item expanded "><a href="ch18-05-design-challenge.html"><strong aria-hidden="true">18.5.</strong> Design Trade-offs</a></li></ol></li><li class="chapter-item expanded "><a href="ch19-00-patterns.html"><strong aria-hidden="true">19.</strong> Patterns and Matching</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch19-01-all-the-places-for-patterns.html"><strong aria-hidden="true">19.1.</strong> All the Places Patterns Can Be Used</a></li><li class="chapter-item expanded "><a href="ch19-02-refutability.html"><strong aria-hidden="true">19.2.</strong> Refutability: Whether a Pattern Might Fail to Match</a></li><li class="chapter-item expanded "><a href="ch19-03-pattern-syntax.html"><strong aria-hidden="true">19.3.</strong> Pattern Syntax</a></li></ol></li><li class="chapter-item expanded "><a href="ch20-00-advanced-features.html"><strong aria-hidden="true">20.</strong> Advanced Features</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch20-01-unsafe-rust.html"><strong aria-hidden="true">20.1.</strong> Unsafe Rust</a></li><li class="chapter-item expanded "><a href="ch20-03-advanced-traits.html"><strong aria-hidden="true">20.2.</strong> Advanced Traits</a></li><li class="chapter-item expanded "><a href="ch20-04-advanced-types.html"><strong aria-hidden="true">20.3.</strong> Advanced Types</a></li><li class="chapter-item expanded "><a href="ch20-05-advanced-functions-and-closures.html"><strong aria-hidden="true">20.4.</strong> Advanced Functions and Closures</a></li><li class="chapter-item expanded "><a href="ch20-06-macros.html"><strong aria-hidden="true">20.5.</strong> Macros</a></li></ol></li><li class="chapter-item expanded "><a href="ch21-00-final-project-a-web-server.html"><strong aria-hidden="true">21.</strong> Final Project: Building a Multithreaded Web Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch21-01-single-threaded.html"><strong aria-hidden="true">21.1.</strong> Building a Single-Threaded Web Server</a></li><li class="chapter-item expanded "><a href="ch21-02-multithreaded.html"><strong aria-hidden="true">21.2.</strong> Turning Our Single-Threaded Server into a Multithreaded Server</a></li><li class="chapter-item expanded "><a href="ch21-03-graceful-shutdown-and-cleanup.html"><strong aria-hidden="true">21.3.</strong> Graceful Shutdown and Cleanup</a></li></ol></li><li class="chapter-item expanded "><a href="end-of-experiment.html"><strong aria-hidden="true">22.</strong> End of Experiment</a></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">23.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">23.1.</strong> A - Keywords</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">23.2.</strong> B - Operators and Symbols</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">23.3.</strong> C - Derivable Traits</a></li><li class="chapter-item expanded "><a href="appendix-04-useful-development-tools.html"><strong aria-hidden="true">23.4.</strong> D - Useful Development Tools</a></li><li class="chapter-item expanded "><a href="appendix-05-editions.html"><strong aria-hidden="true">23.5.</strong> E - Editions</a></li><li class="chapter-item expanded "><a href="appendix-06-translation.html"><strong aria-hidden="true">23.6.</strong> F - Translations of the Book</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html"><strong aria-hidden="true">23.7.</strong> G - How Rust is Made and “Nightly Rust”</a></li></ol></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -166,20 +177,22 @@ types. Trait definitions are a way to group method signatures together to
 define a set of behaviors necessary to accomplish some purpose.</p>
 <p>For example, let’s say we have multiple structs that hold various kinds and
 amounts of text: a <code>NewsArticle</code> struct that holds a news story filed in a
-particular location and a <code>Tweet</code> that can have, at most, 280 characters along
-with metadata that indicates whether it was a new tweet, a retweet, or a reply
-to another tweet.</p>
+particular location and a <code>SocialPost</code> that can have, at most, 280 characters
+along with metadata that indicates whether it was a new post, a repost, or a
+reply to another post.</p>
 <p>We want to make a media aggregator library crate named <code>aggregator</code> that can
-display summaries of data that might be stored in a <code>NewsArticle</code> or <code>Tweet</code>
-instance. To do this, we need a summary from each type, and we’ll request that
-summary by calling a <code>summarize</code> method on an instance. Listing 10-12 shows the
-definition of a public <code>Summary</code> trait that expresses this behavior.</p>
-<p><span class="filename">Filename: src/lib.rs</span></p>
+display summaries of data that might be stored in a <code>NewsArticle</code> or
+<code>SocialPost</code> instance. To do this, we need a summary from each type, and we’ll
+request that summary by calling a <code>summarize</code> method on an instance. Listing
+10-12 shows the definition of a public <code>Summary</code> trait that expresses this
+behavior.</p>
+<figure class="listing" id="listing-10-12">
+<span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">pub trait Summary {
     fn summarize(&amp;self) -&gt; String;
 }</code></pre>
-<p><span class="caption">Listing 10-12: A <code>Summary</code> trait that consists of the
-behavior provided by a <code>summarize</code> method</span></p>
+<figcaption><a href="#listing-10-12">Listing 10-12</a>: A <code>Summary</code> trait that consists of the behavior provided by a <code>summarize</code> method</figcaption>
+</figure>
 <p>Here, we declare a trait using the <code>trait</code> keyword and then the trait’s name,
 which is <code>Summary</code> in this case. We also declare the trait as <code>pub</code> so that
 crates depending on this crate can make use of this trait too, as we’ll see in
@@ -198,10 +211,11 @@ one per line, and each line ends in a semicolon.</p>
 we can implement it on the types in our media aggregator. Listing 10-13 shows
 an implementation of the <code>Summary</code> trait on the <code>NewsArticle</code> struct that uses
 the headline, the author, and the location to create the return value of
-<code>summarize</code>. For the <code>Tweet</code> struct, we define <code>summarize</code> as the username
-followed by the entire text of the tweet, assuming that the tweet content is
+<code>summarize</code>. For the <code>SocialPost</code> struct, we define <code>summarize</code> as the username
+followed by the entire text of the post, assuming that the post content is
 already limited to 280 characters.</p>
-<p><span class="filename">Filename: src/lib.rs</span></p>
+<figure class="listing" id="listing-10-13">
+<span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub trait Summary {
 </span><span class="boring">    fn summarize(&amp;self) -&gt; String;
 </span><span class="boring">}
@@ -215,24 +229,24 @@ already limited to 280 characters.</p>
 
 impl Summary for NewsArticle {
     fn summarize(&amp;self) -&gt; String {
-        format!(&quot;{}, by {} ({})&quot;, self.headline, self.author, self.location)
+        format!("{}, by {} ({})", self.headline, self.author, self.location)
     }
 }
 
-pub struct Tweet {
+pub struct SocialPost {
     pub username: String,
     pub content: String,
     pub reply: bool,
-    pub retweet: bool,
+    pub repost: bool,
 }
 
-impl Summary for Tweet {
+impl Summary for SocialPost {
     fn summarize(&amp;self) -&gt; String {
-        format!(&quot;{}: {}&quot;, self.username, self.content)
+        format!("{}: {}", self.username, self.content)
     }
 }</code></pre>
-<p><span class="caption">Listing 10-13: Implementing the <code>Summary</code> trait on the
-<code>NewsArticle</code> and <code>Tweet</code> types</span></p>
+<figcaption><a href="#listing-10-13">Listing 10-13</a>: Implementing the <code>Summary</code> trait on the <code>NewsArticle</code> and <code>SocialPost</code> types</figcaption>
+</figure>
 <p>Implementing a trait on a type is similar to implementing regular methods. The
 difference is that after <code>impl</code>, we put the trait name we want to implement,
 then use the <code>for</code> keyword, and then specify the name of the type we want to
@@ -241,32 +255,32 @@ that the trait definition has defined. Instead of adding a semicolon after each
 signature, we use curly brackets and fill in the method body with the specific
 behavior that we want the methods of the trait to have for the particular type.</p>
 <p>Now that the library has implemented the <code>Summary</code> trait on <code>NewsArticle</code> and
-<code>Tweet</code>, users of the crate can call the trait methods on instances of
-<code>NewsArticle</code> and <code>Tweet</code> in the same way we call regular methods. The only
+<code>SocialPost</code>, users of the crate can call the trait methods on instances of
+<code>NewsArticle</code> and <code>SocialPost</code> in the same way we call regular methods. The only
 difference is that the user must bring the trait into scope as well as the
 types. Here’s an example of how a binary crate could use our <code>aggregator</code>
 library crate:</p>
-<pre><code class="language-rust ignore">use aggregator::{Summary, Tweet};
+<pre><code class="language-rust ignore">use aggregator::{SocialPost, Summary};
 
 fn main() {
-    let tweet = Tweet {
-        username: String::from(&quot;horse_ebooks&quot;),
+    let post = SocialPost {
+        username: String::from("horse_ebooks"),
         content: String::from(
-            &quot;of course, as you probably already know, people&quot;,
+            "of course, as you probably already know, people",
         ),
         reply: false,
-        retweet: false,
+        repost: false,
     };
 
-    println!(&quot;1 new tweet: {}&quot;, tweet.summarize());
+    println!("1 new post: {}", post.summarize());
 }</code></pre>
-<p>This code prints <code>1 new tweet: horse_ebooks: of course, as you probably already know, people</code>.</p>
+<p>This code prints <code>1 new post: horse_ebooks: of course, as you probably already know, people</code>.</p>
 <p>Other crates that depend on the <code>aggregator</code> crate can also bring the <code>Summary</code>
 trait into scope to implement <code>Summary</code> on their own types. One restriction to
 note is that we can implement a trait on a type only if either the trait or the
 type, or both, are local to our crate. For example, we can implement standard
-library traits like <code>Display</code> on a custom type like <code>Tweet</code> as part of our
-<code>aggregator</code> crate functionality because the type <code>Tweet</code> is local to our
+library traits like <code>Display</code> on a custom type like <code>SocialPost</code> as part of our
+<code>aggregator</code> crate functionality because the type <code>SocialPost</code> is local to our
 <code>aggregator</code> crate. We can also implement <code>Summary</code> on <code>Vec&lt;T&gt;</code> in our
 <code>aggregator</code> crate because the trait <code>Summary</code> is local to our <code>aggregator</code>
 crate.</p>
@@ -287,10 +301,11 @@ each method’s default behavior.</p>
 <p>In Listing 10-14, we specify a default string for the <code>summarize</code> method of the
 <code>Summary</code> trait instead of only defining the method signature, as we did in
 Listing 10-12.</p>
-<p><span class="filename">Filename: src/lib.rs</span></p>
+<figure class="listing" id="listing-10-14">
+<span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">pub trait Summary {
     fn summarize(&amp;self) -&gt; String {
-        String::from(&quot;(Read more...)&quot;)
+        String::from("(Read more...)")
     }
 }
 <span class="boring">
@@ -303,20 +318,20 @@ Listing 10-12.</p>
 </span><span class="boring">
 </span><span class="boring">impl Summary for NewsArticle {}
 </span><span class="boring">
-</span><span class="boring">pub struct Tweet {
+</span><span class="boring">pub struct SocialPost {
 </span><span class="boring">    pub username: String,
 </span><span class="boring">    pub content: String,
 </span><span class="boring">    pub reply: bool,
-</span><span class="boring">    pub retweet: bool,
+</span><span class="boring">    pub repost: bool,
 </span><span class="boring">}
 </span><span class="boring">
-</span><span class="boring">impl Summary for Tweet {
+</span><span class="boring">impl Summary for SocialPost {
 </span><span class="boring">    fn summarize(&amp;self) -&gt; String {
-</span><span class="boring">        format!(&quot;{}: {}&quot;, self.username, self.content)
+</span><span class="boring">        format!("{}: {}", self.username, self.content)
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
-<p><span class="caption">Listing 10-14: Defining a <code>Summary</code> trait with a default
-implementation of the <code>summarize</code> method</span></p>
+<figcaption><a href="#listing-10-14">Listing 10-14</a>: Defining a <code>Summary</code> trait with a default implementation of the <code>summarize</code> method</figcaption>
+</figure>
 <p>To use a default implementation to summarize instances of <code>NewsArticle</code>, we
 specify an empty <code>impl</code> block with <code>impl Summary for NewsArticle {}</code>.</p>
 <p>Even though we’re no longer defining the <code>summarize</code> method on <code>NewsArticle</code>
@@ -327,22 +342,23 @@ the <code>summarize</code> method on an instance of <code>NewsArticle</code>, li
 </span><span class="boring">
 </span><span class="boring">fn main() {
 </span>    let article = NewsArticle {
-        headline: String::from(&quot;Penguins win the Stanley Cup Championship!&quot;),
-        location: String::from(&quot;Pittsburgh, PA, USA&quot;),
-        author: String::from(&quot;Iceburgh&quot;),
+        headline: String::from("Penguins win the Stanley Cup Championship!"),
+        location: String::from("Pittsburgh, PA, USA"),
+        author: String::from("Iceburgh"),
         content: String::from(
-            &quot;The Pittsburgh Penguins once again are the best \
-             hockey team in the NHL.&quot;,
+            "The Pittsburgh Penguins once again are the best \
+             hockey team in the NHL.",
         ),
     };
 
-    println!(&quot;New article available! {}&quot;, article.summarize());
+    println!("New article available! {}", article.summarize());
 <span class="boring">}</span></code></pre>
 <p>This code prints <code>New article available! (Read more...)</code>.</p>
 <p>Creating a default implementation doesn’t require us to change anything about
-the implementation of <code>Summary</code> on <code>Tweet</code> in Listing 10-13. The reason is that
-the syntax for overriding a default implementation is the same as the syntax
-for implementing a trait method that doesn’t have a default implementation.</p>
+the implementation of <code>Summary</code> on <code>SocialPost</code> in Listing 10-13. The reason is
+that the syntax for overriding a default implementation is the same as the
+syntax for implementing a trait method that doesn’t have a default
+implementation.</p>
 <p>Default implementations can call other methods in the same trait, even if those
 other methods don’t have a default implementation. In this way, a trait can
 provide a lot of useful functionality and only require implementors to specify
@@ -354,20 +370,20 @@ a small part of it. For example, we could define the <code>Summary</code> trait 
     fn summarize_author(&amp;self) -&gt; String;
 
     fn summarize(&amp;self) -&gt; String {
-        format!(&quot;(Read more from {}...)&quot;, self.summarize_author())
+        format!("(Read more from {}...)", self.summarize_author())
     }
 }
 <span class="boring">
-</span><span class="boring">pub struct Tweet {
+</span><span class="boring">pub struct SocialPost {
 </span><span class="boring">    pub username: String,
 </span><span class="boring">    pub content: String,
 </span><span class="boring">    pub reply: bool,
-</span><span class="boring">    pub retweet: bool,
+</span><span class="boring">    pub repost: bool,
 </span><span class="boring">}
 </span><span class="boring">
-</span><span class="boring">impl Summary for Tweet {
+</span><span class="boring">impl Summary for SocialPost {
 </span><span class="boring">    fn summarize_author(&amp;self) -&gt; String {
-</span><span class="boring">        format!(&quot;@{}&quot;, self.username)
+</span><span class="boring">        format!("@{}", self.username)
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
 <p>To use this version of <code>Summary</code>, we only need to define <code>summarize_author</code>
@@ -376,50 +392,50 @@ when we implement the trait on a type:</p>
 </span><span class="boring">    fn summarize_author(&amp;self) -&gt; String;
 </span><span class="boring">
 </span><span class="boring">    fn summarize(&amp;self) -&gt; String {
-</span><span class="boring">        format!(&quot;(Read more from {}...)&quot;, self.summarize_author())
+</span><span class="boring">        format!("(Read more from {}...)", self.summarize_author())
 </span><span class="boring">    }
 </span><span class="boring">}
 </span><span class="boring">
-</span><span class="boring">pub struct Tweet {
+</span><span class="boring">pub struct SocialPost {
 </span><span class="boring">    pub username: String,
 </span><span class="boring">    pub content: String,
 </span><span class="boring">    pub reply: bool,
-</span><span class="boring">    pub retweet: bool,
+</span><span class="boring">    pub repost: bool,
 </span><span class="boring">}
 </span><span class="boring">
-</span>impl Summary for Tweet {
+</span>impl Summary for SocialPost {
     fn summarize_author(&amp;self) -&gt; String {
-        format!(&quot;@{}&quot;, self.username)
+        format!("@{}", self.username)
     }
 }</code></pre>
 <p>After we define <code>summarize_author</code>, we can call <code>summarize</code> on instances of the
-<code>Tweet</code> struct, and the default implementation of <code>summarize</code> will call the
+<code>SocialPost</code> struct, and the default implementation of <code>summarize</code> will call the
 definition of <code>summarize_author</code> that we’ve provided. Because we’ve implemented
 <code>summarize_author</code>, the <code>Summary</code> trait has given us the behavior of the
 <code>summarize</code> method without requiring us to write any more code. Here’s what
 that looks like:</p>
-<pre><code class="language-rust ignore"><span class="boring">use aggregator::{self, Summary, Tweet};
+<pre><code class="language-rust ignore"><span class="boring">use aggregator::{self, SocialPost, Summary};
 </span><span class="boring">
 </span><span class="boring">fn main() {
-</span>    let tweet = Tweet {
-        username: String::from(&quot;horse_ebooks&quot;),
+</span>    let post = SocialPost {
+        username: String::from("horse_ebooks"),
         content: String::from(
-            &quot;of course, as you probably already know, people&quot;,
+            "of course, as you probably already know, people",
         ),
         reply: false,
-        retweet: false,
+        repost: false,
     };
 
-    println!(&quot;1 new tweet: {}&quot;, tweet.summarize());
+    println!("1 new post: {}", post.summarize());
 <span class="boring">}</span></code></pre>
-<p>This code prints <code>1 new tweet: (Read more from @horse_ebooks...)</code>.</p>
+<p>This code prints <code>1 new post: (Read more from @horse_ebooks...)</code>.</p>
 <p>Note that it isn’t possible to call the default implementation from an
 overriding implementation of that same method.</p>
 <div class="quiz-placeholder" data-quiz-name="&quot;ch10-02-traits-sec1&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;The implementation of `MakeNoise` provides a specific implementation for `Dog` and uses the default implementation for `Cat`.\nTherefore calling `make_noise` on each prints `bark` and `(silence)`, respectively. \n&quot;,&quot;id&quot;:&quot;c4adb1a8-ca6a-43c1-ae34-54302f674ece&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:true,&quot;stdout&quot;:&quot;bark\n(silence)&quot;},&quot;prompt&quot;:{&quot;program&quot;:&quot;trait MakeNoise {\n  fn make_noise(&amp;self) {\n    println!(\&quot;(silence)\&quot;);\n  }\n}\n\nstruct Dog {}\nstruct Cat {}\n\nimpl MakeNoise for Dog {\n  fn make_noise(&amp;self) {\n    println!(\&quot;bark\&quot;);\n  }\n}\n\nimpl MakeNoise for Cat {}\n\nfn main() {\n  let dog = Dog {};\n  let cat = Cat {};\n  dog.make_noise();\n  cat.make_noise();\n}\n&quot;}},{&quot;context&quot;:&quot;The \&quot;orphan rule\&quot; requires that you cannot implement an external trait for an external type, \nto ensure code doesn't break if two crates provide conflicting implementations.\n&quot;,&quot;id&quot;:&quot;783f2485-e5b9-483b-8368-064366c77285&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:[&quot;You can implement an external trait for a local type&quot;,&quot;You can implement a local trait for an external type&quot;,&quot;You can implement a local trait for a local type&quot;]},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;You can implement an external trait for an external type&quot;],&quot;prompt&quot;:&quot;The following are statements about what kinds of trait implementations are permitted by Rust. Select each statement which is true.&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
 <h3 id="traits-as-parameters"><a class="header" href="#traits-as-parameters">Traits as Parameters</a></h3>
 <p>Now that you know how to define and implement traits, we can explore how to use
 traits to define functions that accept many different types. We’ll use the
-<code>Summary</code> trait we implemented on the <code>NewsArticle</code> and <code>Tweet</code> types in
+<code>Summary</code> trait we implemented on the <code>NewsArticle</code> and <code>SocialPost</code> types in
 Listing 10-13 to define a <code>notify</code> function that calls the <code>summarize</code> method
 on its <code>item</code> parameter, which is of some type that implements the <code>Summary</code>
 trait. To do this, we use the <code>impl Trait</code> syntax, like this:</p>
@@ -436,31 +452,31 @@ trait. To do this, we use the <code>impl Trait</code> syntax, like this:</p>
 </span><span class="boring">
 </span><span class="boring">impl Summary for NewsArticle {
 </span><span class="boring">    fn summarize(&amp;self) -&gt; String {
-</span><span class="boring">        format!(&quot;{}, by {} ({})&quot;, self.headline, self.author, self.location)
+</span><span class="boring">        format!("{}, by {} ({})", self.headline, self.author, self.location)
 </span><span class="boring">    }
 </span><span class="boring">}
 </span><span class="boring">
-</span><span class="boring">pub struct Tweet {
+</span><span class="boring">pub struct SocialPost {
 </span><span class="boring">    pub username: String,
 </span><span class="boring">    pub content: String,
 </span><span class="boring">    pub reply: bool,
-</span><span class="boring">    pub retweet: bool,
+</span><span class="boring">    pub repost: bool,
 </span><span class="boring">}
 </span><span class="boring">
-</span><span class="boring">impl Summary for Tweet {
+</span><span class="boring">impl Summary for SocialPost {
 </span><span class="boring">    fn summarize(&amp;self) -&gt; String {
-</span><span class="boring">        format!(&quot;{}: {}&quot;, self.username, self.content)
+</span><span class="boring">        format!("{}: {}", self.username, self.content)
 </span><span class="boring">    }
 </span><span class="boring">}
 </span><span class="boring">
 </span>pub fn notify(item: &amp;impl Summary) {
-    println!(&quot;Breaking news! {}&quot;, item.summarize());
+    println!("Breaking news! {}", item.summarize());
 }</code></pre>
 <p>Instead of a concrete type for the <code>item</code> parameter, we specify the <code>impl</code>
 keyword and the trait name. This parameter accepts any type that implements the
 specified trait. In the body of <code>notify</code>, we can call any methods on <code>item</code>
 that come from the <code>Summary</code> trait, such as <code>summarize</code>. We can call <code>notify</code>
-and pass in any instance of <code>NewsArticle</code> or <code>Tweet</code>. Code that calls the
+and pass in any instance of <code>NewsArticle</code> or <code>SocialPost</code>. Code that calls the
 function with any other type, such as a <code>String</code> or an <code>i32</code>, won’t compile
 because those types don’t implement <code>Summary</code>.</p>
 <!-- Old headings. Do not remove or links may break. -->
@@ -469,7 +485,7 @@ because those types don’t implement <code>Summary</code>.</p>
 <p>The <code>impl Trait</code> syntax works for straightforward cases but is actually syntax
 sugar for a longer form known as a <em>trait bound</em>; it looks like this:</p>
 <pre><code class="language-rust ignore">pub fn notify&lt;T: Summary&gt;(item: &amp;T) {
-    println!(&quot;Breaking news! {}&quot;, item.summarize());
+    println!("Breaking news! {}", item.summarize());
 }</code></pre>
 <p>This longer form is equivalent to the example in the previous section but is
 more verbose. We place trait bounds with the declaration of the generic type
@@ -532,37 +548,38 @@ value of some type that implements a trait, as shown here:</p>
 </span><span class="boring">
 </span><span class="boring">impl Summary for NewsArticle {
 </span><span class="boring">    fn summarize(&amp;self) -&gt; String {
-</span><span class="boring">        format!(&quot;{}, by {} ({})&quot;, self.headline, self.author, self.location)
+</span><span class="boring">        format!("{}, by {} ({})", self.headline, self.author, self.location)
 </span><span class="boring">    }
 </span><span class="boring">}
 </span><span class="boring">
-</span><span class="boring">pub struct Tweet {
+</span><span class="boring">pub struct SocialPost {
 </span><span class="boring">    pub username: String,
 </span><span class="boring">    pub content: String,
 </span><span class="boring">    pub reply: bool,
-</span><span class="boring">    pub retweet: bool,
+</span><span class="boring">    pub repost: bool,
 </span><span class="boring">}
 </span><span class="boring">
-</span><span class="boring">impl Summary for Tweet {
+</span><span class="boring">impl Summary for SocialPost {
 </span><span class="boring">    fn summarize(&amp;self) -&gt; String {
-</span><span class="boring">        format!(&quot;{}: {}&quot;, self.username, self.content)
+</span><span class="boring">        format!("{}: {}", self.username, self.content)
 </span><span class="boring">    }
 </span><span class="boring">}
 </span><span class="boring">
 </span>fn returns_summarizable() -&gt; impl Summary {
-    Tweet {
-        username: String::from(&quot;horse_ebooks&quot;),
+    SocialPost {
+        username: String::from("horse_ebooks"),
         content: String::from(
-            &quot;of course, as you probably already know, people&quot;,
+            "of course, as you probably already know, people",
         ),
         reply: false,
-        retweet: false,
+        repost: false,
     }
 }</code></pre>
 <p>By using <code>impl Summary</code> for the return type, we specify that the
 <code>returns_summarizable</code> function returns some type that implements the <code>Summary</code>
 trait without naming the concrete type. In this case, <code>returns_summarizable</code>
-returns a <code>Tweet</code>, but the code calling this function doesn’t need to know that.</p>
+returns a <code>SocialPost</code>, but the code calling this function doesn’t need to know
+that.</p>
 <p>The ability to specify a return type only by the trait it implements is
 especially useful in the context of closures and iterators, which we cover in
 Chapter 13. Closures and iterators create types that only the compiler knows or
@@ -570,8 +587,8 @@ types that are very long to specify. The <code>impl Trait</code> syntax lets you
 specify that a function returns some type that implements the <code>Iterator</code> trait
 without needing to write out a very long type.</p>
 <p>However, you can only use <code>impl Trait</code> if you’re returning a single type. For
-example, this code that returns either a <code>NewsArticle</code> or a <code>Tweet</code> with the
-return type specified as <code>impl Summary</code> wouldn’t work:</p>
+example, this code that returns either a <code>NewsArticle</code> or a <code>SocialPost</code> with
+the return type specified as <code>impl Summary</code> wouldn’t work:</p>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">pub trait Summary {
 </span><span class="boring">    fn summarize(&amp;self) -&gt; String;
 </span><span class="boring">}
@@ -585,20 +602,20 @@ return type specified as <code>impl Summary</code> wouldn’t work:</p>
 </span><span class="boring">
 </span><span class="boring">impl Summary for NewsArticle {
 </span><span class="boring">    fn summarize(&amp;self) -&gt; String {
-</span><span class="boring">        format!(&quot;{}, by {} ({})&quot;, self.headline, self.author, self.location)
+</span><span class="boring">        format!("{}, by {} ({})", self.headline, self.author, self.location)
 </span><span class="boring">    }
 </span><span class="boring">}
 </span><span class="boring">
-</span><span class="boring">pub struct Tweet {
+</span><span class="boring">pub struct SocialPost {
 </span><span class="boring">    pub username: String,
 </span><span class="boring">    pub content: String,
 </span><span class="boring">    pub reply: bool,
-</span><span class="boring">    pub retweet: bool,
+</span><span class="boring">    pub repost: bool,
 </span><span class="boring">}
 </span><span class="boring">
-</span><span class="boring">impl Summary for Tweet {
+</span><span class="boring">impl Summary for SocialPost {
 </span><span class="boring">    fn summarize(&amp;self) -&gt; String {
-</span><span class="boring">        format!(&quot;{}: {}&quot;, self.username, self.content)
+</span><span class="boring">        format!("{}: {}", self.username, self.content)
 </span><span class="boring">    }
 </span><span class="boring">}
 </span><span class="boring">
@@ -606,32 +623,32 @@ return type specified as <code>impl Summary</code> wouldn’t work:</p>
     if switch {
         NewsArticle {
             headline: String::from(
-                &quot;Penguins win the Stanley Cup Championship!&quot;,
+                "Penguins win the Stanley Cup Championship!",
             ),
-            location: String::from(&quot;Pittsburgh, PA, USA&quot;),
-            author: String::from(&quot;Iceburgh&quot;),
+            location: String::from("Pittsburgh, PA, USA"),
+            author: String::from("Iceburgh"),
             content: String::from(
-                &quot;The Pittsburgh Penguins once again are the best \
-                 hockey team in the NHL.&quot;,
+                "The Pittsburgh Penguins once again are the best \
+                 hockey team in the NHL.",
             ),
         }
     } else {
-        Tweet {
-            username: String::from(&quot;horse_ebooks&quot;),
+        SocialPost {
+            username: String::from("horse_ebooks"),
             content: String::from(
-                &quot;of course, as you probably already know, people&quot;,
+                "of course, as you probably already know, people",
             ),
             reply: false,
-            retweet: false,
+            repost: false,
         }
     }
 }</code></pre>
-<p>Returning either a <code>NewsArticle</code> or a <code>Tweet</code> isn’t allowed due to restrictions
-around how the <code>impl Trait</code> syntax is implemented in the compiler. We’ll cover
-how to write a function with this behavior in the <a href="ch18-02-trait-objects.html#using-trait-objects-that-allow-for-values-of-different-types">“Using Trait Objects That
-Allow for Values of Different
-Types”</a><!--
-ignore --> section of Chapter 18.</p>
+<p>Returning either a <code>NewsArticle</code> or a <code>SocialPost</code> isn’t allowed due to
+restrictions around how the <code>impl Trait</code> syntax is implemented in the compiler.
+We’ll cover how to write a function with this behavior in the <a href="ch18-02-trait-objects.html#using-trait-objects-that-allow-for-values-of-different-types">“Using Trait
+Objects That Allow for Values of Different
+Types”</a><!-- ignore
+--> section of Chapter 18.</p>
 <h3 id="using-trait-bounds-to-conditionally-implement-methods"><a class="header" href="#using-trait-bounds-to-conditionally-implement-methods">Using Trait Bounds to Conditionally Implement Methods</a></h3>
 <p>By using a trait bound with an <code>impl</code> block that uses generic type parameters,
 we can implement methods conditionally for types that implement the specified
@@ -642,7 +659,8 @@ is a type alias for the type of the <code>impl</code> block, which in this case 
 <code>Pair&lt;T&gt;</code>). But in the next <code>impl</code> block, <code>Pair&lt;T&gt;</code> only implements the
 <code>cmp_display</code> method if its inner type <code>T</code> implements the <code>PartialOrd</code> trait
 that enables comparison <em>and</em> the <code>Display</code> trait that enables printing.</p>
-<p><span class="filename">Filename: src/lib.rs</span></p>
+<figure class="listing" id="listing-10-15">
+<span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">use std::fmt::Display;
 
 struct Pair&lt;T&gt; {
@@ -659,14 +677,14 @@ impl&lt;T&gt; Pair&lt;T&gt; {
 impl&lt;T: Display + PartialOrd&gt; Pair&lt;T&gt; {
     fn cmp_display(&amp;self) {
         if self.x &gt;= self.y {
-            println!(&quot;The largest member is x = {}&quot;, self.x);
+            println!("The largest member is x = {}", self.x);
         } else {
-            println!(&quot;The largest member is y = {}&quot;, self.y);
+            println!("The largest member is y = {}", self.y);
         }
     }
 }</code></pre>
-<p><span class="caption">Listing 10-15: Conditionally implementing methods on a
-generic type depending on trait bounds</span></p>
+<figcaption><a href="#listing-10-15">Listing 10-15</a>: Conditionally implementing methods on a generic type depending on trait bounds</figcaption>
+</figure>
 <p>We can also conditionally implement a trait for any type that implements
 another trait. Implementations of a trait on any type that satisfies the trait
 bounds are called <em>blanket implementations</em> and are used extensively in the
@@ -680,7 +698,7 @@ block in the standard library looks similar to this code:</p>
 <code>to_string</code> method defined by the <code>ToString</code> trait on any type that implements
 the <code>Display</code> trait. For example, we can turn integers into their corresponding
 <code>String</code> values like this because integers implement <code>Display</code>:</p>
-<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let s = 3.to_string();
 <span class="boring">}</span></code></pre></pre>
@@ -699,6 +717,7 @@ time. Doing so improves performance without having to give up the flexibility
 of generics.</p>
 <div class="quiz-placeholder" data-quiz-name="&quot;ch10-02-traits-sec2&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;Because `displayable` returns `impl Display`, then we only know that `s2` is *some* type that implements `Display`, \nnot that it is a `String` which has a `push_str` method. Therefore we cannot call `s2.push_str(..)`. If the return\ntype of `displayable` was `-&gt; T`, then this program would compile.\n&quot;,&quot;id&quot;:&quot;a2a1546b-27bf-47d2-a1bc-86d777573f40&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:false,&quot;lineNumber&quot;:7},&quot;prompt&quot;:{&quot;program&quot;:&quot;use std::fmt::Display;\nfn displayable&lt;T: Display&gt;(t: T) -&gt; impl Display { t }\n\nfn main() {\n  let s = String::from(\&quot;hello\&quot;);\n  let mut s2 = displayable(s);\n  s2.push_str(\&quot; world\&quot;);\n  println!(\&quot;{s2}\&quot;);\n}\n&quot;}},{&quot;context&quot;:&quot;Because `clone` is called and the `{}` display brackets are used in a formatter, then `T` must be `Clone` and `Display`.\n&quot;,&quot;id&quot;:&quot;8b35f91c-ced2-4b8f-bf1c-90550f2b744b&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;`Clone + Display`&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;(no bounds)&quot;,&quot;`Clone`&quot;,&quot;`Clone + Display + Debug`&quot;],&quot;prompt&quot;:&quot;What is the smallest set of trait bounds on `T` needed to make this function type-check?\n```\nfn f&lt;T: /* ??? */&gt;(t: &amp;T) {\n  let t2 = t.clone();\n  println!(\&quot;{t2}\&quot;);\n}\n```\n&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
 <script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css">
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -707,7 +726,7 @@ of generics.</p>
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="ch10-03-lifetime-syntax.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="ch10-03-lifetime-syntax.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -721,7 +740,7 @@ of generics.</p>
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="ch10-03-lifetime-syntax.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="ch10-03-lifetime-syntax.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -751,5 +770,6 @@ of generics.</p>
         <script src="js-extensions/packages/feedback/dist/index.js"></script>
 
 
+    </div>
     </body>
 </html>

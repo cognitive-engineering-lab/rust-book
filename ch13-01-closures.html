@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,10 +7,10 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -36,14 +36,17 @@
         <link rel="stylesheet" href="js-extensions/packages/consent-form/dist/index.css">
         <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index.css">
 
-    </head>
-    <body>
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -65,41 +68,49 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('no-js')
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            html.classList.add("js");
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
+            sidebar_toggle.checked = sidebar === 'visible';
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="experiment-intro.html">Experiment Introduction</a></li><li class="chapter-item expanded affix "><a href="title-page.html">The Rust Programming Language</a></li><li class="chapter-item expanded affix "><a href="foreword.html">Foreword</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> Hello, World!</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html"><strong aria-hidden="true">1.3.</strong> Hello, Cargo!</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html"><strong aria-hidden="true">2.</strong> Programming a Guessing Game</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> Common Programming Concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html"><strong aria-hidden="true">3.1.</strong> Variables and Mutability</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html"><strong aria-hidden="true">3.2.</strong> Data Types</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html"><strong aria-hidden="true">3.3.</strong> Functions</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> Comments</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html"><strong aria-hidden="true">3.5.</strong> Control Flow</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> Understanding Ownership</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html"><strong aria-hidden="true">4.1.</strong> What is Ownership?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> References and Borrowing</a></li><li class="chapter-item expanded "><a href="ch04-03-fixing-ownership-errors.html"><strong aria-hidden="true">4.3.</strong> Fixing Ownership Errors</a></li><li class="chapter-item expanded "><a href="ch04-04-slices.html"><strong aria-hidden="true">4.4.</strong> The Slice Type</a></li><li class="chapter-item expanded "><a href="ch04-05-ownership-recap.html"><strong aria-hidden="true">4.5.</strong> Ownership Recap</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> Using Structs to Structure Related Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> Defining and Instantiating Structs</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> An Example Program Using Structs</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> Method Syntax</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> Enums and Pattern Matching</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html"><strong aria-hidden="true">6.1.</strong> Defining an Enum</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> The match Control Flow Construct</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> Concise Control Flow with if let</a></li><li class="chapter-item expanded "><a href="ch06-04-inventory.html"><strong aria-hidden="true">6.4.</strong> Ownership Inventory #1</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-managing-growing-projects-with-packages-crates-and-modules.html"><strong aria-hidden="true">7.</strong> Managing Growing Projects with Packages, Crates, and Modules</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-packages-and-crates.html"><strong aria-hidden="true">7.1.</strong> Packages and Crates</a></li><li class="chapter-item expanded "><a href="ch07-02-defining-modules-to-control-scope-and-privacy.html"><strong aria-hidden="true">7.2.</strong> Defining Modules to Control Scope and Privacy</a></li><li class="chapter-item expanded "><a href="ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html"><strong aria-hidden="true">7.3.</strong> Paths for Referring to an Item in the Module Tree</a></li><li class="chapter-item expanded "><a href="ch07-04-bringing-paths-into-scope-with-the-use-keyword.html"><strong aria-hidden="true">7.4.</strong> Bringing Paths Into Scope with the use Keyword</a></li><li class="chapter-item expanded "><a href="ch07-05-separating-modules-into-different-files.html"><strong aria-hidden="true">7.5.</strong> Separating Modules into Different Files</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> Common Collections</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> Storing Lists of Values with Vectors</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> Storing UTF-8 Encoded Text with Strings</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> Storing Keys with Associated Values in Hash Maps</a></li><li class="chapter-item expanded "><a href="ch08-04-inventory.html"><strong aria-hidden="true">8.4.</strong> Ownership Inventory #2</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> Error Handling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> Unrecoverable Errors with panic!</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> Recoverable Errors with Result</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> To panic! or Not to panic!</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> Generic Types, Traits, and Lifetimes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html"><strong aria-hidden="true">10.1.</strong> Generic Data Types</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html"><strong aria-hidden="true">10.2.</strong> Traits: Defining Shared Behavior</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html"><strong aria-hidden="true">10.3.</strong> Validating References with Lifetimes</a></li><li class="chapter-item expanded "><a href="ch10-04-inventory.html"><strong aria-hidden="true">10.4.</strong> Ownership Inventory #3</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Writing Automated Tests</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> How to Write Tests</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Controlling How Tests Are Run</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Test Organization</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> An I/O Project: Building a Command Line Program</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> Accepting Command Line Arguments</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> Reading a File</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> Refactoring to Improve Modularity and Error Handling</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> Developing the Library’s Functionality with Test Driven Development</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> Working with Environment Variables</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> Writing Error Messages to Standard Error Instead of Standard Output</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> Functional Language Features: Iterators and Closures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html" class="active"><strong aria-hidden="true">13.1.</strong> Closures: Anonymous Functions that Capture Their Environment</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Processing a Series of Items with Iterators</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> Improving Our I/O Project</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Comparing Performance: Loops vs. Iterators</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> More about Cargo and Crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Customizing Builds with Release Profiles</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html"><strong aria-hidden="true">14.2.</strong> Publishing a Crate to Crates.io</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Cargo Workspaces</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Installing Binaries from Crates.io with cargo install</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Extending Cargo with Custom Commands</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> Smart Pointers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> Using Box&lt;T&gt; to Point to Data on the Heap</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> Treating Smart Pointers Like Regular References with the Deref Trait</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> Running Code on Cleanup with the Drop Trait</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> Rc&lt;T&gt;, the Reference Counted Smart Pointer</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> RefCell&lt;T&gt; and the Interior Mutability Pattern</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> Reference Cycles Can Leak Memory</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Fearless Concurrency</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch16-01-threads.html"><strong aria-hidden="true">16.1.</strong> Using Threads to Run Code Simultaneously</a></li><li class="chapter-item expanded "><a href="ch16-02-message-passing.html"><strong aria-hidden="true">16.2.</strong> Using Message Passing to Transfer Data Between Threads</a></li><li class="chapter-item expanded "><a href="ch16-03-shared-state.html"><strong aria-hidden="true">16.3.</strong> Shared-State Concurrency</a></li><li class="chapter-item expanded "><a href="ch16-04-extensible-concurrency-sync-and-send.html"><strong aria-hidden="true">16.4.</strong> Extensible Concurrency with the Sync and Send Traits</a></li></ol></li><li class="chapter-item expanded "><a href="ch17-00-async-await.html"><strong aria-hidden="true">17.</strong> Async and Await</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-futures-and-syntax.html"><strong aria-hidden="true">17.1.</strong> Futures and the Async Syntax</a></li><li class="chapter-item expanded "><a href="ch17-02-concurrency-with-async.html"><strong aria-hidden="true">17.2.</strong> Concurrency With Async</a></li><li class="chapter-item expanded "><a href="ch17-03-more-futures.html"><strong aria-hidden="true">17.3.</strong> Working With Any Number of Futures</a></li><li class="chapter-item expanded "><a href="ch17-04-streams.html"><strong aria-hidden="true">17.4.</strong> Streams</a></li><li class="chapter-item expanded "><a href="ch17-05-traits-for-async.html"><strong aria-hidden="true">17.5.</strong> Digging Into the Traits for Async</a></li><li class="chapter-item expanded "><a href="ch17-06-futures-tasks-threads.html"><strong aria-hidden="true">17.6.</strong> Futures, Tasks, and Threads</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-oop.html"><strong aria-hidden="true">18.</strong> Object Oriented Programming Features of Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch18-01-what-is-oo.html"><strong aria-hidden="true">18.1.</strong> Characteristics of Object-Oriented Languages</a></li><li class="chapter-item expanded "><a href="ch18-02-trait-objects.html"><strong aria-hidden="true">18.2.</strong> Using Trait Objects That Allow for Values of Different Types</a></li><li class="chapter-item expanded "><a href="ch18-03-oo-design-patterns.html"><strong aria-hidden="true">18.3.</strong> Implementing an Object-Oriented Design Pattern</a></li><li class="chapter-item expanded "><a href="ch18-04-inventory.html"><strong aria-hidden="true">18.4.</strong> Ownership Inventory #4</a></li><li class="chapter-item expanded "><a href="ch18-05-design-challenge.html"><strong aria-hidden="true">18.5.</strong> Design Trade-offs</a></li></ol></li><li class="chapter-item expanded "><a href="ch19-00-patterns.html"><strong aria-hidden="true">19.</strong> Patterns and Matching</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch19-01-all-the-places-for-patterns.html"><strong aria-hidden="true">19.1.</strong> All the Places Patterns Can Be Used</a></li><li class="chapter-item expanded "><a href="ch19-02-refutability.html"><strong aria-hidden="true">19.2.</strong> Refutability: Whether a Pattern Might Fail to Match</a></li><li class="chapter-item expanded "><a href="ch19-03-pattern-syntax.html"><strong aria-hidden="true">19.3.</strong> Pattern Syntax</a></li></ol></li><li class="chapter-item expanded "><a href="ch20-00-advanced-features.html"><strong aria-hidden="true">20.</strong> Advanced Features</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch20-01-unsafe-rust.html"><strong aria-hidden="true">20.1.</strong> Unsafe Rust</a></li><li class="chapter-item expanded "><a href="ch20-03-advanced-traits.html"><strong aria-hidden="true">20.2.</strong> Advanced Traits</a></li><li class="chapter-item expanded "><a href="ch20-04-advanced-types.html"><strong aria-hidden="true">20.3.</strong> Advanced Types</a></li><li class="chapter-item expanded "><a href="ch20-05-advanced-functions-and-closures.html"><strong aria-hidden="true">20.4.</strong> Advanced Functions and Closures</a></li><li class="chapter-item expanded "><a href="ch20-06-macros.html"><strong aria-hidden="true">20.5.</strong> Macros</a></li></ol></li><li class="chapter-item expanded "><a href="ch21-00-final-project-a-web-server.html"><strong aria-hidden="true">21.</strong> Final Project: Building a Multithreaded Web Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch21-01-single-threaded.html"><strong aria-hidden="true">21.1.</strong> Building a Single-Threaded Web Server</a></li><li class="chapter-item expanded "><a href="ch21-02-multithreaded.html"><strong aria-hidden="true">21.2.</strong> Turning Our Single-Threaded Server into a Multithreaded Server</a></li><li class="chapter-item expanded "><a href="ch21-03-graceful-shutdown-and-cleanup.html"><strong aria-hidden="true">21.3.</strong> Graceful Shutdown and Cleanup</a></li></ol></li><li class="chapter-item expanded "><a href="end-of-experiment.html"><strong aria-hidden="true">22.</strong> End of Experiment</a></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">23.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">23.1.</strong> A - Keywords</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">23.2.</strong> B - Operators and Symbols</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">23.3.</strong> C - Derivable Traits</a></li><li class="chapter-item expanded "><a href="appendix-04-useful-development-tools.html"><strong aria-hidden="true">23.4.</strong> D - Useful Development Tools</a></li><li class="chapter-item expanded "><a href="appendix-05-editions.html"><strong aria-hidden="true">23.5.</strong> E - Editions</a></li><li class="chapter-item expanded "><a href="appendix-06-translation.html"><strong aria-hidden="true">23.6.</strong> F - Translations of the Book</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html"><strong aria-hidden="true">23.7.</strong> G - How Rust is Made and “Nightly Rust”</a></li></ol></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -152,7 +163,7 @@
                     <main>
                         <!-- Old heading. Do not remove or links may break. -->
 <p><a id="closures-anonymous-functions-that-can-capture-their-environment"></a></p>
-<h2 id="closures-anonymous-functions-that-capture-their-environment"><a class="header" href="#closures-anonymous-functions-that-capture-their-environment">Closures: Anonymous Functions that Capture Their Environment</a></h2>
+<h2 id="closures-anonymous-functions-that-capture-their-environment"><a class="header" href="#closures-anonymous-functions-that-capture-their-environment">Closures: Anonymous Functions That Capture Their Environment</a></h2>
 <p>Rust’s closures are anonymous functions you can save in a variable or pass as
 arguments to other functions. You can create the closure in one place and then
 call the closure elsewhere to evaluate it in a different context. Unlike
@@ -180,7 +191,7 @@ contains a <code>Vec&lt;ShirtColor&gt;</code> representing the shirt colors curr
 The method <code>giveaway</code> defined on <code>Inventory</code> gets the optional shirt
 color preference of the free shirt winner, and returns the shirt color the
 person will get. This setup is shown in Listing 13-1:</p>
-<figure class="listing">
+<figure class="listing" id="listing-13-1">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust noplayground">#[derive(Debug, PartialEq, Copy, Clone)]
 enum ShirtColor {
@@ -223,24 +234,24 @@ fn main() {
     let user_pref1 = Some(ShirtColor::Red);
     let giveaway1 = store.giveaway(user_pref1);
     println!(
-        &quot;The user with preference {:?} gets {:?}&quot;,
+        "The user with preference {:?} gets {:?}",
         user_pref1, giveaway1
     );
 
     let user_pref2 = None;
     let giveaway2 = store.giveaway(user_pref2);
     println!(
-        &quot;The user with preference {:?} gets {:?}&quot;,
+        "The user with preference {:?} gets {:?}",
         user_pref2, giveaway2
     );
 }</code></pre>
-<figcaption>Listing 13-1: Shirt company giveaway situation</figcaption>
+<figcaption><a href="#listing-13-1">Listing 13-1</a>: Shirt company giveaway situation</figcaption>
 </figure>
 <p>The <code>store</code> defined in <code>main</code> has two blue shirts and one red shirt remaining
 to distribute for this limited-edition promotion. We call the <code>giveaway</code> method
 for a user with a preference for a red shirt and a user without any preference.</p>
 <p>Again, this code could be implemented in many ways, and here, to focus on
-closures, we’ve stuck to concepts you’ve already learned except for the body of
+closures, we’ve stuck to concepts you’ve already learned, except for the body of
 the <code>giveaway</code> method that uses a closure. In the <code>giveaway</code> method, we get the
 user preference as a parameter of type <code>Option&lt;ShirtColor&gt;</code> and call the
 <code>unwrap_or_else</code> method on <code>user_preference</code>. The <a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.unwrap_or_else"><code>unwrap_or_else</code> method on
@@ -292,27 +303,27 @@ necessary. Annotating the types for a closure would look like the definition
 shown in Listing 13-2. In this example, we’re defining a closure and storing it
 in a variable rather than defining the closure in the spot we pass it as an
 argument as we did in Listing 13-1.</p>
-<figure class="listing">
+<figure class="listing" id="listing-13-2">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">use std::thread;
+<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">use std::thread;
 </span><span class="boring">use std::time::Duration;
 </span><span class="boring">
 </span><span class="boring">fn generate_workout(intensity: u32, random_number: u32) {
 </span>    let expensive_closure = |num: u32| -&gt; u32 {
-        println!(&quot;calculating slowly...&quot;);
+        println!("calculating slowly...");
         thread::sleep(Duration::from_secs(2));
         num
     };
 <span class="boring">
 </span><span class="boring">    if intensity &lt; 25 {
-</span><span class="boring">        println!(&quot;Today, do {} pushups!&quot;, expensive_closure(intensity));
-</span><span class="boring">        println!(&quot;Next, do {} situps!&quot;, expensive_closure(intensity));
+</span><span class="boring">        println!("Today, do {} pushups!", expensive_closure(intensity));
+</span><span class="boring">        println!("Next, do {} situps!", expensive_closure(intensity));
 </span><span class="boring">    } else {
 </span><span class="boring">        if random_number == 3 {
-</span><span class="boring">            println!(&quot;Take a break today! Remember to stay hydrated!&quot;);
+</span><span class="boring">            println!("Take a break today! Remember to stay hydrated!");
 </span><span class="boring">        } else {
 </span><span class="boring">            println!(
-</span><span class="boring">                &quot;Today, run for {} minutes!&quot;,
+</span><span class="boring">                "Today, run for {} minutes!",
 </span><span class="boring">                expensive_closure(intensity)
 </span><span class="boring">            );
 </span><span class="boring">        }
@@ -325,7 +336,7 @@ argument as we did in Listing 13-1.</p>
 </span><span class="boring">
 </span><span class="boring">    generate_workout(simulated_user_specified_value, simulated_random_number);
 </span><span class="boring">}</span></code></pre></pre>
-<figcaption>Listing 13-2: Adding optional type annotations of the parameter and return value types in the closure</figcaption>
+<figcaption><a href="#listing-13-2">Listing 13-2</a>: Adding optional type annotations of the parameter and return value types in the closure</figcaption>
 </figure>
 <p>With type annotations added, the syntax of closures looks more similar to the
 syntax of functions. Here we define a function that adds 1 to its parameter and
@@ -354,15 +365,15 @@ example. Note that we haven’t added any type annotations to the definition.
 Because there are no type annotations, we can call the closure with any type,
 which we’ve done here with <code>String</code> the first time. If we then try to call
 <code>example_closure</code> with an integer, we’ll get an error.</p>
-<figure class="listing">
+<figure class="listing" id="listing-13-3">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">fn main() {
 </span>    let example_closure = |x| x;
 
-    let s = example_closure(String::from(&quot;hello&quot;));
+    let s = example_closure(String::from("hello"));
     let n = example_closure(5);
 <span class="boring">}</span></code></pre>
-<figcaption>Listing 13-3: Attempting to call a closure whose types are inferred with two different types</figcaption>
+<figcaption><a href="#listing-13-3">Listing 13-3</a>: Attempting to call a closure whose types are inferred with two different types</figcaption>
 </figure>
 <p>The compiler gives us this error:</p>
 <pre><code class="language-console">$ cargo run
@@ -379,7 +390,7 @@ error[E0308]: mismatched types
 note: expected because the closure was earlier called with an argument of type `String`
  --&gt; src/main.rs:4:29
   |
-4 |     let s = example_closure(String::from(&quot;hello&quot;));
+4 |     let s = example_closure(String::from("hello"));
   |             --------------- ^^^^^^^^^^^^^^^^^^^^^ expected because this argument is of type `String`
   |             |
   |             in this closure call
@@ -390,7 +401,7 @@ note: closure parameter defined here
   |                            ^
 
 For more information about this error, try `rustc --explain E0308`.
-error: could not compile `closure-example` (bin &quot;closure-example&quot;) due to 1 previous error
+error: could not compile `closure-example` (bin "closure-example") due to 1 previous error
 </code></pre>
 <p>The first time we call <code>example_closure</code> with the <code>String</code> value, the compiler
 infers the type of <code>x</code> and the return type of the closure to be <code>String</code>. Those
@@ -406,19 +417,19 @@ captured values.</p>
 <p>In Listing 13-4, we define a closure that captures an immutable reference to
 the vector named <code>list</code> because it only needs an immutable reference to print
 the value:</p>
-<figure class="listing">
+<figure class="listing" id="listing-13-4">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2021">fn main() {
+<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
     let list = vec![1, 2, 3];
-    println!(&quot;Before defining closure: {list:?}&quot;);
+    println!("Before defining closure: {list:?}");
 
-    let only_borrows = || println!(&quot;From closure: {list:?}&quot;);
+    let only_borrows = || println!("From closure: {list:?}");
 
-    println!(&quot;Before calling closure: {list:?}&quot;);
+    println!("Before calling closure: {list:?}");
     only_borrows();
-    println!(&quot;After calling closure: {list:?}&quot;);
+    println!("After calling closure: {list:?}");
 }</code></pre></pre>
-<figcaption>Listing 13-4: Defining and calling a closure that captures an immutable reference</figcaption>
+<figcaption><a href="#listing-13-4">Listing 13-4</a>: Defining and calling a closure that captures an immutable reference</figcaption>
 </figure>
 <p>This example also illustrates that a variable can bind to a closure definition,
 and we can later call the closure by using the variable name and parentheses as
@@ -428,8 +439,6 @@ if the variable name were a function name.</p>
 the closure definition but before the closure is called, and after the closure
 is called. This code compiles, runs, and prints:</p>
 <pre><code class="language-console">$ cargo run
-     Locking 1 package to latest compatible version
-      Adding closure-example v0.1.0 (/Users/chris/dev/rust-lang/book/tmp/listings/ch13-functional-features/listing-13-04)
    Compiling closure-example v0.1.0 (file:///projects/closure-example)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.43s
      Running `target/debug/closure-example`
@@ -440,23 +449,21 @@ After calling closure: [1, 2, 3]
 </code></pre>
 <p>Next, in Listing 13-5, we change the closure body so that it adds an element to
 the <code>list</code> vector. The closure now captures a mutable reference:</p>
-<figure class="listing">
+<figure class="listing" id="listing-13-5">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2021">fn main() {
+<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
     let mut list = vec![1, 2, 3];
-    println!(&quot;Before defining closure: {list:?}&quot;);
+    println!("Before defining closure: {list:?}");
 
     let mut borrows_mutably = || list.push(7);
 
     borrows_mutably();
-    println!(&quot;After calling closure: {list:?}&quot;);
+    println!("After calling closure: {list:?}");
 }</code></pre></pre>
-<figcaption>Listing 13-5: Defining and calling a closure that captures a mutable reference</figcaption>
+<figcaption><a href="#listing-13-5">Listing 13-5</a>: Defining and calling a closure that captures a mutable reference</figcaption>
 </figure>
 <p>This code compiles, runs, and prints:</p>
 <pre><code class="language-console">$ cargo run
-     Locking 1 package to latest compatible version
-      Adding closure-example v0.1.0 (/Users/chris/dev/rust-lang/book/tmp/listings/ch13-functional-features/listing-13-05)
    Compiling closure-example v0.1.0 (file:///projects/closure-example)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.43s
      Running `target/debug/closure-example`
@@ -479,19 +486,19 @@ you would want to use them in detail in Chapter 16 when we talk about
 concurrency, but for now, let’s briefly explore spawning a new thread using a
 closure that needs the <code>move</code> keyword. Listing 13-6 shows Listing 13-4 modified
 to print the vector in a new thread rather than in the main thread:</p>
-<figure class="listing">
+<figure class="listing" id="listing-13-6">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2021">use std::thread;
+<pre><pre class="playground"><code class="language-rust edition2024">use std::thread;
 
 fn main() {
     let list = vec![1, 2, 3];
-    println!(&quot;Before defining closure: {list:?}&quot;);
+    println!("Before defining closure: {list:?}");
 
-    thread::spawn(move || println!(&quot;From thread: {list:?}&quot;))
+    thread::spawn(move || println!("From thread: {list:?}"))
         .join()
         .unwrap();
 }</code></pre></pre>
-<figcaption>Listing 13-6: Using <code>move</code> to force the closure for the thread to take ownership of <code>list</code></figcaption>
+<figcaption><a href="#listing-13-6">Listing 13-6</a>: Using <code>move</code> to force the closure for the thread to take ownership of <code>list</code></figcaption>
 </figure>
 <p>We spawn a new thread, giving the thread a closure to run as an argument. The
 closure body prints out the list. In Listing 13-4, the closure only captured
@@ -527,9 +534,9 @@ implement one, two, or all three of these <code>Fn</code> traits, in an additive
 depending on how the closure’s body handles the values:</p>
 <ol>
 <li><code>FnOnce</code> applies to closures that can be called once. All closures implement
-at least this trait, because all closures can be called. A closure that
-moves captured values out of its body will only implement <code>FnOnce</code> and none
-of the other <code>Fn</code> traits, because it can only be called once.</li>
+at least this trait because all closures can be called. A closure that moves
+captured values out of its body will only implement <code>FnOnce</code> and none of the
+other <code>Fn</code> traits, because it can only be called once.</li>
 <li><code>FnMut</code> applies to closures that don’t move captured values out of their
 body, but that might mutate the captured values. These closures can be
 called more than once.</li>
@@ -568,12 +575,12 @@ called. If the <code>Option</code> is <code>None</code>, <code>f</code> will be 
 closures implement <code>FnOnce</code>, <code>unwrap_or_else</code> accepts all three kinds of
 closures and is as flexible as it can be.</p>
 <section class="note" aria-role="note">
-<p>Note: Functions can implement all three of the <code>Fn</code> traits too. If what we
-want to do doesn’t require capturing a value from the environment, we can use
-the name of a function rather than a closure where we need something that
-implements one of the <code>Fn</code> traits. For example, on an <code>Option&lt;Vec&lt;T&gt;&gt;</code> value,
-we could call <code>unwrap_or_else(Vec::new)</code> to get a new, empty vector if the
-value is <code>None</code>.</p>
+<p>Note: If what we want to do doesn’t require capturing a value from the
+environment, we can use the name of a function rather than a closure. For
+example, we could call <code>unwrap_or_else(Vec::new)</code> on a <code>Option&lt;Vec&lt;T&gt;&gt;</code> value
+to get a new, empty vector if the value is <code>None</code>. The compiler automatically
+implements whichever of the <code>Fn</code> traits is applicable for a function
+definition.</p>
 </section>
 <p>Now let’s look at the standard library method <code>sort_by_key</code> defined on slices,
 to see how that differs from <code>unwrap_or_else</code> and why <code>sort_by_key</code> uses
@@ -583,9 +590,9 @@ and returns a value of type <code>K</code> that can be ordered. This function is
 when you want to sort a slice by a particular attribute of each item. In
 Listing 13-7, we have a list of <code>Rectangle</code> instances and we use <code>sort_by_key</code>
 to order them by their <code>width</code> attribute from low to high:</p>
-<figure class="listing">
+<figure class="listing" id="listing-13-7">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2021">#[derive(Debug)]
+<pre><pre class="playground"><code class="language-rust edition2024">#[derive(Debug)]
 struct Rectangle {
     width: u32,
     height: u32,
@@ -599,9 +606,9 @@ fn main() {
     ];
 
     list.sort_by_key(|r| r.width);
-    println!(&quot;{list:#?}&quot;);
+    println!("{list:#?}");
 }</code></pre></pre>
-<figcaption>Listing 13-7: Using <code>sort_by_key</code> to order rectangles by width</figcaption>
+<figcaption><a href="#listing-13-7">Listing 13-7</a>: Using <code>sort_by_key</code> to order rectangles by width</figcaption>
 </figure>
 <p>This code prints:</p>
 <pre><code class="language-console">$ cargo run
@@ -629,7 +636,7 @@ it meets the trait bound requirements.</p>
 <p>In contrast, Listing 13-8 shows an example of a closure that implements just
 the <code>FnOnce</code> trait, because it moves a value out of the environment. The
 compiler won’t let us use this closure with <code>sort_by_key</code>:</p>
-<figure class="listing">
+<figure class="listing" id="listing-13-8">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile">#[derive(Debug)]
 struct Rectangle {
@@ -645,20 +652,20 @@ fn main() {
     ];
 
     let mut sort_operations = vec![];
-    let value = String::from(&quot;closure called&quot;);
+    let value = String::from("closure called");
 
     list.sort_by_key(|r| {
         sort_operations.push(value);
         r.width
     });
-    println!(&quot;{list:#?}&quot;);
+    println!("{list:#?}");
 }</code></pre>
-<figcaption>Listing 13-8: Attempting to use an <code>FnOnce</code> closure with <code>sort_by_key</code></figcaption>
+<figcaption><a href="#listing-13-8">Listing 13-8</a>: Attempting to use an <code>FnOnce</code> closure with <code>sort_by_key</code></figcaption>
 </figure>
 <p>This is a contrived, convoluted way (that doesn’t work) to try and count the
 number of times <code>sort_by_key</code> calls the closure when sorting <code>list</code>. This code
 attempts to do this counting by pushing <code>value</code>—a <code>String</code> from the closure’s
-environment—into the <code>sort_operations</code> vector. The closure captures <code>value</code>
+environment—into the <code>sort_operations</code> vector. The closure captures <code>value</code> and
 then moves <code>value</code> out of the closure by transferring ownership of <code>value</code> to
 the <code>sort_operations</code> vector. This closure can be called once; trying to call
 it a second time wouldn’t work because <code>value</code> would no longer be in the
@@ -671,7 +678,7 @@ implement <code>FnMut</code>:</p>
 error[E0507]: cannot move out of `value`, a captured variable in an `FnMut` closure
   --&gt; src/main.rs:18:30
    |
-15 |     let value = String::from(&quot;closure called&quot;);
+15 |     let value = String::from("closure called");
    |         ----- captured outer variable
 16 |
 17 |     list.sort_by_key(|r| {
@@ -685,19 +692,18 @@ help: consider cloning the value if the performance cost is acceptable
    |                                   ++++++++
 
 For more information about this error, try `rustc --explain E0507`.
-error: could not compile `rectangles` (bin &quot;rectangles&quot;) due to 1 previous error
+error: could not compile `rectangles` (bin "rectangles") due to 1 previous error
 </code></pre>
 <p>The error points to the line in the closure body that moves <code>value</code> out of the
 environment. To fix this, we need to change the closure body so that it doesn’t
-move values out of the environment. To count the number of times the closure
-is called, keeping a counter in the environment and incrementing its value in
-the closure body is a more straightforward way to calculate that. The closure
-in Listing 13-9 works with <code>sort_by_key</code> because it is only capturing a mutable
-reference to the <code>num_sort_operations</code> counter and can therefore be called more
-than once:</p>
-<figure class="listing">
+move values out of the environment. Keeping a counter in the environment and
+incrementing its value in the closure body is a more straightforward way to
+count the number of times the closure is called. The closure in Listing 13-9
+works with <code>sort_by_key</code> because it is only capturing a mutable reference to the
+<code>num_sort_operations</code> counter and can therefore be called more than once:</p>
+<figure class="listing" id="listing-13-9">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2021">#[derive(Debug)]
+<pre><pre class="playground"><code class="language-rust edition2024">#[derive(Debug)]
 struct Rectangle {
     width: u32,
     height: u32,
@@ -715,63 +721,16 @@ fn main() {
         num_sort_operations += 1;
         r.width
     });
-    println!(&quot;{list:#?}, sorted in {num_sort_operations} operations&quot;);
+    println!("{list:#?}, sorted in {num_sort_operations} operations");
 }</code></pre></pre>
-<figcaption>Listing 13-9: Using an <code>FnMut</code> closure with <code>sort_by_key</code> is allowed</figcaption>
+<figcaption><a href="#listing-13-9">Listing 13-9</a>: Using an <code>FnMut</code> closure with <code>sort_by_key</code> is allowed</figcaption>
 </figure>
-<h3 id="closures-must-name-captured-lifetimes"><a class="header" href="#closures-must-name-captured-lifetimes">Closures Must Name Captured Lifetimes</a></h3>
-<p>When you start designing functions that accept or return closures, you’ll need to think about the lifetime of data captured by the closure. For example, here is a simple program that is supposed to return a closure that clones a string:</p>
-<pre><code class="language-rust ignore should_fail">fn make_a_cloner(s_ref: &amp;str) -&gt; impl Fn() -&gt; String {
-    move || s_ref.to_string()
-}</code></pre>
-<p>However, this program is rejected by the compiler with the following error:</p>
-<pre><code class="language-text">error[E0700]: hidden type for `impl Fn() -&gt; String` captures lifetime that does not appear in bounds
- --&gt; test.rs:2:5
-  |
-1 | fn make_a_cloner(s_ref: &amp;str) -&gt; impl Fn() -&gt; String {
-  |                         ---- hidden type `[closure@test.rs:2:5: 2:12]` captures the anonymous lifetime defined here
-2 |     move || s_ref.to_string()
-  |     ^^^^^^^^^^^^^^^^^^^^^^^^^
-</code></pre>
-<p>This error might be a bit confusing. What is a hidden type? Why does it capture a lifetime? Why does that lifetime need to appear in a bound?</p>
-<p>To answer those questions, let’s start by seeing what would happen if Rust allowed <code>make_a_cloner</code> to compile. Then we could write the following unsafe program:</p>
-<div class="aquascope-embed" data-code="&quot;fn make_a_cloner(s_ref: &amp;str) -&gt; impl Fn() -&gt; String {\n    move || {\n        s_ref.to_string()\n    }\n}\n\nfn main() {\n    let s_own = String::from(\&quot;Hello world\&quot;);\n    let cloner = make_a_cloner(&amp;s_own);\n    drop(s_own);\n    cloner();\n}&quot;" data-annotations="{&quot;hidden_lines&quot;:[],&quot;interp&quot;:{&quot;state_locations&quot;:[94,200,217]},&quot;stepper&quot;:{&quot;focused_lines&quot;:[],&quot;focused_paths&quot;:{}},&quot;boundaries&quot;:{&quot;focused_lines&quot;:[]}}" data-operations="[&quot;interpreter&quot;]" data-responses="{&quot;interpreter&quot;:{&quot;Ok&quot;:{&quot;result&quot;:{&quot;type&quot;:&quot;Error&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;PointerUseAfterFree&quot;,&quot;value&quot;:{&quot;alloc_id&quot;:0}}},&quot;steps&quot;:[{&quot;heap&quot;:{&quot;locations&quot;:[]},&quot;stack&quot;:{&quot;frames&quot;:[{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:11},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:6}},&quot;locals&quot;:[],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:9,&quot;line&quot;:6},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:6}},&quot;name&quot;:&quot;main&quot;}]}},{&quot;heap&quot;:{&quot;locations&quot;:[{&quot;type&quot;:&quot;Array&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;All&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:72},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:101},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:111},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:32},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:119},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:111},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:114},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:100}]}}]},&quot;stack&quot;:{&quot;frames&quot;:[{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:11},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:6}},&quot;locals&quot;:[{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;s_own&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:{&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:{&quot;len&quot;:11}},&quot;fields&quot;:[[&quot;vec&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;buf&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;ptr&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Pointer&quot;,&quot;value&quot;:{&quot;path&quot;:{&quot;parts&quot;:[{&quot;type&quot;:&quot;Index&quot;,&quot;value&quot;:0}],&quot;segment&quot;:{&quot;type&quot;:&quot;Heap&quot;,&quot;value&quot;:{&quot;index&quot;:0}}},&quot;range&quot;:null}}]],&quot;name&quot;:&quot;NonNull&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;Unique&quot;,&quot;variant&quot;:null}}],[&quot;cap&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;RawVec&quot;,&quot;variant&quot;:null}}],[&quot;len&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;Vec&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;String&quot;,&quot;variant&quot;:null}}}],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:44,&quot;line&quot;:7},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:7}},&quot;name&quot;:&quot;main&quot;}]}},{&quot;heap&quot;:{&quot;locations&quot;:[{&quot;type&quot;:&quot;Array&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;All&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:72},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:101},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:111},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:32},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:119},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:111},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:114},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:100}]}}]},&quot;stack&quot;:{&quot;frames&quot;:[{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:11},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:6}},&quot;locals&quot;:[{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;s_own&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:{&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:{&quot;len&quot;:11}},&quot;fields&quot;:[[&quot;vec&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;buf&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;ptr&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Pointer&quot;,&quot;value&quot;:{&quot;path&quot;:{&quot;parts&quot;:[{&quot;type&quot;:&quot;Index&quot;,&quot;value&quot;:0}],&quot;segment&quot;:{&quot;type&quot;:&quot;Heap&quot;,&quot;value&quot;:{&quot;index&quot;:0}}},&quot;range&quot;:null}}]],&quot;name&quot;:&quot;NonNull&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;Unique&quot;,&quot;variant&quot;:null}}],[&quot;cap&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;RawVec&quot;,&quot;variant&quot;:null}}],[&quot;len&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;Vec&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;String&quot;,&quot;variant&quot;:null}}}],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:39,&quot;line&quot;:8},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:8}},&quot;name&quot;:&quot;main&quot;}]}},{&quot;heap&quot;:{&quot;locations&quot;:[{&quot;type&quot;:&quot;Array&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;All&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:72},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:101},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:111},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:32},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:119},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:111},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:114},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:100}]}}]},&quot;stack&quot;:{&quot;frames&quot;:[{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:11},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:6}},&quot;locals&quot;:[{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;s_own&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:{&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:{&quot;len&quot;:11}},&quot;fields&quot;:[[&quot;vec&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;buf&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;ptr&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Pointer&quot;,&quot;value&quot;:{&quot;path&quot;:{&quot;parts&quot;:[{&quot;type&quot;:&quot;Index&quot;,&quot;value&quot;:0}],&quot;segment&quot;:{&quot;type&quot;:&quot;Heap&quot;,&quot;value&quot;:{&quot;index&quot;:0}}},&quot;range&quot;:null}}]],&quot;name&quot;:&quot;NonNull&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;Unique&quot;,&quot;variant&quot;:null}}],[&quot;cap&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;RawVec&quot;,&quot;variant&quot;:null}}],[&quot;len&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;Vec&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;String&quot;,&quot;variant&quot;:null}}}],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:39,&quot;line&quot;:8},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:8}},&quot;name&quot;:&quot;main&quot;},{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:4},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:0}},&quot;locals&quot;:[{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;s_ref&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Pointer&quot;,&quot;value&quot;:{&quot;path&quot;:{&quot;parts&quot;:[{&quot;type&quot;:&quot;Subslice&quot;,&quot;value&quot;:[0,10]}],&quot;segment&quot;:{&quot;type&quot;:&quot;Heap&quot;,&quot;value&quot;:{&quot;index&quot;:0}}},&quot;range&quot;:11}}}],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:52,&quot;line&quot;:0},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:0}},&quot;name&quot;:&quot;make_a_cloner&quot;}]}},{&quot;heap&quot;:{&quot;locations&quot;:[{&quot;type&quot;:&quot;Array&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;All&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:72},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:101},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:111},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:32},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:119},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:111},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:114},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:100}]}}]},&quot;stack&quot;:{&quot;frames&quot;:[{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:11},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:6}},&quot;locals&quot;:[{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;s_own&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:{&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:{&quot;len&quot;:11}},&quot;fields&quot;:[[&quot;vec&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;buf&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;ptr&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Pointer&quot;,&quot;value&quot;:{&quot;path&quot;:{&quot;parts&quot;:[{&quot;type&quot;:&quot;Index&quot;,&quot;value&quot;:0}],&quot;segment&quot;:{&quot;type&quot;:&quot;Heap&quot;,&quot;value&quot;:{&quot;index&quot;:0}}},&quot;range&quot;:null}}]],&quot;name&quot;:&quot;NonNull&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;Unique&quot;,&quot;variant&quot;:null}}],[&quot;cap&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;RawVec&quot;,&quot;variant&quot;:null}}],[&quot;len&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;Vec&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;String&quot;,&quot;variant&quot;:null}}}],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:39,&quot;line&quot;:8},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:8}},&quot;name&quot;:&quot;main&quot;},{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:4},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:0}},&quot;locals&quot;:[{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;(return)&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;s_ref&quot;,{&quot;type&quot;:&quot;Pointer&quot;,&quot;value&quot;:{&quot;path&quot;:{&quot;parts&quot;:[{&quot;type&quot;:&quot;Subslice&quot;,&quot;value&quot;:[0,10]}],&quot;segment&quot;:{&quot;type&quot;:&quot;Heap&quot;,&quot;value&quot;:{&quot;index&quot;:0}}},&quot;range&quot;:11}}]],&quot;name&quot;:&quot;make_a_cloner::{closure#0}&quot;,&quot;variant&quot;:null}}},{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;s_ref&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Pointer&quot;,&quot;value&quot;:{&quot;path&quot;:{&quot;parts&quot;:[{&quot;type&quot;:&quot;Subslice&quot;,&quot;value&quot;:[0,10]}],&quot;segment&quot;:{&quot;type&quot;:&quot;Heap&quot;,&quot;value&quot;:{&quot;index&quot;:0}}},&quot;range&quot;:11}}}],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:11,&quot;line&quot;:1},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:1}},&quot;name&quot;:&quot;make_a_cloner&quot;}]}},{&quot;heap&quot;:{&quot;locations&quot;:[{&quot;type&quot;:&quot;Array&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;All&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:72},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:101},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:111},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:32},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:119},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:111},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:114},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:100}]}}]},&quot;stack&quot;:{&quot;frames&quot;:[{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:11},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:6}},&quot;locals&quot;:[{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;s_own&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:{&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:{&quot;len&quot;:11}},&quot;fields&quot;:[[&quot;vec&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;buf&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;ptr&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Pointer&quot;,&quot;value&quot;:{&quot;path&quot;:{&quot;parts&quot;:[{&quot;type&quot;:&quot;Index&quot;,&quot;value&quot;:0}],&quot;segment&quot;:{&quot;type&quot;:&quot;Heap&quot;,&quot;value&quot;:{&quot;index&quot;:0}}},&quot;range&quot;:null}}]],&quot;name&quot;:&quot;NonNull&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;Unique&quot;,&quot;variant&quot;:null}}],[&quot;cap&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;RawVec&quot;,&quot;variant&quot;:null}}],[&quot;len&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;Vec&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;String&quot;,&quot;variant&quot;:null}}},{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;cloner&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;s_ref&quot;,{&quot;type&quot;:&quot;Pointer&quot;,&quot;value&quot;:{&quot;path&quot;:{&quot;parts&quot;:[{&quot;type&quot;:&quot;Subslice&quot;,&quot;value&quot;:[0,10]}],&quot;segment&quot;:{&quot;type&quot;:&quot;Heap&quot;,&quot;value&quot;:{&quot;index&quot;:0}}},&quot;range&quot;:11}}]],&quot;name&quot;:&quot;make_a_cloner::{closure#0}&quot;,&quot;variant&quot;:null}}}],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:39,&quot;line&quot;:8},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:8}},&quot;name&quot;:&quot;main&quot;}]}},{&quot;heap&quot;:{&quot;locations&quot;:[]},&quot;stack&quot;:{&quot;frames&quot;:[{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:11},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:6}},&quot;locals&quot;:[{&quot;moved_paths&quot;:[[]],&quot;name&quot;:&quot;s_own&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:{&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:{&quot;len&quot;:11}},&quot;fields&quot;:[[&quot;vec&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;buf&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;ptr&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Unallocated&quot;,&quot;value&quot;:{&quot;alloc_id&quot;:0}}]],&quot;name&quot;:&quot;NonNull&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;Unique&quot;,&quot;variant&quot;:null}}],[&quot;cap&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;RawVec&quot;,&quot;variant&quot;:null}}],[&quot;len&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;Vec&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;String&quot;,&quot;variant&quot;:null}}},{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;cloner&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;s_ref&quot;,{&quot;type&quot;:&quot;Unallocated&quot;,&quot;value&quot;:{&quot;alloc_id&quot;:0}}]],&quot;name&quot;:&quot;make_a_cloner::{closure#0}&quot;,&quot;variant&quot;:null}}}],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:16,&quot;line&quot;:9},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:9}},&quot;name&quot;:&quot;main&quot;}]}},{&quot;heap&quot;:{&quot;locations&quot;:[]},&quot;stack&quot;:{&quot;frames&quot;:[{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:11},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:6}},&quot;locals&quot;:[{&quot;moved_paths&quot;:[[]],&quot;name&quot;:&quot;s_own&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:{&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:{&quot;len&quot;:11}},&quot;fields&quot;:[[&quot;vec&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;buf&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;ptr&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Unallocated&quot;,&quot;value&quot;:{&quot;alloc_id&quot;:0}}]],&quot;name&quot;:&quot;NonNull&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;Unique&quot;,&quot;variant&quot;:null}}],[&quot;cap&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;RawVec&quot;,&quot;variant&quot;:null}}],[&quot;len&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;Vec&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;String&quot;,&quot;variant&quot;:null}}},{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;cloner&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;s_ref&quot;,{&quot;type&quot;:&quot;Unallocated&quot;,&quot;value&quot;:{&quot;alloc_id&quot;:0}}]],&quot;name&quot;:&quot;make_a_cloner::{closure#0}&quot;,&quot;variant&quot;:null}}}],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:13,&quot;line&quot;:10},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:10}},&quot;name&quot;:&quot;main&quot;}]}},{&quot;heap&quot;:{&quot;locations&quot;:[]},&quot;stack&quot;:{&quot;frames&quot;:[{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:11},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:6}},&quot;locals&quot;:[{&quot;moved_paths&quot;:[[]],&quot;name&quot;:&quot;s_own&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:{&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:{&quot;len&quot;:11}},&quot;fields&quot;:[[&quot;vec&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;buf&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;ptr&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Unallocated&quot;,&quot;value&quot;:{&quot;alloc_id&quot;:0}}]],&quot;name&quot;:&quot;NonNull&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;Unique&quot;,&quot;variant&quot;:null}}],[&quot;cap&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;RawVec&quot;,&quot;variant&quot;:null}}],[&quot;len&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;Vec&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;String&quot;,&quot;variant&quot;:null}}},{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;cloner&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;s_ref&quot;,{&quot;type&quot;:&quot;Unallocated&quot;,&quot;value&quot;:{&quot;alloc_id&quot;:0}}]],&quot;name&quot;:&quot;make_a_cloner::{closure#0}&quot;,&quot;variant&quot;:null}}}],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:13,&quot;line&quot;:10},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:10}},&quot;name&quot;:&quot;main&quot;},{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:5,&quot;line&quot;:3},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:1}},&quot;locals&quot;:[],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:11,&quot;line&quot;:1},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:1}},&quot;name&quot;:&quot;make_a_cloner::{closure#0}&quot;}]}},{&quot;heap&quot;:{&quot;locations&quot;:[]},&quot;stack&quot;:{&quot;frames&quot;:[{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:11},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:6}},&quot;locals&quot;:[{&quot;moved_paths&quot;:[[]],&quot;name&quot;:&quot;s_own&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:{&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:{&quot;len&quot;:11}},&quot;fields&quot;:[[&quot;vec&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;buf&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;ptr&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Unallocated&quot;,&quot;value&quot;:{&quot;alloc_id&quot;:0}}]],&quot;name&quot;:&quot;NonNull&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;Unique&quot;,&quot;variant&quot;:null}}],[&quot;cap&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;RawVec&quot;,&quot;variant&quot;:null}}],[&quot;len&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;Vec&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;String&quot;,&quot;variant&quot;:null}}},{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;cloner&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;s_ref&quot;,{&quot;type&quot;:&quot;Unallocated&quot;,&quot;value&quot;:{&quot;alloc_id&quot;:0}}]],&quot;name&quot;:&quot;make_a_cloner::{closure#0}&quot;,&quot;variant&quot;:null}}}],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:13,&quot;line&quot;:10},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:10}},&quot;name&quot;:&quot;main&quot;},{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:5,&quot;line&quot;:3},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:1}},&quot;locals&quot;:[],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:25,&quot;line&quot;:2},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:8,&quot;line&quot;:2}},&quot;name&quot;:&quot;make_a_cloner::{closure#0}&quot;}]}}]}}}" data-config="{&quot;shouldFail&quot;:&quot;true&quot;}" data-no-interact="true"></div>
-<p>Let’s follow the execution. After calling <code>make_a_cloner(&amp;s_own)</code>, at L1 we get back a closure <code>cloner</code>. Within the closure is its environment, the reference <code>s_ref</code>. However, if we are allowed to drop <code>s_own</code> at L2, then that invalidates <code>cloner</code> because its environment contains a pointer to deallocated memory. Then invoking <code>cloner()</code> would cause a use-after-free.</p>
-<p>Returning to the original type error, the issue is that <strong>we need to tell Rust that the closure returned from <code>make_a_cloner</code> must not live longer than <code>s_ref</code>.</strong> We can do that explicitly using a lifetime parameter like this:</p>
-<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>//              vvvv         vv                             vvvv                
-fn make_a_cloner&lt;'a&gt;(s_ref: &amp;'a str) -&gt; impl Fn() -&gt; String + 'a {
-    move || s_ref.to_string()
-}
-<span class="boring">}</span></code></pre></pre>
-<p>These changes say: <code>s_ref</code> is a string reference that lives for <code>'a</code>. Adding <code>+ 'a</code> to the return type’s trait bounds indicates that the closure must live no longer than <code>'a</code>. Therefore Rust deduces this function is now safe. If we try to use it unsafely like before:</p>
-<div class="aquascope-embed" data-code="&quot;fn make_a_cloner&lt;'a&gt;(s_ref: &amp;'a str) \n    -&gt; impl Fn() -&gt; String + 'a \n{\n    move || s_ref.to_string()\n}\nfn main() {\nlet s_own = String::from(\&quot;Hello world\&quot;);\nlet cloner = make_a_cloner(&amp;s_own);\ndrop(s_own);\ncloner();\n}&quot;" data-annotations="{&quot;hidden_lines&quot;:[1,2,3,4,5,6,11],&quot;interp&quot;:{&quot;state_locations&quot;:[]},&quot;stepper&quot;:{&quot;focused_lines&quot;:[],&quot;focused_paths&quot;:{}},&quot;boundaries&quot;:{&quot;focused_lines&quot;:[9]}}" data-operations="[&quot;permissions&quot;]" data-responses="{&quot;permissions&quot;:[{&quot;Ok&quot;:{&quot;body_range&quot;:{&quot;end&quot;:{&quot;column&quot;:29,&quot;line&quot;:3},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:3}},&quot;boundaries&quot;:[],&quot;loan_points&quot;:{},&quot;loan_regions&quot;:{},&quot;move_points&quot;:{},&quot;move_regions&quot;:{},&quot;steps&quot;:[]}},{&quot;Ok&quot;:{&quot;body_range&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:4},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:0}},&quot;boundaries&quot;:[],&quot;loan_points&quot;:{},&quot;loan_regions&quot;:{},&quot;move_points&quot;:{},&quot;move_regions&quot;:{},&quot;steps&quot;:[{&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:2},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:1,&quot;line&quot;:2}},&quot;state&quot;:[{&quot;from&quot;:{&quot;end&quot;:{&quot;column&quot;:29,&quot;line&quot;:3},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:3}},&quot;state&quot;:[[&quot;s_ref&quot;,{&quot;is_live&quot;:{&quot;type&quot;:&quot;High&quot;,&quot;value&quot;:true},&quot;loan_drop_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;loan_read_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;loan_write_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;path_moved&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;path_uninitialized&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false},&quot;permissions&quot;:{&quot;drop&quot;:{&quot;type&quot;:&quot;High&quot;,&quot;value&quot;:true},&quot;read&quot;:{&quot;type&quot;:&quot;High&quot;,&quot;value&quot;:true},&quot;write&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false}},&quot;type_droppable&quot;:{&quot;type&quot;:&quot;High&quot;,&quot;value&quot;:true},&quot;type_writeable&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false}}],[&quot;*s_ref&quot;,{&quot;is_live&quot;:{&quot;type&quot;:&quot;High&quot;,&quot;value&quot;:true},&quot;loan_drop_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;loan_read_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;loan_write_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;path_moved&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;path_uninitialized&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false},&quot;permissions&quot;:{&quot;drop&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false},&quot;read&quot;:{&quot;type&quot;:&quot;High&quot;,&quot;value&quot;:true},&quot;write&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false}},&quot;type_droppable&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false},&quot;type_writeable&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false}}]],&quot;to&quot;:{&quot;end&quot;:{&quot;column&quot;:29,&quot;line&quot;:3},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:3}}}]},{&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:29,&quot;line&quot;:3},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:29,&quot;line&quot;:3}},&quot;state&quot;:[{&quot;from&quot;:{&quot;end&quot;:{&quot;column&quot;:29,&quot;line&quot;:3},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:3}},&quot;state&quot;:[[&quot;s_ref&quot;,{&quot;is_live&quot;:{&quot;type&quot;:&quot;Low&quot;},&quot;loan_drop_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;loan_read_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;loan_write_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;path_moved&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;path_uninitialized&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false},&quot;permissions&quot;:{&quot;drop&quot;:{&quot;type&quot;:&quot;Low&quot;},&quot;read&quot;:{&quot;type&quot;:&quot;Low&quot;},&quot;write&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false}},&quot;type_droppable&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:true},&quot;type_writeable&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false}}],[&quot;*s_ref&quot;,{&quot;is_live&quot;:{&quot;type&quot;:&quot;Low&quot;},&quot;loan_drop_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;loan_read_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;loan_write_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;path_moved&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;path_uninitialized&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false},&quot;permissions&quot;:{&quot;drop&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false},&quot;read&quot;:{&quot;type&quot;:&quot;Low&quot;},&quot;write&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false}},&quot;type_droppable&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false},&quot;type_writeable&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false}}]],&quot;to&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:4},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:1,&quot;line&quot;:4}}}]}]}},{&quot;Ok&quot;:{&quot;body_range&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:10},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:5}},&quot;boundaries&quot;:[{&quot;actual&quot;:{&quot;is_live&quot;:true,&quot;path_uninitialized&quot;:false,&quot;permissions&quot;:{&quot;drop&quot;:true,&quot;read&quot;:true,&quot;write&quot;:false},&quot;type_copyable&quot;:false,&quot;type_droppable&quot;:true,&quot;type_writeable&quot;:false},&quot;expected&quot;:{&quot;drop&quot;:false,&quot;read&quot;:true,&quot;write&quot;:false},&quot;location&quot;:{&quot;column&quot;:28,&quot;line&quot;:7}},{&quot;actual&quot;:{&quot;is_live&quot;:true,&quot;loan_drop_refined&quot;:0,&quot;loan_write_refined&quot;:0,&quot;path_uninitialized&quot;:false,&quot;permissions&quot;:{&quot;drop&quot;:false,&quot;read&quot;:true,&quot;write&quot;:false},&quot;type_copyable&quot;:false,&quot;type_droppable&quot;:true,&quot;type_writeable&quot;:false},&quot;expected&quot;:{&quot;drop&quot;:true,&quot;read&quot;:true,&quot;write&quot;:false},&quot;location&quot;:{&quot;column&quot;:5,&quot;line&quot;:8}}],&quot;loan_points&quot;:{&quot;0&quot;:{&quot;end&quot;:{&quot;column&quot;:33,&quot;line&quot;:7},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:27,&quot;line&quot;:7}},&quot;1&quot;:{&quot;end&quot;:{&quot;column&quot;:6,&quot;line&quot;:9},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:9}}},&quot;loan_regions&quot;:{&quot;0&quot;:{&quot;refined_ranges&quot;:[{&quot;end&quot;:{&quot;column&quot;:33,&quot;line&quot;:7},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:27,&quot;line&quot;:7}},{&quot;end&quot;:{&quot;column&quot;:11,&quot;line&quot;:8},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:8}},{&quot;end&quot;:{&quot;column&quot;:8,&quot;line&quot;:9},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:9}}],&quot;refiner_point&quot;:{&quot;Loan&quot;:0}},&quot;1&quot;:{&quot;refined_ranges&quot;:[{&quot;end&quot;:{&quot;column&quot;:8,&quot;line&quot;:9},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:9}}],&quot;refiner_point&quot;:{&quot;Loan&quot;:1}}},&quot;move_points&quot;:{},&quot;move_regions&quot;:{},&quot;steps&quot;:[{&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:40,&quot;line&quot;:6},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:40,&quot;line&quot;:6}},&quot;state&quot;:[{&quot;from&quot;:{&quot;end&quot;:{&quot;column&quot;:9,&quot;line&quot;:6},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:6}},&quot;state&quot;:[[&quot;s_own&quot;,{&quot;is_live&quot;:{&quot;type&quot;:&quot;High&quot;,&quot;value&quot;:true},&quot;loan_drop_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;loan_read_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;loan_write_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;path_moved&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;path_uninitialized&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false},&quot;permissions&quot;:{&quot;drop&quot;:{&quot;type&quot;:&quot;High&quot;,&quot;value&quot;:true},&quot;read&quot;:{&quot;type&quot;:&quot;High&quot;,&quot;value&quot;:true},&quot;write&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false}},&quot;type_droppable&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:true},&quot;type_writeable&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false}}]],&quot;to&quot;:{&quot;end&quot;:{&quot;column&quot;:10,&quot;line&quot;:7},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:7}}}]},{&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:35,&quot;line&quot;:7},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:35,&quot;line&quot;:7}},&quot;state&quot;:[{&quot;from&quot;:{&quot;end&quot;:{&quot;column&quot;:10,&quot;line&quot;:7},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:4,&quot;line&quot;:7}},&quot;state&quot;:[[&quot;s_own&quot;,{&quot;is_live&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:true},&quot;loan_drop_refined&quot;:{&quot;type&quot;:&quot;High&quot;,&quot;value&quot;:0},&quot;loan_read_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;loan_write_refined&quot;:{&quot;type&quot;:&quot;High&quot;,&quot;value&quot;:0},&quot;path_moved&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;path_uninitialized&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false},&quot;permissions&quot;:{&quot;drop&quot;:{&quot;type&quot;:&quot;Low&quot;},&quot;read&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:true},&quot;write&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false}},&quot;type_droppable&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:true},&quot;type_writeable&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false}}],[&quot;cloner&quot;,{&quot;is_live&quot;:{&quot;type&quot;:&quot;High&quot;,&quot;value&quot;:true},&quot;loan_drop_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;loan_read_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;loan_write_refined&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;path_moved&quot;:{&quot;type&quot;:&quot;None&quot;},&quot;path_uninitialized&quot;:{&quot;type&quot;:&quot;Low&quot;},&quot;permissions&quot;:{&quot;drop&quot;:{&quot;type&quot;:&quot;High&quot;,&quot;value&quot;:true},&quot;read&quot;:{&quot;type&quot;:&quot;High&quot;,&quot;value&quot;:true},&quot;write&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false}},&quot;type_droppable&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:true},&quot;type_writeable&quot;:{&quot;type&quot;:&quot;None&quot;,&quot;value&quot;:false}}]],&quot;to&quot;:{&quot;end&quot;:{&quot;column&quot;:11,&quot;line&quot;:8},&quot;filename&quot;:{&quot;private&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:8}}}]}]}}]}" data-config="{&quot;boundaries&quot;:&quot;true&quot;,&quot;stepper&quot;:&quot;true&quot;}" data-no-interact="true"></div>
-<p>Rust recognizes that as long as <code>make_a_cloner</code> is in use, <code>s_own</code> cannot be dropped. This is reflected in the permissions: <code>s_own</code> loses the <span class="perm own">O</span> permission after calling <code>make_a_cloner</code>. Consequently, Rust rejects this program with the following error:</p>
-<pre><code class="language-text">error[E0505]: cannot move out of `s_own` because it is borrowed
-  --&gt; test.rs:9:6
-   |
-8  | let cloner = make_a_cloner(&amp;s_own);
-   |                            ------ borrow of `s_own` occurs here
-9  | drop(s_own);
-   |      ^^^^^ move out of `s_own` occurs here
-10 | cloner();
-   | ------ borrow later used here
-</code></pre>
-<p>Returning now to the original confusing error: the “hidden type” of the closure captured <code>s_ref</code> which had a limited lifetime. The return type never mentioned this lifetime, so Rust could not deduce that <code>make_a_cloner</code> was safe. But if we explicitly say that the closure captures the lifetime of <code>s_ref</code>, then our function compiles.</p>
-<p>Note that we can use the <a href="ch10-03-lifetime-syntax.html#lifetime-elision">lifetime elision</a> rules to make the function type more concise. We can remove the <code>&lt;'a&gt;</code> generic so long as we keep an indicator that the returned closure depends on <em>some</em> lifetime, like this:</p>
-<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>fn make_a_cloner(s_ref: &amp;str) -&gt; impl Fn() -&gt; String + '_ {
-    move || s_ref.to_string()
-}
-<span class="boring">}</span></code></pre></pre>
+<!-- TODO: consider adding a section on the use<> operator -->
 <p>In sum, the <code>Fn</code> traits are important when defining or using functions or types that
 make use of closures. In the next section, we’ll discuss iterators. Many
 iterator methods take closure arguments, so keep these closure details in mind
 as we continue!</p>
 <div class="quiz-placeholder" data-quiz-name="&quot;ch13-01-closures-sec2&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;`add_suffix` mutably borrows `s` between its definition and use, so the `println` (a read of `s`) is invalid.\n&quot;,&quot;id&quot;:&quot;a055fa7c-89e2-467e-8458-62cbf3ffb8bf&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:false,&quot;lineNumber&quot;:5},&quot;prompt&quot;:{&quot;program&quot;:&quot;fn main() {\n    let mut s = String::from(\&quot;Hello\&quot;);\n    let mut add_suffix = || s.push_str(\&quot; world\&quot;);\n    println!(\&quot;{s}\&quot;);\n    add_suffix();\n}\n&quot;}},{&quot;context&quot;:&quot;Because `add_suffix` does not capture `s`, it is fine to read `s` before mutating it with `add_suffix`.\n&quot;,&quot;id&quot;:&quot;266d3cb3-de76-4b91-bd13-c3d6cb9e7fd7&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:true,&quot;stdout&quot;:&quot;Hello&quot;},&quot;prompt&quot;:{&quot;program&quot;:&quot;fn main() {\n    let mut s = String::from(\&quot;Hello\&quot;);\n    let add_suffix = |s: &amp;mut String| s.push_str(\&quot; world\&quot;);\n    println!(\&quot;{s}\&quot;);\n    add_suffix(&amp;mut s);\n}\n&quot;}},{&quot;context&quot;:&quot;`f` is called multiple times so `FnOnce` is not appropriate. Both `Fn` and `FnMut` can work, and `FnMut` is less restrictive, so `FnMut` is most appropriate.\n&quot;,&quot;id&quot;:&quot;0f298680-d870-47a1-962c-1c668f75cb68&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;`FnMut`&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;`Fn`&quot;,&quot;`FnOnce`&quot;],&quot;prompt&quot;:&quot;Consider the following API:\n\n```rust\n/// Executes a function with a mutable reference to each element of a vector\nfn for_each_mut&lt;T, F: ___(&amp;mut T)&gt;(v: &amp;mut Vec&lt;T&gt;, mut f: F) {\n    for x in v.iter_mut() {\n        f(x);\n    }\n}\n```\n\nWhich of the following function traits is most appropriate to fill in the blank?\n&quot;}},{&quot;context&quot;:&quot;`pipeline` could be called multiple times, so `FnOnce` is not appropriate.\n`pipeline` takes an immutable reference to `self`, if `postprocess` were `FnMut`, it could not be called within `pipeline`.\nTherefore `Fn` is most appropriate here.\n&quot;,&quot;id&quot;:&quot;65f574b1-b418-4abe-852e-8b14d88368a7&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;`Fn`&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;`FnMut`&quot;,&quot;`FnOnce`&quot;],&quot;prompt&quot;:&quot;Consider the following API:\n\n```rust\npub struct Analyzer&lt;F&gt; {\n    postprocess: F\n}\n\nimpl&lt;F: ___(i32) -&gt; i32&gt; Analyzer&lt;F&gt; {\n    fn process(&amp;self, n: i32) -&gt; i32 { /* .. */ }\n    pub fn pipeline(&amp;self, n: i32) -&gt; i32 {\n        let n = self.process(n);\n        (self.postprocess)(n)\n    }\n}\n```\n\nWhich of the following function traits is most appropriate to fill in the blank?\n&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
-<script type="text/javascript" src="aquascope/embed.iife.js"></script><link rel="stylesheet" type="text/css" href="aquascope/style.css">
 <script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css">
 
                     </main>
@@ -782,7 +741,7 @@ as we continue!</p>
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="ch13-02-iterators.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="ch13-02-iterators.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -796,7 +755,7 @@ as we continue!</p>
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="ch13-02-iterators.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="ch13-02-iterators.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -826,5 +785,6 @@ as we continue!</p>
         <script src="js-extensions/packages/feedback/dist/index.js"></script>
 
 
+    </div>
     </body>
 </html>

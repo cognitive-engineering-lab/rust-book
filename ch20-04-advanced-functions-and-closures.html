@@ -1,0 +1,422 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Advanced Functions and Closures - The Rust Programming Language</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="ferris.css">
+        <link rel="stylesheet" href="theme/semantic-notes.css">
+        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="theme/2018-edition.css">
+        <link rel="stylesheet" href="js-extensions/packages/consent-form/dist/index.css">
+        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Rust Programming Language</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/cognitive-engineering-lab/rust-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="advanced-functions-and-closures"><a class="header" href="#advanced-functions-and-closures">Advanced Functions and Closures</a></h2>
+<p>This section explores some advanced features related to functions and closures,
+including function pointers and returning closures.</p>
+<h3 id="function-pointers"><a class="header" href="#function-pointers">Function Pointers</a></h3>
+<p>We’ve talked about how to pass closures to functions; you can also pass regular
+functions to functions! This technique is useful when you want to pass a
+function you’ve already defined rather than defining a new closure. Functions
+coerce to the type <code>fn</code> (with a lowercase <em>f</em>), not to be confused with the <code>Fn</code>
+closure trait. The <code>fn</code> type is called a <em>function pointer</em>. Passing functions
+with function pointers will allow you to use functions as arguments to other
+functions.</p>
+<p>The syntax for specifying that a parameter is a function pointer is similar to
+that of closures, as shown in Listing 20-28, where we’ve defined a function
+<code>add_one</code> that adds 1 to its parameter. The function <code>do_twice</code> takes two
+parameters: a function pointer to any function that takes an <code>i32</code> parameter
+and returns an <code>i32</code>, and one <code>i32</code> value. The <code>do_twice</code> function calls the
+function <code>f</code> twice, passing it the <code>arg</code> value, then adds the two function call
+results together. The <code>main</code> function calls <code>do_twice</code> with the arguments
+<code>add_one</code> and <code>5</code>.</p>
+<figure class="listing" id="listing-20-28">
+<span class="file-name">Filename: src/main.rs</span>
+<pre><pre class="playground"><code class="language-rust edition2024">fn add_one(x: i32) -&gt; i32 {
+    x + 1
+}
+
+fn do_twice(f: fn(i32) -&gt; i32, arg: i32) -&gt; i32 {
+    f(arg) + f(arg)
+}
+
+fn main() {
+    let answer = do_twice(add_one, 5);
+
+    println!("The answer is: {answer}");
+}</code></pre></pre>
+<figcaption><a href="#listing-20-28">Listing 20-28</a>: Using the <code>fn</code> type to accept a function pointer as an argument</figcaption>
+</figure>
+<p>This code prints <code>The answer is: 12</code>. We specify that the parameter <code>f</code> in
+<code>do_twice</code> is an <code>fn</code> that takes one parameter of type <code>i32</code> and returns an
+<code>i32</code>. We can then call <code>f</code> in the body of <code>do_twice</code>. In <code>main</code>, we can pass
+the function name <code>add_one</code> as the first argument to <code>do_twice</code>.</p>
+<p>Unlike closures, <code>fn</code> is a type rather than a trait, so we specify <code>fn</code> as the
+parameter type directly rather than declaring a generic type parameter with one
+of the <code>Fn</code> traits as a trait bound.</p>
+<p>Function pointers implement all three of the closure traits (<code>Fn</code>, <code>FnMut</code>, and
+<code>FnOnce</code>), meaning you can always pass a function pointer as an argument for a
+function that expects a closure. It’s best to write functions using a generic
+type and one of the closure traits so your functions can accept either
+functions or closures.</p>
+<p>That said, one example of where you would want to only accept <code>fn</code> and not
+closures is when interfacing with external code that doesn’t have closures: C
+functions can accept functions as arguments, but C doesn’t have closures.</p>
+<p>As an example of where you could use either a closure defined inline or a named
+function, let’s look at a use of the <code>map</code> method provided by the <code>Iterator</code>
+trait in the standard library. To use the <code>map</code> method to turn a vector of
+numbers into a vector of strings, we could use a closure, as in Listing 20-29.</p>
+<figure class="listing" id="listing-20-29">
+<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+</span>    let list_of_numbers = vec![1, 2, 3];
+    let list_of_strings: Vec&lt;String&gt; =
+        list_of_numbers.iter().map(|i| i.to_string()).collect();
+<span class="boring">}</span></code></pre></pre>
+<figcaption><a href="#listing-20-29">Listing 20-29</a>: Using a closure with the <code>map</code> method to convert numbers to strings</figcaption>
+</figure>
+<p>Or we could name a function as the argument to map instead of the closure.
+Listing 20-30 shows what this would look like.</p>
+<figure class="listing" id="listing-20-30">
+<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+</span>    let list_of_numbers = vec![1, 2, 3];
+    let list_of_strings: Vec&lt;String&gt; =
+        list_of_numbers.iter().map(ToString::to_string).collect();
+<span class="boring">}</span></code></pre></pre>
+<figcaption><a href="#listing-20-30">Listing 20-30</a>: Using the <code>String::to_string</code> method to convert numbers to strings</figcaption>
+</figure>
+<p>Note that we must use the fully qualified syntax that we talked about in
+<a href="ch20-02-advanced-traits.html#advanced-traits">“Advanced Traits”</a><!-- ignore --> because there are multiple
+functions available named <code>to_string</code>.</p>
+<p>Here, we’re using the <code>to_string</code> function defined in the <code>ToString</code> trait,
+which the standard library has implemented for any type that implements
+<code>Display</code>.</p>
+<p>Recall from <a href="ch06-01-defining-an-enum.html#enum-values">“Enum values”</a><!-- ignore --> in Chapter 6 that the
+name of each enum variant that we define also becomes an initializer function.
+We can use these initializer functions as function pointers that implement the
+closure traits, which means we can specify the initializer functions as
+arguments for methods that take closures, as seen in Listing 20-31.</p>
+<figure class="listing" id="listing-20-31">
+<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+</span>    enum Status {
+        Value(u32),
+        Stop,
+    }
+
+    let list_of_statuses: Vec&lt;Status&gt; = (0u32..20).map(Status::Value).collect();
+<span class="boring">}</span></code></pre></pre>
+<figcaption><a href="#listing-20-31">Listing 20-31</a>: Using an enum initializers with the <code>map</code> method to create a <code>Status</code> instance from numbers</figcaption>
+</figure>
+<p>Here we create <code>Status::Value</code> instances using each <code>u32</code> value in the range
+that <code>map</code> is called on by using the initializer function of <code>Status::Value</code>.
+Some people prefer this style and some people prefer to use closures. They
+compile to the same code, so use whichever style is clearer to you.</p>
+<h3 id="returning-closures"><a class="header" href="#returning-closures">Returning Closures</a></h3>
+<p>Closures are represented by traits, which means you can’t return closures
+directly. In most cases where you might want to return a trait, you can instead
+use the concrete type that implements the trait as the return value of the
+function. However, you can’t usually do that with closures because they don’t
+have a concrete type that is returnable. You’re not allowed to use the function
+pointer <code>fn</code> as a return type if the closure captures any values from its scope,
+for example.</p>
+<p>Instead, you will normally use the <code>impl Trait</code> syntax we learned about in
+Chapter 10. You can return any function type, using <code>Fn</code>, <code>FnOnce</code> and <code>FnMut</code>.
+For example, the code in Listing 20-32 will work just fine.</p>
+<figure class="listing" id="listing-20-32">
+<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn returns_closure() -&gt; impl Fn(i32) -&gt; i32 {
+    |x| x + 1
+}
+<span class="boring">}</span></code></pre></pre>
+<figcaption><a href="#listing-20-32">Listing 20-32</a>: Returning a closure from a function using the <code>impl Trait</code> syntax</figcaption>
+</figure>
+<p>However, as we noted in <a href="ch13-01-closures.html#closure-type-inference-and-annotation">“Closure Type Inference and
+Annotation”</a><!-- ignore --> in Chapter 13, each closure is also
+its own distinct type. If you need to work with multiple functions that have the
+same signature but different implementations, you will need to use a trait
+object for them. Consider what happens if you write code like that shown in
+Listing 20-33.</p>
+<figure class="listing" id="listing-20-33">
+<span class="file-name">Filename: src/main.rs</span>
+<pre><code class="language-rust ignore does_not_compile">fn main() {
+    let handlers = vec![returns_closure(), returns_initialized_closure(123)];
+    for handler in handlers {
+        let output = handler(5);
+        println!("{output}");
+    }
+}
+
+fn returns_closure() -&gt; impl Fn(i32) -&gt; i32 {
+    |x| x + 1
+}
+
+fn returns_initialized_closure(init: i32) -&gt; impl Fn(i32) -&gt; i32 {
+    move |x| x + init
+}</code></pre>
+<figcaption><a href="#listing-20-33">Listing 20-33</a>: Creating a <code>Vec&lt;T&gt;</code> of closures defined by functions that return <code>impl Fn</code></figcaption>
+</figure>
+<p>Here we have two functions, <code>returns_closure</code> and <code>returns_initialized_closure</code>,
+which both return <code>impl Fn(i32) -&gt; i32</code>. Notice that he closures that they
+return are different, even though they implement the same type. If we try to
+compile this, Rust lets us know that it won’t work:</p>
+<pre><code class="language-text">$ cargo build
+   Compiling functions-example v0.1.0 (file:///projects/functions-example)
+error[E0308]: mismatched types
+  --&gt; src/main.rs:2:44
+   |
+2  |     let handlers = vec![returns_closure(), returns_initialized_closure(123)];
+   |                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected opaque type, found a different opaque type
+...
+9  | fn returns_closure() -&gt; impl Fn(i32) -&gt; i32 {
+   |                         ------------------- the expected opaque type
+...
+13 | fn returns_initialized_closure(init: i32) -&gt; impl Fn(i32) -&gt; i32 {
+   |                                              ------------------- the found opaque type
+   |
+   = note: expected opaque type `impl Fn(i32) -&gt; i32` (opaque type at &lt;src/main.rs:9:25&gt;)
+              found opaque type `impl Fn(i32) -&gt; i32` (opaque type at &lt;src/main.rs:13:46&gt;)
+   = note: distinct uses of `impl Trait` result in different opaque types
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `functions-example` (bin "functions-example") due to 1 previous error
+</code></pre>
+<p>The error message tells us that whenever we return an <code>impl Trait</code> Rust creates
+a unique <em>opaque type</em>, a type where we cannot see into the details of what Rust
+constructs for us. So even though these functions both return closures that
+implements the same trait, <code>Fn(i32) -&gt; i32</code>, the opaque types Rust generates for
+each are distinct. (This is similar to how Rust produces different concrete
+types for distinct async blocks even when they have the same output type, as we
+saw in <a href="ch17-03-more-futures.html">“Working with Any Number of Futures”</a> in Chapter
+17. We have seen a solution to this problem a few times now: we can use a trait
+object, as in Listing 20-34.</p>
+<figure class="listing" id="listing-20-34">
+<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+</span><span class="boring">    let handlers = vec![returns_closure(), returns_initialized_closure(123)];
+</span><span class="boring">    for handler in handlers {
+</span><span class="boring">        let output = handler(5);
+</span><span class="boring">        println!("{output}");
+</span><span class="boring">    }
+</span><span class="boring">}
+</span><span class="boring">
+</span>fn returns_closure() -&gt; Box&lt;dyn Fn(i32) -&gt; i32&gt; {
+    Box::new(|x| x + 1)
+}
+
+fn returns_initialized_closure(init: i32) -&gt; Box&lt;dyn Fn(i32) -&gt; i32&gt; {
+    Box::new(move |x| x + init)
+}</code></pre></pre>
+<figcaption><a href="#listing-20-34">Listing 20-34</a>: Creating a <code>Vec&lt;T&gt;</code> of closures defined by functions that return <code>Box&lt;dyn Fn&gt;</code> so they have the same type</figcaption>
+</figure>
+<p>This code will compile just fine. For more about trait objects, refer to the
+section <a href="ch18-02-trait-objects.html#using-trait-objects-that-allow-for-values-of-different-types">“Using Trait Objects That Allow for Values of Different
+Types”</a><!-- ignore
+--> in Chapter 18.</p>
+<p>Next, let’s look at macros!</p>
+<div class="quiz-placeholder" data-quiz-name="&quot;ch19-05-advanced-functions-and-closures&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;Closures with environments can be passed to `register2`, while only top-level functions (or closures without environments) can be passed to `register1`.\n&quot;,&quot;id&quot;:&quot;f08ab588-1dca-438e-8108-a1b2410a4343&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;`register2`&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;`register1`&quot;,&quot;They are equivalent&quot;],&quot;prompt&quot;:&quot;Consider implementing a `register` function that takes a callback in two ways:\n\n```\nfn register1(cb: fn(Event) -&gt; ());\nfn register2&lt;F&gt;(cb: F) where F: Fn(Event) -&gt; ();\n```\n\nWhich type signature permits `register` to take the widest variety of arguments?\n&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
+<script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css">
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="ch20-03-advanced-types.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="ch20-05-macros.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="ch20-03-advanced-types.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="ch20-05-macros.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="ferris.js"></script>
+        <script src="js-extensions/packages/telemetry/dist/index.js"></script>
+        <script src="js-extensions/packages/consent-form/dist/index.js"></script>
+        <script src="js-extensions/packages/feedback/dist/index.js"></script>
+
+
+    </div>
+    </body>
+</html>

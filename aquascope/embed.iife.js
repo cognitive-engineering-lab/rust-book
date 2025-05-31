@@ -46102,7 +46102,7 @@ var __publicField = (obj, key, value) => {
     let name2 = permName(content2);
     name2 = name2.charAt(0).toUpperCase() + name2.slice(1);
     let title = `${name2} permission is expected, `;
-    title += act ? "and the path has the permission." : "but the path does not have the permission.";
+    title += act ? "and the place has the permission." : "but the place does not have the permission.";
     return React.createElement(
       "div",
       { className: classNames(...names, { missing: !act }), onMouseEnter: showit, onMouseLeave: hideit, title },
@@ -46112,13 +46112,13 @@ var __publicField = (obj, key, value) => {
   };
   let PermStack = ({ facts, boundary }) => {
     var _a2;
-    const data = boundary.actual;
+    const data = boundary.data;
     let allIcons = [
       {
         content: readChar,
         names: ["perm", "read"],
         exp: boundary.expected.read,
-        act: data.permissions.read,
+        act: boundary.actual.read,
         showit: () => {
           showLoanRegion(facts, data.loan_read_refined, ["read"]);
           showMoveRegion(facts, data.path_moved, ["read"]);
@@ -46132,7 +46132,7 @@ var __publicField = (obj, key, value) => {
         content: writeChar,
         names: ["perm", "write"],
         exp: boundary.expected.write,
-        act: data.permissions.write,
+        act: boundary.actual.write,
         showit: () => {
           showLoanRegion(facts, data.loan_write_refined, ["write"]);
           showMoveRegion(facts, data.path_moved, ["write"]);
@@ -46146,7 +46146,7 @@ var __publicField = (obj, key, value) => {
         content: ownChar,
         names: ["perm", "own"],
         exp: boundary.expected.drop,
-        act: data.permissions.drop,
+        act: boundary.actual.drop,
         showit: () => {
           showLoanRegion(facts, data.loan_drop_refined, ["own"]);
           showMoveRegion(facts, data.path_moved, ["own"]);
@@ -46160,7 +46160,7 @@ var __publicField = (obj, key, value) => {
         content: flowChar,
         names: ["perm", "flow"],
         exp: boundary.expecting_flow !== void 0,
-        act: !((_a2 = boundary.expecting_flow) == null ? void 0 : _a2.is_violation),
+        act: !(((_a2 = boundary.expecting_flow) == null ? void 0 : _a2.is_violation) ?? false),
         showit: () => void 0,
         hideit: () => void 0
       }
@@ -47607,7 +47607,8 @@ var __publicField = (obj, key, value) => {
   };
   let read_vec = (vec) => {
     let raw_vec = read_field(vec, "buf");
-    let unique = read_field(raw_vec, "ptr");
+    let raw_vec_inner = read_field(raw_vec, "inner");
+    let unique = read_field(raw_vec_inner, "ptr");
     return read_unique(unique);
   };
   let specialPtr = (value) => {
@@ -48125,24 +48126,24 @@ var __publicField = (obj, key, value) => {
       if (perm.step.type === "None") {
         return perm.step.value ? React.createElement(
           "div",
-          { className: "perm-diff-present", title: `Path had ${kind} permissions before the preceding line, and that didn't change after this line.` },
+          { className: "perm-diff-present", title: `Place had ${kind} permissions before the preceding line, and that didn't change after this line.` },
           React.createElement(Perm, null, perm.perm)
         ) : React.createElement(
           "div",
-          { className: "perm-diff-none", title: `Path did not have ${kind} permissions before the preceding line, and that didn't change after this line.` },
+          { className: "perm-diff-none", title: `Place did not have ${kind} permissions before the preceding line, and that didn't change after this line.` },
           React.createElement(Perm, null, "‒")
         );
       } else if (perm.step.type === "Low") {
         return React.createElement(
           "div",
-          { className: "perm-diff-sub-container", title: `Path had ${kind} permissions before the preceding line, and lost it after this line.` },
+          { className: "perm-diff-sub-container", title: `Place had ${kind} permissions before the preceding line, and lost it after this line.` },
           React.createElement("div", { className: "perm-diff-sub" }),
           React.createElement(Perm, null, perm.perm)
         );
       } else {
         return React.createElement(
           "div",
-          { title: `Path did not have ${kind} permissions before the preceding line, and gained it after this line.` },
+          { title: `Place did not have ${kind} permissions before the preceding line, and gained it after this line.` },
           React.createElement("span", { className: "perm-diff-add" }, "+"),
           React.createElement(Perm, null, perm.perm)
         );
@@ -48164,12 +48165,12 @@ var __publicField = (obj, key, value) => {
           {
             value: { type: "High", value: 0 },
             icon: "sign-out",
-            desc: "Path is moved here"
+            desc: "Place is moved here"
           },
           {
             value: { type: "Low" },
             icon: "recycle",
-            desc: "Path is re-initialized after move here"
+            desc: "Place is re-initialized after move here"
           }
         ]
       },
@@ -48179,12 +48180,12 @@ var __publicField = (obj, key, value) => {
           {
             value: { type: "High", value: 0 },
             icon: "arrow-right",
-            desc: "Path is borrowed here"
+            desc: "Place is borrowed here"
           },
           {
             value: { type: "Low" },
             icon: "rotate-left",
-            desc: "Borrow on path is dropped here"
+            desc: "Borrow on place is dropped here"
           }
         ]
       },
@@ -48194,12 +48195,12 @@ var __publicField = (obj, key, value) => {
           {
             value: { type: "High", value: 0 },
             icon: "arrow-right",
-            desc: "Path is borrowed here"
+            desc: "Place is borrowed here"
           },
           {
             value: { type: "Low" },
             icon: "rotate-left",
-            desc: "Borrow on path is no longer used here"
+            desc: "Borrow on place is no longer used here"
           }
         ]
       },
@@ -48209,12 +48210,12 @@ var __publicField = (obj, key, value) => {
           {
             value: { type: "High", value: 0 },
             icon: "level-up",
-            desc: "Path is initialized here"
+            desc: "Place is initialized here"
           },
           {
             value: { type: "Low" },
             icon: "level-down",
-            desc: "Path is no longer used here"
+            desc: "Place is no longer used here"
           }
         ]
       },
@@ -48224,12 +48225,12 @@ var __publicField = (obj, key, value) => {
           {
             value: { type: "High", value: 0 },
             icon: "sign-out",
-            desc: "Path contains uninitialized data"
+            desc: "Place contains uninitialized data"
           },
           {
             value: { type: "Low" },
             icon: "recycle",
-            desc: "Path data is initialized after move here"
+            desc: "Place data is initialized after move here"
           }
         ]
       }
