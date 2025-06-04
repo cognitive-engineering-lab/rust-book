@@ -1,0 +1,349 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Fundamentals of Asynchronous Programming: Async, Await, Futures, and Streams - The Rust Programming Language</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="ferris.css">
+        <link rel="stylesheet" href="theme/semantic-notes.css">
+        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="theme/2018-edition.css">
+        <link rel="stylesheet" href="js-extensions/packages/consent-form/dist/index.css">
+        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Rust Programming Language</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/cognitive-engineering-lab/rust-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="fundamentals-of-asynchronous-programming-async-await-futures-and-streams"><a class="header" href="#fundamentals-of-asynchronous-programming-async-await-futures-and-streams">Fundamentals of Asynchronous Programming: Async, Await, Futures, and Streams</a></h1>
+<p>Many operations we ask the computer to do can take a while to finish. It would
+be nice if we could do something else while we are waiting for those
+long-running processes to complete. Modern computers offer two techniques for
+working on more than one operation at a time: parallelism and concurrency. Once
+we start writing programs that involve parallel or concurrent operations,
+though, we quickly encounter new challenges inherent to <em>asynchronous
+programming</em>, where operations may not finish sequentially in the order they
+were started. This chapter builds on Chapter 16’s use of threads for parallelism
+and concurrency by introducing an alternative approach to asynchronous
+programming: Rust’s Futures, Streams, the <code>async</code> and <code>await</code> syntax that
+supports them, and the tools for managing and coordinating between asynchronous
+operations.</p>
+<p>Let’s consider an example. Say you’re exporting a video you’ve created of a
+family celebration, an operation that could take anywhere from minutes to hours.
+The video export will use as much CPU and GPU power as it can. If you had only
+one CPU core and your operating system didn’t pause that export until it
+completed—that is, if it executed the export <em>synchronously</em>—you couldn’t do
+anything else on your computer while that task was running. That would be a
+pretty frustrating experience. Fortunately, your computer’s operating system
+can, and does, invisibly interrupt the export often enough to let you get other
+work done simultaneously.</p>
+<p>Now say you’re downloading a video shared by someone else, which can also take a
+while but does not take up as much CPU time. In this case, the CPU has to wait
+for data to arrive from the network. While you can start reading the data once
+it starts to arrive, it might take some time for all of it to show up. Even once
+the data is all present, if the video is quite large, it could take at least a
+second or two to load it all. That might not sound like much, but it’s a very
+long time for a modern processor, which can perform billions of operations every
+second. Again, your operating system will invisibly interrupt your program to
+allow the CPU to perform other work while waiting for the network call to
+finish.</p>
+<p>The video export is an example of a <em>CPU-bound</em> or <em>compute-bound</em> operation.
+It’s limited by the computer’s potential data processing speed within the CPU or
+GPU, and how much of that speed it can dedicate to the operation. The video
+download is an example of an <em>IO-bound</em> operation, because it’s limited by the
+speed of the computer’s <em>input and output</em>; it can only go as fast as the data
+can be sent across the network.</p>
+<p>In both of these examples, the operating system’s invisible interrupts provide a
+form of concurrency. That concurrency happens only at the level of the entire
+program, though: the operating system interrupts one program to let other
+programs get work done. In many cases, because we understand our programs at a
+much more granular level than the operating system does, we can spot
+opportunities for concurrency that the operating system can’t see.</p>
+<p>For example, if we’re building a tool to manage file downloads, we should be
+able to write our program so that starting one download won’t lock up the UI,
+and users should be able to start multiple downloads at the same time. Many
+operating system APIs for interacting with the network are <em>blocking</em>, though;
+that is, they block the program’s progress until the data they’re processing is
+completely ready.</p>
+<section class="note" aria-role="note">
+<p>Note: This is how <em>most</em> function calls work, if you think about it. However,
+the term <em>blocking</em> is usually reserved for function calls that interact with
+files, the network, or other resources on the computer, because those are the
+cases where an individual program would benefit from the operation being
+<em>non</em>-blocking.</p>
+</section>
+<p>We could avoid blocking our main thread by spawning a dedicated thread to
+download each file. However, the overhead of those threads would eventually
+become a problem. It would be preferable if the call didn’t block in the first
+place. It would also be better if we could write in the same direct style we use
+in blocking code, similar to this:</p>
+<pre><code class="language-rust ignore does_not_compile">let data = fetch_data_from(url).await;
+println!("{data}");</code></pre>
+<p>That is exactly what Rust’s <em>async</em> (short for <em>asynchronous</em>) abstraction gives
+us. In this chapter, you’ll learn all about async as we cover the following
+topics:</p>
+<ul>
+<li>How to use Rust’s <code>async</code> and <code>await</code> syntax</li>
+<li>How to use the async model to solve some of the same challenges we looked at
+in Chapter 16</li>
+<li>How multithreading and async provide complementary solutions, that you can
+combine in many cases</li>
+</ul>
+<p>Before we see how async works in practice, though, we need to take a short
+detour to discuss the differences between parallelism and concurrency.</p>
+<h3 id="parallelism-and-concurrency"><a class="header" href="#parallelism-and-concurrency">Parallelism and Concurrency</a></h3>
+<p>We’ve treated parallelism and concurrency as mostly interchangeable so far. Now
+we need to distinguish between them more precisely, because the differences will
+show up as we start working.</p>
+<p>Consider the different ways a team could split up work on a software project.
+You could assign a single member multiple tasks, assign each member one task, or
+use a mix of the two approaches.</p>
+<p>When an individual works on several different tasks before any of them is
+complete, this is <em>concurrency</em>. Maybe you have two different projects checked
+out on your computer, and when you get bored or stuck on one project, you switch
+to the other. You’re just one person, so you can’t make progress on both tasks
+at the exact same time, but you can multi-task, making progress on one at a time
+by switching between them (see Figure 17-1).</p>
+<figure>
+<img src="img/trpl17-01.svg" class="center" alt="A diagram with boxes labeled Task A and Task B, with diamonds in them representing subtasks. There are arrows pointing from A1 to B1, B1 to A2, A2 to B2, B2 to A3, A3 to A4, and A4 to B3. The arrows between the subtasks cross the boxes between Task A and Task B." />
+<figcaption>Figure 17-1: A concurrent workflow, switching between Task A and Task B</figcaption>
+</figure>
+<p>When the team splits up a group of tasks by having each member take one task and
+work on it alone, this is <em>parallelism</em>. Each person on the team can make
+progress at the exact same time (see Figure 17-2).</p>
+<figure>
+<img src="img/trpl17-02.svg" class="center" alt="A diagram with boxes labeled Task A and Task B, with diamonds in them representing subtasks. There are arrows pointing from A1 to A2, A2 to A3, A3 to A4, B1 to B2, and B2 to B3. No arrows cross between the boxes for Task A and Task B." />
+<figcaption>Figure 17-2: A parallel workflow, where work happens on Task A and Task B independently</figcaption>
+</figure>
+<p>In both of these workflows, you might have to coordinate between different
+tasks. Maybe you <em>thought</em> the task assigned to one person was totally
+independent from everyone else’s work, but it actually requires another person
+on the team to finish their task first. Some of the work could be done in
+parallel, but some of it was actually <em>serial</em>: it could only happen in a
+series, one task after the other, as in Figure 17-3.</p>
+<figure>
+<img src="img/trpl17-03.svg" class="center" alt="A diagram with boxes labeled Task A and Task B, with diamonds in them representing subtasks. There are arrows pointing from A1 to A2, A2 to a pair of thick vertical lines like a “pause” symbol, from that symbol to A3, B1 to B2, B2 to B3, which is below that symbol, B3 to A3, and B3 to B4." />
+<figcaption>Figure 17-3: A partially parallel workflow, where work happens on Task A and Task B independently until Task A3 is blocked on the results of Task B3.</figcaption>
+</figure>
+<p>Likewise, you might realize that one of your own tasks depends on another of
+your tasks. Now your concurrent work has also become serial.</p>
+<p>Parallelism and concurrency can intersect with each other, too. If you learn
+that a colleague is stuck until you finish one of your tasks, you’ll probably
+focus all your efforts on that task to “unblock” your colleague. You and your
+coworker are no longer able to work in parallel, and you’re also no longer able
+to work concurrently on your own tasks.</p>
+<p>The same basic dynamics come into play with software and hardware. On a machine
+with a single CPU core, the CPU can perform only one operation at a time, but it
+can still work concurrently. Using tools such as threads, processes, and async,
+the computer can pause one activity and switch to others before eventually
+cycling back to that first activity again. On a machine with multiple CPU cores,
+it can also do work in parallel. One core can be performing one task while
+another core performs a completely unrelated one, and those operations actually
+happen at the same time.</p>
+<p>When working with async in Rust, we’re always dealing with concurrency.
+Depending on the hardware, the operating system, and the async runtime we are
+using (more on async runtimes shortly), that concurrency may also use parallelism
+under the hood.</p>
+<p>Now, let’s dive into how async programming in Rust actually works.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="ch16-04-extensible-concurrency-sync-and-send.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="ch17-01-futures-and-syntax.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="ch16-04-extensible-concurrency-sync-and-send.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="ch17-01-futures-and-syntax.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="ferris.js"></script>
+        <script src="js-extensions/packages/telemetry/dist/index.js"></script>
+        <script src="js-extensions/packages/consent-form/dist/index.js"></script>
+        <script src="js-extensions/packages/feedback/dist/index.js"></script>
+
+
+    </div>
+    </body>
+</html>
