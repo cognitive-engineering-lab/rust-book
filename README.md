@@ -50,8 +50,7 @@ look right, but you *will* still be able to build the book. To use the plugins,
 you should run:
 
 ```bash
-$ cargo install --locked --path packages/mdbook-trpl-listing
-$ cargo install --locked --path packages/mdbook-trpl-note
+$ cargo install --locked --path packages/mdbook-trpl
 ```
 
 ## Building
