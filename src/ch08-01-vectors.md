@@ -171,8 +171,6 @@ to use a `for` loop to get immutable references to each element in a vector of
 
 </Listing>
 
-To read the number that `n_ref` refers to, we have to use the `*` dereference operator to get to the value in `n_ref` before we can add 1 to it, as covered in ["Dereferencing a Pointer Accesses Its Data"][deref].
-
 We can also iterate over mutable references to each element in a mutable vector
 in order to make changes to all the elements. The `for` loop in Listing 8-8
 will add `50` to each element.
@@ -185,7 +183,9 @@ will add `50` to each element.
 
 </Listing>
 
-To change the value that the mutable reference refers to, we again use the `*` dereference operator to get to the value in `n_ref` before we can use the `+=` operator. 
+To read the number that `i` refers to, we have to use the `*` dereference operator to get to the value in `i`. And before we can update `i`, we need to make `v` mutable. Another example was previously shown for `x` in ["Dereferencing a Pointer Accesses Its Data"][deref].
+
+To change the value that the mutable reference refers to, we again use the `*` dereference operator to get to the value in `i` before we can use the `+=` operator. 
 <!-- END INTERVENTION -->
 
 {{#quiz ../quizzes/ch08-01-vec-sec1.toml}}
