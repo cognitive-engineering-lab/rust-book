@@ -215,8 +215,8 @@ A naive implementation might look like this, annotated with the permissions infe
 
 ```aquascope,permissions,stepper,boundaries,shouldFail
 fn dup_in_place(v: &mut Vec<i32>) {
-    for n_ref in v.iter() {`(focus,paths:*v)`
-        v.push(*n_ref);`{}`
+    for i in v.iter() {`(focus,paths:*v)`
+        v.push(*i);`{}`
     }
 }
 ```
@@ -227,12 +227,12 @@ Notice that `v.iter()` removes the @Perm{write} permission from `*v`. Therefore 
 error[E0502]: cannot borrow `*v` as mutable because it is also borrowed as immutable
  --> test.rs:3:9
   |
-2 |     for n_ref in v.iter() {
+2 |     for i in v.iter() {
   |                  --------
   |                  |
   |                  immutable borrow occurs here
   |                  immutable borrow later used here
-3 |         v.push(*n_ref);
+3 |         v.push(*i);
   |         ^^^^^^^^^^^^^^ mutable borrow occurs here
 ```
 
@@ -241,8 +241,8 @@ As we discussed in Chapter 4, the safety issue beneath this error is reading dea
 <!-- TODO: add loop support and make this diagram look reasonable -->
 <!-- ```aquascope,interpreter,shouldFail,horizontal
 fn dup_in_place(v: &mut Vec<i32>) {`[]`
-    for n_ref in v.iter() {
-        v.push(*n_ref);
+    for i in v.iter() {
+        v.push(*i);
     }`[]`
 }
 fn main() {
