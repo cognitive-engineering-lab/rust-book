@@ -176,7 +176,7 @@ struct TestResult {
 }
 impl TestResult {  
     pub fn get_curve(&self) -> &Option<usize> { 
-        &self.curve 
+        &self.curve
     }
 
     /// If there is a curve, then increments all 
@@ -223,7 +223,7 @@ struct TestResult {
 }
 impl TestResult {  
     pub fn get_curve(&self) -> &Option<usize> { 
-        &self.curve 
+        &self.curve
     }
 
     /// If there is a curve, then increments all 
@@ -311,7 +311,7 @@ struct TestResult {
 }
 impl TestResult {  
     pub fn get_curve(&self) -> &Option<usize> { 
-        &self.curve 
+        &self.curve
     }
 
     /// If there is a curve, then increments all 
