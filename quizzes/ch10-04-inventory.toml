@@ -175,7 +175,7 @@ struct TestResult {
     curve: Option<usize>
 }
 impl TestResult {  
-    pub fn get_curve(&self) -> &Option<usize> { 
+    pub fn get_curve(&self) -> &Option<usize> {
         &self.curve
     }
 
@@ -222,7 +222,7 @@ struct TestResult {
     curve: Option<usize>
 }
 impl TestResult {  
-    pub fn get_curve(&self) -> &Option<usize> { 
+    pub fn get_curve(&self) -> &Option<usize> {
         &self.curve
     }
 
@@ -310,7 +310,7 @@ struct TestResult {
     curve: Option<usize>
 }
 impl TestResult {  
-    pub fn get_curve(&self) -> &Option<usize> { 
+    pub fn get_curve(&self) -> &Option<usize> {
         &self.curve
     }
 
