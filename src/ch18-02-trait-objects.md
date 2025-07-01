@@ -281,7 +281,7 @@ error[E0308]: mismatched types
 ```
 
 In Listing 18-09, the compiler understands that the `components` vector must have the type
-`Vec<Box<dyn Draw>>` because that's specified in the `Screen` struct definition. But in Listing 17-11,
+`Vec<Box<dyn Draw>>` because that's specified in the `Screen` struct definition. But in Listing 18-11,
 the compiler loses that information at the point where `components` is defined. To fix the issue, you
 have to give a hint to the type inference algorithm. That can either be via an explicit cast on
 any element of the vector, like this:
