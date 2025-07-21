@@ -24,9 +24,9 @@
         <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="ferris.css">
@@ -37,21 +37,33 @@
         <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index.css">
 
 
-        <!-- Provide site root to javascript -->
+        <!-- Provide site root and default themes to javascript -->
         <script>
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc.js"></script>
     </head>
     <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
     <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
@@ -65,7 +77,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            var theme;
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             const html = document.documentElement;
@@ -78,8 +91,8 @@
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var sidebar = null;
-            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -115,13 +128,14 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -374,7 +388,7 @@ changes are safe and allowed by the borrowing rules.</p>
 <h3 id="hashing-functions"><a class="header" href="#hashing-functions">Hashing Functions</a></h3>
 <p>By default, <code>HashMap</code> uses a hashing function called <em>SipHash</em> that can provide
 resistance to denial-of-service (DoS) attacks involving hash
-tables<sup class="footnote-reference"><a href="#siphash">1</a></sup><!-- ignore -->. This is not the fastest hashing algorithm
+tables<sup class="footnote-reference" id="fr-siphash-1"><a href="#footnote-siphash">1</a></sup><!-- ignore -->. This is not the fastest hashing algorithm
 available, but the trade-off for better security that comes with the drop in
 performance is worth it. If you profile your code and find that the default
 hash function is too slow for your purposes, you can switch to another function
@@ -384,9 +398,6 @@ by specifying a different hasher. A <em>hasher</em> is a type that implements th
 your own hasher from scratch; <a href="https://crates.io/">crates.io</a><!-- ignore -->
 has libraries shared by other Rust users that provide hashers implementing many
 common hashing algorithms.</p>
-<div class="footnote-definition" id="siphash"><sup class="footnote-definition-label">1</sup>
-<p><a href="https://en.wikipedia.org/wiki/SipHash">https://en.wikipedia.org/wiki/SipHash</a></p>
-</div>
 <div class="quiz-placeholder" data-quiz-name="&quot;ch08-03-hashmap&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;`h` cannot be mutated (`h.insert(\&quot;k2\&quot;, 1)`) while an immutable reference (`v1`) to it is live.\n&quot;,&quot;id&quot;:&quot;f76aba3c-2e95-428a-9366-93b03264a8b6&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:false,&quot;lineNumber&quot;:6},&quot;prompt&quot;:{&quot;program&quot;:&quot;use std::collections::HashMap;\nfn main() {\n  let mut h = HashMap::new();\n  h.insert(\&quot;k1\&quot;, 0);\n  let v1 = &amp;h[\&quot;k1\&quot;];\n  h.insert(\&quot;k2\&quot;, 1);\n  let v2 = &amp;h[\&quot;k2\&quot;];\n  println!(\&quot;{} {}\&quot;, v1, v2);\n}\n&quot;}},{&quot;context&quot;:&quot;This program stores a vector of indexes for each occurrence of a given letter into a hashmap. \nThen it sums all the indexes for the letter 'l', which occurs at indexes 2 and 3 in the string `\&quot;hello!\&quot;`.\n&quot;,&quot;id&quot;:&quot;6028c7f5-b373-475f-ba43-553773c7b3b7&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:true,&quot;stdout&quot;:&quot;5&quot;},&quot;prompt&quot;:{&quot;program&quot;:&quot;use std::collections::HashMap;\nfn main() {\n  let mut h: HashMap&lt;char, Vec&lt;usize&gt;&gt; = HashMap::new();\n  for (i, c) in \&quot;hello!\&quot;.chars().enumerate() {\n    h.entry(c).or_insert(Vec::new()).push(i);\n  }\n  let mut sum = 0;\n  for i in h.get(&amp;'l').unwrap() {\n    sum += *i;\n  }\n  println!(\&quot;{}\&quot;, sum);\n}\n&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
 <h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
 <p>Vectors, strings, and hash maps will provide a large amount of functionality
@@ -411,7 +422,11 @@ and hash maps have that will be helpful for these exercises!</p>
 <p>We’re getting into more complex programs in which operations can fail, so it’s
 a perfect time to discuss error handling. We’ll do that next!</p>
 <script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css">
-
+<hr>
+<ol class="footnote-definition"><li id="footnote-siphash">
+<p><a href="https://en.wikipedia.org/wiki/SipHash">https://en.wikipedia.org/wiki/SipHash</a> <a href="#fr-siphash-1">↩</a></p>
+</li>
+</ol>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
