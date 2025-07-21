@@ -1,0 +1,486 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>All the Places Patterns Can Be Used - The Rust Programming Language</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="ferris.css">
+        <link rel="stylesheet" href="theme/semantic-notes.css">
+        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="theme/2018-edition.css">
+        <link rel="stylesheet" href="js-extensions/packages/consent-form/dist/index.css">
+        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Rust Programming Language</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/cognitive-engineering-lab/rust-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="all-the-places-patterns-can-be-used"><a class="header" href="#all-the-places-patterns-can-be-used">All the Places Patterns Can Be Used</a></h2>
+<p>Patterns pop up in a number of places in Rust, and you’ve been using them a lot
+without realizing it! This section discusses all the places where patterns are
+valid.</p>
+<h3 id="match-arms"><a class="header" href="#match-arms"><code>match</code> Arms</a></h3>
+<p>As discussed in Chapter 6, we use patterns in the arms of <code>match</code> expressions.
+Formally, <code>match</code> expressions are defined as the keyword <code>match</code>, a value to
+match on, and one or more match arms that consist of a pattern and an
+expression to run if the value matches that arm’s pattern, like this:</p>
+<!--
+  Manually formatted rather than using Markdown intentionally: Markdown does not
+  support italicizing code in the body of a block like this!
+-->
+<pre><code>match <em>VALUE</em> {
+    <em>PATTERN</em> => <em>EXPRESSION</em>,
+    <em>PATTERN</em> => <em>EXPRESSION</em>,
+    <em>PATTERN</em> => <em>EXPRESSION</em>,
+}</code></pre>
+<p>For example, here’s the <code>match</code> expression from Listing 6-5 that matches on an
+<code>Option&lt;i32&gt;</code> value in the variable <code>x</code>:</p>
+<pre><code class="language-rust ignore">match x {
+    None =&gt; None,
+    Some(i) =&gt; Some(i + 1),
+}</code></pre>
+<p>The patterns in this <code>match</code> expression are the <code>None</code> and <code>Some(i)</code> to the
+left of each arrow.</p>
+<p>One requirement for <code>match</code> expressions is that they need to be <em>exhaustive</em> in
+the sense that all possibilities for the value in the <code>match</code> expression must
+be accounted for. One way to ensure you’ve covered every possibility is to have
+a catchall pattern for the last arm: for example, a variable name matching any
+value can never fail and thus covers every remaining case.</p>
+<p>The particular pattern <code>_</code> will match anything, but it never binds to a
+variable, so it’s often used in the last match arm. The <code>_</code> pattern can be
+useful when you want to ignore any value not specified, for example. We’ll cover
+the <code>_</code> pattern in more detail in <a href="ch19-03-pattern-syntax.html#ignoring-values-in-a-pattern">“Ignoring Values in a
+Pattern”</a><!-- ignore --> later in this chapter.</p>
+<h3 id="conditional-if-let-expressions"><a class="header" href="#conditional-if-let-expressions">Conditional <code>if let</code> Expressions</a></h3>
+<p>In Chapter 6, we discussed how to use <code>if let</code> expressions mainly as a shorter
+way to write the equivalent of a <code>match</code> that only matches one case.
+Optionally, <code>if let</code> can have a corresponding <code>else</code> containing code to run if
+the pattern in the <code>if let</code> doesn’t match.</p>
+<p>Listing 19-1 shows that it’s also possible to mix and match <code>if let</code>, <code>else if</code>, and <code>else if let</code> expressions. Doing so gives us more flexibility than a
+<code>match</code> expression in which we can express only one value to compare with the
+patterns. Also, Rust doesn’t require that the conditions in a series of <code>if let</code>, <code>else if</code>, <code>else if let</code> arms relate to each other.</p>
+<p>The code in Listing 19-1 determines what color to make your background based on
+a series of checks for several conditions. For this example, we’ve created
+variables with hardcoded values that a real program might receive from user
+input.</p>
+<figure class="listing" id="listing-19-1">
+<span class="file-name">Filename: src/main.rs</span>
+<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
+    let favorite_color: Option&lt;&amp;str&gt; = None;
+    let is_tuesday = false;
+    let age: Result&lt;u8, _&gt; = "34".parse();
+
+    if let Some(color) = favorite_color {
+        println!("Using your favorite color, {color}, as the background");
+    } else if is_tuesday {
+        println!("Tuesday is green day!");
+    } else if let Ok(age) = age {
+        if age &gt; 30 {
+            println!("Using purple as the background color");
+        } else {
+            println!("Using orange as the background color");
+        }
+    } else {
+        println!("Using blue as the background color");
+    }
+}</code></pre></pre>
+<figcaption><a href="#listing-19-1">Listing 19-1</a>: Mixing <code>if let</code>, <code>else if</code>, <code>else if let</code>, and <code>else</code></figcaption>
+</figure>
+<p>If the user specifies a favorite color, that color is used as the background.
+If no favorite color is specified and today is Tuesday, the background color is
+green. Otherwise, if the user specifies their age as a string and we can parse
+it as a number successfully, the color is either purple or orange depending on
+the value of the number. If none of these conditions apply, the background
+color is blue.</p>
+<p>This conditional structure lets us support complex requirements. With the
+hardcoded values we have here, this example will print <code>Using purple as the background color</code>.</p>
+<p>You can see that <code>if let</code> can also introduce new variables that shadow existing
+variables in the same way that <code>match</code> arms can: the line <code>if let Ok(age) = age</code>
+introduces a new <code>age</code> variable that contains the value inside the <code>Ok</code> variant,
+shadowing the existing <code>age</code> variable. This means we need to place the <code>if age &gt; 30</code> condition within that block: we can’t combine these two conditions into <code>if let Ok(age) = age &amp;&amp; age &gt; 30</code>. The new <code>age</code> we want to compare to 30 isn’t
+valid until the new scope starts with the curly bracket.</p>
+<p>The downside of using <code>if let</code> expressions is that the compiler doesn’t check
+for exhaustiveness, whereas with <code>match</code> expressions it does. If we omitted the
+last <code>else</code> block and therefore missed handling some cases, the compiler would
+not alert us to the possible logic bug.</p>
+<h3 id="while-let-conditional-loops"><a class="header" href="#while-let-conditional-loops"><code>while let</code> Conditional Loops</a></h3>
+<p>Similar in construction to <code>if let</code>, the <code>while let</code> conditional loop allows a
+<code>while</code> loop to run for as long as a pattern continues to match. In Listing 19-2
+we show a <code>while let</code> loop that waits on messages sent between threads, but in
+this case checking a <code>Result</code> instead of an <code>Option</code>.</p>
+<figure class="listing" id="listing-19-2">
+<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+</span>    let (tx, rx) = std::sync::mpsc::channel();
+    std::thread::spawn(move || {
+        for val in [1, 2, 3] {
+            tx.send(val).unwrap();
+        }
+    });
+
+    while let Ok(value) = rx.recv() {
+        println!("{value}");
+    }
+<span class="boring">}</span></code></pre></pre>
+<figcaption><a href="#listing-19-2">Listing 19-2</a>: Using a <code>while let</code> loop to print values for as long as <code>rx.recv()</code> returns <code>Ok</code></figcaption>
+</figure>
+<p>This example prints <code>1</code>, <code>2</code>, and then <code>3</code>. The <code>recv</code> method takes the first
+message out of the receiver side of the channel and returns an <code>Ok(value)</code>. When
+we first saw <code>recv</code> back in Chapter 16, we unwrapped the error directly, or
+interacted with it as an iterator using a <code>for</code> loop. As Listing 19-2 shows,
+though, we can also use <code>while let</code>, because the <code>recv</code> method returns <code>Ok</code> each
+time a message arrives, as long as the sender exists, and then produces an <code>Err</code>
+once the sender side disconnects.</p>
+<h3 id="for-loops"><a class="header" href="#for-loops"><code>for</code> Loops</a></h3>
+<p>In a <code>for</code> loop, the value that directly follows the keyword <code>for</code> is a
+pattern. For example, in <code>for x in y</code>, the <code>x</code> is the pattern. Listing 19-3
+demonstrates how to use a pattern in a <code>for</code> loop to destructure, or break
+apart, a tuple as part of the <code>for</code> loop.</p>
+<figure class="listing" id="listing-19-3">
+<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+</span>    let v = vec!['a', 'b', 'c'];
+
+    for (index, value) in v.iter().enumerate() {
+        println!("{value} is at index {index}");
+    }
+<span class="boring">}</span></code></pre></pre>
+<figcaption><a href="#listing-19-3">Listing 19-3</a>: Using a pattern in a <code>for</code> loop to destructure a tuple</figcaption>
+</figure>
+<p>The code in Listing 19-3 will print the following:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling patterns v0.1.0 (file:///projects/patterns)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.52s
+     Running `target/debug/patterns`
+a is at index 0
+b is at index 1
+c is at index 2
+</code></pre>
+<p>We adapt an iterator using the <code>enumerate</code> method so it produces a value and
+the index for that value, placed into a tuple. The first value produced is the
+tuple <code>(0, 'a')</code>. When this value is matched to the pattern <code>(index, value)</code>,
+<code>index</code> will be <code>0</code> and <code>value</code> will be <code>'a'</code>, printing the first line of the
+output.</p>
+<h3 id="let-statements"><a class="header" href="#let-statements"><code>let</code> Statements</a></h3>
+<p>Prior to this chapter, we had only explicitly discussed using patterns with
+<code>match</code> and <code>if let</code>, but in fact, we’ve used patterns in other places as well,
+including in <code>let</code> statements. For example, consider this straightforward
+variable assignment with <code>let</code>:</p>
+<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = 5;
+<span class="boring">}</span></code></pre></pre>
+<p>Every time you’ve used a <code>let</code> statement like this you’ve been using patterns,
+although you might not have realized it! More formally, a <code>let</code> statement looks
+like this:</p>
+<!--
+  Manually formatted rather than using Markdown intentionally: Markdown does not
+  support italicizing code in the body of a block like this!
+-->
+<pre>
+<code>let <em>PATTERN</em> = <em>EXPRESSION</em>;</code>
+</pre>
+<p>In statements like <code>let x = 5;</code> with a variable name in the <em><code>PATTERN</code></em> slot,
+the variable name is just a particularly simple form of a pattern. Rust compares
+the expression against the pattern and assigns any names it finds. So, in the
+<code>let x = 5;</code> example, <code>x</code> is a pattern that means “bind what matches here to the
+variable <code>x</code>.” Because the name <code>x</code> is the whole pattern, this pattern
+effectively means “bind everything to the variable <code>x</code>, whatever the value is.”</p>
+<p>To see the pattern-matching aspect of <code>let</code> more clearly, consider Listing
+19-4, which uses a pattern with <code>let</code> to destructure a tuple.</p>
+<figure class="listing" id="listing-19-4">
+<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+</span>    let (x, y, z) = (1, 2, 3);
+<span class="boring">}</span></code></pre></pre>
+<figcaption><a href="#listing-19-4">Listing 19-4</a>: Using a pattern to destructure a tuple and create three variables at once</figcaption>
+</figure>
+<p>Here, we match a tuple against a pattern. Rust compares the value <code>(1, 2, 3)</code> to
+the pattern <code>(x, y, z)</code> and sees that the value matches the pattern, in that the
+number of elements is the same in both, so Rust binds <code>1</code> to <code>x</code>, <code>2</code> to <code>y</code>,
+and <code>3</code> to <code>z</code>. You can think of this tuple pattern as nesting three individual
+variable patterns inside it.</p>
+<p>If the number of elements in the pattern doesn’t match the number of elements
+in the tuple, the overall type won’t match and we’ll get a compiler error. For
+example, Listing 19-5 shows an attempt to destructure a tuple with three
+elements into two variables, which won’t work.</p>
+<figure class="listing" id="listing-19-5">
+<pre><code class="language-rust ignore does_not_compile"><span class="boring">fn main() {
+</span>    let (x, y) = (1, 2, 3);
+<span class="boring">}</span></code></pre>
+<figcaption><a href="#listing-19-5">Listing 19-5</a>: Incorrectly constructing a pattern whose variables don’t match the number of elements in the tuple</figcaption>
+</figure>
+<p>Attempting to compile this code results in this type error:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling patterns v0.1.0 (file:///projects/patterns)
+error[E0308]: mismatched types
+ --&gt; src/main.rs:2:9
+  |
+2 |     let (x, y) = (1, 2, 3);
+  |         ^^^^^^   --------- this expression has type `({integer}, {integer}, {integer})`
+  |         |
+  |         expected a tuple with 3 elements, found one with 2 elements
+  |
+  = note: expected tuple `({integer}, {integer}, {integer})`
+             found tuple `(_, _)`
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `patterns` (bin "patterns") due to 1 previous error
+</code></pre>
+<p>To fix the error, we could ignore one or more of the values in the tuple using
+<code>_</code> or <code>..</code>, as you’ll see in the <a href="ch19-03-pattern-syntax.html#ignoring-values-in-a-pattern">“Ignoring Values in a
+Pattern”</a><!-- ignore --> section. If the problem
+is that we have too many variables in the pattern, the solution is to make the
+types match by removing variables so the number of variables equals the number
+of elements in the tuple.</p>
+<h3 id="function-parameters"><a class="header" href="#function-parameters">Function Parameters</a></h3>
+<p>Function parameters can also be patterns. The code in Listing 19-6, which
+declares a function named <code>foo</code> that takes one parameter named <code>x</code> of type
+<code>i32</code>, should by now look familiar.</p>
+<figure class="listing" id="listing-19-6">
+<pre><pre class="playground"><code class="language-rust edition2024">fn foo(x: i32) {
+    // code goes here
+}
+<span class="boring">
+</span><span class="boring">fn main() {}</span></code></pre></pre>
+<figcaption><a href="#listing-19-6">Listing 19-6</a>: A function signature uses patterns in the parameters</figcaption>
+</figure>
+<p>The <code>x</code> part is a pattern! As we did with <code>let</code>, we could match a tuple in a
+function’s arguments to the pattern. Listing 19-7 splits the values in a tuple
+as we pass it to a function.</p>
+<figure class="listing" id="listing-19-7">
+<span class="file-name">Filename: src/main.rs</span>
+<pre><pre class="playground"><code class="language-rust edition2024">fn print_coordinates(&amp;(x, y): &amp;(i32, i32)) {
+    println!("Current location: ({x}, {y})");
+}
+
+fn main() {
+    let point = (3, 5);
+    print_coordinates(&amp;point);
+}</code></pre></pre>
+<figcaption><a href="#listing-19-7">Listing 19-7</a>: A function with parameters that destructure a tuple</figcaption>
+</figure>
+<p>This code prints <code>Current location: (3, 5)</code>. The values <code>&amp;(3, 5)</code> match the
+pattern <code>&amp;(x, y)</code>, so <code>x</code> is the value <code>3</code> and <code>y</code> is the value <code>5</code>.</p>
+<p>We can also use patterns in closure parameter lists in the same way as in
+function parameter lists because closures are similar to functions, as discussed
+in Chapter 13.</p>
+<p>At this point, you’ve seen several ways to use patterns, but patterns don’t work
+the same in every place we can use them. In some places, the patterns must be
+irrefutable; in other circumstances, they can be refutable. We’ll discuss these
+two concepts next.</p>
+<div class="quiz-placeholder" data-quiz-name="&quot;ch18-01-all-the-places-for-patterns&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot; \nThis example provides a valid use of `while let` matching and `let` matching. Note that you\ncould combine them, e.g.\n\n```\nwhile let Some((_, n)) = v.next() {\n    /* ... */\n}\n```\n&quot;,&quot;id&quot;:&quot;214d5183-5a88-4f5e-a54b-09909bd50bf7&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:true,&quot;stdout&quot;:&quot;6&quot;},&quot;prompt&quot;:{&quot;program&quot;:&quot;fn main() {\n    let mut v = vec![(1, 2), (3, 4)].into_iter();\n    let mut sum = 0;    \n    while let Some(t) = v.next() {\n        let (_, n) = t;\n        sum += n;\n    }\n    println!(\&quot;{sum}\&quot;);\n}\n&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
+<script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css">
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="ch19-00-patterns.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="ch19-02-refutability.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="ch19-00-patterns.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="ch19-02-refutability.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="ferris.js"></script>
+        <script src="js-extensions/packages/telemetry/dist/index.js"></script>
+        <script src="js-extensions/packages/consent-form/dist/index.js"></script>
+        <script src="js-extensions/packages/feedback/dist/index.js"></script>
+
+
+    </div>
+    </body>
+</html>
