@@ -488,15 +488,15 @@ didn’t mean to pass and so should pass a different type, or we should implemen
 For example, consider type inference for <code>Vec&lt;T&gt;</code>. When <code>T</code> is not a trait object,
 Rust just needs to know the type of a single element in the vector to infer <code>T</code>. So
 an empty vector causes a type inference error:</p>
-<pre><code class="language-rust ignore does_not_compile">#fn main() {
-let v = vec![];
+<pre><code class="language-rust ignore does_not_compile"><span class="boring">fn main() {
+</span>let v = vec![];
 // error[E0282]: type annotations needed for `Vec&lt;T&gt;`
-#}</code></pre>
+<span class="boring">}</span></code></pre>
 <p>But adding an element enables Rust to infer the type of the vector:</p>
-<pre><code class="language-rust ignore">#fn main() {
-let v = vec!["Hello world"];
+<pre><code class="language-rust ignore"><span class="boring">fn main() {
+</span>let v = vec!["Hello world"];
 // ok, v : Vec&lt;&amp;str&gt;
-#}</code></pre>
+<span class="boring">}</span></code></pre>
 <p>Type inference is trickier for trait objects. For example, say we tried to factor
 the <code>components</code> array in Listing 17-9 into a separate variable, like this:</p>
 <pre><code class="language-rust ignore does_not_compile">fn main() {
