@@ -233,16 +233,16 @@ And let's say we have a rectangle `r`. Then the method calls `r.area()` and `r.s
 # }
 # 
 # fn main() {
-    let mut r = Rectangle { 
-        width: 1,
-        height: 2
-    };
-    let area1 = r.area();
-    let area2 = Rectangle::area(&r);
-    assert_eq!(area1, area2);
+let mut r = Rectangle {
+    width: 1,
+    height: 2
+};
+let area1 = r.area();
+let area2 = Rectangle::area(&r);
+assert_eq!(area1, area2);
 
-    r.set_width(2);
-    Rectangle::set_width(&mut r, 2);
+r.set_width(2);
+Rectangle::set_width(&mut r, 2);
 # }
 ```
 
@@ -270,13 +270,13 @@ As we described in Chapter 4.2 ["Dereferencing a Pointer Accesses Its Data"](ch0
 #     }
 # }
 # fn main() {
-    let r = &mut Box::new(Rectangle { 
-        width: 1,
-        height: 2
-    });
-    let area1 = r.area();
-    let area2 = Rectangle::area(&**r);
-    assert_eq!(area1, area2);
+let r = &mut Box::new(Rectangle {
+    width: 1,
+    height: 2
+});
+let area1 = r.area();
+let area2 = Rectangle::area(&**r);
+assert_eq!(area1, area2);
 # }
 ```
 
