@@ -96,11 +96,7 @@ passed; 0 failed` totals the number of tests that passed or failed.
 It’s possible to mark a test as ignored so it doesn’t run in a particular
 instance; we’ll cover that in the [“Ignoring Some Tests Unless Specifically
 Requested”][ignoring]<!-- ignore --> section later in this chapter. Because we
-haven’t done that here, the summary shows `0 ignored`. We can also pass an
-argument to the `cargo test` command to run only tests whose name matches a
-string; this is called _filtering_ and we’ll cover that in the [“Running a
-Subset of Tests by Name”][subset]<!-- ignore --> section. Here we haven’t
-filtered the tests being run, so the end of the summary shows `0 filtered out`.
+haven’t done that here, the summary shows `0 ignored`.
 
 The `0 measured` statistic is for benchmark tests that measure performance.
 Benchmark tests are, as of this writing, only available in nightly Rust. See
