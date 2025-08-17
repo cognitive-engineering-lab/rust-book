@@ -183,7 +183,7 @@ will add `50` to each element.
 
 </Listing>
 
-To change the value that the mutable reference refers to, we again use the `*` dereference operator to get to the value in `i` before we can use the `+=` operator. 
+To change the value that the mutable reference refers to, we use the `*` dereference operator to get to the value in `i` before we can use the `+=` operator. 
 <!-- END INTERVENTION -->
 
 {{#quiz ../quizzes/ch08-01-vec-sec1.toml}}
