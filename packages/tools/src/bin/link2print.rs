@@ -372,7 +372,7 @@ Or leave it empty and use the [link text itself][].
 
 URLs and URLs in angle brackets will automatically get turned into links.
 http://www.example.com or <http://www.example.com> and sometimes
-example.com (but not on Github, for example).
+example.com (but not on GitHub, for example).
 
 Some text to show that the reference links can follow later.
 
@@ -395,7 +395,7 @@ Or leave it empty and use the link text itself at *http://www.reddit.com*.
 
 URLs and URLs in angle brackets will automatically get turned into links.
 http://www.example.com or <http://www.example.com> and sometimes
-example.com (but not on Github, for example).
+example.com (but not on GitHub, for example).
 
 Some text to show that the reference links can follow later.
 "###
