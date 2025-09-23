@@ -115,8 +115,6 @@ of functions.
 - Expressions evaluate to a resultant value.
 
 Let’s look at some examples.
-
-Let’s look at some examples.
 We’ve actually already used statements and expressions. Creating a variable and
 assigning a value to it with the `let` keyword is a statement. In Listing 3-1,
 `let y = 6;` is a statement.
