@@ -28,8 +28,11 @@ fn mystery<T>(x: T) -> T {
 }
 ```
 
-The function could of course panic or print, but the return value can only be the input. `mystery` does not know
-what type `T` is, so there is no way for `mystery` to generate or mutate a value of `T`.
+Since the function mystery<T>(x: T) -> T has no trait bounds and 'T' is an unknown type, the function doesnt
+know which operations 'T' supports and thus cannot generate or mutate a value of 'T' (+, ==, or .clone() to 
+change the value of x). Additionally since we also assume that it has no unsafe code thus it's forced to just 
+return the input x unchanged, making x = 3.
+
 See [Theorems for free!](https://dl.acm.org/doi/pdf/10.1145/99370.99404) for more examples of this idea.
 
 **3 really is the correct answer! If you disagree with the answer, please don't submit a bug report!**
