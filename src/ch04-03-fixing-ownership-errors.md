@@ -284,34 +284,34 @@ In sum, **if a value does not own heap data, then it can be copied without a mov
 So if we have a vector of non-`Copy` types like `String`, then how do we safely get access to an element of the vector? Here's a few different ways to safely do so. First, you can avoid taking ownership of the string and just use an immutable reference:
 
 ```rust,ignore
-#fn main() {
+# fn main() {
 let v: Vec<String> = vec![String::from("Hello world")];
 let s_ref: &String = &v[0];
 println!("{s_ref}!");
-#}
+# }
 ```
 
 Second, you can clone the data if you want to get ownership of the string while leaving the vector alone:
 
 ```rust,ignore
-#fn main() {
+# fn main() {
 let v: Vec<String> = vec![String::from("Hello world")];
 let mut s: String = v[0].clone();
 s.push('!');
 println!("{s}");
-#}
+# }
 ```
 
 Finally, you can use a method like [`Vec::remove`] to move the string out of the vector:
 
 ```rust,ignore
-#fn main() {
+# fn main() {
 let mut v: Vec<String> = vec![String::from("Hello world")];
 let mut s: String = v.remove(0);
 s.push('!');
 println!("{s}");
 assert!(v.len() == 0);
-#}
+# }
 ```
 
 
@@ -424,24 +424,24 @@ error[E0502]: cannot borrow `a[_]` as immutable because it is also borrowed as m
 Again, **this program is safe.** For cases like these, Rust often provides a function in the standard library that can work around the borrow checker. For example, we could use [`slice::split_at_mut`][split_at_mut]:
 
 ```rust,ignore
-#fn main() {
+# fn main() {
 let mut a = [0, 1, 2, 3];
 let (a_l, a_r) = a.split_at_mut(2);
 let x = &mut a_l[1];
 let y = &a_r[0];
 *x += *y;
-#}
+# }
 ```
 
 You might wonder, but how is `split_at_mut` implemented? In some Rust libraries, especially core types like `Vec` or `slice`, you will often find **`unsafe` blocks**. `unsafe` blocks allow the use of "raw" pointers, which are not checked for safety by the borrow checker. For example, we could use an unsafe block to accomplish our task:
 
 ```rust,ignore
-#fn main() {
+# fn main() {
 let mut a = [0, 1, 2, 3];
 let x = &mut a[1] as *mut i32;
 let y = &a[2] as *const i32;
 unsafe { *x += *y; } // DO NOT DO THIS unless you know what you're doing!
-#}
+# }
 ```
 
 Unsafe code is sometimes necessary to work around the limitations of the borrow checker. As a general strategy, let's say the borrow checker rejects a program you think is actually safe. Then you should look for standard library functions (like `split_at_mut`) that contain `unsafe` blocks which solve your problem. We will discuss unsafe code further in [Chapter 20][unsafe]. For now, just be aware that unsafe code is how Rust implements certain otherwise-impossible patterns.

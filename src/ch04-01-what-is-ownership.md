@@ -220,10 +220,10 @@ At L1, before calling `make_and_drop`, the state of memory is just the stack fra
 The box's heap memory has been successfully managed. But what if we abused this system? Returning to our earlier example, what happens when we bind two variables to a box?
 
 ```rust,ignore
-#fn main() {
+# fn main() {
 let a = Box::new([0; 1_000_000]);
 let b = a;
-#}
+# }
 ```
 
 The boxed array has now been bound to both `a` and `b`. By our "almost correct" principle, Rust would try to free the box's heap memory *twice* on behalf of both variables. That's undefined behavior too!

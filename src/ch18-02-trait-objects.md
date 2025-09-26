@@ -231,19 +231,19 @@ Rust just needs to know the type of a single element in the vector to infer `T`.
 an empty vector causes a type inference error:
 
 ```rust,ignore,does_not_compile
-#fn main() {
+# fn main() {
 let v = vec![];
 // error[E0282]: type annotations needed for `Vec<T>`
-#}
+# }
 ```
 
 But adding an element enables Rust to infer the type of the vector:
 
 ```rust,ignore
-#fn main() {
+# fn main() {
 let v = vec!["Hello world"];
 // ok, v : Vec<&str>
-#}
+# }
 ```
 
 Type inference is trickier for trait objects. For example, say we tried to factor 

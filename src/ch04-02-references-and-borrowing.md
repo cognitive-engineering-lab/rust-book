@@ -75,7 +75,7 @@ References are **non-owning pointers**, because they do not own the data they po
 The previous examples using boxes and strings have not shown how Rust "follows" a pointer to its data. For example, the `println!` macro has mysteriously worked for both owned strings of type `String`, and for string references of type `&String`. The underlying mechanism is the **dereference** operator, written with an asterisk (`*`). For example, here's a program that uses dereferences in a few different ways:
 
 ```aquascope,interpreter
-#fn main() {
+# fn main() {
 let mut x: Box<i32> = Box::new(1);
 let a: i32 = *x;         // *x reads the heap value, so a = 1
 *x += 1;                 // *x on the left-side modifies the heap value,
@@ -86,7 +86,7 @@ let b: i32 = **r1;       // two dereferences get us to the heap value
 
 let r2: &i32 = &*x;      // r2 points to the heap value directly
 let c: i32 = *r2;`[]`    // so only one dereference is needed to read it
-#}
+# }
 ```
 
 Observe the difference between `r1` pointing to `x` on the stack, and `r2` pointing to the heap value `2`.
@@ -94,7 +94,7 @@ Observe the difference between `r1` pointing to `x` on the stack, and `r2` point
 You probably won't see the dereference operator very often when you read Rust code. Rust implicitly inserts dereferences and references in certain cases, such as calling a method with the dot operator. For example, this program shows two equivalent ways of calling the [`i32::abs`](https://doc.rust-lang.org/std/primitive.i32.html#method.abs) (absolute value) and [`str::len`](https://doc.rust-lang.org/std/primitive.str.html#method.len) (string length) functions:
 
 ```rust,ignore
-#fn main()  {
+# fn main()  {
 let x: Box<i32> = Box::new(-1);
 let x_abs1 = i32::abs(*x); // explicit dereference
 let x_abs2 = x.abs();      // implicit dereference
@@ -109,7 +109,7 @@ let s = String::from("Hello");
 let s_len1 = str::len(&s); // explicit reference
 let s_len2 = s.len();      // implicit reference
 assert_eq!(s_len1, s_len2);
-#}
+# }
 ```
 
 This example shows implicit conversions in three ways:

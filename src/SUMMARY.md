@@ -125,6 +125,7 @@
 ## Advanced Topics
 
 - [Patterns and Matching](ch19-00-patterns.md)
+  - [All the Places Patterns Can Be Used](ch19-01-all-the-places-for-patterns.md)
   - [Refutability: Whether a Pattern Might Fail to Match](ch19-02-refutability.md)
   - [Pattern Syntax](ch19-03-pattern-syntax.md)
 
