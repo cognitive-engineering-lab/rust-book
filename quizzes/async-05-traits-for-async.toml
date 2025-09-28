@@ -57,7 +57,7 @@ async fn example(x: i32) -> i32 {
 ```
 """
 context = """
-The core problem addressed by pinning in self-reference, or a future which contains a pointer to itself. 
+The core problem addressed by pinning is self-reference, or a future which contains a pointer to itself. 
 This happens when an async block contains a local variable that refers to another local variable in the future.
 Here, that would be `y = &x`.
 """
