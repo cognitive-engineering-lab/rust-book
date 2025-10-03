@@ -93,7 +93,7 @@ fn main() {
 
 In this example, a reference `first` to `name[0]` is created before calling `stringify_name_with_title`. The function `name.push(..)` reallocates the contents of `name`, which invalidates `first`, causing the `println` to read deallocated memory.
 
-So how do we fix this API? One straightforward solution is to change the type of name from `&Vec<String>` to `&mut Vec<String>`:
+So how do we fix this API? One straightforward solution is to change the type of `name` from `&Vec<String>` to `&mut Vec<String>`:
 
 ```rust,ignore
 fn stringify_name_with_title(name: &mut Vec<String>) -> String {
