@@ -262,7 +262,7 @@ This program is more involved, so make sure you follow each step:
 
 ### Variables Cannot Be Used After Being Moved
 
-The string program helps illustrate a key safety principle for ownership. Imagine that `first` were used in `main` after calling `add_suffix`. We can simulate such a program and see the undefined behavior that results:
+The string program helps illustrate a key safety principle for ownership. Imagine that `first` was used in `main` after calling `add_suffix`. We can simulate such a program and see the undefined behavior that results:
 
 ```aquascope,interpreter,shouldFail
 fn main() {
