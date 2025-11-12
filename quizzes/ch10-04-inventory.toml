@@ -386,4 +386,3 @@ so it allows the function to compile. This is a common workaround for this type 
 Another option is to leverage the fact that `self.curve` is cheap to copy and use [`Option::copied`](https://doc.rust-lang.org/std/option/enum.Option.html#method.copied), 
 which would release the borrow on `self` as soon as `.copied()` is called.
 """
-
