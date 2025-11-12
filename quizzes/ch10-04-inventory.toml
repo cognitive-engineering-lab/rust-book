@@ -292,7 +292,9 @@ println!("{:?}", result.scores);
 context = """
 This program is actually safe as written. It is a limitation of the borrow checker to not understand that `get_curve`
 only borrows `curve`, and doesn't affect `scores`. However, in theory if `get_curve` were changed to return a reference
-to something with `self.scores`, then memory safety could potentially be violated.
+to something with `self.scores`, then memory safety could potentially be violated. Note that 
+the `let x = &result.scores[0];` program would not compile, as Rust's borrow checker would not 
+allow to borrow `result` as mmutable while immutable borrow of `result` exists.
 """
 
 [[questions]]
