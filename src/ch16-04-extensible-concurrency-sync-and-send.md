@@ -97,5 +97,5 @@ go forth and make your programs concurrent, fearlessly!
 {{#quiz ../quizzes/ch16-04-extensible-concurrency-send-and-sync.toml}}
 
 [sharing-a-mutext-between-multiple-threads]: ch16-03-shared-state.html#sharing-a-mutext-between-multiple-threads
-[nomicon]: ../nomicon/index.html
+[nomicon]: https://doc.rust-lang.org/nomicon/
 [mutex-guards-are-not-send]: https://github.com/rust-lang/rust/issues/23465#issuecomment-82730326
