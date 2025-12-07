@@ -298,7 +298,7 @@ The glob operator is often used when testing to bring everything under test into
 the `tests` module; we’ll talk about that in [“How to Write
 Tests”][writing-tests]<!-- ignore --> in Chapter 11. The glob operator is also
 sometimes used as part of the prelude pattern: see [the standard library
-documentation](../std/prelude/index.html#other-preludes)<!-- ignore --> for more
+documentation](https://doc.rust-lang.org/std/prelude/index.html#other-preludes)<!-- ignore --> for more
 information on that pattern.
 
 {{#quiz ../quizzes/ch07-04-use.toml}}
