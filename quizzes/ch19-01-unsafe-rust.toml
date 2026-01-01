@@ -28,7 +28,7 @@ fn main() {
     for i in 0 .. 3 { 
         v.push(i); 
     }
-    let n = &v[0] as *const i32;
+    let n = &raw const v[0];
     v.push(4);
     println!("{}", unsafe { *n });
 }
