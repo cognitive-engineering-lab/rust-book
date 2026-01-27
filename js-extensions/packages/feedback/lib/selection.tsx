@@ -45,6 +45,12 @@ let SelectionRenderer: React.FC<SelectionRendererProps> = ({ highlighter, stored
     let selection = document.getSelection();
     if (!selection) return;
 
+    // if no text is selected, clear the current range
+    if (selection.isCollapsed) {
+      setCurrRange(null);
+      return;
+    }
+
     let anchor = selection.anchorNode;
     if (!anchor) return;
 
@@ -57,7 +63,7 @@ let SelectionRenderer: React.FC<SelectionRendererProps> = ({ highlighter, stored
     if (!parentElement.closest(".content") || parentElement.closest(".aquascope, .mdbook-quiz"))
       return;
 
-    let range = !selection.isCollapsed && selection.rangeCount && selection.getRangeAt(0);
+    let range = selection.rangeCount && selection.getRangeAt(0);
 
     setCurrRange(range || null);
   }, []);
