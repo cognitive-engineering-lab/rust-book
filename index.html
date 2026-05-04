@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Experiment Introduction - The Rust Programming Language</title>
+        <title>What&#x27;s Different About This Book? - The Rust Programming Language</title>
 
 
         <!-- Custom HTML head -->
@@ -12,29 +12,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="js-extensions/packages/consent-form/dist/index.css">
-        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index-c9d186bd.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -42,9 +40,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-795051b7.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-3119a861.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -58,7 +57,7 @@
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -87,56 +86,59 @@
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
                         </button>
                     </div>
 
@@ -144,113 +146,91 @@
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
                         <a href="https://github.com/cognitive-engineering-lab/rust-book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
                         </a>
 
                     </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="experiment-introduction"><a class="header" href="#experiment-introduction">Experiment Introduction</a></h1>
-<p>Welcome to the Rust Book experiment, and thank you for your participation! This book is an experimental fork of <a href="http://doc.rust-lang.org/book/"><em>The Rust Programming Language</em></a> which introduces several mechanics to make learning Rust more interactive. We’ll briefly walk through each mechanic:</p>
-<h2 id="1-quizzes"><a class="header" href="#1-quizzes">1. Quizzes</a></h2>
-<p>The main mechanic is <strong>quizzes</strong>: each page has a few quizzes about the page’s content. We have two rules about quizzes for this experiment:</p>
-<ol>
-<li><strong>Take a quiz as soon as you get to it.</strong></li>
-<li><strong>Do not skip a quiz.</strong></li>
-</ol>
-<p>(We don’t enforce these rules, but please follow them!)</p>
-<p>Every quiz looks like the one below. Try it out by clicking “Start”.</p>
-<div class="quiz-placeholder" data-quiz-name="&quot;example-quiz&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;See *Principia Mathematica* for an explanation of this fact.\n&quot;,&quot;id&quot;:&quot;d172fc53-0220-4ff4-83c9-9c0a6834dd8e&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;2&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;0&quot;,&quot;-999&quot;,&quot;11&quot;],&quot;prompt&quot;:&quot;What is 1 + 1? (Try clicking a wrong answer.)&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
+                        <h1 id="whats-different-about-this-book"><a class="header" href="#whats-different-about-this-book">What’s Different About This Book?</a></h1>
+<div style="display: flex; gap: 2em"> 
+<p>This book is an experimental fork of <a href="http://doc.rust-lang.org/book/"><em>The Rust Programming Language</em></a> created by researchers at the <a href="https://cel.cs.brown.edu/">Cognitive Engineering Lab</a> at Brown University. If you’re curious, this page explains what makes this book different from the original TRPL book. But if you just want to get started learning Rust, then feel free to skip this page and come back later.</p>
+<div style="display: flex; flex-direction: column; justify-content: center">
+  <img src="img/experiment/brown-logo.png" style="min-width: 150px" />
+</div>
+
+</div>
+
+<h2 id="interactive-mechanics"><a class="header" href="#interactive-mechanics">Interactive Mechanics</a></h2>
+<p>This book introduces mechanics for you to actively engage with Rust while learning. First, you’ll see quizzes like the one below. Try it out by clicking “Start”.</p>
+<div class="quiz-placeholder" data-quiz-name="&quot;example-quiz&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;See *Principia Mathematica* for an explanation of this fact.&#92;n&quot;,&quot;id&quot;:&quot;d172fc53-0220-4ff4-83c9-9c0a6834dd8e&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;2&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;0&quot;,&quot;-999&quot;,&quot;11&quot;],&quot;prompt&quot;:&quot;What is 1 + 1? (Try clicking a wrong answer.)&quot;}}]}" data-quiz-fullscreen="true"></div>
+
 <p>If you get a question incorrect, you can choose to either retry the quiz, or see the correct answers. We encourage you to retry the quiz until you get 100% — feel free to review the content before retrying the quiz. Note that once you see the correct answers, you cannot retry the quiz.</p>
-<p>If you spot an issue in a quiz or other part of the book, you can file an issue on our Github repository: <a href="https://github.com/cognitive-engineering-lab/rust-book">https://github.com/cognitive-engineering-lab/rust-book</a></p>
-<h2 id="2-highlighting"><a class="header" href="#2-highlighting">2. Highlighting</a></h2>
-<p>Another mechanic is <strong>highlighting</strong>: you can select any piece of text, and either highlight it or leave a comment about it. Once you select some text, click the ✏️ button, and leave an optional comment.</p>
+<p>Second, you can also annotate any piece of text to record your thoughts about it. Once you select some text, click the ✏️ button, and leave an optional comment.</p>
 <p>👉 Try highlighting this text! 👈</p>
-<p>You can use highlights to save information for yourself. You can also use highlights to give us feedback — for example, if you think a section of content is confusing, you can let us know.</p>
 <blockquote>
 <p><strong>Note:</strong> your highlights will disappear if we change the content that you’ve highlighted. Also, your highlights are stored as a cookie. If you block cookies or change browsers, then you won’t see your previous highlights.</p>
 </blockquote>
-<h2 id="3-and-more"><a class="header" href="#3-and-more">3. …and more!</a></h2>
-<p>The book’s content may change as you go through the experiment. We will update this page as we add new features. Here’s the changelog:</p>
-<ul>
-<li>September 26, 2024
-<ul>
-<li>Chris Krycho’s chapter on async Rust has been added, along with new quiz questions.</li>
-</ul>
-</li>
-<li>February 16, 2023
-<ul>
-<li>A new chapter on ownership has replaced the previous Chapter 4.</li>
-</ul>
-</li>
-<li>January 18, 2023
-<ul>
-<li>Questions have been added for the remaining chapters of the book.</li>
-</ul>
-</li>
-<li>December 15, 2022
-<ul>
-<li>New sections called “Ownership Inventory” have been added throughout the book
-with challenging ownership-related questions.</li>
-</ul>
-</li>
-<li>November 7, 2022
-<ul>
-<li>Only questions with incorrect answers will be shown on a retry.</li>
-<li>Most multiple-choice questions will have their choices randomized.</li>
-<li>Some questions will now prompt for your reasoning.</li>
-<li>Many questions have been updated based on your feedback. Keep it coming!</li>
-</ul>
-</li>
-</ul>
-<p><em>Interested in participating in other experiments about making Rust easier to learn? Please sign up here:</em> <a href="https://forms.gle/U3jEUkb2fGXykp1DA">https://forms.gle/U3jEUkb2fGXykp1DA</a></p>
-<h2 id="4-publications"><a class="header" href="#4-publications">4. Publications</a></h2>
+<h2 id="content-changes"><a class="header" href="#content-changes">Content Changes</a></h2>
+<p>This book’s content is mostly similar to TRPL, and we synchronize the books every few months. The biggest difference is the chapter on <a href="ch04-00-understanding-ownership.html">Understanding Ownership</a>. This book explains ownership using ideas and visualizations that our research has demonstrated can better improve your understanding of Rust compared to the original book. You will see many diagrams like the ones below, which visualize the compile-time and run-time behavior of Rust using <a href="https://cognitive-engineering-lab.github.io/aquascope/">Aquascope</a>:</p>
+<div class="aquascope-embed" data-code="&quot;fn main() {&#92;nlet mut s = String::from(&#92;&quot;Hello world&#92;&quot;);&#92;nlet hello = &amp;s[0..5];&#92;ns.push_str(&#92;&quot;!&#92;&quot;);&#92;ndrop(s);&#92;n}&quot;" data-annotations="{&quot;hidden_lines&quot;:[1,6],&quot;interp&quot;:{&quot;state_locations&quot;:[52,74,91,100]},&quot;stepper&quot;:{&quot;focused_lines&quot;:[],&quot;focused_paths&quot;:{}},&quot;boundaries&quot;:{&quot;focused_lines&quot;:[]}}" data-operations="[&quot;interpreter&quot;]" data-responses="{&quot;interpreter&quot;:{&quot;Ok&quot;:{&quot;result&quot;:{&quot;type&quot;:&quot;Success&quot;},&quot;steps&quot;:[{&quot;heap&quot;:{&quot;locations&quot;:[{&quot;type&quot;:&quot;Array&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;All&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:72},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:101},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:111},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:32},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:119},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:111},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:114},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:100}]}}]},&quot;stack&quot;:{&quot;frames&quot;:[{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:5},&quot;filename&quot;:{&quot;private_use_as_methods_instead&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:0}},&quot;locals&quot;:[{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;s&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:{&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:{&quot;len&quot;:11}},&quot;fields&quot;:[[&quot;vec&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;buf&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;inner&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;ptr&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Pointer&quot;,&quot;value&quot;:{&quot;path&quot;:{&quot;parts&quot;:[{&quot;type&quot;:&quot;Index&quot;,&quot;value&quot;:0}],&quot;segment&quot;:{&quot;type&quot;:&quot;Heap&quot;,&quot;value&quot;:{&quot;index&quot;:0}}},&quot;range&quot;:null}}]],&quot;name&quot;:&quot;NonNull&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;Unique&quot;,&quot;variant&quot;:null}}],[&quot;cap&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;0&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;UsizeNoHighBit&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;RawVecInner&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;RawVec&quot;,&quot;variant&quot;:null}}],[&quot;len&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;Vec&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;String&quot;,&quot;variant&quot;:null}}}],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:40,&quot;line&quot;:1},&quot;filename&quot;:{&quot;private_use_as_methods_instead&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:1}},&quot;name&quot;:&quot;main&quot;}]}},{&quot;heap&quot;:{&quot;locations&quot;:[{&quot;type&quot;:&quot;Array&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;All&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:72},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:101},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:111},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:32},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:119},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:111},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:114},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:100}]}}]},&quot;stack&quot;:{&quot;frames&quot;:[{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:5},&quot;filename&quot;:{&quot;private_use_as_methods_instead&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:0}},&quot;locals&quot;:[{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;s&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:{&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:{&quot;len&quot;:11}},&quot;fields&quot;:[[&quot;vec&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;buf&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;inner&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;ptr&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Pointer&quot;,&quot;value&quot;:{&quot;path&quot;:{&quot;parts&quot;:[{&quot;type&quot;:&quot;Index&quot;,&quot;value&quot;:0}],&quot;segment&quot;:{&quot;type&quot;:&quot;Heap&quot;,&quot;value&quot;:{&quot;index&quot;:0}}},&quot;range&quot;:null}}]],&quot;name&quot;:&quot;NonNull&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;Unique&quot;,&quot;variant&quot;:null}}],[&quot;cap&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;0&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;UsizeNoHighBit&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;RawVecInner&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;RawVec&quot;,&quot;variant&quot;:null}}],[&quot;len&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:11}]],&quot;name&quot;:&quot;Vec&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;String&quot;,&quot;variant&quot;:null}}},{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;hello&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Pointer&quot;,&quot;value&quot;:{&quot;path&quot;:{&quot;parts&quot;:[{&quot;type&quot;:&quot;Subslice&quot;,&quot;value&quot;:[0,4]}],&quot;segment&quot;:{&quot;type&quot;:&quot;Heap&quot;,&quot;value&quot;:{&quot;index&quot;:0}}},&quot;range&quot;:5}}}],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:21,&quot;line&quot;:2},&quot;filename&quot;:{&quot;private_use_as_methods_instead&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:2}},&quot;name&quot;:&quot;main&quot;}]}},{&quot;heap&quot;:{&quot;locations&quot;:[{&quot;type&quot;:&quot;Array&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;All&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:72},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:101},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:111},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:32},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:119},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:111},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:114},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:108},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:100},{&quot;type&quot;:&quot;Char&quot;,&quot;value&quot;:33}]}}]},&quot;stack&quot;:{&quot;frames&quot;:[{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:5},&quot;filename&quot;:{&quot;private_use_as_methods_instead&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:0}},&quot;locals&quot;:[{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;s&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:{&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:{&quot;len&quot;:12}},&quot;fields&quot;:[[&quot;vec&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;buf&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;inner&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;ptr&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Pointer&quot;,&quot;value&quot;:{&quot;path&quot;:{&quot;parts&quot;:[{&quot;type&quot;:&quot;Index&quot;,&quot;value&quot;:0}],&quot;segment&quot;:{&quot;type&quot;:&quot;Heap&quot;,&quot;value&quot;:{&quot;index&quot;:0}}},&quot;range&quot;:null}}]],&quot;name&quot;:&quot;NonNull&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;Unique&quot;,&quot;variant&quot;:null}}],[&quot;cap&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;0&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:22}]],&quot;name&quot;:&quot;UsizeNoHighBit&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;RawVecInner&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;RawVec&quot;,&quot;variant&quot;:null}}],[&quot;len&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:12}]],&quot;name&quot;:&quot;Vec&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;String&quot;,&quot;variant&quot;:null}}},{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;hello&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Unallocated&quot;,&quot;value&quot;:{&quot;alloc_id&quot;:0}}}],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:16,&quot;line&quot;:3},&quot;filename&quot;:{&quot;private_use_as_methods_instead&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:3}},&quot;name&quot;:&quot;main&quot;}]}},{&quot;heap&quot;:{&quot;locations&quot;:[]},&quot;stack&quot;:{&quot;frames&quot;:[{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:5},&quot;filename&quot;:{&quot;private_use_as_methods_instead&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:0}},&quot;locals&quot;:[{&quot;moved_paths&quot;:[[]],&quot;name&quot;:&quot;s&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:{&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:{&quot;len&quot;:12}},&quot;fields&quot;:[[&quot;vec&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;buf&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;inner&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;ptr&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;pointer&quot;,{&quot;type&quot;:&quot;Unallocated&quot;,&quot;value&quot;:{&quot;alloc_id&quot;:0}}]],&quot;name&quot;:&quot;NonNull&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;Unique&quot;,&quot;variant&quot;:null}}],[&quot;cap&quot;,{&quot;type&quot;:&quot;Adt&quot;,&quot;value&quot;:{&quot;alloc_kind&quot;:null,&quot;fields&quot;:[[&quot;0&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:22}]],&quot;name&quot;:&quot;UsizeNoHighBit&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;RawVecInner&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;RawVec&quot;,&quot;variant&quot;:null}}],[&quot;len&quot;,{&quot;type&quot;:&quot;Uint&quot;,&quot;value&quot;:12}]],&quot;name&quot;:&quot;Vec&quot;,&quot;variant&quot;:null}}]],&quot;name&quot;:&quot;String&quot;,&quot;variant&quot;:null}}},{&quot;moved_paths&quot;:[],&quot;name&quot;:&quot;hello&quot;,&quot;value&quot;:{&quot;type&quot;:&quot;Unallocated&quot;,&quot;value&quot;:{&quot;alloc_id&quot;:1}}}],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:8,&quot;line&quot;:4},&quot;filename&quot;:{&quot;private_use_as_methods_instead&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:4}},&quot;name&quot;:&quot;main&quot;}]}},{&quot;heap&quot;:{&quot;locations&quot;:[]},&quot;stack&quot;:{&quot;frames&quot;:[{&quot;body_span&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:5},&quot;filename&quot;:{&quot;private_use_as_methods_instead&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:0}},&quot;locals&quot;:[],&quot;location&quot;:{&quot;end&quot;:{&quot;column&quot;:1,&quot;line&quot;:5},&quot;filename&quot;:{&quot;private_use_as_methods_instead&quot;:0},&quot;start&quot;:{&quot;column&quot;:0,&quot;line&quot;:5}},&quot;name&quot;:&quot;main&quot;}]}}]}}}" data-config="{&quot;horizontal&quot;:&quot;true&quot;}" data-no-interact="true"></div>
+
+<p>Beyond ownership, we’ve made a number of small edits to the book to target misconceptions observed in the quiz responses. If you spot an issue in a quiz or other part of the book, you can file an issue on our Github repository: <a href="https://github.com/cognitive-engineering-lab/rust-book">https://github.com/cognitive-engineering-lab/rust-book</a></p>
+<p><em>Interested in participating in other experiments about making Rust easier to learn and use? Please sign up here:</em> <a href="https://forms.gle/U3jEUkb2fGXykp1DA">https://forms.gle/U3jEUkb2fGXykp1DA</a></p>
+<h2 id="publications"><a class="header" href="#publications">Publications</a></h2>
 <p>Thus far, this experiment has led to two open-access publications. Check them out if you’re interested to see the academic research behind this book:</p>
 <ul>
 <li>
-<p><a href="https://dl.acm.org/doi/10.1145/3649812">Profiling Programming Language Learning</a> <br />
-Will Crichton and Shriram Krishnamurthi. OOPSLA 2024. (Distinguished Paper.)</p>
+<p><a href="https://dl.acm.org/doi/10.1145/3649812">“Profiling Programming Language Learning”</a> <br />
+<a href="https://willcrichton.net/">Will Crichton</a> and <a href="https://cs.brown.edu/people/sk/">Shriram Krishnamurthi</a>. OOPSLA 2024. (Distinguished Paper.)</p>
 </li>
 <li>
-<p><a href="https://dl.acm.org/doi/10.1145/3622841">A Grounded Conceptual Model for Ownership Types in Rust</a> <br />
-Will Crichton, Gavin Gray, and Shriram Krishnamurthi. OOPSLA 2023. (SIGPLAN Research Highlight and Communications of the ACM Research Highlight.)</p>
+<p><a href="https://dl.acm.org/doi/10.1145/3622841">“A Grounded Conceptual Model for Ownership Types in Rust”</a> <br />
+<a href="https://willcrichton.net/">Will Crichton</a>, <a href="https://gavinleroy.com/">Gavin Gray</a>, and <a href="https://cs.brown.edu/people/sk/">Shriram Krishnamurthi</a>. OOPSLA 2023. (SIGPLAN Research Highlight and Communications of the ACM Research Highlight.)</p>
 </li>
 </ul>
-<h2 id="5-acknowledgments"><a class="header" href="#5-acknowledgments">5. Acknowledgments</a></h2>
-<p>This work was partially supported by the DARPA under Agreement No.@ HR00112420354, partially supported by the NSF under Award No.@ CCF-2227863, and partially supported by Amazon Web Services. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the authors and do not reflect the views of our funders. Carol Nichols and the Rust Foundation helped publicize the experiment. TRPL is the product of many people’s hard work before we started this experiment.</p>
+<h2 id="acknowledgments"><a class="header" href="#acknowledgments">Acknowledgments</a></h2>
+<p>This work was partially supported by the DARPA under Agreement No. HR00112420354, partially supported by the NSF under Award No. CCF-2227863, and partially supported by Amazon Web Services. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the authors and do not reflect the views of our funders. We are grateful to Carol Nichols and the Rust Foundation for helping publicize the experiment. TRPL is the product of many people’s hard work before we started this experiment.</p>
+<script type="text/javascript" src="aquascope/embed.iife.js"></script><link rel="stylesheet" type="text/css" href="aquascope/style.css">
 <script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css">
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
 
                             <a rel="next prefetch" href="title-page.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -261,12 +241,17 @@ Will Crichton, Gavin Gray, and Shriram Krishnamurthi. OOPSLA 2023. (SIGPLAN Rese
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
 
                     <a rel="next prefetch" href="title-page.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
 
 
@@ -275,19 +260,18 @@ Will Crichton, Gavin Gray, and Shriram Krishnamurthi. OOPSLA 2023. (SIGPLAN Rese
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
-        <script src="js-extensions/packages/telemetry/dist/index.js"></script>
-        <script src="js-extensions/packages/consent-form/dist/index.js"></script>
-        <script src="js-extensions/packages/feedback/dist/index.js"></script>
+        <script src="ferris-2317480c.js"></script>
+        <script src="js-extensions/packages/feedback/dist/index-d9aca39a.js"></script>
+
 
 
     </div>

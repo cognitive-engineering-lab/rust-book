@@ -12,29 +12,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="js-extensions/packages/consent-form/dist/index.css">
-        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index-c9d186bd.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -42,9 +40,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-795051b7.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-3119a861.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -58,7 +57,7 @@
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -87,56 +86,59 @@
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
                         </button>
                     </div>
 
@@ -144,36 +146,41 @@
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
                         <a href="https://github.com/cognitive-engineering-lab/rust-book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
                         </a>
 
                     </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
                         <h2 id="validating-references-with-lifetimes"><a class="header" href="#validating-references-with-lifetimes">Validating References with Lifetimes</a></h2>
 <p>Lifetimes are another kind of generic that we’ve already been using. Rather
@@ -181,23 +188,25 @@ than ensuring that a type has the behavior we want, lifetimes ensure that
 references are valid as long as we need them to be.</p>
 <p>One detail we didn’t discuss in the <a href="ch04-02-references-and-borrowing.html#references-and-borrowing">“References and
 Borrowing”</a><!-- ignore --> section in Chapter 4 is
-that every reference in Rust has a <em>lifetime</em>, which is the scope for which
+that every reference in Rust has a lifetime, which is the scope for which
 that reference is valid. Most of the time, lifetimes are implicit and inferred,
 just like most of the time, types are inferred. We are only required to
-annotate types when multiple types are possible. In a similar way, we have to
+annotate types when multiple types are possible. In a similar way, we must
 annotate lifetimes when the lifetimes of references could be related in a few
 different ways. Rust requires us to annotate the relationships using generic
-lifetime parameters to ensure the actual references used at runtime will
+lifetime parameters to ensure that the actual references used at runtime will
 definitely be valid.</p>
-<p>Annotating lifetimes is not a concept most other programming languages have, so
-this is going to feel unfamiliar. Although we won’t cover lifetimes in their
-entirety in this chapter, we’ll discuss common ways you might encounter
-lifetime syntax so you can get comfortable with the concept.</p>
-<h3 id="preventing-dangling-references-with-lifetimes"><a class="header" href="#preventing-dangling-references-with-lifetimes">Preventing Dangling References with Lifetimes</a></h3>
-<p>The main aim of lifetimes is to prevent <em>dangling references</em>, which cause a
-program to reference data other than the data it’s intended to reference.
-Consider the unsafe program in Listing 10-16, which has an outer scope and an inner
-scope.</p>
+<p>Annotating lifetimes is not even a concept most other programming languages
+have, so this is going to feel unfamiliar. Although we won’t cover lifetimes in
+their entirety in this chapter, we’ll discuss common ways you might encounter
+lifetime syntax so that you can get comfortable with the concept.</p>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="preventing-dangling-references-with-lifetimes"></a></p>
+<h3 id="dangling-references"><a class="header" href="#dangling-references">Dangling References</a></h3>
+<p>The main aim of lifetimes is to prevent dangling references, which, if they
+were allowed to exist, would cause a program to reference data other than the
+data it’s intended to reference. Consider the program in Listing 10-16, which
+has an outer scope and an inner scope.</p>
 <!-- TODO(aquascope): support for nested scopes -->
 <figure class="listing" id="listing-10-16">
 <pre><code class="language-rust ignore does_not_compile">fn main() {
@@ -215,17 +224,17 @@ scope.</p>
 <section class="note" aria-role="note">
 <p>Note: The examples in Listings 10-16, 10-17, and 10-23 declare variables
 without giving them an initial value, so the variable name exists in the outer
-scope. At first glance, this might appear to be in conflict with Rust’s having
+scope. At first glance, this might appear to be in conflict with Rust having
 no null values. However, if we try to use a variable before giving it a value,
-we’ll get a compile-time error, which shows that Rust indeed does not allow
+we’ll get a compile-time error, which shows that indeed Rust does not allow
 null values.</p>
 </section>
 <p>The outer scope declares a variable named <code>r</code> with no initial value, and the
 inner scope declares a variable named <code>x</code> with the initial value of <code>5</code>. Inside
-the inner scope, we attempt to set the value of <code>r</code> as a reference to <code>x</code>. Then
-the inner scope ends, and we attempt to print the value in <code>r</code>. This code won’t
-compile because the value that <code>r</code> is referring to has gone out of scope before
-we try to use it. Here is the error message:</p>
+the inner scope, we attempt to set the value of <code>r</code> as a reference to <code>x</code>.
+Then, the inner scope ends, and we attempt to print the value in <code>r</code>. This code
+won’t compile, because the value that <code>r</code> is referring to has gone out of scope
+before we try to use it. Here is the error message:</p>
 <pre><code class="language-console">$ cargo run
    Compiling chapter10 v0.1.0 (file:///projects/chapter10)
 error[E0597]: `x` does not live long enough
@@ -239,7 +248,7 @@ error[E0597]: `x` does not live long enough
   |     - `x` dropped here while still borrowed
 8 |
 9 |     println!("r: {r}");
-  |                  --- borrow later used here
+  |                   - borrow later used here
 
 For more information about this error, try `rustc --explain E0597`.
 error: could not compile `chapter10` (bin "chapter10") due to 1 previous error
@@ -249,7 +258,7 @@ reason is that <code>x</code> will be out of scope when the inner scope ends on 
 But <code>r</code> is still valid for the outer scope; because its scope is larger, we say
 that it “lives longer.” If Rust allowed this code to work, <code>r</code> would be
 referencing memory that was deallocated when <code>x</code> went out of scope, and
-anything we tried to do with <code>r</code> wouldn’t work correctly. So how does Rust
+anything we tried to do with <code>r</code> wouldn’t work correctly. So, how does Rust
 determine that this code is invalid? It uses a borrow checker.</p>
 <h3 id="the-borrow-checker-ensures-data-outlives-its-references"><a class="header" href="#the-borrow-checker-ensures-data-outlives-its-references">The Borrow Checker Ensures Data Outlives Its References</a></h3>
 <p>The Rust compiler has a <em>borrow checker</em> that compares scopes to determine
@@ -273,26 +282,26 @@ with <code>'b</code>. As you can see, the inner <code>'b</code> block is much sm
 <code>'a</code> lifetime block. At compile time, Rust compares the size of the two
 lifetimes and sees that <code>r</code> has a lifetime of <code>'a</code> but that it refers to memory
 with a lifetime of <code>'b</code>. The program is rejected because <code>'b</code> is shorter than
-<code>'a</code>: the subject of the reference doesn’t live as long as the reference.</p>
-<p>Listing 10-18 fixes the code so it doesn’t have a dangling reference and it
-compiles without any errors.</p>
+<code>'a</code>: The subject of the reference doesn’t live as long as the reference.</p>
+<p>Listing 10-18 fixes the code so that it doesn’t have a dangling reference and
+it compiles without any errors.</p>
 <figure class="listing" id="listing-10-18">
-<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
+<pre class="playground"><code class="language-rust edition2024">fn main() {
     let x = 5;            // ----------+-- 'b
                           //           |
     let r = &amp;x;           // --+-- 'a  |
                           //   |       |
     println!("r: {r}");   //   |       |
                           // --+       |
-}                         // ----------+</code></pre></pre>
+}                         // ----------+</code></pre>
 <figcaption><a href="#listing-10-18">Listing 10-18</a>: A valid reference because the data has a longer lifetime than the reference</figcaption>
 </figure>
 <p>Here, <code>x</code> has the lifetime <code>'b</code>, which in this case is larger than <code>'a</code>. This
 means <code>r</code> can reference <code>x</code> because Rust knows that the reference in <code>r</code> will
 always be valid while <code>x</code> is valid.</p>
-<p>Now that you know what the lifetimes of references are and how Rust analyzes
-lifetimes to ensure references will always be valid, let’s explore generic
-lifetimes of parameters and return values in the context of functions.</p>
+<p>Now that you know where the lifetimes of references are and how Rust analyzes
+lifetimes to ensure that references will always be valid, let’s explore generic
+lifetimes in function parameters and return values.</p>
 <h3 id="generic-lifetimes-in-functions"><a class="header" href="#generic-lifetimes-in-functions">Generic Lifetimes in Functions</a></h3>
 <p>We’ll write a function that returns the longer of two string slices. This
 function will take two string slices and return a single string slice. After
@@ -363,7 +372,7 @@ Listings 10-17 and 10-18 to determine whether the reference we return will
 always be valid. The borrow checker can’t determine this either, because it
 doesn’t know how the lifetimes of <code>x</code> and <code>y</code> relate to the lifetime of the
 return value. To fix this error, we’ll add generic lifetime parameters that
-define the relationship between the references so the borrow checker can
+define the relationship between the references so that the borrow checker can
 perform its analysis.</p>
 <h3 id="lifetime-annotation-syntax"><a class="header" href="#lifetime-annotation-syntax">Lifetime Annotation Syntax</a></h3>
 <p>Lifetime annotations don’t change how long any of the references live. Rather,
@@ -371,33 +380,35 @@ they describe the relationships of the lifetimes of multiple references to each
 other without affecting the lifetimes. Just as functions can accept any type
 when the signature specifies a generic type parameter, functions can accept
 references with any lifetime by specifying a generic lifetime parameter.</p>
-<p>Lifetime annotations have a slightly unusual syntax: the names of lifetime
+<p>Lifetime annotations have a slightly unusual syntax: The names of lifetime
 parameters must start with an apostrophe (<code>'</code>) and are usually all lowercase
 and very short, like generic types. Most people use the name <code>'a</code> for the first
 lifetime annotation. We place lifetime parameter annotations after the <code>&amp;</code> of a
 reference, using a space to separate the annotation from the reference’s type.</p>
-<p>Here are some examples: a reference to an <code>i32</code> without a lifetime parameter, a
+<p>Here are some examples—a reference to an <code>i32</code> without a lifetime parameter, a
 reference to an <code>i32</code> that has a lifetime parameter named <code>'a</code>, and a mutable
-reference to an <code>i32</code> that also has the lifetime <code>'a</code>.</p>
+reference to an <code>i32</code> that also has the lifetime <code>'a</code>:</p>
 <pre><code class="language-rust ignore">&amp;i32        // a reference
 &amp;'a i32     // a reference with an explicit lifetime
 &amp;'a mut i32 // a mutable reference with an explicit lifetime</code></pre>
-<p>One lifetime annotation by itself doesn’t have much meaning because the
+<p>One lifetime annotation by itself doesn’t have much meaning, because the
 annotations are meant to tell Rust how generic lifetime parameters of multiple
 references relate to each other. Let’s examine how the lifetime annotations
 relate to each other in the context of the <code>longest</code> function.</p>
-<h3 id="lifetime-annotations-in-function-signatures"><a class="header" href="#lifetime-annotations-in-function-signatures">Lifetime Annotations in Function Signatures</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="lifetime-annotations-in-function-signatures"></a></p>
+<h3 id="in-function-signatures"><a class="header" href="#in-function-signatures">In Function Signatures</a></h3>
 <p>To use lifetime annotations in function signatures, we need to declare the
-generic <em>lifetime</em> parameters inside angle brackets between the function name
-and the parameter list, just as we did with generic <em>type</em> parameters.</p>
-<p>We want the signature to express the following constraint: the returned
-reference will be valid as long as both the parameters are valid. This is the
-relationship between lifetimes of the parameters and the return value. We’ll
-name the lifetime <code>'a</code> and then add it to each reference, as shown in Listing
-10-21.</p>
+generic lifetime parameters inside angle brackets between the function name and
+the parameter list, just as we did with generic type parameters.</p>
+<p>We want the signature to express the following constraint: The returned
+reference will be valid as long as both of the parameters are valid. This is
+the relationship between lifetimes of the parameters and the return value.
+We’ll name the lifetime <code>'a</code> and then add it to each reference, as shown in
+Listing 10-21.</p>
 <figure class="listing" id="listing-10-21">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span><span class="boring">    let string1 = String::from("abcd");
 </span><span class="boring">    let string2 = "xyz";
 </span><span class="boring">
@@ -407,7 +418,7 @@ name the lifetime <code>'a</code> and then add it to each reference, as shown in
 </span><span class="boring">
 </span>fn longest&lt;'a&gt;(x: &amp;'a str, y: &amp;'a str) -&gt; &amp;'a str {
     if x.len() &gt; y.len() { x } else { y }
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-10-21">Listing 10-21</a>: The <code>longest</code> function definition specifying that all the references in the signature must have the same lifetime <code>'a</code></figcaption>
 </figure>
 <p>This code should compile and produce the result we want when we use it with the
@@ -448,7 +459,7 @@ passing in references that have different concrete lifetimes. Listing 10-22 is
 a straightforward example.</p>
 <figure class="listing" id="listing-10-22">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
+<pre class="playground"><code class="language-rust edition2024">fn main() {
     let string1 = String::from("long string is long");
 
     {
@@ -460,7 +471,7 @@ a straightforward example.</p>
 <span class="boring">
 </span><span class="boring">fn longest&lt;'a&gt;(x: &amp;'a str, y: &amp;'a str) -&gt; &amp;'a str {
 </span><span class="boring">    if x.len() &gt; y.len() { x } else { y }
-</span><span class="boring">}</span></code></pre></pre>
+</span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-10-22">Listing 10-22</a>: Using the <code>longest</code> function with references to <code>String</code> values that have different concrete lifetimes</figcaption>
 </figure>
 <p>In this example, <code>string1</code> is valid until the end of the outer scope, <code>string2</code>
@@ -471,7 +482,7 @@ that the borrow checker approves; it will compile and print <code>The longest st
 <code>result</code> must be the smaller lifetime of the two arguments. We’ll move the
 declaration of the <code>result</code> variable outside the inner scope but leave the
 assignment of the value to the <code>result</code> variable inside the scope with
-<code>string2</code>. Then we’ll move the <code>println!</code> that uses <code>result</code> to outside the
+<code>string2</code>. Then, we’ll move the <code>println!</code> that uses <code>result</code> to outside the
 inner scope, after the inner scope has ended. The code in Listing 10-23 will
 not compile.</p>
 <figure class="listing" id="listing-10-23">
@@ -504,7 +515,7 @@ error[E0597]: `string2` does not live long enough
 7 |     }
   |     - `string2` dropped here while still borrowed
 8 |     println!("The longest string is {result}");
-  |                                     -------- borrow later used here
+  |                                      ------ borrow later used here
 
 For more information about this error, try `rustc --explain E0597`.
 error: could not compile `chapter10` (bin "chapter10") due to 1 previous error
@@ -524,9 +535,12 @@ disallows the code in Listing 10-23 as possibly having an invalid reference.</p>
 <p>Try designing more experiments that vary the values and lifetimes of the
 references passed in to the <code>longest</code> function and how the returned reference
 is used. Make hypotheses about whether or not your experiments will pass the
-borrow checker before you compile; then check to see if you’re right!</p>
-<div class="quiz-placeholder" data-quiz-name="&quot;ch10-03-lifetimes-sec1&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;Lifetimes help identify how long an object is \&quot;live\&quot;, and whether references to that object outlive the object itself. \n&quot;,&quot;id&quot;:&quot;8b7f93c3-efb0-44e2-a0ca-b45e35620b30&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Using a reference to an object after its memory has been freed&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;Using the result of a fallible computation before checking for the possibility of error&quot;,&quot;Indexing past the bounds of an array (buffer overflow)&quot;,&quot;Not allocating enough memory for an object&quot;],&quot;prompt&quot;:&quot;Which kind of programming error is a lifetime supposed to prevent?&quot;}},{&quot;context&quot;:&quot;If the type signature says that the function must return a reference with lifetime `'a`, then it would be invalid to return\na reference with a different lifetime '`b`, i.e. `y` here.\n&quot;,&quot;id&quot;:&quot;77cf924a-ece1-4119-a762-f5f03536b4e1&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:false,&quot;lineNumber&quot;:5},&quot;prompt&quot;:{&quot;program&quot;:&quot;fn shortest&lt;'a, 'b&gt;(x: &amp;'a str, y: &amp;'b str) -&gt; &amp;'a str {\n  if x.len() &lt; y.len() {\n    x\n  } else {\n    y\n  }\n}\n\nfn main() {\n  println!(\&quot;{}\&quot;, shortest(\&quot;hello\&quot;, \&quot;rust\&quot;));\n}\n&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
-<h3 id="thinking-in-terms-of-lifetimes"><a class="header" href="#thinking-in-terms-of-lifetimes">Thinking in Terms of Lifetimes</a></h3>
+borrow checker before you compile; then, check to see if you’re right!</p>
+<div class="quiz-placeholder" data-quiz-name="&quot;ch10-03-lifetimes-sec1&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;Lifetimes help identify how long an object is &#92;&quot;live&#92;&quot;, and whether references to that object outlive the object itself. &#92;n&quot;,&quot;id&quot;:&quot;8b7f93c3-efb0-44e2-a0ca-b45e35620b30&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Using a reference to an object after its memory has been freed&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;Using the result of a fallible computation before checking for the possibility of error&quot;,&quot;Indexing past the bounds of an array (buffer overflow)&quot;,&quot;Not allocating enough memory for an object&quot;],&quot;prompt&quot;:&quot;Which kind of programming error is a lifetime supposed to prevent?&quot;}},{&quot;context&quot;:&quot;If the type signature says that the function must return a reference with lifetime `&#39;a`, then it would be invalid to return&#92;na reference with a different lifetime &#39;`b`, i.e. `y` here.&#92;n&quot;,&quot;id&quot;:&quot;77cf924a-ece1-4119-a762-f5f03536b4e1&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:false,&quot;lineNumber&quot;:5},&quot;prompt&quot;:{&quot;program&quot;:&quot;fn shortest&lt;&#39;a, &#39;b&gt;(x: &amp;&#39;a str, y: &amp;&#39;b str) -&gt; &amp;&#39;a str {&#92;n  if x.len() &lt; y.len() {&#92;n    x&#92;n  } else {&#92;n    y&#92;n  }&#92;n}&#92;n&#92;nfn main() {&#92;n  println!(&#92;&quot;{}&#92;&quot;, shortest(&#92;&quot;hello&#92;&quot;, &#92;&quot;rust&#92;&quot;));&#92;n}&#92;n&quot;}}]}" data-quiz-fullscreen="true"></div>
+
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="thinking-in-terms-of-lifetimes"></a></p>
+<h3 id="relationships"><a class="header" href="#relationships">Relationships</a></h3>
 <p>The way in which you need to specify lifetime parameters depends on what your
 function is doing. For example, if we changed the implementation of the
 <code>longest</code> function to always return the first parameter rather than the longest
@@ -534,7 +548,7 @@ string slice, we wouldn’t need to specify a lifetime on the <code>y</code> par
 following code will compile:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span><span class="boring">    let string1 = String::from("abcd");
 </span><span class="boring">    let string2 = "efghijklmnopqrstuvwxyz";
 </span><span class="boring">
@@ -544,7 +558,7 @@ following code will compile:</p>
 </span><span class="boring">
 </span>fn longest&lt;'a&gt;(x: &amp;'a str, y: &amp;str) -&gt; &amp;'a str {
     x
-}</code></pre></pre>
+}</code></pre>
 </figure>
 <p>We’ve specified a lifetime parameter <code>'a</code> for the parameter <code>x</code> and the return
 type, but not for the parameter <code>y</code>, because the lifetime of <code>y</code> does not have
@@ -594,20 +608,22 @@ of the <code>longest</code> function. We’re also trying to return a reference 
 from the function. There is no way we can specify lifetime parameters that
 would change the dangling reference, and Rust won’t let us create a dangling
 reference. In this case, the best fix would be to return an owned data type
-rather than a reference so the calling function is then responsible for
+rather than a reference so that the calling function is then responsible for
 cleaning up the value.</p>
 <p>Ultimately, lifetime syntax is about connecting the lifetimes of various
 parameters and return values of functions. Once they’re connected, Rust has
 enough information to allow memory-safe operations and disallow operations that
 would create dangling pointers or otherwise violate memory safety.</p>
-<h3 id="lifetime-annotations-in-struct-definitions"><a class="header" href="#lifetime-annotations-in-struct-definitions">Lifetime Annotations in Struct Definitions</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="lifetime-annotations-in-struct-definitions"></a></p>
+<h3 id="in-struct-definitions"><a class="header" href="#in-struct-definitions">In Struct Definitions</a></h3>
 <p>So far, the structs we’ve defined all hold owned types. We can define structs
-to hold references, but in that case we would need to add a lifetime annotation
-on every reference in the struct’s definition. Listing 10-24 has a struct named
-<code>ImportantExcerpt</code> that holds a string slice.</p>
+to hold references, but in that case, we would need to add a lifetime
+annotation on every reference in the struct’s definition. Listing 10-24 has a
+struct named <code>ImportantExcerpt</code> that holds a string slice.</p>
 <figure class="listing" id="listing-10-24">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">struct ImportantExcerpt&lt;'a&gt; {
+<pre class="playground"><code class="language-rust edition2024">struct ImportantExcerpt&lt;'a&gt; {
     part: &amp;'a str,
 }
 
@@ -617,13 +633,13 @@ fn main() {
     let i = ImportantExcerpt {
         part: first_sentence,
     };
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-10-24">Listing 10-24</a>: A struct that holds a reference, requiring a lifetime annotation</figcaption>
 </figure>
 <p>This struct has the single field <code>part</code> that holds a string slice, which is a
 reference. As with generic data types, we declare the name of the generic
-lifetime parameter inside angle brackets after the name of the struct so we can
-use the lifetime parameter in the body of the struct definition. This
+lifetime parameter inside angle brackets after the name of the struct so that
+we can use the lifetime parameter in the body of the struct definition. This
 annotation means an instance of <code>ImportantExcerpt</code> can’t outlive the reference
 it holds in its <code>part</code> field.</p>
 <p>The <code>main</code> function here creates an instance of the <code>ImportantExcerpt</code> struct
@@ -639,7 +655,7 @@ had a function in Listing 4-9, shown again in Listing 10-25, that compiled
 without lifetime annotations.</p>
 <figure class="listing" id="listing-10-25">
 <span class="file-name">Filename: src/lib.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">fn first_word(s: &amp;str) -&gt; &amp;str {
+<pre class="playground"><code class="language-rust edition2024">fn first_word(s: &amp;str) -&gt; &amp;str {
     let bytes = s.as_bytes();
 
     for (i, &amp;item) in bytes.iter().enumerate() {
@@ -665,11 +681,11 @@ without lifetime annotations.</p>
 </span><span class="boring">    // Because string literals *are* string slices already,
 </span><span class="boring">    // this works too, without the slice syntax!
 </span><span class="boring">    let word = first_word(my_string_literal);
-</span><span class="boring">}</span></code></pre></pre>
+</span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-10-25">Listing 10-25</a>: A function we defined in Listing 4-9 that compiled without lifetime annotations, even though the parameter and return type are references</figcaption>
 </figure>
 <p>The reason this function compiles without lifetime annotations is historical:
-in early versions (pre-1.0) of Rust, this code wouldn’t have compiled because
+In early versions (pre-1.0) of Rust, this code wouldn’t have compiled, because
 every reference needed an explicit lifetime. At that time, the function
 signature would have been written like this:</p>
 <pre><code class="language-rust ignore">fn first_word&lt;'a&gt;(s: &amp;'a str) -&gt; &amp;'a str {</code></pre>
@@ -677,8 +693,8 @@ signature would have been written like this:</p>
 were entering the same lifetime annotations over and over in particular
 situations. These situations were predictable and followed a few deterministic
 patterns. The developers programmed these patterns into the compiler’s code so
-the borrow checker could infer the lifetimes in these situations and wouldn’t
-need explicit annotations.</p>
+that the borrow checker could infer the lifetimes in these situations and
+wouldn’t need explicit annotations.</p>
 <p>This piece of Rust history is relevant because it’s possible that more
 deterministic patterns will emerge and be added to the compiler. In the future,
 even fewer lifetime annotations might be required.</p>
@@ -689,8 +705,8 @@ fits these cases, you don’t need to write the lifetimes explicitly.</p>
 <p>The elision rules don’t provide full inference. If there is still ambiguity
 about what lifetimes the references have after Rust applies the rules, the
 compiler won’t guess what the lifetime of the remaining references should be.
-Instead of guessing, the compiler will give you an error that you can resolve by
-adding the lifetime annotations.</p>
+Instead of guessing, the compiler will give you an error that you can resolve
+by adding the lifetime annotations.</p>
 <p>Lifetimes on function or method parameters are called <em>input lifetimes</em>, and
 lifetimes on return values are called <em>output lifetimes</em>.</p>
 <p>The compiler uses three rules to figure out the lifetimes of the references
@@ -718,7 +734,7 @@ lifetimes of the references in the signature of the <code>first_word</code> func
 Listing 10-25. The signature starts without any lifetimes associated with the
 references:</p>
 <pre><code class="language-rust ignore">fn first_word(s: &amp;str) -&gt; &amp;str {</code></pre>
-<p>Then the compiler applies the first rule, which specifies that each parameter
+<p>Then, the compiler applies the first rule, which specifies that each parameter
 gets its own lifetime. We’ll call it <code>'a</code> as usual, so now the signature is
 this:</p>
 <pre><code class="language-rust ignore">fn first_word&lt;'a&gt;(s: &amp;'a str) -&gt; &amp;str {</code></pre>
@@ -732,24 +748,26 @@ the lifetimes in this function signature.</p>
 <p>Let’s look at another example, this time using the <code>longest</code> function that had
 no lifetime parameters when we started working with it in Listing 10-20:</p>
 <pre><code class="language-rust ignore">fn longest(x: &amp;str, y: &amp;str) -&gt; &amp;str {</code></pre>
-<p>Let’s apply the first rule: each parameter gets its own lifetime. This time we
+<p>Let’s apply the first rule: Each parameter gets its own lifetime. This time we
 have two parameters instead of one, so we have two lifetimes:</p>
 <pre><code class="language-rust ignore">fn longest&lt;'a, 'b&gt;(x: &amp;'a str, y: &amp;'b str) -&gt; &amp;str {</code></pre>
-<p>You can see that the second rule doesn’t apply because there is more than one
+<p>You can see that the second rule doesn’t apply, because there is more than one
 input lifetime. The third rule doesn’t apply either, because <code>longest</code> is a
 function rather than a method, so none of the parameters are <code>self</code>. After
 working through all three rules, we still haven’t figured out what the return
 type’s lifetime is. This is why we got an error trying to compile the code in
-Listing 10-20: the compiler worked through the lifetime elision rules but still
+Listing 10-20: The compiler worked through the lifetime elision rules but still
 couldn’t figure out all the lifetimes of the references in the signature.</p>
 <p>Because the third rule really only applies in method signatures, we’ll look at
 lifetimes in that context next to see why the third rule means we don’t have to
 annotate lifetimes in method signatures very often.</p>
-<h3 id="lifetime-annotations-in-method-definitions"><a class="header" href="#lifetime-annotations-in-method-definitions">Lifetime Annotations in Method Definitions</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="lifetime-annotations-in-method-definitions"></a></p>
+<h3 id="in-method-definitions"><a class="header" href="#in-method-definitions">In Method Definitions</a></h3>
 <p>When we implement methods on a struct with lifetimes, we use the same syntax as
-that of generic type parameters, as shown in Listing 10-11. Where we declare and
-use the lifetime parameters depends on whether they’re related to the struct
-fields or the method parameters and return values.</p>
+that of generic type parameters, as shown in Listing 10-11. Where we declare
+and use the lifetime parameters depends on whether they’re related to the
+struct fields or the method parameters and return values.</p>
 <p>Lifetime names for struct fields always need to be declared after the <code>impl</code>
 keyword and then used after the struct’s name because those lifetimes are part
 of the struct’s type.</p>
@@ -758,9 +776,9 @@ lifetime of references in the struct’s fields, or they might be independent. I
 addition, the lifetime elision rules often make it so that lifetime annotations
 aren’t necessary in method signatures. Let’s look at some examples using the
 struct named <code>ImportantExcerpt</code> that we defined in Listing 10-24.</p>
-<p>First we’ll use a method named <code>level</code> whose only parameter is a reference to
+<p>First, we’ll use a method named <code>level</code> whose only parameter is a reference to
 <code>self</code> and whose return value is an <code>i32</code>, which is not a reference to anything:</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">struct ImportantExcerpt&lt;'a&gt; {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">struct ImportantExcerpt&lt;'a&gt; {
 </span><span class="boring">    part: &amp;'a str,
 </span><span class="boring">}
 </span><span class="boring">
@@ -783,12 +801,12 @@ struct named <code>ImportantExcerpt</code> that we defined in Listing 10-24.</p>
 </span><span class="boring">    let i = ImportantExcerpt {
 </span><span class="boring">        part: first_sentence,
 </span><span class="boring">    };
-</span><span class="boring">}</span></code></pre></pre>
+</span><span class="boring">}</span></code></pre>
 <p>The lifetime parameter declaration after <code>impl</code> and its use after the type name
-are required, but we’re not required to annotate the lifetime of the reference
-to <code>self</code> because of the first elision rule.</p>
+are required, but because of the first elision rule, we’re not required to
+annotate the lifetime of the reference to <code>self</code>.</p>
 <p>Here is an example where the third lifetime elision rule applies:</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">struct ImportantExcerpt&lt;'a&gt; {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">struct ImportantExcerpt&lt;'a&gt; {
 </span><span class="boring">    part: &amp;'a str,
 </span><span class="boring">}
 </span><span class="boring">
@@ -811,7 +829,7 @@ to <code>self</code> because of the first elision rule.</p>
 </span><span class="boring">    let i = ImportantExcerpt {
 </span><span class="boring">        part: first_sentence,
 </span><span class="boring">    };
-</span><span class="boring">}</span></code></pre></pre>
+</span><span class="boring">}</span></code></pre>
 <p>There are two input lifetimes, so Rust applies the first lifetime elision rule
 and gives both <code>&amp;self</code> and <code>announcement</code> their own lifetimes. Then, because
 one of the parameters is <code>&amp;self</code>, the return type gets the lifetime of <code>&amp;self</code>,
@@ -820,23 +838,25 @@ and all lifetimes have been accounted for.</p>
 <p>One special lifetime we need to discuss is <code>'static</code>, which denotes that the
 affected reference <em>can</em> live for the entire duration of the program. All
 string literals have the <code>'static</code> lifetime, which we can annotate as follows:</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let s: &amp;'static str = "I have a static lifetime.";
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <p>The text of this string is stored directly in the program’s binary, which is
 always available. Therefore, the lifetime of all string literals is <code>'static</code>.</p>
 <p>You might see suggestions in error messages to use the <code>'static</code> lifetime. But
 before specifying <code>'static</code> as the lifetime for a reference, think about
-whether the reference you have actually lives the entire lifetime of your
-program or not, and whether you want it to. Most of the time, an error message
+whether or not the reference you have actually lives the entire lifetime of
+your program, and whether you want it to. Most of the time, an error message
 suggesting the <code>'static</code> lifetime results from attempting to create a dangling
 reference or a mismatch of the available lifetimes. In such cases, the solution
 is to fix those problems, not to specify the <code>'static</code> lifetime.</p>
-<h3 id="generic-type-parameters-trait-bounds-and-lifetimes-together"><a class="header" href="#generic-type-parameters-trait-bounds-and-lifetimes-together">Generic Type Parameters, Trait Bounds, and Lifetimes Together</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="generic-type-parameters-trait-bounds-and-lifetimes-together"></a></p>
+<h2 id="generic-type-parameters-trait-bounds-and-lifetimes"><a class="header" href="#generic-type-parameters-trait-bounds-and-lifetimes">Generic Type Parameters, Trait Bounds, and Lifetimes</a></h2>
 <p>Let’s briefly look at the syntax of specifying generic type parameters, trait
 bounds, and lifetimes all in one function!</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span><span class="boring">    let string1 = String::from("abcd");
 </span><span class="boring">    let string2 = "xyz";
 </span><span class="boring">
@@ -860,7 +880,7 @@ where
 {
     println!("Announcement! {ann}");
     if x.len() &gt; y.len() { x } else { y }
-}</code></pre></pre>
+}</code></pre>
 <p>This is the <code>longest</code> function from Listing 10-21 that returns the longer of
 two string slices. But now it has an extra parameter named <code>ann</code> of the generic
 type <code>T</code>, which can be filled in by any type that implements the <code>Display</code>
@@ -869,7 +889,8 @@ using <code>{}</code>, which is why the <code>Display</code> trait bound is nece
 lifetimes are a type of generic, the declarations of the lifetime parameter
 <code>'a</code> and the generic type parameter <code>T</code> go in the same list inside the angle
 brackets after the function name.</p>
-<div class="quiz-placeholder" data-quiz-name="&quot;ch10-03-lifetimes-sec2&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;`'static` means \&quot;live for the entire program\&quot;, and so data under a static reference must never be deallocated. While in practice `'static` references are\nusually not mutable, the meaning of the `'static` lifetime has no essential relationship to mutability.\n&quot;,&quot;id&quot;:&quot;a91417cd-cd6d-416b-b72d-4af6b3fb2fd6&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;The data under the reference is never deallocated&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;The data under the reference cannot be mutated&quot;,&quot;The data under the reference lives in the static region of memory&quot;,&quot;The data under the reference is not dynamic&quot;],&quot;prompt&quot;:&quot;If a reference has a lifetime `'static`, then this means:\n&quot;}},{&quot;context&quot;:&quot;The struct takes a single lifetime parameter, and the output has a single lifetime, so Rust assumes they are the same.\n&quot;,&quot;id&quot;:&quot;e521409a-6cbd-48f5-bee0-7fa7f17cc562&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;```\nfn baz&lt;'a&gt;(f: Foo&lt;'a&gt;) -&gt; &amp;'a i32\n```\n  &quot;},&quot;prompt&quot;:{&quot;answerIndex&quot;:4,&quot;distractors&quot;:[&quot;Rust will reject this function signature&quot;,&quot;```\nfn baz(f: Foo) -&gt; &amp;i32\n```\n  &quot;,&quot;```\nfn baz&lt;'a&gt;(f: Foo&lt;'a&gt;) -&gt; &amp;i32\n```\n  &quot;,&quot;```\nfn baz&lt;'a&gt;(f: Foo) -&gt; &amp;'a i32\n```\n  &quot;],&quot;prompt&quot;:&quot;Consider the following un-annotated function signature.\n\n```\nstruct Foo&lt;'a&gt; {\n  bar: &amp;'a i32\n}\n\nfn baz(f: Foo) -&gt; &amp;i32 { /* ... */ }\n```\n\nWill Rust accept this function signature? If so, what lifetimes will it infer?\n&quot;}},{&quot;context&quot;:&quot;Rust will not compile this program, because it is ambiguous whether the lifetime of the output is tied to\nthe lifetime of `&amp;Foo` or the reference `Foo.bar`.\n&quot;,&quot;id&quot;:&quot;d03748df-8dcf-4ec8-bd30-341927544665&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Rust will reject this function signature&quot;},&quot;prompt&quot;:{&quot;answerIndex&quot;:0,&quot;distractors&quot;:[&quot;```\nfn baz(f: &amp;Foo) -&gt; &amp;i32\n```\n  &quot;,&quot;```\nfn baz&lt;'a&gt;(f: &amp;Foo&lt;'a&gt;) -&gt; &amp;'a i32\n```\n  &quot;,&quot;```\nfn baz&lt;'a&gt;(f: &amp;'a Foo) -&gt; &amp;'a i32\n```\n  &quot;,&quot;```\nfn baz&lt;'a, 'b&gt;(f: &amp;'a Foo&lt;'b&gt;) -&gt; &amp;'a i32\n```\n  &quot;,&quot;```\nfn baz&lt;'a, 'b&gt;(f: &amp;'a Foo&lt;'b&gt;) -&gt; &amp;'b i32\n```\n  &quot;],&quot;prompt&quot;:&quot;Consider the following un-annotated function signature.\n\n```\nstruct Foo&lt;'a&gt; {\n  bar: &amp;'a i32\n}\n\n// Foo changed to &amp;Foo\nfn baz(f: &amp;Foo) -&gt; &amp;i32 { /* ... */ }\n```\n\nWill Rust accept this function signature? If so, what lifetimes will it infer?\n&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
+<div class="quiz-placeholder" data-quiz-name="&quot;ch10-03-lifetimes-sec2&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;`&#39;static` means &#92;&quot;live for the entire program&#92;&quot;, and so data under a static reference must never be deallocated. While in practice `&#39;static` references are&#92;nusually not mutable, the meaning of the `&#39;static` lifetime has no essential relationship to mutability.&#92;n&quot;,&quot;id&quot;:&quot;a91417cd-cd6d-416b-b72d-4af6b3fb2fd6&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;The data under the reference is never deallocated&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;The data under the reference cannot be mutated&quot;,&quot;The data under the reference lives in the static region of memory&quot;,&quot;The data under the reference is not dynamic&quot;],&quot;prompt&quot;:&quot;If a reference has a lifetime `&#39;static`, then this means:&#92;n&quot;}},{&quot;context&quot;:&quot;The struct takes a single lifetime parameter, and the output has a single lifetime, so Rust assumes they are the same.&#92;n&quot;,&quot;id&quot;:&quot;e521409a-6cbd-48f5-bee0-7fa7f17cc562&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;```&#92;nfn baz&lt;&#39;a&gt;(f: Foo&lt;&#39;a&gt;) -&gt; &amp;&#39;a i32&#92;n```&#92;n  &quot;},&quot;prompt&quot;:{&quot;answerIndex&quot;:4,&quot;distractors&quot;:[&quot;Rust will reject this function signature&quot;,&quot;```&#92;nfn baz(f: Foo) -&gt; &amp;i32&#92;n```&#92;n  &quot;,&quot;```&#92;nfn baz&lt;&#39;a&gt;(f: Foo&lt;&#39;a&gt;) -&gt; &amp;i32&#92;n```&#92;n  &quot;,&quot;```&#92;nfn baz&lt;&#39;a&gt;(f: Foo) -&gt; &amp;&#39;a i32&#92;n```&#92;n  &quot;],&quot;prompt&quot;:&quot;Consider the following un-annotated function signature.&#92;n&#92;n```&#92;nstruct Foo&lt;&#39;a&gt; {&#92;n  bar: &amp;&#39;a i32&#92;n}&#92;n&#92;nfn baz(f: Foo) -&gt; &amp;i32 { /* ... */ }&#92;n```&#92;n&#92;nWill Rust accept this function signature? If so, what lifetimes will it infer?&#92;n&quot;}},{&quot;context&quot;:&quot;Rust will not compile this program, because it is ambiguous whether the lifetime of the output is tied to&#92;nthe lifetime of `&amp;Foo` or the reference `Foo.bar`.&#92;n&quot;,&quot;id&quot;:&quot;d03748df-8dcf-4ec8-bd30-341927544665&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Rust will reject this function signature&quot;},&quot;prompt&quot;:{&quot;answerIndex&quot;:0,&quot;distractors&quot;:[&quot;```&#92;nfn baz(f: &amp;Foo) -&gt; &amp;i32&#92;n```&#92;n  &quot;,&quot;```&#92;nfn baz&lt;&#39;a&gt;(f: &amp;Foo&lt;&#39;a&gt;) -&gt; &amp;&#39;a i32&#92;n```&#92;n  &quot;,&quot;```&#92;nfn baz&lt;&#39;a&gt;(f: &amp;&#39;a Foo) -&gt; &amp;&#39;a i32&#92;n```&#92;n  &quot;,&quot;```&#92;nfn baz&lt;&#39;a, &#39;b&gt;(f: &amp;&#39;a Foo&lt;&#39;b&gt;) -&gt; &amp;&#39;a i32&#92;n```&#92;n  &quot;,&quot;```&#92;nfn baz&lt;&#39;a, &#39;b&gt;(f: &amp;&#39;a Foo&lt;&#39;b&gt;) -&gt; &amp;&#39;b i32&#92;n```&#92;n  &quot;],&quot;prompt&quot;:&quot;Consider the following un-annotated function signature.&#92;n&#92;n```&#92;nstruct Foo&lt;&#39;a&gt; {&#92;n  bar: &amp;&#39;a i32&#92;n}&#92;n&#92;n// Foo changed to &amp;Foo&#92;nfn baz(f: &amp;Foo) -&gt; &amp;i32 { /* ... */ }&#92;n```&#92;n&#92;nWill Rust accept this function signature? If so, what lifetimes will it infer?&#92;n&quot;}}]}" data-quiz-fullscreen="true"></div>
+
 <h3 id="summary"><a class="header" href="#summary">Summary</a></h3>
 <p>We covered a lot in this chapter! Now that you know about generic type
 parameters, traits and trait bounds, and generic lifetime parameters, you’re
@@ -883,8 +904,8 @@ analysis happens at compile time, which doesn’t affect runtime performance!</p
 this chapter: Chapter 18 discusses trait objects, which are another way to use
 traits. There are also more complex scenarios involving lifetime annotations
 that you will only need in very advanced scenarios; for those, you should read
-the <a href="../reference/index.html">Rust Reference</a>. But next, you’ll learn how to write tests in
-Rust so you can make sure your code is working the way it should.</p>
+the <a href="https://doc.rust-lang.org/reference/trait-bounds.html">Rust Reference</a>. But next, you’ll learn how to write tests in
+Rust so that you can make sure your code is working the way it should.</p>
 <script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css">
 
                     </main>
@@ -892,11 +913,11 @@ Rust so you can make sure your code is working the way it should.</p>
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch10-02-traits.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch10-04-inventory.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -906,16 +927,21 @@ Rust so you can make sure your code is working the way it should.</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch10-02-traits.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch10-04-inventory.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
 
 
@@ -924,19 +950,18 @@ Rust so you can make sure your code is working the way it should.</p>
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
-        <script src="js-extensions/packages/telemetry/dist/index.js"></script>
-        <script src="js-extensions/packages/consent-form/dist/index.js"></script>
-        <script src="js-extensions/packages/feedback/dist/index.js"></script>
+        <script src="ferris-2317480c.js"></script>
+        <script src="js-extensions/packages/feedback/dist/index-d9aca39a.js"></script>
+
 
 
     </div>

@@ -12,29 +12,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="js-extensions/packages/consent-form/dist/index.css">
-        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index-c9d186bd.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -42,9 +40,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-795051b7.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-3119a861.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -58,7 +57,7 @@
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -87,56 +86,59 @@
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
                         </button>
                     </div>
 
@@ -144,36 +146,41 @@
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
                         <a href="https://github.com/cognitive-engineering-lab/rust-book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
                         </a>
 
                     </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
                         <h2 id="paths-for-referring-to-an-item-in-the-module-tree"><a class="header" href="#paths-for-referring-to-an-item-in-the-module-tree">Paths for Referring to an Item in the Module Tree</a></h2>
 <p>To show Rust where to find an item in a module tree, we use a path in the same
@@ -190,9 +197,8 @@ an identifier in the current module.</li>
 <p>Both absolute and relative paths are followed by one or more identifiers
 separated by double colons (<code>::</code>).</p>
 <p>Returning to Listing 7-1, say we want to call the <code>add_to_waitlist</code> function.
-This is the same as asking: what’s the path of the <code>add_to_waitlist</code> function?
-Listing 7-3 contains Listing 7-1 with some of the modules and functions
-removed.</p>
+This is the same as asking: What’s the path of the <code>add_to_waitlist</code> function?
+Listing 7-3 contains Listing 7-1 with some of the modules and functions removed.</p>
 <p>We’ll show two ways to call the <code>add_to_waitlist</code> function from a new function,
 <code>eat_at_restaurant</code>, defined in the crate root. These paths are correct, but
 there’s another problem remaining that will prevent this example from compiling
@@ -222,7 +228,7 @@ we use an absolute path. The <code>add_to_waitlist</code> function is defined in
 crate as <code>eat_at_restaurant</code>, which means we can use the <code>crate</code> keyword to
 start an absolute path. We then include each of the successive modules until we
 make our way to <code>add_to_waitlist</code>. You can imagine a filesystem with the same
-structure: we’d specify the path <code>/front_of_house/hosting/add_to_waitlist</code> to
+structure: We’d specify the path <code>/front_of_house/hosting/add_to_waitlist</code> to
 run the <code>add_to_waitlist</code> program; using the <code>crate</code> name to start from the
 crate root is like using <code>/</code> to start from the filesystem root in your shell.</p>
 <p>The second time we call <code>add_to_waitlist</code> in <code>eat_at_restaurant</code>, we use a
@@ -273,7 +279,7 @@ error[E0603]: module `hosting` is private
 note: the module `hosting` is defined here
   --&gt; src/lib.rs:2:5
    |
-2  |     mod hosting {
+ 2 |     mod hosting {
    |     ^^^^^^^^^^^
 
 For more information about this error, try `rustc --explain E0603`.
@@ -292,13 +298,13 @@ items in child modules can use the items in their ancestor modules. This is
 because child modules wrap and hide their implementation details, but the child
 modules can see the context in which they’re defined. To continue with our
 metaphor, think of the privacy rules as being like the back office of a
-restaurant: what goes on in there is private to restaurant customers, but
+restaurant: What goes on in there is private to restaurant customers, but
 office managers can see and do everything in the restaurant they operate.</p>
 <p>Rust chose to have the module system function this way so that hiding inner
 implementation details is the default. That way, you know which parts of the
-inner code you can change without breaking outer code. However, Rust does give
-you the option to expose inner parts of child modules’ code to outer ancestor
-modules by using the <code>pub</code> keyword to make an item public.</p>
+inner code you can change without breaking the outer code. However, Rust does
+give you the option to expose inner parts of child modules’ code to outer
+ancestor modules by using the <code>pub</code> keyword to make an item public.</p>
 <h3 id="exposing-paths-with-the-pub-keyword"><a class="header" href="#exposing-paths-with-the-pub-keyword">Exposing Paths with the <code>pub</code> Keyword</a></h3>
 <p>Let’s return to the error in Listing 7-4 that told us the <code>hosting</code> module is
 private. We want the <code>eat_at_restaurant</code> function in the parent module to have
@@ -336,7 +342,7 @@ error[E0603]: function `add_to_waitlist` is private
 note: the function `add_to_waitlist` is defined here
   --&gt; src/lib.rs:3:9
    |
-3  |         fn add_to_waitlist() {}
+ 3 |         fn add_to_waitlist() {}
    |         ^^^^^^^^^^^^^^^^^^^^
 
 error[E0603]: function `add_to_waitlist` is private
@@ -348,7 +354,7 @@ error[E0603]: function `add_to_waitlist` is private
 note: the function `add_to_waitlist` is defined here
   --&gt; src/lib.rs:3:9
    |
-3  |         fn add_to_waitlist() {}
+ 3 |         fn add_to_waitlist() {}
    |         ^^^^^^^^^^^^^^^^^^^^
 
 For more information about this error, try `rustc --explain E0603`.
@@ -385,11 +391,11 @@ keyword before its definition, as in Listing 7-7.</p>
 </span><span class="boring">    // Relative path
 </span><span class="boring">    front_of_house::hosting::add_to_waitlist();
 </span><span class="boring">}</span></code></pre>
-<figcaption><a href="#listing-7-7">Listing 7-7</a>: Adding the <code>pub</code> keyword to <code>mod hosting</code> and <code>fn add_to_waitlist</code> lets us call the function from <code>eat_at_restaurant</code></figcaption>
+<figcaption><a href="#listing-7-7">Listing 7-7</a>: Adding the <code>pub</code> keyword to <code>mod hosting</code> and <code>fn add_to_waitlist</code> lets us call the function from <code>eat_at_restaurant</code>.</figcaption>
 </figure>
 <p>Now the code will compile! To see why adding the <code>pub</code> keyword lets us use
-these paths in <code>eat_at_restaurant</code> with respect to the privacy rules, let’s look
-at the absolute and the relative paths.</p>
+these paths in <code>eat_at_restaurant</code> with respect to the privacy rules, let’s
+look at the absolute and the relative paths.</p>
 <p>In the absolute path, we start with <code>crate</code>, the root of our crate’s module
 tree. The <code>front_of_house</code> module is defined in the crate root. While
 <code>front_of_house</code> isn’t public, because the <code>eat_at_restaurant</code> function is
@@ -397,21 +403,21 @@ defined in the same module as <code>front_of_house</code> (that is, <code>eat_at
 and <code>front_of_house</code> are siblings), we can refer to <code>front_of_house</code> from
 <code>eat_at_restaurant</code>. Next is the <code>hosting</code> module marked with <code>pub</code>. We can
 access the parent module of <code>hosting</code>, so we can access <code>hosting</code>. Finally, the
-<code>add_to_waitlist</code> function is marked with <code>pub</code> and we can access its parent
+<code>add_to_waitlist</code> function is marked with <code>pub</code>, and we can access its parent
 module, so this function call works!</p>
 <p>In the relative path, the logic is the same as the absolute path except for the
-first step: rather than starting from the crate root, the path starts from
+first step: Rather than starting from the crate root, the path starts from
 <code>front_of_house</code>. The <code>front_of_house</code> module is defined within the same module
 as <code>eat_at_restaurant</code>, so the relative path starting from the module in which
 <code>eat_at_restaurant</code> is defined works. Then, because <code>hosting</code> and
 <code>add_to_waitlist</code> are marked with <code>pub</code>, the rest of the path works, and this
 function call is valid!</p>
-<p>If you plan on sharing your library crate so other projects can use your code,
-your public API is your contract with users of your crate that determines how
-they can interact with your code. There are many considerations around managing
-changes to your public API to make it easier for people to depend on your
-crate. These considerations are beyond the scope of this book; if you’re
-interested in this topic, see <a href="https://rust-lang.github.io/api-guidelines/">The Rust API Guidelines</a>.</p>
+<p>If you plan to share your library crate so that other projects can use your
+code, your public API is your contract with users of your crate that determines
+how they can interact with your code. There are many considerations around
+managing changes to your public API to make it easier for people to depend on
+your crate. These considerations are beyond the scope of this book; if you’re
+interested in this topic, see <a href="https://rust-lang.github.io/api-guidelines/">the Rust API Guidelines</a>.</p>
 <section class="note" aria-role="note">
 <h4 id="best-practices-for-packages-with-a-binary-and-a-library"><a class="header" href="#best-practices-for-packages-with-a-binary-and-a-library">Best Practices for Packages with a Binary and a Library</a></h4>
 <p>We mentioned that a package can contain both a <em>src/main.rs</em> binary crate
@@ -424,14 +430,15 @@ package provides because the library crate’s code can be shared.</p>
 <p>The module tree should be defined in <em>src/lib.rs</em>. Then, any public items can
 be used in the binary crate by starting paths with the name of the package.
 The binary crate becomes a user of the library crate just like a completely
-external crate would use the library crate: it can only use the public API.
-This helps you design a good API; not only are you the author, you’re also a
-client!</p>
+external crate would use the library crate: It can only use the public API.
+This helps you design a good API; not only are you the author, but you’re
+also a client!</p>
 <p>In <a href="ch12-00-an-io-project.html">Chapter 12</a><!-- ignore -->, we’ll demonstrate this organizational
 practice with a command line program that will contain both a binary crate
 and a library crate.</p>
 </section>
-<div class="quiz-placeholder" data-quiz-name="&quot;ch07-03-paths-sec1&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;For example, an absolute path to item `b` in module `a` would be `crate::a::b`.\n&quot;,&quot;id&quot;:&quot;4e18f340-e336-43c5-9a95-79dec1f49945&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;crate&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the keyword you use at the start of an absolute path to an item in the current crate?&quot;}},{&quot;context&quot;:&quot;`b` is not accessible to `main` because the module `bar` is not marked as `pub`.\n&quot;,&quot;id&quot;:&quot;256d0ce2-da89-4b44-94da-177634fc633a&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:false,&quot;lineNumber&quot;:9},&quot;prompt&quot;:{&quot;program&quot;:&quot;pub mod foo {\n  fn a() { println!(\&quot;a\&quot;); }\n  mod bar {\n    pub fn b() { println!(\&quot;b\&quot;); }\n  }\n}\n\nfn main() {\n  foo::bar::b();\n}\n&quot;}},{&quot;context&quot;:&quot;It is valid within `foo` to use a relative path to refer to items within `bar`.\n&quot;,&quot;id&quot;:&quot;5e78e2e4-81dc-42b2-8527-f08b5117982f&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:true,&quot;stdout&quot;:&quot;b&quot;},&quot;prompt&quot;:{&quot;program&quot;:&quot;pub mod foo {\n  pub mod bar {\n    pub fn b() { println!(\&quot;b\&quot;);  }\n  }\n  pub fn a() { bar::b(); }\n}\n\nfn main() {\n  foo::a();\n}\n&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
+<div class="quiz-placeholder" data-quiz-name="&quot;ch07-03-paths-sec1&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;For example, an absolute path to item `b` in module `a` would be `crate::a::b`.&#92;n&quot;,&quot;id&quot;:&quot;4e18f340-e336-43c5-9a95-79dec1f49945&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;crate&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the keyword you use at the start of an absolute path to an item in the current crate?&quot;}},{&quot;context&quot;:&quot;`b` is not accessible to `main` because the module `bar` is not marked as `pub`.&#92;n&quot;,&quot;id&quot;:&quot;256d0ce2-da89-4b44-94da-177634fc633a&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:false,&quot;lineNumber&quot;:9},&quot;prompt&quot;:{&quot;program&quot;:&quot;pub mod foo {&#92;n  fn a() { println!(&#92;&quot;a&#92;&quot;); }&#92;n  mod bar {&#92;n    pub fn b() { println!(&#92;&quot;b&#92;&quot;); }&#92;n  }&#92;n}&#92;n&#92;nfn main() {&#92;n  foo::bar::b();&#92;n}&#92;n&quot;}},{&quot;context&quot;:&quot;It is valid within `foo` to use a relative path to refer to items within `bar`.&#92;n&quot;,&quot;id&quot;:&quot;5e78e2e4-81dc-42b2-8527-f08b5117982f&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:true,&quot;stdout&quot;:&quot;b&quot;},&quot;prompt&quot;:{&quot;program&quot;:&quot;pub mod foo {&#92;n  pub mod bar {&#92;n    pub fn b() { println!(&#92;&quot;b&#92;&quot;);  }&#92;n  }&#92;n  pub fn a() { bar::b(); }&#92;n}&#92;n&#92;nfn main() {&#92;n  foo::a();&#92;n}&#92;n&quot;}}]}" data-quiz-fullscreen="true"></div>
+
 <h3 id="starting-relative-paths-with-super"><a class="header" href="#starting-relative-paths-with-super">Starting Relative Paths with <code>super</code></a></h3>
 <p>We can construct relative paths that begin in the parent module, rather than
 the current module or the crate root, by using <code>super</code> at the start of the
@@ -465,8 +472,8 @@ is <code>crate</code>, the root. From there, we look for <code>deliver_order</co
 Success! We think the <code>back_of_house</code> module and the <code>deliver_order</code> function
 are likely to stay in the same relationship to each other and get moved
 together should we decide to reorganize the crate’s module tree. Therefore, we
-used <code>super</code> so we’ll have fewer places to update code in the future if this
-code gets moved to a different module.</p>
+used <code>super</code> so that we’ll have fewer places to update code in the future if
+this code gets moved to a different module.</p>
 <h3 id="making-structs-and-enums-public"><a class="header" href="#making-structs-and-enums-public">Making Structs and Enums Public</a></h3>
 <p>We can also use <code>pub</code> to designate structs and enums as public, but there are a
 few extra details to the usage of <code>pub</code> with structs and enums. If we use <code>pub</code>
@@ -518,7 +525,7 @@ line modifying the <code>seasonal_fruit</code> field value to see what error you
 struct needs to provide a public associated function that constructs an
 instance of <code>Breakfast</code> (we’ve named it <code>summer</code> here). If <code>Breakfast</code> didn’t
 have such a function, we couldn’t create an instance of <code>Breakfast</code> in
-<code>eat_at_restaurant</code> because we couldn’t set the value of the private
+<code>eat_at_restaurant</code>, because we couldn’t set the value of the private
 <code>seasonal_fruit</code> field in <code>eat_at_restaurant</code>.</p>
 <p>In contrast, if we make an enum public, all of its variants are then public. We
 only need the <code>pub</code> before the <code>enum</code> keyword, as shown in Listing 7-10.</p>
@@ -547,7 +554,8 @@ being private by default unless annotated with <code>pub</code>.</p>
 <p>There’s one more situation involving <code>pub</code> that we haven’t covered, and that is
 our last module system feature: the <code>use</code> keyword. We’ll cover <code>use</code> by itself
 first, and then we’ll show how to combine <code>pub</code> and <code>use</code>.</p>
-<div class="quiz-placeholder" data-quiz-name="&quot;ch07-03-paths-sec2&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;`entry` uses the path `super::b::c::f`. `entry` is within the module `a`, so `super` refers to the parent module of `a`, which is the root crate. \nThen the child `b` of the root is the outermost module `b`, whose child `c` contains a function `f` that prints `\&quot;c2\&quot;`.\n&quot;,&quot;id&quot;:&quot;8ef2f170-71d9-4f17-a688-b99d8c8072a8&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:true,&quot;stdout&quot;:&quot;c2&quot;},&quot;prompt&quot;:{&quot;program&quot;:&quot;pub mod a {\n  pub mod b {\n    pub fn f() { println!(\&quot;b1\&quot;); }\n    pub mod c {\n      pub fn f() { println!(\&quot;c1\&quot;); }\n    }\n  }\n  pub fn entry() { super::b::c::f(); }\n}\n\npub mod b {\n  pub fn f() { println!(\&quot;b2\&quot;); }\n  pub mod c {\n    pub fn f() { println!(\&quot;c2\&quot;); }\n  }\n}\n\nfn main() {\n  crate::a::entry();\n}\n&quot;}},{&quot;context&quot;:&quot;While the `Point` structure and the `origin` static method are both public, the field `i32` is not marked as pub. Therefore directly accessing `p.0` outside of\nthe `point` module is not allowed. This program would compile if line 3 were changed to `pub struct Point(pub i32, pub i32)`.\n&quot;,&quot;id&quot;:&quot;153b12b3-4fbc-449c-99a6-7a2cd469df0f&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:false,&quot;lineNumber&quot;:12},&quot;prompt&quot;:{&quot;program&quot;:&quot;pub mod point {\n  #[derive(Debug)]\n  pub struct Point(i32, i32);\n\n  impl Point {\n    pub fn origin() -&gt; Self { Point(0, 0) }\n  }\n}\n\nfn main() {\n  let mut p = point::Point::origin();\n  p.0 += 1;\n  println!(\&quot;{p:?}\&quot;);\n}\n&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
+<div class="quiz-placeholder" data-quiz-name="&quot;ch07-03-paths-sec2&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;`entry` uses the path `super::b::c::f`. `entry` is within the module `a`, so `super` refers to the parent module of `a`, which is the root crate. &#92;nThen the child `b` of the root is the outermost module `b`, whose child `c` contains a function `f` that prints `&#92;&quot;c2&#92;&quot;`.&#92;n&quot;,&quot;id&quot;:&quot;8ef2f170-71d9-4f17-a688-b99d8c8072a8&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:true,&quot;stdout&quot;:&quot;c2&quot;},&quot;prompt&quot;:{&quot;program&quot;:&quot;pub mod a {&#92;n  pub mod b {&#92;n    pub fn f() { println!(&#92;&quot;b1&#92;&quot;); }&#92;n    pub mod c {&#92;n      pub fn f() { println!(&#92;&quot;c1&#92;&quot;); }&#92;n    }&#92;n  }&#92;n  pub fn entry() { super::b::c::f(); }&#92;n}&#92;n&#92;npub mod b {&#92;n  pub fn f() { println!(&#92;&quot;b2&#92;&quot;); }&#92;n  pub mod c {&#92;n    pub fn f() { println!(&#92;&quot;c2&#92;&quot;); }&#92;n  }&#92;n}&#92;n&#92;nfn main() {&#92;n  crate::a::entry();&#92;n}&#92;n&quot;}},{&quot;context&quot;:&quot;While the `Point` structure and the `origin` static method are both public, the field `i32` is not marked as pub. Therefore directly accessing `p.0` outside of&#92;nthe `point` module is not allowed. This program would compile if line 3 were changed to `pub struct Point(pub i32, pub i32)`.&#92;n&quot;,&quot;id&quot;:&quot;153b12b3-4fbc-449c-99a6-7a2cd469df0f&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:false,&quot;lineNumber&quot;:12},&quot;prompt&quot;:{&quot;program&quot;:&quot;pub mod point {&#92;n  #[derive(Debug)]&#92;n  pub struct Point(i32, i32);&#92;n&#92;n  impl Point {&#92;n    pub fn origin() -&gt; Self { Point(0, 0) }&#92;n  }&#92;n}&#92;n&#92;nfn main() {&#92;n  let mut p = point::Point::origin();&#92;n  p.0 += 1;&#92;n  println!(&#92;&quot;{p:?}&#92;&quot;);&#92;n}&#92;n&quot;}}]}" data-quiz-fullscreen="true"></div>
+
 <script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css">
 
                     </main>
@@ -555,11 +563,11 @@ first, and then we’ll show how to combine <code>pub</code> and <code>use</code
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch07-02-defining-modules-to-control-scope-and-privacy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch07-04-bringing-paths-into-scope-with-the-use-keyword.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -569,16 +577,21 @@ first, and then we’ll show how to combine <code>pub</code> and <code>use</code
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch07-02-defining-modules-to-control-scope-and-privacy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch07-04-bringing-paths-into-scope-with-the-use-keyword.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
 
 
@@ -587,19 +600,18 @@ first, and then we’ll show how to combine <code>pub</code> and <code>use</code
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
-        <script src="js-extensions/packages/telemetry/dist/index.js"></script>
-        <script src="js-extensions/packages/consent-form/dist/index.js"></script>
-        <script src="js-extensions/packages/feedback/dist/index.js"></script>
+        <script src="ferris-2317480c.js"></script>
+        <script src="js-extensions/packages/feedback/dist/index-d9aca39a.js"></script>
+
 
 
     </div>

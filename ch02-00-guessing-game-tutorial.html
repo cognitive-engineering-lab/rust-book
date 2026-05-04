@@ -12,29 +12,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="js-extensions/packages/consent-form/dist/index.css">
-        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index-c9d186bd.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -42,9 +40,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-795051b7.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-3119a861.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -58,7 +57,7 @@
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -87,56 +86,59 @@
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
                         </button>
                     </div>
 
@@ -144,36 +146,41 @@
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
                         <a href="https://github.com/cognitive-engineering-lab/rust-book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
                         </a>
 
                     </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="programming-a-guessing-game"><a class="header" href="#programming-a-guessing-game">Programming a Guessing Game</a></h1>
 <p>Let’s jump into Rust by working through a hands-on project together! This
@@ -183,7 +190,7 @@ functions, external crates, and more! In the following chapters, we’ll explore
 these ideas in more detail. In this chapter, you’ll just practice the
 fundamentals.</p>
 <p>We’ll implement a classic beginner programming problem: a guessing game. Here’s
-how it works: the program will generate a random integer between 1 and 100. It
+how it works: The program will generate a random integer between 1 and 100. It
 will then prompt the player to enter a guess. After a guess is entered, the
 program will indicate whether the guess is too low or too high. If the guess is
 correct, the game will print a congratulatory message and exit.</p>
@@ -219,9 +226,9 @@ edition = "2024"
 <p>As you saw in Chapter 1, <code>cargo new</code> generates a “Hello, world!” program for
 you. Check out the <em>src/main.rs</em> file:</p>
 <p><span class="filename">Filename: src/main.rs</span></p>
-<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
+<pre class="playground"><code class="language-rust edition2024">fn main() {
     println!("Hello, world!");
-}</code></pre></pre>
+}</code></pre>
 <p>Now let’s compile this “Hello, world!” program and run it in the same step
 using the <code>cargo run</code> command:</p>
 <pre><code class="language-console">$ cargo run
@@ -342,9 +349,9 @@ from the user.</p>
 <p>Now the program is getting interesting! There’s a lot going on in this little
 line. We use the <code>let</code> statement to create the variable. Here’s another example:</p>
 <pre><code class="language-rust ignore">let apples = 5;</code></pre>
-<p>This line creates a new variable named <code>apples</code> and binds it to the value 5. In
-Rust, variables are immutable by default, meaning once we give the variable a
-value, the value won’t change. We’ll be discussing this concept in detail in
+<p>This line creates a new variable named <code>apples</code> and binds it to the value <code>5</code>.
+In Rust, variables are immutable by default, meaning once we give the variable
+a value, the value won’t change. We’ll be discussing this concept in detail in
 the <a href="ch03-01-variables-and-mutability.html#variables-and-mutability">“Variables and Mutability”</a><!-- ignore -->
 section in Chapter 3. To make a variable mutable, we add <code>mut</code> before the
 variable name:</p>
@@ -400,8 +407,8 @@ We’re also passing <code>&amp;mut guess</code> as the argument to <code>read_l
 string to store the user input in. The full job of <code>read_line</code> is to take
 whatever the user types into standard input and append that into a string
 (without overwriting its contents), so we therefore pass that string as an
-argument. The string argument needs to be mutable so the method can change the
-string’s content.</p>
+argument. The string argument needs to be mutable so that the method can change
+the string’s content.</p>
 <p>The <code>&amp;</code> indicates that this argument is a <em>reference</em>, which gives you a way to
 let multiple parts of your code access one piece of data without needing to
 copy that data into memory multiple times. References are a complex feature,
@@ -411,7 +418,7 @@ program. For now, all you need to know is that, like variables, references are
 immutable by default. Hence, you need to write <code>&amp;mut guess</code> rather than
 <code>&amp;guess</code> to make it mutable. (Chapter 4 will explain references more
 thoroughly.)</p>
-<!-- Old heading. Do not remove or links may break. -->
+<!-- Old headings. Do not remove or links may break. -->
 <p><a id="handling-potential-failure-with-the-result-type"></a></p>
 <h3 id="handling-potential-failure-with-result"><a class="header" href="#handling-potential-failure-with-result">Handling Potential Failure with <code>Result</code></a></h3>
 <p>We’re still working on this line of code. We’re now discussing a third line of
@@ -456,8 +463,8 @@ will cause the program to crash and display the message that you passed as an
 argument to <code>expect</code>. If the <code>read_line</code> method returns an <code>Err</code>, it would
 likely be the result of an error coming from the underlying operating system.
 If this instance of <code>Result</code> is an <code>Ok</code> value, <code>expect</code> will take the return
-value that <code>Ok</code> is holding and return just that value to you so you can use it.
-In this case, that value is the number of bytes in the user’s input.</p>
+value that <code>Ok</code> is holding and return just that value to you so that you can
+use it. In this case, that value is the number of bytes in the user’s input.</p>
 <p>If you don’t call <code>expect</code>, the program will compile, but you’ll get a warning:</p>
 <pre><code class="language-console">$ cargo build
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
@@ -502,20 +509,20 @@ the code so far:</p>
 </span>    println!("You guessed: {guess}");
 <span class="boring">}</span></code></pre>
 <p>This line prints the string that now contains the user’s input. The <code>{}</code> set of
-curly brackets is a placeholder: think of <code>{}</code> as little crab pincers that hold
+curly brackets is a placeholder: Think of <code>{}</code> as little crab pincers that hold
 a value in place. When printing the value of a variable, the variable name can
 go inside the curly brackets. When printing the result of evaluating an
 expression, place empty curly brackets in the format string, then follow the
 format string with a comma-separated list of expressions to print in each empty
 curly bracket placeholder in the same order. Printing a variable and the result
 of an expression in one call to <code>println!</code> would look like this:</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let x = 5;
 let y = 10;
 
 println!("x = {x} and y + 2 = {}", y + 2);
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <p>This code would print <code>x = 5 and y + 2 = 12</code>.</p>
 <h3 id="testing-the-first-part"><a class="header" href="#testing-the-first-part">Testing the First Part</a></h3>
 <p>Let’s test the first part of the guessing game. Run it using <code>cargo run</code>:</p>
@@ -533,20 +540,22 @@ Please input your guess.
 6
 You guessed: 6
 </code></pre>
-<p>At this point, the first part of the game is done: we’re getting input from the
+<p>At this point, the first part of the game is done: We’re getting input from the
 keyboard and then printing it.</p>
 <h2 id="generating-a-secret-number"><a class="header" href="#generating-a-secret-number">Generating a Secret Number</a></h2>
 <p>Next, we need to generate a secret number that the user will try to guess. The
-secret number should be different every time so the game is fun to play more
-than once. We’ll use a random number between 1 and 100 so the game isn’t too
-difficult. Rust doesn’t yet include random number functionality in its standard
-library. However, the Rust team does provide a <a href="https://crates.io/crates/rand"><code>rand</code> crate</a> with
-said functionality.</p>
-<h3 id="using-a-crate-to-get-more-functionality"><a class="header" href="#using-a-crate-to-get-more-functionality">Using a Crate to Get More Functionality</a></h3>
+secret number should be different every time so that the game is fun to play
+more than once. We’ll use a random number between 1 and 100 so that the game
+isn’t too difficult. Rust doesn’t yet include random number functionality in
+its standard library. However, the Rust team does provide a <a href="https://crates.io/crates/rand"><code>rand</code>
+crate</a> with said functionality.</p>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="using-a-crate-to-get-more-functionality"></a></p>
+<h3 id="increasing-functionality-with-a-crate"><a class="header" href="#increasing-functionality-with-a-crate">Increasing Functionality with a Crate</a></h3>
 <p>Remember that a crate is a collection of Rust source code files. The project
-we’ve been building is a <em>binary crate</em>, which is an executable. The <code>rand</code>
-crate is a <em>library crate</em>, which contains code that is intended to be used in
-other programs and can’t be executed on its own.</p>
+we’ve been building is a binary crate, which is an executable. The <code>rand</code> crate
+is a library crate, which contains code that is intended to be used in other
+programs and can’t be executed on its own.</p>
 <p>Cargo’s coordination of external crates is where Cargo really shines. Before we
 can write code that uses <code>rand</code>, we need to modify the <em>Cargo.toml</em> file to
 include the <code>rand</code> crate as a dependency. Open that file now and add the
@@ -563,7 +572,7 @@ this version number, or the code examples in this tutorial may not work:</p>
 rand = "0.8.5"
 </code></pre>
 <p>In the <em>Cargo.toml</em> file, everything that follows a header is part of that
-section that continues until another section starts. In <code>[dependencies]</code> you
+section that continues until another section starts. In <code>[dependencies]</code>, you
 tell Cargo which external crates your project depends on and which versions of
 those crates you require. In this case, we specify the <code>rand</code> crate with the
 semantic version specifier <code>0.8.5</code>. Cargo understands <a href="http://semver.org">Semantic
@@ -572,9 +581,10 @@ standard for writing version numbers. The specifier <code>0.8.5</code> is actual
 shorthand for <code>^0.8.5</code>, which means any version that is at least 0.8.5 but
 below 0.9.0.</p>
 <p>Cargo considers these versions to have public APIs compatible with version
-0.8.5, and this specification ensures you’ll get the latest patch release that
-will still compile with the code in this chapter. Any version 0.9.0 or greater
-is not guaranteed to have the same API as what the following examples use.</p>
+0.8.5, and this specification ensures that you’ll get the latest patch release
+that will still compile with the code in this chapter. Any version 0.9.0 or
+greater is not guaranteed to have the same API as what the following examples
+use.</p>
 <p>Now, without changing any of the code, let’s build the project, as shown in
 Listing 2-2.</p>
 <!-- manual-regeneration
@@ -604,7 +614,7 @@ cargo build -->
  Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
   Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.48s
 </code></pre>
-<figcaption><a href="#listing-2-2">Listing 2-2</a>: The output from running <code>cargo build</code> after adding the rand crate as a dependency</figcaption>
+<figcaption><a href="#listing-2-2">Listing 2-2</a>: The output from running <code>cargo build</code> after adding the <code>rand</code> crate as a dependency</figcaption>
 </figure>
 <p>You may see different version numbers (but they will all be compatible with the
 code, thanks to SemVer!) and different lines (depending on the operating
@@ -637,11 +647,13 @@ cargo build -->
 <p>These lines show that Cargo only updates the build with your tiny change to the
 <em>src/main.rs</em> file. Your dependencies haven’t changed, so Cargo knows it can
 reuse what it has already downloaded and compiled for those.</p>
-<h4 id="ensuring-reproducible-builds-with-the-cargolock-file"><a class="header" href="#ensuring-reproducible-builds-with-the-cargolock-file">Ensuring Reproducible Builds with the <em>Cargo.lock</em> File</a></h4>
-<p>Cargo has a mechanism that ensures you can rebuild the same artifact every time
-you or anyone else builds your code: Cargo will use only the versions of the
-dependencies you specified until you indicate otherwise. For example, say that
-next week version 0.8.6 of the <code>rand</code> crate comes out, and that version
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="ensuring-reproducible-builds-with-the-cargo-lock-file"></a></p>
+<h4 id="ensuring-reproducible-builds"><a class="header" href="#ensuring-reproducible-builds">Ensuring Reproducible Builds</a></h4>
+<p>Cargo has a mechanism that ensures that you can rebuild the same artifact every
+time you or anyone else builds your code: Cargo will use only the versions of
+the dependencies you specified until you indicate otherwise. For example, say
+that next week version 0.8.6 of the <code>rand</code> crate comes out, and that version
 contains an important bug fix, but it also contains a regression that will
 break your code. To handle this, Rust creates the <em>Cargo.lock</em> file the first
 time you run <code>cargo build</code>, so we now have this in the <em>guessing_game</em>
@@ -659,9 +671,9 @@ checked into source control with the rest of the code in your project.</p>
 <p>When you <em>do</em> want to update a crate, Cargo provides the command <code>update</code>,
 which will ignore the <em>Cargo.lock</em> file and figure out all the latest versions
 that fit your specifications in <em>Cargo.toml</em>. Cargo will then write those
-versions to the <em>Cargo.lock</em> file. In this case, Cargo will only look for
-versions greater than 0.8.5 and less than 0.9.0. If the <code>rand</code> crate has
-released the two new versions 0.8.6 and 0.9.0, you would see the following if
+versions to the <em>Cargo.lock</em> file. Otherwise, by default, Cargo will only look
+for versions greater than 0.8.5 and less than 0.9.0. If the <code>rand</code> crate has
+released the two new versions 0.8.6 and 0.999.0, you would see the following if
 you ran <code>cargo update</code>:</p>
 <!-- manual-regeneration
 cd listings/ch02-guessing-game-tutorial/listing-02-02/
@@ -671,14 +683,16 @@ as a guide to creating the hypothetical output shown here -->
 <pre><code class="language-console">$ cargo update
     Updating crates.io index
      Locking 1 package to latest Rust 1.85.0 compatible version
-    Updating rand v0.8.5 -&gt; v0.8.6 (available: v0.9.0)
+    Updating rand v0.8.5 -&gt; v0.8.6 (available: v0.999.0)
 </code></pre>
-<p>Cargo ignores the 0.9.0 release. At this point, you would also notice a change
-in your <em>Cargo.lock</em> file noting that the version of the <code>rand</code> crate you are
-now using is 0.8.6. To use <code>rand</code> version 0.9.0 or any version in the 0.9.<em>x</em>
-series, you’d have to update the <em>Cargo.toml</em> file to look like this instead:</p>
+<p>Cargo ignores the 0.999.0 release. At this point, you would also notice a
+change in your <em>Cargo.lock</em> file noting that the version of the <code>rand</code> crate
+you are now using is 0.8.6. To use <code>rand</code> version 0.999.0 or any version in the
+0.999.<em>x</em> series, you’d have to update the <em>Cargo.toml</em> file to look like this
+instead (don’t actually make this change because the following examples assume
+you’re using <code>rand</code> 0.8):</p>
 <pre><code class="language-toml">[dependencies]
-rand = "0.9.0"
+rand = "0.999.0"
 </code></pre>
 <p>The next time you run <code>cargo build</code>, Cargo will update the registry of crates
 available and reevaluate your <code>rand</code> requirements according to the new version
@@ -716,13 +730,13 @@ fn main() {
 }</code></pre>
 <figcaption><a href="#listing-2-3">Listing 2-3</a>: Adding code to generate a random number</figcaption>
 </figure>
-<p>First we add the line <code>use rand::Rng;</code>. The <code>Rng</code> trait defines methods that
+<p>First, we add the line <code>use rand::Rng;</code>. The <code>Rng</code> trait defines methods that
 random number generators implement, and this trait must be in scope for us to
 use those methods. Chapter 10 will cover traits in detail.</p>
 <p>Next, we’re adding two lines in the middle. In the first line, we call the
 <code>rand::thread_rng</code> function that gives us the particular random number
 generator we’re going to use: one that is local to the current thread of
-execution and is seeded by the operating system. Then we call the <code>gen_range</code>
+execution and is seeded by the operating system. Then, we call the <code>gen_range</code>
 method on the random number generator. This method is defined by the <code>Rng</code>
 trait that we brought into scope with the <code>use rand::Rng;</code> statement. The
 <code>gen_range</code> method takes a range expression as an argument and generates a
@@ -807,14 +821,14 @@ fn main() {
 }</code></pre>
 <figcaption><a href="#listing-2-4">Listing 2-4</a>: Handling the possible return values of comparing two numbers</figcaption>
 </figure>
-<p>First we add another <code>use</code> statement, bringing a type called
+<p>First, we add another <code>use</code> statement, bringing a type called
 <code>std::cmp::Ordering</code> into scope from the standard library. The <code>Ordering</code> type
 is another enum and has the variants <code>Less</code>, <code>Greater</code>, and <code>Equal</code>. These are
 the three outcomes that are possible when you compare two values.</p>
-<p>Then we add five new lines at the bottom that use the <code>Ordering</code> type. The
+<p>Then, we add five new lines at the bottom that use the <code>Ordering</code> type. The
 <code>cmp</code> method compares two values and can be called on anything that can be
-compared. It takes a reference to whatever you want to compare with: here it’s
-comparing <code>guess</code> to <code>secret_number</code>. Then it returns a variant of the
+compared. It takes a reference to whatever you want to compare with: Here, it’s
+comparing <code>guess</code> to <code>secret_number</code>. Then, it returns a variant of the
 <code>Ordering</code> enum we brought into scope with the <code>use</code> statement. We use a
 <a href="ch06-02-match.html"><code>match</code></a><!-- ignore --> expression to decide what to do next based on
 which variant of <code>Ordering</code> was returned from the call to <code>cmp</code> with the values
@@ -823,8 +837,8 @@ in <code>guess</code> and <code>secret_number</code>.</p>
 match against, and the code that should be run if the value given to <code>match</code>
 fits that arm’s pattern. Rust takes the value given to <code>match</code> and looks
 through each arm’s pattern in turn. Patterns and the <code>match</code> construct are
-powerful Rust features: they let you express a variety of situations your code
-might encounter and they make sure you handle them all. These features will be
+powerful Rust features: They let you express a variety of situations your code
+might encounter, and they make sure you handle them all. These features will be
 covered in detail in Chapter 6 and Chapter 19, respectively.</p>
 <p>Let’s walk through an example with the <code>match</code> expression we use here. Say that
 the user has guessed 50 and the randomly generated secret number this time is
@@ -864,7 +878,7 @@ error[E0308]: mismatched types
    = note: expected reference `&amp;String`
               found reference `&amp;{integer}`
 note: method defined here
-  --&gt; /rustc/4eb161250e340c8f48f66e2b929ef4a5bed7c181/library/core/src/cmp.rs:964:8
+  --&gt; /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/core/src/cmp.rs:979:8
 
 For more information about this error, try `rustc --explain E0308`.
 error: could not compile `guessing_game` (bin "guessing_game") due to 1 previous error
@@ -880,8 +894,8 @@ an <code>i32</code>, which is the type of <code>secret_number</code> unless you 
 elsewhere that would cause Rust to infer a different numerical type. The reason
 for the error is that Rust cannot compare a string and a number type.</p>
 <p>Ultimately, we want to convert the <code>String</code> the program reads as input into a
-number type so we can compare it numerically to the secret number. We do so by
-adding this line to the <code>main</code> function body:</p>
+number type so that we can compare it numerically to the secret number. We do
+so by adding this line to the <code>main</code> function body:</p>
 <p><span class="filename">Filename: src/main.rs</span></p>
 <pre><code class="language-rust ignore"><span class="boring">use std::cmp::Ordering;
 </span><span class="boring">use std::io;
@@ -944,14 +958,14 @@ It’s a good default choice for a small positive number. You’ll learn about
 other number types in <a href="ch03-02-data-types.html#integer-types">Chapter 3</a><!-- ignore -->.</p>
 <p>Additionally, the <code>u32</code> annotation in this example program and the comparison
 with <code>secret_number</code> means Rust will infer that <code>secret_number</code> should be a
-<code>u32</code> as well. So now the comparison will be between two values of the same
+<code>u32</code> as well. So, now the comparison will be between two values of the same
 type!</p>
 <p>The <code>parse</code> method will only work on characters that can logically be converted
 into numbers and so can easily cause errors. If, for example, the string
 contained <code>A👍%</code>, there would be no way to convert that to a number. Because it
 might fail, the <code>parse</code> method returns a <code>Result</code> type, much as the <code>read_line</code>
 method does (discussed earlier in <a href="#handling-potential-failure-with-result">“Handling Potential Failure with
-<code>Result</code>”</a><!-- ignore-->). We’ll treat
+<code>Result</code>”</a><!-- ignore -->). We’ll treat
 this <code>Result</code> the same way by using the <code>expect</code> method again. If <code>parse</code>
 returns an <code>Err</code> <code>Result</code> variant because it couldn’t create a number from the
 string, the <code>expect</code> call will crash the game and print the message we give it.
@@ -978,7 +992,7 @@ Too big!
 </code></pre>
 <p>Nice! Even though spaces were added before the guess, the program still figured
 out that the user guessed 76. Run the program a few times to verify the
-different behavior with different kinds of input: guess the number correctly,
+different behavior with different kinds of input: Guess the number correctly,
 guess a number that is too high, and guess a number that is too low.</p>
 <p>We have most of the game working now, but the user can make only one guess.
 Let’s change that by adding a loop!</p>
@@ -1028,9 +1042,9 @@ a loop. Be sure to indent the lines inside the loop another four spaces each
 and run the program again. The program will now ask for another guess forever,
 which actually introduces a new problem. It doesn’t seem like the user can quit!</p>
 <p>The user could always interrupt the program by using the keyboard shortcut
-<kbd>ctrl</kbd>-<kbd>c</kbd>. But there’s another way to escape this insatiable
+<kbd>ctrl</kbd>-<kbd>C</kbd>. But there’s another way to escape this insatiable
 monster, as mentioned in the <code>parse</code> discussion in <a href="#comparing-the-guess-to-the-secret-number">“Comparing the Guess to the
-Secret Number”</a><!-- ignore -->: if
+Secret Number”</a><!-- ignore -->: If
 the user enters a non-number answer, the program will crash. We can take
 advantage of that to allow the user to quit, as shown here:</p>
 <!-- manual-regeneration
@@ -1115,9 +1129,9 @@ the user guesses the secret number correctly. Exiting the loop also means
 exiting the program, because the loop is the last part of <code>main</code>.</p>
 <h3 id="handling-invalid-input"><a class="header" href="#handling-invalid-input">Handling Invalid Input</a></h3>
 <p>To further refine the game’s behavior, rather than crashing the program when
-the user inputs a non-number, let’s make the game ignore a non-number so the
-user can continue guessing. We can do that by altering the line where <code>guess</code>
-is converted from a <code>String</code> to a <code>u32</code>, as shown in Listing 2-5.</p>
+the user inputs a non-number, let’s make the game ignore a non-number so that
+the user can continue guessing. We can do that by altering the line where
+<code>guess</code> is converted from a <code>String</code> to a <code>u32</code>, as shown in Listing 2-5.</p>
 <figure class="listing" id="listing-2-5">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore"><span class="boring">use std::cmp::Ordering;
@@ -1179,7 +1193,7 @@ will end up right where we want it in the new <code>guess</code> variable we’r
 does not match the <code>Ok(num)</code> pattern in the first <code>match</code> arm, but it does
 match the <code>Err(_)</code> pattern in the second arm. The underscore, <code>_</code>, is a
 catch-all value; in this example, we’re saying we want to match all <code>Err</code>
-values, no matter what information they have inside them. So the program will
+values, no matter what information they have inside them. So, the program will
 execute the second arm’s code, <code>continue</code>, which tells the program to go to the
 next iteration of the <code>loop</code> and ask for another guess. So, effectively, the
 program ignores all errors that <code>parse</code> might encounter!</p>
@@ -1272,11 +1286,11 @@ discusses structs and method syntax, and Chapter 6 explains how enums work.</p>
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch01-03-hello-cargo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch03-00-common-programming-concepts.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -1286,16 +1300,21 @@ discusses structs and method syntax, and Chapter 6 explains how enums work.</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch01-03-hello-cargo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch03-00-common-programming-concepts.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
 
 
@@ -1304,19 +1323,18 @@ discusses structs and method syntax, and Chapter 6 explains how enums work.</p>
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
-        <script src="js-extensions/packages/telemetry/dist/index.js"></script>
-        <script src="js-extensions/packages/consent-form/dist/index.js"></script>
-        <script src="js-extensions/packages/feedback/dist/index.js"></script>
+        <script src="ferris-2317480c.js"></script>
+        <script src="js-extensions/packages/feedback/dist/index-d9aca39a.js"></script>
+
 
 
     </div>

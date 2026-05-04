@@ -12,29 +12,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="js-extensions/packages/consent-form/dist/index.css">
-        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index-c9d186bd.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -42,9 +40,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-795051b7.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-3119a861.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -58,7 +57,7 @@
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -87,56 +86,59 @@
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
                         </button>
                     </div>
 
@@ -144,36 +146,41 @@
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
                         <a href="https://github.com/cognitive-engineering-lab/rust-book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
                         </a>
 
                     </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
                         <h2 id="publishing-a-crate-to-cratesio"><a class="header" href="#publishing-a-crate-to-cratesio">Publishing a Crate to Crates.io</a></h2>
 <p>We’ve used packages from <a href="https://crates.io/">crates.io</a><!-- ignore --> as
@@ -224,21 +231,21 @@ in the <em>target/doc</em> directory.</p>
 current crate’s documentation (as well as the documentation for all of your
 crate’s dependencies) and open the result in a web browser. Navigate to the
 <code>add_one</code> function and you’ll see how the text in the documentation comments is
-rendered, as shown in Figure 14-1:</p>
+rendered, as shown in Figure 14-1.</p>
 <img alt="Rendered HTML documentation for the `add_one` function of `my_crate`" src="img/trpl14-01.png" class="center" />
-<p><span class="caption">Figure 14-1: HTML documentation for the <code>add_one</code>
+<p><span class="caption">Figure 14-1: The HTML documentation for the <code>add_one</code>
 function</span></p>
 <h4 id="commonly-used-sections"><a class="header" href="#commonly-used-sections">Commonly Used Sections</a></h4>
 <p>We used the <code># Examples</code> Markdown heading in Listing 14-1 to create a section
 in the HTML with the title “Examples.” Here are some other sections that crate
 authors commonly use in their documentation:</p>
 <ul>
-<li><strong>Panics</strong>: The scenarios in which the function being documented could
-panic. Callers of the function who don’t want their programs to panic should
-make sure they don’t call the function in these situations.</li>
+<li><strong>Panics</strong>: These are the scenarios in which the function being documented
+could panic. Callers of the function who don’t want their programs to panic
+should make sure they don’t call the function in these situations.</li>
 <li><strong>Errors</strong>: If the function returns a <code>Result</code>, describing the kinds of
 errors that might occur and what conditions might cause those errors to be
-returned can be helpful to callers so they can write code to handle the
+returned can be helpful to callers so that they can write code to handle the
 different kinds of errors in different ways.</li>
 <li><strong>Safety</strong>: If the function is <code>unsafe</code> to call (we discuss unsafety in
 Chapter 20), there should be a section explaining why the function is unsafe
@@ -249,12 +256,12 @@ good checklist to remind you of the aspects of your code users will be
 interested in knowing about.</p>
 <h4 id="documentation-comments-as-tests"><a class="header" href="#documentation-comments-as-tests">Documentation Comments as Tests</a></h4>
 <p>Adding example code blocks in your documentation comments can help demonstrate
-how to use your library, and doing so has an additional bonus: running <code>cargo test</code> will run the code examples in your documentation as tests! Nothing is
-better than documentation with examples. But nothing is worse than examples
-that don’t work because the code has changed since the documentation was
-written. If we run <code>cargo test</code> with the documentation for the <code>add_one</code>
-function from Listing 14-1, we will see a section in the test results that looks
-like this:</p>
+how to use your library and has an additional bonus: Running <code>cargo test</code> will
+run the code examples in your documentation as tests! Nothing is better than
+documentation with examples. But nothing is worse than examples that don’t work
+because the code has changed since the documentation was written. If we run
+<code>cargo test</code> with the documentation for the <code>add_one</code> function from Listing
+14-1, we will see a section in the test results that looks like this:</p>
 <!-- manual-regeneration
 cd listings/ch14-more-about-cargo/listing-14-01/
 cargo test
@@ -267,18 +274,20 @@ test src/lib.rs - add_one (line 5) ... ok
 
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s
 </code></pre>
-<p>Now, if we change either the function or the example so the <code>assert_eq!</code> in the
-example panics and run <code>cargo test</code> again, we’ll see that the doc tests catch
-that the example and the code are out of sync with each other!</p>
-<h4 id="commenting-contained-items"><a class="header" href="#commenting-contained-items">Commenting Contained Items</a></h4>
-<p>The style of doc comment <code>//!</code> adds documentation to the item that contains the
-comments rather than to the items following the comments. We typically use
-these doc comments inside the crate root file (<em>src/lib.rs</em> by convention) or
-inside a module to document the crate or the module as a whole.</p>
+<p>Now, if we change either the function or the example so that the <code>assert_eq!</code>
+in the example panics, and run <code>cargo test</code> again, we’ll see that the doc tests
+catch that the example and the code are out of sync with each other!</p>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="commenting-contained-items"></a></p>
+<h4 id="contained-item-comments"><a class="header" href="#contained-item-comments">Contained Item Comments</a></h4>
+<p>The style of doc comment <code>//!</code> adds documentation to the item that <em>contains</em>
+the comments rather than to the items <em>following</em> the comments. We typically
+use these doc comments inside the crate root file (<em>src/lib.rs</em> by convention)
+or inside a module to document the crate or the module as a whole.</p>
 <p>For example, to add documentation that describes the purpose of the <code>my_crate</code>
 crate that contains the <code>add_one</code> function, we add documentation comments that
 start with <code>//!</code> to the beginning of the <em>src/lib.rs</em> file, as shown in Listing
-14-2:</p>
+14-2.</p>
 <figure class="listing" id="listing-14-2">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore">//! # My Crate
@@ -300,47 +309,48 @@ start with <code>//!</code> to the beginning of the <em>src/lib.rs</em> file, as
 </span><span class="boring">pub fn add_one(x: i32) -&gt; i32 {
 </span><span class="boring">    x + 1
 </span><span class="boring">}</span></code></pre>
-<figcaption><a href="#listing-14-2">Listing 14-2</a>: Documentation for the <code>my_crate</code> crate as a whole</figcaption>
+<figcaption><a href="#listing-14-2">Listing 14-2</a>: The documentation for the <code>my_crate</code> crate as a whole</figcaption>
 </figure>
 <p>Notice there isn’t any code after the last line that begins with <code>//!</code>. Because
 we started the comments with <code>//!</code> instead of <code>///</code>, we’re documenting the item
 that contains this comment rather than an item that follows this comment. In
 this case, that item is the <em>src/lib.rs</em> file, which is the crate root. These
 comments describe the entire crate.</p>
-<p>When we run <code>cargo doc --open</code>, these comments will display on the front
-page of the documentation for <code>my_crate</code> above the list of public items in the
+<p>When we run <code>cargo doc --open</code>, these comments will display on the front page
+of the documentation for <code>my_crate</code> above the list of public items in the
 crate, as shown in Figure 14-2.</p>
-<img alt="Rendered HTML documentation with a comment for the crate as a whole" src="img/trpl14-02.png" class="center" />
-<p><span class="caption">Figure 14-2: Rendered documentation for <code>my_crate</code>,
-including the comment describing the crate as a whole</span></p>
 <p>Documentation comments within items are useful for describing crates and
 modules especially. Use them to explain the overall purpose of the container to
 help your users understand the crate’s organization.</p>
-<div class="quiz-placeholder" data-quiz-name="&quot;ch14-02-publishing-to-crates-io-sec1&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;`//!` is appropriate for module-level documentation, while `///` is for documenting individual items like functions.\n&quot;,&quot;id&quot;:&quot;e2df0a8a-7bdd-40a3-9918-e4a856978cbb&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;`//!`&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;`///`&quot;,&quot;`//`&quot;],&quot;prompt&quot;:&quot;Say you are publishing a library, and you want to write documentation about the entire library at the top of the `lib.rs` file.\nThe documentation should be prefixed with the following comment syntax:\n&quot;}},{&quot;context&quot;:&quot;The incorrect example will be run as a doc-test, and cause `cargo test` to fail.\n&quot;,&quot;id&quot;:&quot;cfb65011-0578-4032-8aaa-b346b091602b&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Yes&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;No&quot;],&quot;prompt&quot;:&quot;Say you are creating a library `worldly` with the following function `lib.rs`:\n\n    /// Adds the string \&quot;world\&quot; to `s`.\n    ///\n    /// # Example\n    /// ```\n    /// let mut s = String::new();\n    /// worldly::add_world(&amp;mut s);\n    /// assert_eq!(s, \&quot;Hello world\&quot;);\n    /// ```\n    pub fn add_world(s: &amp;mut String) {\n        s.push_str(\&quot;world\&quot;);\n    }\n\n    #[test]\n    fn test_add_world() {\n        let mut s = String::new();\n        add_world(&amp;mut s);\n        assert_eq!(s, \&quot;world\&quot;);\n    }\n\nIf you run `cargo test`, will any test fail?\n&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
-<h3 id="exporting-a-convenient-public-api-with-pub-use"><a class="header" href="#exporting-a-convenient-public-api-with-pub-use">Exporting a Convenient Public API with <code>pub use</code></a></h3>
+<img alt="Rendered HTML documentation with a comment for the crate as a whole" src="img/trpl14-02.png" class="center" />
+<p><span class="caption">Figure 14-2: The rendered documentation for <code>my_crate</code>,
+including the comment describing the crate as a whole</span></p>
+<div class="quiz-placeholder" data-quiz-name="&quot;ch14-02-publishing-to-crates-io-sec1&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;`//!` is appropriate for module-level documentation, while `///` is for documenting individual items like functions.&#92;n&quot;,&quot;id&quot;:&quot;e2df0a8a-7bdd-40a3-9918-e4a856978cbb&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;`//!`&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;`///`&quot;,&quot;`//`&quot;],&quot;prompt&quot;:&quot;Say you are publishing a library, and you want to write documentation about the entire library at the top of the `lib.rs` file.&#92;nThe documentation should be prefixed with the following comment syntax:&#92;n&quot;}},{&quot;context&quot;:&quot;The incorrect example will be run as a doc-test, and cause `cargo test` to fail.&#92;n&quot;,&quot;id&quot;:&quot;cfb65011-0578-4032-8aaa-b346b091602b&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Yes&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;No&quot;],&quot;prompt&quot;:&quot;Say you are creating a library `worldly` with the following function `lib.rs`:&#92;n&#92;n    /// Adds the string &#92;&quot;world&#92;&quot; to `s`.&#92;n    ///&#92;n    /// # Example&#92;n    /// ```&#92;n    /// let mut s = String::new();&#92;n    /// worldly::add_world(&amp;mut s);&#92;n    /// assert_eq!(s, &#92;&quot;Hello world&#92;&quot;);&#92;n    /// ```&#92;n    pub fn add_world(s: &amp;mut String) {&#92;n        s.push_str(&#92;&quot;world&#92;&quot;);&#92;n    }&#92;n&#92;n    #[test]&#92;n    fn test_add_world() {&#92;n        let mut s = String::new();&#92;n        add_world(&amp;mut s);&#92;n        assert_eq!(s, &#92;&quot;world&#92;&quot;);&#92;n    }&#92;n&#92;nIf you run `cargo test`, will any test fail?&#92;n&quot;}}]}" data-quiz-fullscreen="true"></div>
+
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="exporting-a-convenient-public-api-with-pub-use"></a></p>
+<h3 id="exporting-a-convenient-public-api"><a class="header" href="#exporting-a-convenient-public-api">Exporting a Convenient Public API</a></h3>
 <p>The structure of your public API is a major consideration when publishing a
 crate. People who use your crate are less familiar with the structure than you
 are and might have difficulty finding the pieces they want to use if your crate
 has a large module hierarchy.</p>
 <p>In Chapter 7, we covered how to make items public using the <code>pub</code> keyword, and
-bring items into a scope with the <code>use</code> keyword. However, the structure that
-makes sense to you while you’re developing a crate might not be very convenient
-for your users. You might want to organize your structs in a hierarchy
-containing multiple levels, but then people who want to use a type you’ve
-defined deep in the hierarchy might have trouble finding out that type exists.
-They might also be annoyed at having to enter <code>use</code>
-<code>my_crate::some_module::another_module::UsefulType;</code> rather than <code>use</code>
-<code>my_crate::UsefulType;</code>.</p>
+how to bring items into a scope with the <code>use</code> keyword. However, the structure
+that makes sense to you while you’re developing a crate might not be very
+convenient for your users. You might want to organize your structs in a
+hierarchy containing multiple levels, but then people who want to use a type
+you’ve defined deep in the hierarchy might have trouble finding out that type
+exists. They might also be annoyed at having to enter <code>use my_crate::some_module::another_module::UsefulType;</code> rather than <code>use my_crate::UsefulType;</code>.</p>
 <p>The good news is that if the structure <em>isn’t</em> convenient for others to use
 from another library, you don’t have to rearrange your internal organization:
-instead, you can re-export items to make a public structure that’s different
+Instead, you can re-export items to make a public structure that’s different
 from your private structure by using <code>pub use</code>. <em>Re-exporting</em> takes a public
 item in one location and makes it public in another location, as if it were
 defined in the other location instead.</p>
 <p>For example, say we made a library named <code>art</code> for modeling artistic concepts.
 Within this library are two modules: a <code>kinds</code> module containing two enums
 named <code>PrimaryColor</code> and <code>SecondaryColor</code> and a <code>utils</code> module containing a
-function named <code>mix</code>, as shown in Listing 14-3:</p>
+function named <code>mix</code>, as shown in Listing 14-3.</p>
 <figure class="listing" id="listing-14-3">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground test_harness">//! # Art
@@ -376,9 +386,9 @@ pub mod utils {
 <figcaption><a href="#listing-14-3">Listing 14-3</a>: An <code>art</code> library with items organized into <code>kinds</code> and <code>utils</code> modules</figcaption>
 </figure>
 <p>Figure 14-3 shows what the front page of the documentation for this crate
-generated by <code>cargo doc</code> would look like:</p>
+generated by <code>cargo doc</code> would look like.</p>
 <img alt="Rendered documentation for the `art` crate that lists the `kinds` and `utils` modules" src="img/trpl14-03.png" class="center" />
-<p><span class="caption">Figure 14-3: Front page of the documentation for <code>art</code>
+<p><span class="caption">Figure 14-3: The front page of the documentation for <code>art</code>
 that lists the <code>kinds</code> and <code>utils</code> modules</span></p>
 <p>Note that the <code>PrimaryColor</code> and <code>SecondaryColor</code> types aren’t listed on the
 front page, nor is the <code>mix</code> function. We have to click <code>kinds</code> and <code>utils</code> to
@@ -386,7 +396,7 @@ see them.</p>
 <p>Another crate that depends on this library would need <code>use</code> statements that
 bring the items from <code>art</code> into scope, specifying the module structure that’s
 currently defined. Listing 14-4 shows an example of a crate that uses the
-<code>PrimaryColor</code> and <code>mix</code> items from the <code>art</code> crate:</p>
+<code>PrimaryColor</code> and <code>mix</code> items from the <code>art</code> crate.</p>
 <figure class="listing" id="listing-14-4">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore">use art::kinds::PrimaryColor;
@@ -409,7 +419,7 @@ developers who use it have to figure out where to look, and must specify the
 module names in the <code>use</code> statements.</p>
 <p>To remove the internal organization from the public API, we can modify the
 <code>art</code> crate code in Listing 14-3 to add <code>pub use</code> statements to re-export the
-items at the top level, as shown in Listing 14-5:</p>
+items at the top level, as shown in Listing 14-5.</p>
 <figure class="listing" id="listing-14-5">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore">//! # Art
@@ -457,7 +467,7 @@ and link re-exports on the front page, as shown in Figure 14-4, making the
 that lists the re-exports</span></p>
 <p>The <code>art</code> crate users can still see and use the internal structure from Listing
 14-3 as demonstrated in Listing 14-4, or they can use the more convenient
-structure in Listing 14-5, as shown in Listing 14-6:</p>
+structure in Listing 14-5, as shown in Listing 14-6.</p>
 <figure class="listing" id="listing-14-6">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore">use art::PrimaryColor;
@@ -476,11 +486,12 @@ level with <code>pub use</code> can make a significant difference in the experie
 people who use the crate. Another common use of <code>pub use</code> is to re-export
 definitions of a dependency in the current crate to make that crate’s
 definitions part of your crate’s public API.</p>
-<p>Creating a useful public API structure is more of an art than a science, and
-you can iterate to find the API that works best for your users. Choosing <code>pub use</code> gives you flexibility in how you structure your crate internally and
-decouples that internal structure from what you present to your users. Look at
-some of the code of crates you’ve installed to see if their internal structure
-differs from their public API.</p>
+<p>Creating a useful public API structure is more an art than a science, and you
+can iterate to find the API that works best for your users. Choosing <code>pub use</code>
+gives you flexibility in how you structure your crate internally and decouples
+that internal structure from what you present to your users. Look at some of
+the code of crates you’ve installed to see if their internal structure differs
+from their public API.</p>
 <h3 id="setting-up-a-cratesio-account"><a class="header" href="#setting-up-a-cratesio-account">Setting Up a Crates.io Account</a></h3>
 <p>Before you can publish any crates, you need to create an account on
 <a href="https://crates.io/">crates.io</a><!-- ignore --> and get an API token. To do so,
@@ -489,13 +500,13 @@ in via a GitHub account. (The GitHub account is currently a requirement, but
 the site might support other ways of creating an account in the future.) Once
 you’re logged in, visit your account settings at
 <a href="https://crates.io/me/">https://crates.io/me/</a><!-- ignore --> and retrieve your
-API key. Then run the <code>cargo login</code> command and paste your API key when prompted, like this:</p>
+API key. Then, run the <code>cargo login</code> command and paste your API key when prompted, like this:</p>
 <pre><code class="language-console">$ cargo login
 abcdefghijklmnopqrstuvwxyz012345
 </code></pre>
 <p>This command will inform Cargo of your API token and store it locally in
-<em>~/.cargo/credentials</em>. Note that this token is a <em>secret</em>: do not share it
-with anyone else. If you do share it with anyone for any reason, you should
+<em>~/.cargo/credentials.toml</em>. Note that this token is a secret: Do not share
+it with anyone else. If you do share it with anyone for any reason, you should
 revoke it and generate a new token on <a href="https://crates.io/">crates.io</a><!-- ignore
 -->.</p>
 <h3 id="adding-metadata-to-a-new-crate"><a class="header" href="#adding-metadata-to-a-new-crate">Adding Metadata to a New Crate</a></h3>
@@ -532,14 +543,14 @@ error: failed to publish to registry at https://crates.io
 Caused by:
   the remote server responded with an error (status 400 Bad Request): missing or empty metadata fields: description, license. Please see https://doc.rust-lang.org/cargo/reference/manifest.html for more information on configuring these fields
 </code></pre>
-<p>This results in an error because you’re missing some crucial information: a
-description and license are required so people will know what your crate does
-and under what terms they can use it. In <em>Cargo.toml</em>, add a description that’s
-just a sentence or two, because it will appear with your crate in search
-results. For the <code>license</code> field, you need to give a <em>license identifier value</em>.
-The <a href="http://spdx.org/licenses/">Linux Foundation’s Software Package Data Exchange (SPDX)</a> lists the
-identifiers you can use for this value. For example, to specify that you’ve
-licensed your crate using the MIT License, add the <code>MIT</code> identifier:</p>
+<p>This results in an error because you’re missing some crucial information: A
+description and license are required so that people will know what your crate
+does and under what terms they can use it. In <em>Cargo.toml</em>, add a description
+that’s just a sentence or two, because it will appear with your crate in search
+results. For the <code>license</code> field, you need to give a <em>license identifier
+value</em>. The <a href="https://spdx.org/licenses/">Linux Foundation’s Software Package Data Exchange (SPDX)</a>
+lists the identifiers you can use for this value. For example, to specify that
+you’ve licensed your crate using the MIT License, add the <code>MIT</code> identifier:</p>
 <p><span class="filename">Filename: Cargo.toml</span></p>
 <pre><code class="language-toml">[package]
 name = "guessing_game"
@@ -567,17 +578,17 @@ license = "MIT OR Apache-2.0"
 [dependencies]
 </code></pre>
 <p><a href="https://doc.rust-lang.org/cargo/">Cargo’s documentation</a> describes other
-metadata you can specify to ensure others can discover and use your crate more
-easily.</p>
+metadata you can specify to ensure that others can discover and use your crate
+more easily.</p>
 <h3 id="publishing-to-cratesio"><a class="header" href="#publishing-to-cratesio">Publishing to Crates.io</a></h3>
 <p>Now that you’ve created an account, saved your API token, chosen a name for
 your crate, and specified the required metadata, you’re ready to publish!
 Publishing a crate uploads a specific version to
 <a href="https://crates.io/">crates.io</a><!-- ignore --> for others to use.</p>
 <p>Be careful, because a publish is <em>permanent</em>. The version can never be
-overwritten, and the code cannot be deleted. One major goal of
-<a href="https://crates.io/">crates.io</a><!-- ignore --> is to act as a permanent archive
-of code so that builds of all projects that depend on crates from
+overwritten, and the code cannot be deleted except in certain circumstances.
+One major goal of Crates.io is to act as a permanent archive of code so that
+builds of all projects that depend on crates from
 <a href="https://crates.io/">crates.io</a><!-- ignore --> will continue to work. Allowing
 version deletions would make fulfilling that goal impossible. However, there is
 no limit to the number of crate versions you can publish.</p>
@@ -590,23 +601,30 @@ copy just the relevant lines below
 <pre><code class="language-console">$ cargo publish
     Updating crates.io index
    Packaging guessing_game v0.1.0 (file:///projects/guessing_game)
+    Packaged 6 files, 1.2KiB (895.0B compressed)
    Verifying guessing_game v0.1.0 (file:///projects/guessing_game)
    Compiling guessing_game v0.1.0
 (file:///projects/guessing_game/target/package/guessing_game-0.1.0)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.19s
    Uploading guessing_game v0.1.0 (file:///projects/guessing_game)
+    Uploaded guessing_game v0.1.0 to registry `crates-io`
+note: waiting for `guessing_game v0.1.0` to be available at registry
+`crates-io`.
+You may press ctrl-c to skip waiting; the crate should be available shortly.
+   Published guessing_game v0.1.0 at registry `crates-io`
 </code></pre>
 <p>Congratulations! You’ve now shared your code with the Rust community, and
 anyone can easily add your crate as a dependency of their project.</p>
 <h3 id="publishing-a-new-version-of-an-existing-crate"><a class="header" href="#publishing-a-new-version-of-an-existing-crate">Publishing a New Version of an Existing Crate</a></h3>
 <p>When you’ve made changes to your crate and are ready to release a new version,
 you change the <code>version</code> value specified in your <em>Cargo.toml</em> file and
-republish. Use the <a href="http://semver.org/">Semantic Versioning rules</a> to decide what an
-appropriate next version number is based on the kinds of changes you’ve made.
-Then run <code>cargo publish</code> to upload the new version.</p>
-<!-- Old link, do not remove -->
-<p><a id="removing-versions-from-cratesio-with-cargo-yank"></a></p>
-<h3 id="deprecating-versions-from-cratesio-with-cargo-yank"><a class="header" href="#deprecating-versions-from-cratesio-with-cargo-yank">Deprecating Versions from Crates.io with <code>cargo yank</code></a></h3>
+republish. Use the <a href="https://semver.org/">Semantic Versioning rules</a> to decide what an
+appropriate next version number is, based on the kinds of changes you’ve made.
+Then, run <code>cargo publish</code> to upload the new version.</p>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="removing-versions-from-cratesio-with-cargo-yank"></a>
+<a id="deprecating-versions-from-cratesio-with-cargo-yank"></a></p>
+<h3 id="deprecating-versions-from-cratesio"><a class="header" href="#deprecating-versions-from-cratesio">Deprecating Versions from Crates.io</a></h3>
 <p>Although you can’t remove previous versions of a crate, you can prevent any
 future projects from adding them as a new dependency. This is useful when a
 crate version is broken for one reason or another. In such situations, Cargo
@@ -618,8 +636,8 @@ yank means that all projects with a <em>Cargo.lock</em> will not break, and any 
 <p>To yank a version of a crate, in the directory of the crate that you’ve
 previously published, run <code>cargo yank</code> and specify which version you want to
 yank. For example, if we’ve published a crate named <code>guessing_game</code> version
-1.0.1 and we want to yank it, in the project directory for <code>guessing_game</code> we’d
-run:</p>
+1.0.1 and we want to yank it, then we’d run the following in the project
+directory for <code>guessing_game</code>:</p>
 <!-- manual-regeneration:
 cargo yank carol-test --version 2.1.0
 cargo yank carol-test --version 2.1.0 --undo
@@ -636,7 +654,8 @@ to start depending on a version again:</p>
 </code></pre>
 <p>A yank <em>does not</em> delete any code. It cannot, for example, delete accidentally
 uploaded secrets. If that happens, you must reset those secrets immediately.</p>
-<div class="quiz-placeholder" data-quiz-name="&quot;ch14-02-publishing-to-crates-io-sec2&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;Crates.io does not allow overwriting of published versions. The best option in these situations is to yank the buggy version\nand then publish a new version such as `v0.1.1`.\n&quot;,&quot;id&quot;:&quot;7e4eeb62-55c2-443b-a8cc-fba060501245&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;It is impossible to overwrite a published crate at a given version&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;Add the flag `--overwrite-published` to the `cargo publish` command&quot;,&quot;Login to Crates.io and delete `v0.1.0` of the published crate&quot;,&quot;Run `cargo yank` and then run `cargo publish`&quot;],&quot;prompt&quot;:&quot;Say you are publishing a library `foobar v0.1.0`. After running `cargo publish`, you realize there is a bug in one\nof your functions. Which of the following best describes how to overwrite the published crate at the same `v0.1.0` version?\n&quot;}},{&quot;context&quot;:&quot;Adding documentation to public functions is certainly recommended, but not required by default. Note that if you\nwant Rust to treat undocumented code as an error, you can add the following statement at the root of your library:\n\n```\n#![deny(missing_docs)]\n```\n&quot;,&quot;id&quot;:&quot;84ac16a8-2460-4baf-8913-06da6e3603e6&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Adding documentation to each public function in the crate&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;Adding a license to the `[package]` section of `Cargo.toml`&quot;,&quot;Registering and logging in to Crates.io&quot;,&quot;Selecting a crate name that is not registered on Crates.io&quot;],&quot;prompt&quot;:&quot;Which of the following steps is NOT required to publish a crate to Crates.io?\n&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
+<div class="quiz-placeholder" data-quiz-name="&quot;ch14-02-publishing-to-crates-io-sec2&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;Crates.io does not allow overwriting of published versions. The best option in these situations is to yank the buggy version&#92;nand then publish a new version such as `v0.1.1`.&#92;n&quot;,&quot;id&quot;:&quot;7e4eeb62-55c2-443b-a8cc-fba060501245&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;It is impossible to overwrite a published crate at a given version&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;Add the flag `--overwrite-published` to the `cargo publish` command&quot;,&quot;Login to Crates.io and delete `v0.1.0` of the published crate&quot;,&quot;Run `cargo yank` and then run `cargo publish`&quot;],&quot;prompt&quot;:&quot;Say you are publishing a library `foobar v0.1.0`. After running `cargo publish`, you realize there is a bug in one&#92;nof your functions. Which of the following best describes how to overwrite the published crate at the same `v0.1.0` version?&#92;n&quot;}},{&quot;context&quot;:&quot;Adding documentation to public functions is certainly recommended, but not required by default. Note that if you&#92;nwant Rust to treat undocumented code as an error, you can add the following statement at the root of your library:&#92;n&#92;n```&#92;n#![deny(missing_docs)]&#92;n```&#92;n&quot;,&quot;id&quot;:&quot;84ac16a8-2460-4baf-8913-06da6e3603e6&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Adding documentation to each public function in the crate&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;Adding a license to the `[package]` section of `Cargo.toml`&quot;,&quot;Registering and logging in to Crates.io&quot;,&quot;Selecting a crate name that is not registered on Crates.io&quot;],&quot;prompt&quot;:&quot;Which of the following steps is NOT required to publish a crate to Crates.io?&#92;n&quot;}}]}" data-quiz-fullscreen="true"></div>
+
 <script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css">
 
                     </main>
@@ -644,11 +663,11 @@ uploaded secrets. If that happens, you must reset those secrets immediately.</p>
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch14-01-release-profiles.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch14-03-cargo-workspaces.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -658,16 +677,21 @@ uploaded secrets. If that happens, you must reset those secrets immediately.</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch14-01-release-profiles.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch14-03-cargo-workspaces.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
 
 
@@ -676,19 +700,18 @@ uploaded secrets. If that happens, you must reset those secrets immediately.</p>
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
-        <script src="js-extensions/packages/telemetry/dist/index.js"></script>
-        <script src="js-extensions/packages/consent-form/dist/index.js"></script>
-        <script src="js-extensions/packages/feedback/dist/index.js"></script>
+        <script src="ferris-2317480c.js"></script>
+        <script src="js-extensions/packages/feedback/dist/index-d9aca39a.js"></script>
+
 
 
     </div>

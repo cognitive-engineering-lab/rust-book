@@ -12,29 +12,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="js-extensions/packages/consent-form/dist/index.css">
-        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index-c9d186bd.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -42,9 +40,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-795051b7.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-3119a861.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -58,7 +57,7 @@
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -87,56 +86,59 @@
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
                         </button>
                     </div>
 
@@ -144,78 +146,85 @@
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
                         <a href="https://github.com/cognitive-engineering-lab/rust-book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
                         </a>
 
                     </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
                         <h2 id="refactoring-to-improve-modularity-and-error-handling"><a class="header" href="#refactoring-to-improve-modularity-and-error-handling">Refactoring to Improve Modularity and Error Handling</a></h2>
 <p>To improve our program, we’ll fix four problems that have to do with the
 program’s structure and how it’s handling potential errors. First, our <code>main</code>
-function now performs two tasks: it parses arguments and reads files. As our
+function now performs two tasks: It parses arguments and reads files. As our
 program grows, the number of separate tasks the <code>main</code> function handles will
 increase. As a function gains responsibilities, it becomes more difficult to
 reason about, harder to test, and harder to change without breaking one of its
-parts. It’s best to separate functionality so each function is responsible for
-one task.</p>
-<p>This issue also ties into the second problem: although <code>query</code> and <code>file_path</code>
+parts. It’s best to separate functionality so that each function is responsible
+for one task.</p>
+<p>This issue also ties into the second problem: Although <code>query</code> and <code>file_path</code>
 are configuration variables to our program, variables like <code>contents</code> are used
 to perform the program’s logic. The longer <code>main</code> becomes, the more variables
 we’ll need to bring into scope; the more variables we have in scope, the harder
 it will be to keep track of the purpose of each. It’s best to group the
 configuration variables into one structure to make their purpose clear.</p>
 <p>The third problem is that we’ve used <code>expect</code> to print an error message when
-reading the file fails, but the error message just prints <code>Should have been able to read the file</code>. Reading a file can fail in a number of ways: for
+reading the file fails, but the error message just prints <code>Should have been able to read the file</code>. Reading a file can fail in a number of ways: For
 example, the file could be missing, or we might not have permission to open it.
 Right now, regardless of the situation, we’d print the same error message for
 everything, which wouldn’t give the user any information!</p>
 <p>Fourth, we use <code>expect</code> to handle an error, and if the user runs our program
 without specifying enough arguments, they’ll get an <code>index out of bounds</code> error
 from Rust that doesn’t clearly explain the problem. It would be best if all the
-error-handling code were in one place so future maintainers had only one place
-to consult the code if the error-handling logic needed to change. Having all the
-error-handling code in one place will also ensure that we’re printing messages
-that will be meaningful to our end users.</p>
+error-handling code were in one place so that future maintainers had only one
+place to consult the code if the error-handling logic needed to change. Having
+all the error-handling code in one place will also ensure that we’re printing
+messages that will be meaningful to our end users.</p>
 <p>Let’s address these four problems by refactoring our project.</p>
-<h3 id="separation-of-concerns-for-binary-projects"><a class="header" href="#separation-of-concerns-for-binary-projects">Separation of Concerns for Binary Projects</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="separation-of-concerns-for-binary-projects"></a></p>
+<h3 id="separating-concerns-in-binary-projects"><a class="header" href="#separating-concerns-in-binary-projects">Separating Concerns in Binary Projects</a></h3>
 <p>The organizational problem of allocating responsibility for multiple tasks to
-the <code>main</code> function is common to many binary projects. As a result, the Rust
-community has developed guidelines for splitting the separate concerns of a
-binary program when <code>main</code> starts getting large. This process has the following
-steps:</p>
+the <code>main</code> function is common to many binary projects. As a result, many Rust
+programmers find it useful to split up the separate concerns of a binary
+program when the <code>main</code> function starts getting large. This process has the
+following steps:</p>
 <ul>
 <li>Split your program into a <em>main.rs</em> file and a <em>lib.rs</em> file and move your
 program’s logic to <em>lib.rs</em>.</li>
 <li>As long as your command line parsing logic is small, it can remain in
-<em>main.rs</em>.</li>
+the <code>main</code> function.</li>
 <li>When the command line parsing logic starts getting complicated, extract it
-from <em>main.rs</em> and move it to <em>lib.rs</em>.</li>
+from the <code>main</code> function into other functions or types.</li>
 </ul>
 <p>The responsibilities that remain in the <code>main</code> function after this process
 should be limited to the following:</p>
@@ -228,14 +237,13 @@ should be limited to the following:</p>
 <p>This pattern is about separating concerns: <em>main.rs</em> handles running the
 program and <em>lib.rs</em> handles all the logic of the task at hand. Because you
 can’t test the <code>main</code> function directly, this structure lets you test all of
-your program’s logic by moving it into functions in <em>lib.rs</em>. The code that
-remains in <em>main.rs</em> will be small enough to verify its correctness by reading
-it. Let’s rework our program by following this process.</p>
+your program’s logic by moving it out of the <code>main</code> function. The code that
+remains in the <code>main</code> function will be small enough to verify its correctness
+by reading it. Let’s rework our program by following this process.</p>
 <h4 id="extracting-the-argument-parser"><a class="header" href="#extracting-the-argument-parser">Extracting the Argument Parser</a></h4>
 <p>We’ll extract the functionality for parsing arguments into a function that
-<code>main</code> will call to prepare for moving the command line parsing logic to
-<em>src/lib.rs</em>. Listing 12-5 shows the new start of <code>main</code> that calls a new
-function <code>parse_config</code>, which we’ll define in <em>src/main.rs</em> for the moment.</p>
+<code>main</code> will call. Listing 12-5 shows the new start of the <code>main</code> function that
+calls a new function <code>parse_config</code>, which we’ll define in <em>src/main.rs</em>.</p>
 <figure class="listing" id="listing-12-5">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore"><span class="boring">use std::env;
@@ -354,10 +362,10 @@ on your first pass. As you become more experienced with Rust, it’ll be
 easier to start with the most efficient solution, but for now, it’s
 perfectly acceptable to call <code>clone</code>.</p>
 </section>
-<p>We’ve updated <code>main</code> so it places the instance of <code>Config</code> returned by
+<p>We’ve updated <code>main</code> so that it places the instance of <code>Config</code> returned by
 <code>parse_config</code> into a variable named <code>config</code>, and we updated the code that
-previously used the separate <code>query</code> and <code>file_path</code> variables so it now uses
-the fields on the <code>Config</code> struct instead.</p>
+previously used the separate <code>query</code> and <code>file_path</code> variables so that it now
+uses the fields on the <code>Config</code> struct instead.</p>
 <p>Now our code more clearly conveys that <code>query</code> and <code>file_path</code> are related and
 that their purpose is to configure how the program will work. Any code that
 uses these values knows to find them in the <code>config</code> instance in the fields
@@ -369,7 +377,7 @@ helped us see that the <code>query</code> and <code>file_path</code> values were
 relationship should be conveyed in our code. We then added a <code>Config</code> struct to
 name the related purpose of <code>query</code> and <code>file_path</code> and to be able to return the
 values’ names as struct field names from the <code>parse_config</code> function.</p>
-<p>So now that the purpose of the <code>parse_config</code> function is to create a <code>Config</code>
+<p>So, now that the purpose of the <code>parse_config</code> function is to create a <code>Config</code>
 instance, we can change <code>parse_config</code> from a plain function to a function
 named <code>new</code> that is associated with the <code>Config</code> struct. Making this change
 will make the code more idiomatic. We can create instances of types in the
@@ -498,9 +506,9 @@ thread 'main' panicked at src/main.rs:26:13:
 not enough arguments
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 </code></pre>
-<p>This output is better: we now have a reasonable error message. However, we also
+<p>This output is better: We now have a reasonable error message. However, we also
 have extraneous information we don’t want to give to our users. Perhaps the
-technique we used in Listing 9-13 isn’t the best one to use here: a call to
+technique we used in Listing 9-13 isn’t the best one to use here: A call to
 <code>panic!</code> is more appropriate for a programming problem than a usage problem,
 <a href="ch09-03-to-panic-or-not-to-panic.html#guidelines-for-error-handling">as discussed in Chapter 9</a><!-- ignore -->. Instead,
 we’ll use the other technique you learned about in Chapter 9—<a href="ch09-02-recoverable-errors-with-result.html">returning a
@@ -513,7 +521,7 @@ the successful case and will describe the problem in the error case. We’re als
 going to change the function name from <code>new</code> to <code>build</code> because many
 programmers expect <code>new</code> functions to never fail. When <code>Config::build</code> is
 communicating to <code>main</code>, we can use the <code>Result</code> type to signal there was a
-problem. Then we can change <code>main</code> to convert an <code>Err</code> variant into a more
+problem. Then, we can change <code>main</code> to convert an <code>Err</code> variant into a more
 practical error for our users without the surrounding text about <code>thread 'main'</code> and <code>RUST_BACKTRACE</code> that a call to <code>panic!</code> causes.</p>
 <p>Listing 12-9 shows the changes we need to make to the return value of the
 function we’re now calling <code>Config::build</code> and the body of the function needed
@@ -560,7 +568,7 @@ well, which we’ll do in the next listing.</p>
 <p>Our <code>build</code> function returns a <code>Result</code> with a <code>Config</code> instance in the success
 case and a string literal in the error case. Our error values will always be
 string literals that have the <code>'static</code> lifetime.</p>
-<p>We’ve made two changes in the body of the function: instead of calling <code>panic!</code>
+<p>We’ve made two changes in the body of the function: Instead of calling <code>panic!</code>
 when the user doesn’t pass enough arguments, we now return an <code>Err</code> value, and
 we’ve wrapped the <code>Config</code> return value in an <code>Ok</code>. These changes make the
 function conform to its new type signature.</p>
@@ -624,8 +632,8 @@ fn main() {
 <code>unwrap_or_else</code>, which is defined on <code>Result&lt;T, E&gt;</code> by the standard library.
 Using <code>unwrap_or_else</code> allows us to define some custom, non-<code>panic!</code> error
 handling. If the <code>Result</code> is an <code>Ok</code> value, this method’s behavior is similar
-to <code>unwrap</code>: it returns the inner value that <code>Ok</code> is wrapping. However, if the
-value is an <code>Err</code> value, this method calls the code in the <em>closure</em>, which is
+to <code>unwrap</code>: It returns the inner value that <code>Ok</code> is wrapping. However, if the
+value is an <code>Err</code> value, this method calls the code in the closure, which is
 an anonymous function we define and pass as an argument to <code>unwrap_or_else</code>.
 We’ll cover closures in more detail in <a href="ch13-00-functional-features.html">Chapter 13</a><!-- ignore -->. For
 now, you just need to know that <code>unwrap_or_else</code> will pass the inner value of
@@ -635,7 +643,7 @@ appears between the vertical pipes. The code in the closure can then use the
 <code>err</code> value when it runs.</p>
 <p>We’ve added a new <code>use</code> line to bring <code>process</code> from the standard library into
 scope. The code in the closure that will be run in the error case is only two
-lines: we print the <code>err</code> value and then call <code>process::exit</code>. The
+lines: We print the <code>err</code> value and then call <code>process::exit</code>. The
 <code>process::exit</code> function will stop the program immediately and return the
 number that was passed as the exit status code. This is similar to the
 <code>panic!</code>-based handling we used in Listing 12-8, but we no longer get all the
@@ -647,17 +655,18 @@ extra output. Let’s try it:</p>
 Problem parsing arguments: not enough arguments
 </code></pre>
 <p>Great! This output is much friendlier for our users.</p>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="extracting-logic-from-the-main-function"></a></p>
 <h3 id="extracting-logic-from-main"><a class="header" href="#extracting-logic-from-main">Extracting Logic from <code>main</code></a></h3>
 <p>Now that we’ve finished refactoring the configuration parsing, let’s turn to
-the program’s logic. As we stated in <a href="#separation-of-concerns-for-binary-projects">“Separation of Concerns for Binary
+the program’s logic. As we stated in <a href="#separation-of-concerns-for-binary-projects">“Separating Concerns in Binary
 Projects”</a><!-- ignore -->, we’ll
 extract a function named <code>run</code> that will hold all the logic currently in the
 <code>main</code> function that isn’t involved with setting up configuration or handling
-errors. When we’re done, <code>main</code> will be concise and easy to verify by
-inspection, and we’ll be able to write tests for all the other logic.</p>
-<p>Listing 12-11 shows the extracted <code>run</code> function. For now, we’re just making
-the small, incremental improvement of extracting the function. We’re still
-defining the function in <em>src/main.rs</em>.</p>
+errors. When we’re done, the <code>main</code> function will be concise and easy to verify
+by inspection, and we’ll be able to write tests for all the other logic.</p>
+<p>Listing 12-11 shows the small, incremental improvement of extracting a <code>run</code>
+function.</p>
 <figure class="listing" id="listing-12-11">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore"><span class="boring">use std::env;
@@ -711,7 +720,9 @@ fn run(config: Config) {
 <p>The <code>run</code> function now contains all the remaining logic from <code>main</code>, starting
 from reading the file. The <code>run</code> function takes the <code>Config</code> instance as an
 argument.</p>
-<h4 id="returning-errors-from-the-run-function"><a class="header" href="#returning-errors-from-the-run-function">Returning Errors from the <code>run</code> Function</a></h4>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="returning-errors-from-the-run-function"></a></p>
+<h4 id="returning-errors-from-run"><a class="header" href="#returning-errors-from-run">Returning Errors from <code>run</code></a></h4>
 <p>With the remaining program logic separated into the <code>run</code> function, we can
 improve the error handling, as we did with <code>Config::build</code> in Listing 12-9.
 Instead of allowing the program to panic by calling <code>expect</code>, the <code>run</code>
@@ -774,14 +785,14 @@ signature and body of <code>run</code>.</p>
 the <code>run</code> function to <code>Result&lt;(), Box&lt;dyn Error&gt;&gt;</code>. This function previously
 returned the unit type, <code>()</code>, and we keep that as the value returned in the
 <code>Ok</code> case.</p>
-<p>For the error type, we used the <em>trait object</em> <code>Box&lt;dyn Error&gt;</code> (and we’ve
-brought <code>std::error::Error</code> into scope with a <code>use</code> statement at the top).
-We’ll cover trait objects in <a href="ch18-00-oop.html">Chapter 18</a><!-- ignore -->. For now, just
-know that <code>Box&lt;dyn Error&gt;</code> means the function will return a type that
-implements the <code>Error</code> trait, but we don’t have to specify what particular type
-the return value will be. This gives us flexibility to return error values that
-may be of different types in different error cases. The <code>dyn</code> keyword is short
-for <em>dynamic</em>.</p>
+<p>For the error type, we used the trait object <code>Box&lt;dyn Error&gt;</code> (and we brought
+<code>std::error::Error</code> into scope with a <code>use</code> statement at the top). We’ll cover
+trait objects in <a href="ch18-00-oop.html">Chapter 18</a><!-- ignore -->. For now, just know that
+<code>Box&lt;dyn Error&gt;</code> means the function will return a type that implements the
+<code>Error</code> trait, but we don’t have to specify what particular type the return
+value will be. This gives us flexibility to return error values that may be of
+different types in different error cases. The <code>dyn</code> keyword is short for
+<em>dynamic</em>.</p>
 <p>Second, we’ve removed the call to <code>expect</code> in favor of the <code>?</code> operator, as we
 talked about in <a href="ch09-02-recoverable-errors-with-result.html#a-shortcut-for-propagating-errors-the--operator">Chapter 9</a><!-- ignore -->. Rather than
 <code>panic!</code> on an error, <code>?</code> will return the error value from the current function
@@ -789,7 +800,7 @@ for the caller to handle.</p>
 <p>Third, the <code>run</code> function now returns an <code>Ok</code> value in the success case.
 We’ve declared the <code>run</code> function’s success type as <code>()</code> in the signature,
 which means we need to wrap the unit type value in the <code>Ok</code> value. This
-<code>Ok(())</code> syntax might look a bit strange at first, but using <code>()</code> like this is
+<code>Ok(())</code> syntax might look a bit strange at first. But using <code>()</code> like this is
 the idiomatic way to indicate that we’re calling <code>run</code> for its side effects
 only; it doesn’t return a value we need.</p>
 <p>When you run this code, it will compile but will display a warning:</p>
@@ -889,67 +900,39 @@ doesn’t return a value that we want to <code>unwrap</code> in the same way tha
 the success case, we only care about detecting an error, so we don’t need
 <code>unwrap_or_else</code> to return the unwrapped value, which would only be <code>()</code>.</p>
 <p>The bodies of the <code>if let</code> and the <code>unwrap_or_else</code> functions are the same in
-both cases: we print the error and exit.</p>
+both cases: We print the error and exit.</p>
 <h3 id="splitting-code-into-a-library-crate"><a class="header" href="#splitting-code-into-a-library-crate">Splitting Code into a Library Crate</a></h3>
 <p>Our <code>minigrep</code> project is looking good so far! Now we’ll split the
 <em>src/main.rs</em> file and put some code into the <em>src/lib.rs</em> file. That way, we
 can test the code and have a <em>src/main.rs</em> file with fewer responsibilities.</p>
-<p>Let’s move all the code that isn’t in the <code>main</code> function from <em>src/main.rs</em> to
-<em>src/lib.rs</em>:</p>
-<ul>
-<li>The <code>run</code> function definition</li>
-<li>The relevant <code>use</code> statements</li>
-<li>The definition of <code>Config</code></li>
-<li>The <code>Config::build</code> function definition</li>
-</ul>
-<p>The contents of <em>src/lib.rs</em> should have the signatures shown in Listing 12-13
-(we’ve omitted the bodies of the functions for brevity). Note that this won’t
-compile until we modify <em>src/main.rs</em> in Listing 12-14.</p>
+<p>Let’s define the code responsible for searching text in <em>src/lib.rs</em> rather
+than in <em>src/main.rs</em>, which will let us (or anyone else using our
+<code>minigrep</code> library) call the searching function from more contexts than our
+<code>minigrep</code> binary.</p>
+<p>First, let’s define the <code>search</code> function signature in <em>src/lib.rs</em> as shown in
+Listing 12-13, with a body that calls the <code>unimplemented!</code> macro. We’ll explain
+the signature in more detail when we fill in the implementation.</p>
 <figure class="listing" id="listing-12-13">
 <span class="file-name">Filename: src/lib.rs</span>
-<pre><code class="language-rust ignore does_not_compile">use std::error::Error;
-use std::fs;
-
-pub struct Config {
-    pub query: String,
-    pub file_path: String,
-}
-
-impl Config {
-    pub fn build(args: &amp;[String]) -&gt; Result&lt;Config, &amp;'static str&gt; {
-        // --snip--
-<span class="boring">        if args.len() &lt; 3 {
-</span><span class="boring">            return Err("not enough arguments");
-</span><span class="boring">        }
-</span><span class="boring">
-</span><span class="boring">        let query = args[1].clone();
-</span><span class="boring">        let file_path = args[2].clone();
-</span><span class="boring">
-</span><span class="boring">        Ok(Config { query, file_path })
-</span>    }
-}
-
-pub fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
-    // --snip--
-<span class="boring">    let contents = fs::read_to_string(config.file_path)?;
-</span><span class="boring">
-</span><span class="boring">    println!("With text:\n{contents}");
-</span><span class="boring">
-</span><span class="boring">    Ok(())
-</span>}</code></pre>
-<figcaption><a href="#listing-12-13">Listing 12-13</a>: Moving <code>Config</code> and <code>run</code> into <em>src/lib.rs</em></figcaption>
+<pre><code class="language-rust ignore does_not_compile">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
+    unimplemented!();
+}</code></pre>
+<figcaption><a href="#listing-12-13">Listing 12-13</a>: Defining the <code>search</code> function in <em>src/lib.rs</em></figcaption>
 </figure>
-<p>We’ve made liberal use of the <code>pub</code> keyword: on <code>Config</code>, on its fields and its
-<code>build</code> method, and on the <code>run</code> function. We now have a library crate that has
-a public API we can test!</p>
-<p>Now we need to bring the code we moved to <em>src/lib.rs</em> into the scope of the
-binary crate in <em>src/main.rs</em>, as shown in Listing 12-14.</p>
+<p>We’ve used the <code>pub</code> keyword on the function definition to designate <code>search</code>
+as part of our library crate’s public API. We now have a library crate that we
+can use from our binary crate and that we can test!</p>
+<p>Now we need to bring the code defined in <em>src/lib.rs</em> into the scope of the
+binary crate in <em>src/main.rs</em> and call it, as shown in Listing 12-14.</p>
 <figure class="listing" id="listing-12-14">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><code class="language-rust ignore">use std::env;
-use std::process;
-
-use minigrep::Config;
+<pre><code class="language-rust ignore"><span class="boring">use std::env;
+</span><span class="boring">use std::error::Error;
+</span><span class="boring">use std::fs;
+</span><span class="boring">use std::process;
+</span><span class="boring">
+</span>// --snip--
+use minigrep::search;
 
 fn main() {
     // --snip--
@@ -960,26 +943,62 @@ fn main() {
 </span><span class="boring">        process::exit(1);
 </span><span class="boring">    });
 </span><span class="boring">
-</span><span class="boring">    println!("Searching for {}", config.query);
-</span><span class="boring">    println!("In file {}", config.file_path);
-</span><span class="boring">
-</span>    if let Err(e) = minigrep::run(config) {
-        // --snip--
-<span class="boring">        println!("Application error: {e}");
+</span><span class="boring">    if let Err(e) = run(config) {
+</span><span class="boring">        println!("Application error: {e}");
 </span><span class="boring">        process::exit(1);
-</span>    }
+</span><span class="boring">    }
+</span>}
+
+// --snip--
+
+<span class="boring">
+</span><span class="boring">struct Config {
+</span><span class="boring">    query: String,
+</span><span class="boring">    file_path: String,
+</span><span class="boring">}
+</span><span class="boring">
+</span><span class="boring">impl Config {
+</span><span class="boring">    fn build(args: &amp;[String]) -&gt; Result&lt;Config, &amp;'static str&gt; {
+</span><span class="boring">        if args.len() &lt; 3 {
+</span><span class="boring">            return Err("not enough arguments");
+</span><span class="boring">        }
+</span><span class="boring">
+</span><span class="boring">        let query = args[1].clone();
+</span><span class="boring">        let file_path = args[2].clone();
+</span><span class="boring">
+</span><span class="boring">        Ok(Config { query, file_path })
+</span><span class="boring">    }
+</span><span class="boring">}
+</span><span class="boring">
+</span>fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
+    let contents = fs::read_to_string(config.file_path)?;
+
+    for line in search(&amp;config.query, &amp;contents) {
+        println!("{line}");
+    }
+
+    Ok(())
 }</code></pre>
-<figcaption><a href="#listing-12-14">Listing 12-14</a>: Using the <code>minigrep</code> library crate in <em>src/main.rs</em></figcaption>
+<figcaption><a href="#listing-12-14">Listing 12-14</a>: Using the <code>minigrep</code> library crate’s <code>search</code> function in <em>src/main.rs</em></figcaption>
 </figure>
-<p>We add a <code>use minigrep::Config</code> line to bring the <code>Config</code> type from the
-library crate into the binary crate’s scope, and we prefix the <code>run</code> function
-with our crate name. Now all the functionality should be connected and should
-work. Run the program with <code>cargo run</code> and make sure everything works correctly.</p>
+<p>We add a <code>use minigrep::search</code> line to bring the <code>search</code> function from
+the library crate into the binary crate’s scope. Then, in the <code>run</code> function,
+rather than printing out the contents of the file, we call the <code>search</code>
+function and pass the <code>config.query</code> value and <code>contents</code> as arguments. Then,
+<code>run</code> will use a <code>for</code> loop to print each line returned from <code>search</code> that
+matched the query. This is also a good time to remove the <code>println!</code> calls in
+the <code>main</code> function that displayed the query and the file path so that our
+program only prints the search results (if no errors occur).</p>
+<p>Note that the search function will be collecting all the results into a vector
+it returns before any printing happens. This implementation could be slow to
+display results when searching large files, because results aren’t printed as
+they’re found; we’ll discuss a possible way to fix this using iterators in
+Chapter 13.</p>
 <p>Whew! That was a lot of work, but we’ve set ourselves up for success in the
 future. Now it’s much easier to handle errors, and we’ve made the code more
 modular. Almost all of our work will be done in <em>src/lib.rs</em> from here on out.</p>
 <p>Let’s take advantage of this newfound modularity by doing something that would
-have been difficult with the old code but is easy with the new code: we’ll
+have been difficult with the old code but is easy with the new code: We’ll
 write some tests!</p>
 
                     </main>
@@ -987,11 +1006,11 @@ write some tests!</p>
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch12-02-reading-a-file.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch12-04-testing-the-librarys-functionality.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -1001,16 +1020,21 @@ write some tests!</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch12-02-reading-a-file.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch12-04-testing-the-librarys-functionality.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
 
 
@@ -1019,19 +1043,18 @@ write some tests!</p>
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
-        <script src="js-extensions/packages/telemetry/dist/index.js"></script>
-        <script src="js-extensions/packages/consent-form/dist/index.js"></script>
-        <script src="js-extensions/packages/feedback/dist/index.js"></script>
+        <script src="ferris-2317480c.js"></script>
+        <script src="js-extensions/packages/feedback/dist/index-d9aca39a.js"></script>
+
 
 
     </div>

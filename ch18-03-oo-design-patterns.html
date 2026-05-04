@@ -12,29 +12,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="js-extensions/packages/consent-form/dist/index.css">
-        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index-c9d186bd.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -42,9 +40,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-795051b7.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-3119a861.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -58,7 +57,7 @@
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -87,56 +86,59 @@
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
                         </button>
                     </div>
 
@@ -144,36 +146,41 @@
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
                         <a href="https://github.com/cognitive-engineering-lab/rust-book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
                         </a>
 
                     </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
                         <h2 id="implementing-an-object-oriented-design-pattern"><a class="header" href="#implementing-an-object-oriented-design-pattern">Implementing an Object-Oriented Design Pattern</a></h2>
 <p>The <em>state pattern</em> is an object-oriented design pattern. The crux of the
@@ -181,8 +188,8 @@ pattern is that we define a set of states a value can have internally. The
 states are represented by a set of <em>state objects</em>, and the value’s behavior
 changes based on its state. We’re going to work through an example of a blog
 post struct that has a field to hold its state, which will be a state object
-from the set “draft”, “review”, or “published”.</p>
-<p>The state objects share functionality: in Rust, of course, we use structs and
+from the set “draft,” “review,” or “published.”</p>
+<p>The state objects share functionality: In Rust, of course, we use structs and
 traits rather than objects and inheritance. Each state object is responsible
 for its own behavior and for governing when it should change into another
 state. The value that holds a state object knows nothing about the different
@@ -192,8 +199,8 @@ requirements of the program change, we won’t need to change the code of the
 value holding the state or the code that uses the value. We’ll only need to
 update the code inside one of the state objects to change its rules or perhaps
 add more state objects.</p>
-<p>First we’re going to implement the state pattern in a more traditional
-object-oriented way, then we’ll use an approach that’s a bit more natural in
+<p>First, we’re going to implement the state pattern in a more traditional
+object-oriented way. Then, we’ll use an approach that’s a bit more natural in
 Rust. Let’s dig in to incrementally implement a blog post workflow using the
 state pattern.</p>
 <p>The final functionality will look like this:</p>
@@ -201,13 +208,24 @@ state pattern.</p>
 <li>A blog post starts as an empty draft.</li>
 <li>When the draft is done, a review of the post is requested.</li>
 <li>When the post is approved, it gets published.</li>
-<li>Only published blog posts return content to print, so unapproved posts can’t
-accidentally be published.</li>
+<li>Only published blog posts return content to print so that unapproved posts
+can’t accidentally be published.</li>
 </ol>
 <p>Any other changes attempted on a post should have no effect. For example, if we
 try to approve a draft blog post before we’ve requested a review, the post
 should remain an unpublished draft.</p>
-<p>Listing 18-11 shows this workflow in code form: this is an example usage of the
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="a-traditional-object-oriented-attempt"></a></p>
+<h3 id="attempting-traditional-object-oriented-style"><a class="header" href="#attempting-traditional-object-oriented-style">Attempting Traditional Object-Oriented Style</a></h3>
+<p>There are infinite ways to structure code to solve the same problem, each with
+different trade-offs. This section’s implementation is more of a traditional
+object-oriented style, which is possible to write in Rust, but doesn’t take
+advantage of some of Rust’s strengths. Later, we’ll demonstrate a different
+solution that still uses the object-oriented design pattern but is structured
+in a way that might look less familiar to programmers with object-oriented
+experience. We’ll compare the two solutions to experience the trade-offs of
+designing Rust code differently than code in other languages.</p>
+<p>Listing 18-11 shows this workflow in code form: This is an example usage of the
 API we’ll implement in a library crate named <code>blog</code>. This won’t compile yet
 because we haven’t implemented the <code>blog</code> crate.</p>
 <figure class="listing" id="listing-18-11">
@@ -245,16 +263,18 @@ one of three state objects representing the various states a post can be
 in—draft, review, or published. Changing from one state to another will be
 managed internally within the <code>Post</code> type. The states change in response to the
 methods called by our library’s users on the <code>Post</code> instance, but they don’t
-have to manage the state changes directly. Also, users can’t make a mistake with
-the states, such as publishing a post before it’s reviewed.</p>
-<h3 id="defining-post-and-creating-a-new-instance-in-the-draft-state"><a class="header" href="#defining-post-and-creating-a-new-instance-in-the-draft-state">Defining <code>Post</code> and Creating a New Instance in the Draft State</a></h3>
+have to manage the state changes directly. Also, users can’t make a mistake
+with the states, such as publishing a post before it’s reviewed.</p>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="defining-post-and-creating-a-new-instance-in-the-draft-state"></a></p>
+<h4 id="defining-post-and-creating-a-new-instance"><a class="header" href="#defining-post-and-creating-a-new-instance">Defining <code>Post</code> and Creating a New Instance</a></h4>
 <p>Let’s get started on the implementation of the library! We know we need a
 public <code>Post</code> struct that holds some content, so we’ll start with the
 definition of the struct and an associated public <code>new</code> function to create an
 instance of <code>Post</code>, as shown in Listing 18-12. We’ll also make a private
 <code>State</code> trait that will define the behavior that all state objects for a <code>Post</code>
 must have.</p>
-<p>Then <code>Post</code> will hold a trait object of <code>Box&lt;dyn State&gt;</code> inside an <code>Option&lt;T&gt;</code>
+<p>Then, <code>Post</code> will hold a trait object of <code>Box&lt;dyn State&gt;</code> inside an <code>Option&lt;T&gt;</code>
 in a private field named <code>state</code> to hold the state object. You’ll see why the
 <code>Option&lt;T&gt;</code> is necessary in a bit.</p>
 <figure class="listing" id="listing-18-12">
@@ -287,11 +307,11 @@ we’ll start by defining just the <code>Draft</code> state because that is the 
 want a post to start in.</p>
 <p>When we create a new <code>Post</code>, we set its <code>state</code> field to a <code>Some</code> value that
 holds a <code>Box</code>. This <code>Box</code> points to a new instance of the <code>Draft</code> struct. This
-ensures that whenever we create a new instance of <code>Post</code>, it will start out as a
-draft. Because the <code>state</code> field of <code>Post</code> is private, there is no way to create
-a <code>Post</code> in any other state! In the <code>Post::new</code> function, we set the <code>content</code>
-field to a new, empty <code>String</code>.</p>
-<h3 id="storing-the-text-of-the-post-content"><a class="header" href="#storing-the-text-of-the-post-content">Storing the Text of the Post Content</a></h3>
+ensures that whenever we create a new instance of <code>Post</code>, it will start out as
+a draft. Because the <code>state</code> field of <code>Post</code> is private, there is no way to
+create a <code>Post</code> in any other state! In the <code>Post::new</code> function, we set the
+<code>content</code> field to a new, empty <code>String</code>.</p>
+<h4 id="storing-the-text-of-the-post-content"><a class="header" href="#storing-the-text-of-the-post-content">Storing the Text of the Post Content</a></h4>
 <p>We saw in Listing 18-11 that we want to be able to call a method named
 <code>add_text</code> and pass it a <code>&amp;str</code> that is then added as the text content of the
 blog post. We implement this as a method, rather than exposing the <code>content</code>
@@ -333,15 +353,18 @@ the saved <code>content</code>. This behavior doesn’t depend on the state the 
 so it’s not part of the state pattern. The <code>add_text</code> method doesn’t interact
 with the <code>state</code> field at all, but it is part of the behavior we want to
 support.</p>
-<h3 id="ensuring-the-content-of-a-draft-post-is-empty"><a class="header" href="#ensuring-the-content-of-a-draft-post-is-empty">Ensuring the Content of a Draft Post Is Empty</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="ensuring-the-content-of-a-draft-post-is-empty"></a></p>
+<h4 id="ensuring-that-the-content-of-a-draft-post-is-empty"><a class="header" href="#ensuring-that-the-content-of-a-draft-post-is-empty">Ensuring That the Content of a Draft Post Is Empty</a></h4>
 <p>Even after we’ve called <code>add_text</code> and added some content to our post, we still
 want the <code>content</code> method to return an empty string slice because the post is
-still in the draft state, as shown on line 7 of Listing 18-11. For now, let’s
-implement the <code>content</code> method with the simplest thing that will fulfill this
-requirement: always returning an empty string slice. We’ll change this later
-once we implement the ability to change a post’s state so it can be published.
-So far, posts can only be in the draft state, so the post content should always
-be empty. Listing 18-14 shows this placeholder implementation.</p>
+still in the draft state, as shown by the first <code>assert_eq!</code> in Listing 18-11.
+For now, let’s implement the <code>content</code> method with the simplest thing that will
+fulfill this requirement: always returning an empty string slice. We’ll change
+this later once we implement the ability to change a post’s state so that it
+can be published. So far, posts can only be in the draft state, so the post
+content should always be empty. Listing 18-14 shows this placeholder
+implementation.</p>
 <figure class="listing" id="listing-18-14">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub struct Post {
@@ -374,11 +397,12 @@ be empty. Listing 18-14 shows this placeholder implementation.</p>
 </span><span class="boring">impl State for Draft {}</span></code></pre>
 <figcaption><a href="#listing-18-14">Listing 18-14</a>: Adding a placeholder implementation for the <code>content</code> method on <code>Post</code> that always returns an empty string slice</figcaption>
 </figure>
-<p>With this added <code>content</code> method, everything in Listing 18-11 up to line 7
-works as intended.</p>
-<!-- Old link, do not remove -->
-<p><a id="requesting-a-review-of-the-post-changes-its-state"></a></p>
-<h3 id="requesting-a-review-changes-the-posts-state"><a class="header" href="#requesting-a-review-changes-the-posts-state">Requesting a Review Changes the Post’s State</a></h3>
+<p>With this added <code>content</code> method, everything in Listing 18-11 through the first
+<code>assert_eq!</code> works as intended.</p>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="requesting-a-review-of-the-post-changes-its-state"></a>
+<a id="requesting-a-review-changes-the-posts-state"></a></p>
+<h4 id="requesting-a-review-which-changes-the-posts-state"><a class="header" href="#requesting-a-review-which-changes-the-posts-state">Requesting a Review, Which Changes the Post’s State</a></h4>
 <p>Next, we need to add functionality to request a review of a post, which should
 change its state from <code>Draft</code> to <code>PendingReview</code>. Listing 18-15 shows this code.</p>
 <figure class="listing" id="listing-18-15">
@@ -434,7 +458,7 @@ impl State for PendingReview {
 <figcaption><a href="#listing-18-15">Listing 18-15</a>: Implementing <code>request_review</code> methods on <code>Post</code> and the <code>State</code> trait</figcaption>
 </figure>
 <p>We give <code>Post</code> a public method named <code>request_review</code> that will take a mutable
-reference to <code>self</code>. Then we call an internal <code>request_review</code> method on the
+reference to <code>self</code>. Then, we call an internal <code>request_review</code> method on the
 current state of <code>Post</code>, and this second <code>request_review</code> method consumes the
 current state and returns a new state.</p>
 <p>We add the <code>request_review</code> method to the <code>State</code> trait; all types that
@@ -442,38 +466,39 @@ implement the trait will now need to implement the <code>request_review</code> m
 Note that rather than having <code>self</code>, <code>&amp;self</code>, or <code>&amp;mut self</code> as the first
 parameter of the method, we have <code>self: Box&lt;Self&gt;</code>. This syntax means the
 method is only valid when called on a <code>Box</code> holding the type. This syntax takes
-ownership of <code>Box&lt;Self&gt;</code>, invalidating the old state so the state value of the
-<code>Post</code> can transform into a new state.</p>
+ownership of <code>Box&lt;Self&gt;</code>, invalidating the old state so that the state value of
+the <code>Post</code> can transform into a new state.</p>
 <p>To consume the old state, the <code>request_review</code> method needs to take ownership
 of the state value. This is where the <code>Option</code> in the <code>state</code> field of <code>Post</code>
-comes in: we call the <code>take</code> method to take the <code>Some</code> value out of the <code>state</code>
+comes in: We call the <code>take</code> method to take the <code>Some</code> value out of the <code>state</code>
 field and leave a <code>None</code> in its place because Rust doesn’t let us have
 unpopulated fields in structs. This lets us move the <code>state</code> value out of
-<code>Post</code> rather than borrowing it. Then we’ll set the post’s <code>state</code> value to the
-result of this operation.</p>
+<code>Post</code> rather than borrowing it. Then, we’ll set the post’s <code>state</code> value to
+the result of this operation.</p>
 <p>We need to set <code>state</code> to <code>None</code> temporarily rather than setting it directly
 with code like <code>self.state = self.state.request_review();</code> to get ownership of
-the <code>state</code> value. This ensures <code>Post</code> can’t use the old <code>state</code> value after
-we’ve transformed it into a new state.</p>
+the <code>state</code> value. This ensures that <code>Post</code> can’t use the old <code>state</code> value
+after we’ve transformed it into a new state.</p>
 <p>The <code>request_review</code> method on <code>Draft</code> returns a new, boxed instance of a new
 <code>PendingReview</code> struct, which represents the state when a post is waiting for a
 review. The <code>PendingReview</code> struct also implements the <code>request_review</code> method
 but doesn’t do any transformations. Rather, it returns itself because when we
 request a review on a post already in the <code>PendingReview</code> state, it should stay
 in the <code>PendingReview</code> state.</p>
-<p>Now we can start seeing the advantages of the state pattern: the
+<p>Now we can start seeing the advantages of the state pattern: The
 <code>request_review</code> method on <code>Post</code> is the same no matter its <code>state</code> value. Each
 state is responsible for its own rules.</p>
 <p>We’ll leave the <code>content</code> method on <code>Post</code> as is, returning an empty string
 slice. We can now have a <code>Post</code> in the <code>PendingReview</code> state as well as in the
 <code>Draft</code> state, but we want the same behavior in the <code>PendingReview</code> state.
-Listing 18-11 now works up to line 10!</p>
+Listing 18-11 now works up to the second <code>assert_eq!</code> call!</p>
 <!-- Old headings. Do not remove or links may break. -->
-<p><a id="adding-the-approve-method-that-changes-the-behavior-of-content"></a></p>
-<h3 id="adding-approve-to-change-the-behavior-of-content"><a class="header" href="#adding-approve-to-change-the-behavior-of-content">Adding <code>approve</code> to Change the Behavior of <code>content</code></a></h3>
-<p>The <code>approve</code> method will be similar to the <code>request_review</code> method: it will
+<p><a id="adding-the-approve-method-that-changes-the-behavior-of-content"></a>
+<a id="adding-approve-to-change-the-behavior-of-content"></a></p>
+<h4 id="adding-approve-to-change-contents-behavior"><a class="header" href="#adding-approve-to-change-contents-behavior">Adding <code>approve</code> to Change <code>content</code>’s Behavior</a></h4>
+<p>The <code>approve</code> method will be similar to the <code>request_review</code> method: It will
 set <code>state</code> to the value that the current state says it should have when that
-state is approved, as shown in Listing 18-16:</p>
+state is approved, as shown in Listing 18-16.</p>
 <figure class="listing" id="listing-18-16">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub struct Post {
@@ -562,12 +587,12 @@ implements <code>State</code>, the <code>Published</code> state.</p>
 return <code>self</code>. When we call <code>approve</code> on <code>PendingReview</code>, it returns a new,
 boxed instance of the <code>Published</code> struct. The <code>Published</code> struct implements the
 <code>State</code> trait, and for both the <code>request_review</code> method and the <code>approve</code>
-method, it returns itself, because the post should stay in the <code>Published</code>
-state in those cases.</p>
+method, it returns itself because the post should stay in the <code>Published</code> state
+in those cases.</p>
 <p>Now we need to update the <code>content</code> method on <code>Post</code>. We want the value
 returned from <code>content</code> to depend on the current state of the <code>Post</code>, so we’re
 going to have the <code>Post</code> delegate to a <code>content</code> method defined on its <code>state</code>,
-as shown in Listing 18-17:</p>
+as shown in Listing 18-17.</p>
 <figure class="listing" id="listing-18-17">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">pub struct Post {
@@ -648,27 +673,27 @@ as shown in Listing 18-17:</p>
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-18-17">Listing 18-17</a>: Updating the <code>content</code> method on <code>Post</code> to delegate to a <code>content</code> method on <code>State</code></figcaption>
 </figure>
-<p>Because the goal is to keep all of these rules inside the structs that implement
-<code>State</code>, we call a <code>content</code> method on the value in <code>state</code> and pass the post
-instance (that is, <code>self</code>) as an argument. Then we return the value that’s
-returned from using the <code>content</code> method on the <code>state</code> value.</p>
+<p>Because the goal is to keep all of these rules inside the structs that
+implement <code>State</code>, we call a <code>content</code> method on the value in <code>state</code> and pass
+the post instance (that is, <code>self</code>) as an argument. Then, we return the value
+that’s returned from using the <code>content</code> method on the <code>state</code> value.</p>
 <p>We call the <code>as_ref</code> method on the <code>Option</code> because we want a reference to the
-value inside the <code>Option</code> rather than ownership of the value. Because <code>state</code>
-is an <code>Option&lt;Box&lt;dyn State&gt;&gt;</code>, when we call <code>as_ref</code>, an <code>Option&lt;&amp;Box&lt;dyn State&gt;&gt;</code> is returned. If we didn’t call <code>as_ref</code>, we would get an error because
+value inside the <code>Option</code> rather than ownership of the value. Because <code>state</code> is
+an <code>Option&lt;Box&lt;dyn State&gt;&gt;</code>, when we call <code>as_ref</code>, an <code>Option&lt;&amp;Box&lt;dyn State&gt;&gt;</code> is returned. If we didn’t call <code>as_ref</code>, we would get an error because
 we can’t move <code>state</code> out of the borrowed <code>&amp;self</code> of the function parameter.</p>
-<p>We then call the <code>unwrap</code> method, which we know will never panic, because we
+<p>We then call the <code>unwrap</code> method, which we know will never panic because we
 know the methods on <code>Post</code> ensure that <code>state</code> will always contain a <code>Some</code>
 value when those methods are done. This is one of the cases we talked about in
-<a href="ch09-03-to-panic-or-not-to-panic.html#cases-in-which-you-have-more-information-than-the-compiler">“Cases in Which You Have More Information Than the
-Compiler”</a><!-- ignore --> in Chapter 9 when we know that a
-<code>None</code> value is never possible, even though the compiler isn’t able to
-understand that.</p>
+the <a href="ch09-03-to-panic-or-not-to-panic.html#cases-in-which-you-have-more-information-than-the-compiler">“When You Have More Information Than the
+Compiler”</a><!-- ignore --> section of Chapter 9 when we
+know that a <code>None</code> value is never possible, even though the compiler isn’t able
+to understand that.</p>
 <p>At this point, when we call <code>content</code> on the <code>&amp;Box&lt;dyn State&gt;</code>, deref coercion
-will take effect on the <code>&amp;</code> and the <code>Box</code> so the <code>content</code> method will
+will take effect on the <code>&amp;</code> and the <code>Box</code> so that the <code>content</code> method will
 ultimately be called on the type that implements the <code>State</code> trait. That means
 we need to add <code>content</code> to the <code>State</code> trait definition, and that is where
 we’ll put the logic for what content to return depending on which state we
-have, as shown in Listing 18-18:</p>
+have, as shown in Listing 18-18.</p>
 <figure class="listing" id="listing-18-18">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub struct Post {
@@ -762,7 +787,10 @@ impl State for Published {
 <p>We add a default implementation for the <code>content</code> method that returns an empty
 string slice. That means we don’t need to implement <code>content</code> on the <code>Draft</code>
 and <code>PendingReview</code> structs. The <code>Published</code> struct will override the <code>content</code>
-method and return the value in <code>post.content</code>.</p>
+method and return the value in <code>post.content</code>. While convenient, having the
+<code>content</code> method on <code>State</code> determine the content of the <code>Post</code> is blurring
+the lines between the responsibility of <code>State</code> and the responsibility of
+<code>Post</code>.</p>
 <p>Note that we need lifetime annotations on this method, as we discussed in
 Chapter 10. We’re taking a reference to a <code>post</code> as an argument and returning a
 reference to part of that <code>post</code>, so the lifetime of the returned reference is
@@ -772,30 +800,30 @@ pattern with the rules of the blog post workflow. The logic related to the
 rules lives in the state objects rather than being scattered throughout <code>Post</code>.</p>
 <section class="note" aria-role="note">
 <h3 id="why-not-an-enum"><a class="header" href="#why-not-an-enum">Why Not An Enum?</a></h3>
-<p>You may have been wondering why we didn’t use an <code>enum</code> with the different
-possible post states as variants. That’s certainly a possible solution; try
-it and compare the end results to see which you prefer! One disadvantage of
-using an enum is that every place that checks the value of the enum will need
-a <code>match</code> expression or similar to handle every possible variant. This could
-get more repetitive than this trait object solution.</p>
+<p>You may have been wondering why we didn’t use an enum with the different
+possible post states as variants. That’s certainly a possible solution; try it
+and compare the end results to see which you prefer! One disadvantage of using
+an enum is that every place that checks the value of the enum will need a
+<code>match</code> expression or similar to handle every possible variant. This could get
+more repetitive than this trait object solution.</p>
 </section>
-<h3 id="trade-offs-of-the-state-pattern"><a class="header" href="#trade-offs-of-the-state-pattern">Trade-offs of the State Pattern</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="trade-offs-of-the-state-pattern"></a></p>
+<h4 id="evaluating-the-state-pattern"><a class="header" href="#evaluating-the-state-pattern">Evaluating the State Pattern</a></h4>
 <p>We’ve shown that Rust is capable of implementing the object-oriented state
 pattern to encapsulate the different kinds of behavior a post should have in
-each state. The methods on <code>Post</code> know nothing about the various behaviors. The
-way we organized the code, we have to look in only one place to know the
-different ways a published post can behave: the implementation of the <code>State</code>
-trait on the <code>Published</code> struct.</p>
+each state. The methods on <code>Post</code> know nothing about the various behaviors.
+Because of the way we organized the code, we have to look in only one place to
+know the different ways a published post can behave: the implementation of the
+<code>State</code> trait on the <code>Published</code> struct.</p>
 <p>If we were to create an alternative implementation that didn’t use the state
 pattern, we might instead use <code>match</code> expressions in the methods on <code>Post</code> or
 even in the <code>main</code> code that check the state of the post and change behavior
 in those places. That would mean we would have to look in several places to
-understand all the implications of a post being in the published state! This
-would only increase the more states we added: each of those <code>match</code> expressions
-would need another arm.</p>
+understand all the implications of a post being in the published state.</p>
 <p>With the state pattern, the <code>Post</code> methods and the places we use <code>Post</code> don’t
 need <code>match</code> expressions, and to add a new state, we would only need to add a
-new struct and implement the trait methods on that one struct.</p>
+new struct and implement the trait methods on that one struct in one location.</p>
 <p>The implementation using the state pattern is easy to extend to add more
 functionality. To see the simplicity of maintaining code that uses the state
 pattern, try a few of these suggestions:</p>
@@ -816,8 +844,8 @@ change with the addition of a new state, but that would mean switching to
 another design pattern.</p>
 <p>Another downside is that we’ve duplicated some logic. To eliminate some of the
 duplication, we might try to make default implementations for the
-<code>request_review</code> and <code>approve</code> methods on the <code>State</code> trait that return <code>self</code>;
-however, this wouldn’t work: when using <code>State</code> as a trait object, the trait
+<code>request_review</code> and <code>approve</code> methods on the <code>State</code> trait that return <code>self</code>.
+However, this wouldn’t work: When using <code>State</code> as a trait object, the trait
 doesn’t know what the concrete <code>self</code> will be exactly, so the return type isn’t
 known at compile time. (This is one of the dyn compatibility rules mentioned
 earlier.)</p>
@@ -827,17 +855,18 @@ and <code>approve</code> methods on <code>Post</code>. Both methods use <code>Op
 value’s implementation of the same method and set the new value of the <code>state</code>
 field to the result. If we had a lot of methods on <code>Post</code> that followed this
 pattern, we might consider defining a macro to eliminate the repetition (see
-<a href="ch20-05-macros.html#macros">“Macros”</a><!-- ignore --> in Chapter 20).</p>
+the <a href="ch20-05-macros.html#macros">“Macros”</a><!-- ignore --> section in Chapter 20).</p>
 <p>By implementing the state pattern exactly as it’s defined for object-oriented
 languages, we’re not taking as full advantage of Rust’s strengths as we could.
 Let’s look at some changes we can make to the <code>blog</code> crate that can make
 invalid states and transitions into compile-time errors.</p>
-<h4 id="encoding-states-and-behavior-as-types"><a class="header" href="#encoding-states-and-behavior-as-types">Encoding States and Behavior as Types</a></h4>
+<h3 id="encoding-states-and-behavior-as-types"><a class="header" href="#encoding-states-and-behavior-as-types">Encoding States and Behavior as Types</a></h3>
 <p>We’ll show you how to rethink the state pattern to get a different set of
 trade-offs. Rather than encapsulating the states and transitions completely so
-outside code has no knowledge of them, we’ll encode the states into different
-types. Consequently, Rust’s type checking system will prevent attempts to use
-draft posts where only published posts are allowed by issuing a compiler error.</p>
+that outside code has no knowledge of them, we’ll encode the states into
+different types. Consequently, Rust’s type-checking system will prevent
+attempts to use draft posts where only published posts are allowed by issuing a
+compiler error.</p>
 <p>Let’s consider the first part of <code>main</code> in Listing 18-11:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
@@ -859,8 +888,8 @@ draft posts where only published posts are allowed by issuing a compiler error.<
 <p>We still enable the creation of new posts in the draft state using <code>Post::new</code>
 and the ability to add text to the post’s content. But instead of having a
 <code>content</code> method on a draft post that returns an empty string, we’ll make it so
-draft posts don’t have the <code>content</code> method at all. That way, if we try to get
-a draft post’s content, we’ll get a compiler error telling us the method
+that draft posts don’t have the <code>content</code> method at all. That way, if we try to
+get a draft post’s content, we’ll get a compiler error telling us the method
 doesn’t exist. As a result, it will be impossible for us to accidentally
 display draft post content in production because that code won’t even compile.
 Listing 18-19 shows the definition of a <code>Post</code> struct and a <code>DraftPost</code> struct,
@@ -892,7 +921,7 @@ impl DraftPost {
         self.content.push_str(text);
     }
 }</code></pre>
-<figcaption><a href="#listing-18-19">Listing 18-19</a>: A <code>Post</code> with a <code>content</code> method and <code>DraftPost</code> without a <code>content</code> method</figcaption>
+<figcaption><a href="#listing-18-19">Listing 18-19</a>: A <code>Post</code> with a <code>content</code> method and a <code>DraftPost</code> without a <code>content</code> method</figcaption>
 </figure>
 <p>Both the <code>Post</code> and <code>DraftPost</code> structs have a private <code>content</code> field that
 stores the blog post text. The structs no longer have the <code>state</code> field because
@@ -900,16 +929,17 @@ we’re moving the encoding of the state to the types of the structs. The <code>
 struct will represent a published post, and it has a <code>content</code> method that
 returns the <code>content</code>.</p>
 <p>We still have a <code>Post::new</code> function, but instead of returning an instance of
-<code>Post</code>, it returns an instance of <code>DraftPost</code>. Because <code>content</code> is private
-and there aren’t any functions that return <code>Post</code>, it’s not possible to create
-an instance of <code>Post</code> right now.</p>
+<code>Post</code>, it returns an instance of <code>DraftPost</code>. Because <code>content</code> is private and
+there aren’t any functions that return <code>Post</code>, it’s not possible to create an
+instance of <code>Post</code> right now.</p>
 <p>The <code>DraftPost</code> struct has an <code>add_text</code> method, so we can add text to
 <code>content</code> as before, but note that <code>DraftPost</code> does not have a <code>content</code> method
-defined! So now the program ensures all posts start as draft posts, and draft
-posts don’t have their content available for display. Any attempt to get around
-these constraints will result in a compiler error.</p>
-<h4 id="implementing-transitions-as-transformations-into-different-types"><a class="header" href="#implementing-transitions-as-transformations-into-different-types">Implementing Transitions as Transformations into Different Types</a></h4>
-<p>So how do we get a published post? We want to enforce the rule that a draft
+defined! So now the program ensures that all posts start as draft posts, and
+draft posts don’t have their content available for display. Any attempt to get
+around these constraints will result in a compiler error.</p>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="implementing-transitions-as-transformations-into-different-types"></a></p>
+<p>So, how do we get a published post? We want to enforce the rule that a draft
 post has to be reviewed and approved before it can be published. A post in the
 pending review state should still not display any content. Let’s implement
 these constraints by adding another struct, <code>PendingReviewPost</code>, defining the
@@ -979,7 +1009,7 @@ we’ve now encoded the blog post workflow into the type system.</p>
 <code>approve</code> methods return new instances rather than modifying the struct they’re
 called on, so we need to add more <code>let post =</code> shadowing assignments to save
 the returned instances. We also can’t have the assertions about the draft and
-pending review posts’ contents being empty strings, nor do we need them: we can’t
+pending review posts’ contents be empty strings, nor do we need them: We can’t
 compile code that tries to use the content of posts in those states any longer.
 The updated code in <code>main</code> is shown in Listing 18-21.</p>
 <figure class="listing" id="listing-18-21">
@@ -1001,7 +1031,7 @@ fn main() {
 </figure>
 <p>The changes we needed to make to <code>main</code> to reassign <code>post</code> mean that this
 implementation doesn’t quite follow the object-oriented state pattern anymore:
-the transformations between the states are no longer encapsulated entirely
+The transformations between the states are no longer encapsulated entirely
 within the <code>Post</code> implementation. However, our gain is that invalid states are
 now impossible because of the type system and the type checking that happens at
 compile time! This ensures that certain bugs, such as display of the content of
@@ -1025,13 +1055,14 @@ object-oriented features in Rust. Dynamic dispatch can give your code some
 flexibility in exchange for a bit of runtime performance. You can use this
 flexibility to implement object-oriented patterns that can help your code’s
 maintainability. Rust also has other features, like ownership, that
-object-oriented languages don’t have. An object-oriented pattern won’t always be
-the best way to take advantage of Rust’s strengths, but it is an available
+object-oriented languages don’t have. An object-oriented pattern won’t always
+be the best way to take advantage of Rust’s strengths, but it is an available
 option.</p>
 <p>Next, we’ll look at patterns, which are another of Rust’s features that enable
 lots of flexibility. We’ve looked at them briefly throughout the book but
 haven’t seen their full capability yet. Let’s go!</p>
-<div class="quiz-placeholder" data-quiz-name="&quot;ch17-03-oo-design-patterns&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;The struct/trait approach is extensible in the sense that an API client could potentially\ncreate a new state (such as `Retracted`) without changing the core API functionality. When\nadding this state, the methods for other states do not need to be changed. Whereas with enums,\na client cannot add a new branch to the enum. Moreover, all `match` expressions must be updated\nwhen a state is added.\n\nA `match` is not likely to be slower than dynamic dispatch. A match is a simple branch based on\nan enum's tag, while dynamic dispatch requires a layer of indirection through a trait\nobject's virtual table with non-inlined function calls.\n\nAn API client cannot add a new *method* for existing states in the struct/trait approach, they \ncan only add new states. The methods are fixed by the API author's trait definition. Note that you could add a new method which only builds on existing methods via extension traits, such as:\n\n```\ntrait StateExt {\n    fn request_review_twice(self: Box&lt;Self&gt;) -&gt; Box&lt;dyn State&gt;;\n}\n\nimpl&lt;S: State&gt; StateExt for S {\n    fn request_review_twice(self: Box&lt;Self&gt;) -&gt; Box&lt;dyn State&gt; {\n        self.request_review().request_review()\n    }\n}\n```\n\nBut these extensions cannot read the private data of the states.\n&quot;,&quot;id&quot;:&quot;d19f9e83-d4c2-41d5-9fc7-81db5135eb1e&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:[&quot;An API client could add a new state to the system&quot;,&quot;Adding a new state does not require modifying methods on every other state&quot;]},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;The use of `match` is slower at runtime than dynamic dispatch&quot;,&quot;An API client could add a new method for all states in the system&quot;],&quot;prompt&quot;:&quot;In the running example from this section, a blog post could have one of three states: `Draft`, `PendingReview`, and `Published`. In the example, each state was represented as a struct, and state transitions was represented as trait methods returning trait objects.\n\nAn alternative implementation could represent the states as an enum, like this:\n\n```\nenum BlogState {\n    Draft,\n    PendingReview,\n    Published\n}\n\nimpl Post {\n    fn request_review(&amp;mut self) {\n        use BlogState::*;\n        self.state = match self.state {\n            Draft =&gt; PendingReview,\n            PendingReview =&gt; PendingReview,\n            Published =&gt; Published\n        }\n    }\n}\n```\n\nWhich of the following are good reasons to prefer the struct/trait representation over the enum representation?\n&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
+<div class="quiz-placeholder" data-quiz-name="&quot;ch17-03-oo-design-patterns&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;The struct/trait approach is extensible in the sense that an API client could potentially&#92;ncreate a new state (such as `Retracted`) without changing the core API functionality. When&#92;nadding this state, the methods for other states do not need to be changed. Whereas with enums,&#92;na client cannot add a new branch to the enum. Moreover, all `match` expressions must be updated&#92;nwhen a state is added.&#92;n&#92;nA `match` is not likely to be slower than dynamic dispatch. A match is a simple branch based on&#92;nan enum&#39;s tag, while dynamic dispatch requires a layer of indirection through a trait&#92;nobject&#39;s virtual table with non-inlined function calls.&#92;n&#92;nAn API client cannot add a new *method* for existing states in the struct/trait approach, they &#92;ncan only add new states. The methods are fixed by the API author&#39;s trait definition. Note that you could add a new method which only builds on existing methods via extension traits, such as:&#92;n&#92;n```&#92;ntrait StateExt {&#92;n    fn request_review_twice(self: Box&lt;Self&gt;) -&gt; Box&lt;dyn State&gt;;&#92;n}&#92;n&#92;nimpl&lt;S: State&gt; StateExt for S {&#92;n    fn request_review_twice(self: Box&lt;Self&gt;) -&gt; Box&lt;dyn State&gt; {&#92;n        self.request_review().request_review()&#92;n    }&#92;n}&#92;n```&#92;n&#92;nBut these extensions cannot read the private data of the states.&#92;n&quot;,&quot;id&quot;:&quot;d19f9e83-d4c2-41d5-9fc7-81db5135eb1e&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:[&quot;An API client could add a new state to the system&quot;,&quot;Adding a new state does not require modifying methods on every other state&quot;]},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;The use of `match` is slower at runtime than dynamic dispatch&quot;,&quot;An API client could add a new method for all states in the system&quot;],&quot;prompt&quot;:&quot;In the running example from this section, a blog post could have one of three states: `Draft`, `PendingReview`, and `Published`. In the example, each state was represented as a struct, and state transitions was represented as trait methods returning trait objects.&#92;n&#92;nAn alternative implementation could represent the states as an enum, like this:&#92;n&#92;n```&#92;nenum BlogState {&#92;n    Draft,&#92;n    PendingReview,&#92;n    Published&#92;n}&#92;n&#92;nimpl Post {&#92;n    fn request_review(&amp;mut self) {&#92;n        use BlogState::*;&#92;n        self.state = match self.state {&#92;n            Draft =&gt; PendingReview,&#92;n            PendingReview =&gt; PendingReview,&#92;n            Published =&gt; Published&#92;n        }&#92;n    }&#92;n}&#92;n```&#92;n&#92;nWhich of the following are good reasons to prefer the struct/trait representation over the enum representation?&#92;n&quot;}}]}" data-quiz-fullscreen="true"></div>
+
 <script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css">
 
                     </main>
@@ -1039,11 +1070,11 @@ haven’t seen their full capability yet. Let’s go!</p>
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch18-02-trait-objects.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch18-04-inventory.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -1053,16 +1084,21 @@ haven’t seen their full capability yet. Let’s go!</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch18-02-trait-objects.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch18-04-inventory.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
 
 
@@ -1071,19 +1107,18 @@ haven’t seen their full capability yet. Let’s go!</p>
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
-        <script src="js-extensions/packages/telemetry/dist/index.js"></script>
-        <script src="js-extensions/packages/consent-form/dist/index.js"></script>
-        <script src="js-extensions/packages/feedback/dist/index.js"></script>
+        <script src="ferris-2317480c.js"></script>
+        <script src="js-extensions/packages/feedback/dist/index-d9aca39a.js"></script>
+
 
 
     </div>

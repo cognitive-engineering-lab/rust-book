@@ -12,29 +12,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="js-extensions/packages/consent-form/dist/index.css">
-        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index-c9d186bd.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -42,9 +40,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-795051b7.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-3119a861.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -58,7 +57,7 @@
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -87,56 +86,59 @@
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
                         </button>
                     </div>
 
@@ -144,624 +146,50 @@
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
                         <a href="https://github.com/cognitive-engineering-lab/rust-book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
                         </a>
 
                     </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="working-with-any-number-of-futures"><a class="header" href="#working-with-any-number-of-futures">Working with Any Number of Futures</a></h2>
-<p>When we switched from using two futures to three in the previous section, we
-also had to switch from using <code>join</code> to using <code>join3</code>. It would be annoying to
-have to call a different function every time we changed the number of futures we
-wanted to join. Happily, we have a macro form of <code>join</code> to which we can pass an
-arbitrary number of arguments. It also handles awaiting the futures itself.
-Thus, we could rewrite the code from Listing 17-13 to use <code>join!</code> instead of
-<code>join3</code>, as in Listing 17-14.</p>
-<figure class="listing" id="listing-17-14">
-<span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
-</span><span class="boring">
-</span><span class="boring">use std::time::Duration;
-</span><span class="boring">
-</span><span class="boring">fn main() {
-</span><span class="boring">    trpl::run(async {
-</span><span class="boring">        let (tx, mut rx) = trpl::channel();
-</span><span class="boring">
-</span><span class="boring">        let tx1 = tx.clone();
-</span><span class="boring">        let tx1_fut = async move {
-</span><span class="boring">            let vals = vec![
-</span><span class="boring">                String::from("hi"),
-</span><span class="boring">                String::from("from"),
-</span><span class="boring">                String::from("the"),
-</span><span class="boring">                String::from("future"),
-</span><span class="boring">            ];
-</span><span class="boring">
-</span><span class="boring">            for val in vals {
-</span><span class="boring">                tx1.send(val).unwrap();
-</span><span class="boring">                trpl::sleep(Duration::from_secs(1)).await;
-</span><span class="boring">            }
-</span><span class="boring">        };
-</span><span class="boring">
-</span><span class="boring">        let rx_fut = async {
-</span><span class="boring">            while let Some(value) = rx.recv().await {
-</span><span class="boring">                println!("received '{value}'");
-</span><span class="boring">            }
-</span><span class="boring">        };
-</span><span class="boring">
-</span><span class="boring">        let tx_fut = async move {
-</span><span class="boring">            let vals = vec![
-</span><span class="boring">                String::from("more"),
-</span><span class="boring">                String::from("messages"),
-</span><span class="boring">                String::from("for"),
-</span><span class="boring">                String::from("you"),
-</span><span class="boring">            ];
-</span><span class="boring">
-</span><span class="boring">            for val in vals {
-</span><span class="boring">                tx.send(val).unwrap();
-</span><span class="boring">                trpl::sleep(Duration::from_secs(1)).await;
-</span><span class="boring">            }
-</span><span class="boring">        };
-</span><span class="boring">
-</span>        trpl::join!(tx1_fut, tx_fut, rx_fut);
-<span class="boring">    });
-</span><span class="boring">}</span></code></pre></pre>
-<figcaption><a href="#listing-17-14">Listing 17-14</a>: Using <code>join!</code> to wait for multiple futures</figcaption>
-</figure>
-<p>This is definitely an improvement over swapping between <code>join</code> and
-<code>join3</code> and <code>join4</code> and so on! However, even this macro form only works
-when we know the number of futures ahead of time. In real-world Rust,
-though, pushing futures into a collection and then waiting on some or
-all the futures of them to complete is a common pattern.</p>
-<p>To check all the futures in some collection, we’ll need to iterate over and
-join on <em>all</em> of them. The <code>trpl::join_all</code> function accepts any type that
-implements the <code>Iterator</code> trait, which you learned about back in <a href="ch13-02-iterators.html#the-iterator-trait-and-the-next-method">The Iterator
-Trait and the <code>next</code> Method</a><!-- ignore --> Chapter 13, so
-it seems like just the ticket. Let’s try putting our futures in a vector and
-replacing <code>join!</code> with <code>join_all</code> as shown in Listing 17-15.</p>
-<figure class="listing" id="listing-17-15">
-<pre><code class="language-rust ignore does_not_compile"><span class="boring">extern crate trpl; // required for mdbook test
-</span><span class="boring">
-</span><span class="boring">use std::time::Duration;
-</span><span class="boring">
-</span><span class="boring">fn main() {
-</span><span class="boring">    trpl::run(async {
-</span><span class="boring">        let (tx, mut rx) = trpl::channel();
-</span><span class="boring">
-</span><span class="boring">        let tx1 = tx.clone();
-</span><span class="boring">        let tx1_fut = async move {
-</span><span class="boring">            let vals = vec![
-</span><span class="boring">                String::from("hi"),
-</span><span class="boring">                String::from("from"),
-</span><span class="boring">                String::from("the"),
-</span><span class="boring">                String::from("future"),
-</span><span class="boring">            ];
-</span><span class="boring">
-</span><span class="boring">            for val in vals {
-</span><span class="boring">                tx1.send(val).unwrap();
-</span><span class="boring">                trpl::sleep(Duration::from_secs(1)).await;
-</span><span class="boring">            }
-</span><span class="boring">        };
-</span><span class="boring">
-</span><span class="boring">        let rx_fut = async {
-</span><span class="boring">            while let Some(value) = rx.recv().await {
-</span><span class="boring">                println!("received '{value}'");
-</span><span class="boring">            }
-</span><span class="boring">        };
-</span><span class="boring">
-</span><span class="boring">        let tx_fut = async move {
-</span><span class="boring">            let vals = vec![
-</span><span class="boring">                String::from("more"),
-</span><span class="boring">                String::from("messages"),
-</span><span class="boring">                String::from("for"),
-</span><span class="boring">                String::from("you"),
-</span><span class="boring">            ];
-</span><span class="boring">
-</span><span class="boring">            for val in vals {
-</span><span class="boring">                tx.send(val).unwrap();
-</span><span class="boring">                trpl::sleep(Duration::from_secs(1)).await;
-</span><span class="boring">            }
-</span><span class="boring">        };
-</span><span class="boring">
-</span>        let futures = vec![tx1_fut, rx_fut, tx_fut];
-
-        trpl::join_all(futures).await;
-<span class="boring">    });
-</span><span class="boring">}</span></code></pre>
-<figcaption><a href="#listing-17-15">Listing 17-15</a>: Storing anonymous futures in a vector and calling <code>join_all</code></figcaption>
-</figure>
-<p>Unfortunately, this code doesn’t compile. Instead, we get this error:</p>
-<!-- manual-regeneration
-cd listings/ch17-async-await/listing-17-15/
-cargo build
-copy just the compiler error
--->
-<pre><code class="language-text">error[E0308]: mismatched types
-  --&gt; src/main.rs:45:37
-   |
-10 |         let tx1_fut = async move {
-   |                       ---------- the expected `async` block
-...
-24 |         let rx_fut = async {
-   |                      ----- the found `async` block
-...
-45 |         let futures = vec![tx1_fut, rx_fut, tx_fut];
-   |                                     ^^^^^^ expected `async` block, found a different `async` block
-   |
-   = note: expected `async` block `{async block@src/main.rs:10:23: 10:33}`
-              found `async` block `{async block@src/main.rs:24:22: 24:27}`
-   = note: no two async blocks, even if identical, have the same type
-   = help: consider pinning your async block and casting it to a trait object
-</code></pre>
-<p>This might be surprising. After all, none of the async blocks returns anything,
-so each one produces a <code>Future&lt;Output = ()&gt;</code>. Remember that <code>Future</code> is a trait,
-though, and that the compiler creates a unique enum for each async block. You
-can’t put two different hand-written structs in a <code>Vec</code>, and the same rule
-applies to the different enums generated by the compiler.</p>
-<p>To make this work, we need to use <em>trait objects</em>, just as we did in <a href="ch12-03-improving-error-handling-and-modularity.html">“Returning
-Errors from the run function”</a><!-- ignore --> in Chapter 12. (We’ll cover
-trait objects in detail in Chapter 18.) Using trait objects lets us treat each
-of the anonymous futures produced by these types as the same type, because all
-of them implement the <code>Future</code> trait.</p>
-<section class="note" aria-role="note">
-<p>Note: In <a href="ch08-01-vectors.html#using-an-enum-to-store-multiple-types">Using an Enum to Store Multiple Values</a><!-- ignore --> in
-Chapter 8, we discussed another way to include multiple types in a <code>Vec</code>:
-using an enum to represent each type that can appear in the vector. We can’t
-do that here, though. For one thing, we have no way to name the different
-types, because they are anonymous. For another, the reason we reached for a
-vector and <code>join_all</code> in the first place was to be able to work with a dynamic
-collection of futures where we only care that they have the same output type.</p>
-</section>
-<p>We start by wrapping each future in the <code>vec!</code> in a <code>Box::new</code>, as shown in
-Listing 17-16.</p>
-<figure class="listing" id="listing-17-16">
-<span class="file-name">Filename: src/main.rs</span>
-<pre><code class="language-rust ignore does_not_compile"><span class="boring">extern crate trpl; // required for mdbook test
-</span><span class="boring">
-</span><span class="boring">use std::time::Duration;
-</span><span class="boring">
-</span><span class="boring">fn main() {
-</span><span class="boring">    trpl::run(async {
-</span><span class="boring">        let (tx, mut rx) = trpl::channel();
-</span><span class="boring">
-</span><span class="boring">        let tx1 = tx.clone();
-</span><span class="boring">        let tx1_fut = async move {
-</span><span class="boring">            let vals = vec![
-</span><span class="boring">                String::from("hi"),
-</span><span class="boring">                String::from("from"),
-</span><span class="boring">                String::from("the"),
-</span><span class="boring">                String::from("future"),
-</span><span class="boring">            ];
-</span><span class="boring">
-</span><span class="boring">            for val in vals {
-</span><span class="boring">                tx1.send(val).unwrap();
-</span><span class="boring">                trpl::sleep(Duration::from_secs(1)).await;
-</span><span class="boring">            }
-</span><span class="boring">        };
-</span><span class="boring">
-</span><span class="boring">        let rx_fut = async {
-</span><span class="boring">            while let Some(value) = rx.recv().await {
-</span><span class="boring">                println!("received '{value}'");
-</span><span class="boring">            }
-</span><span class="boring">        };
-</span><span class="boring">
-</span><span class="boring">        let tx_fut = async move {
-</span><span class="boring">            let vals = vec![
-</span><span class="boring">                String::from("more"),
-</span><span class="boring">                String::from("messages"),
-</span><span class="boring">                String::from("for"),
-</span><span class="boring">                String::from("you"),
-</span><span class="boring">            ];
-</span><span class="boring">
-</span><span class="boring">            for val in vals {
-</span><span class="boring">                tx.send(val).unwrap();
-</span><span class="boring">                trpl::sleep(Duration::from_secs(1)).await;
-</span><span class="boring">            }
-</span><span class="boring">        };
-</span><span class="boring">
-</span>        let futures =
-            vec![Box::new(tx1_fut), Box::new(rx_fut), Box::new(tx_fut)];
-
-        trpl::join_all(futures).await;
-<span class="boring">    });
-</span><span class="boring">}</span></code></pre>
-<figcaption><a href="#listing-17-16">Listing 17-16</a>: Using <code>Box::new</code> to align the types of the futures in a <code>Vec</code></figcaption>
-</figure>
-<p>Unfortunately, this code still doesn’t compile. In fact, we get the same basic
-error we got before for both the second and third <code>Box::new</code> calls, as well as
-new errors referring to the <code>Unpin</code> trait. We’ll come back to the <code>Unpin</code> errors
-in a moment. First, let’s fix the type errors on the <code>Box::new</code> calls by
-explicitly annotating the type of the <code>futures</code> variable (see Listing 17-17).</p>
-<figure class="listing" id="listing-17-17">
-<span class="file-name">Filename: src/main.rs</span>
-<pre><code class="language-rust ignore does_not_compile"><span class="boring">extern crate trpl; // required for mdbook test
-</span><span class="boring">
-</span><span class="boring">use std::time::Duration;
-</span><span class="boring">
-</span><span class="boring">fn main() {
-</span><span class="boring">    trpl::run(async {
-</span><span class="boring">        let (tx, mut rx) = trpl::channel();
-</span><span class="boring">
-</span><span class="boring">        let tx1 = tx.clone();
-</span><span class="boring">        let tx1_fut = async move {
-</span><span class="boring">            let vals = vec![
-</span><span class="boring">                String::from("hi"),
-</span><span class="boring">                String::from("from"),
-</span><span class="boring">                String::from("the"),
-</span><span class="boring">                String::from("future"),
-</span><span class="boring">            ];
-</span><span class="boring">
-</span><span class="boring">            for val in vals {
-</span><span class="boring">                tx1.send(val).unwrap();
-</span><span class="boring">                trpl::sleep(Duration::from_secs(1)).await;
-</span><span class="boring">            }
-</span><span class="boring">        };
-</span><span class="boring">
-</span><span class="boring">        let rx_fut = async {
-</span><span class="boring">            while let Some(value) = rx.recv().await {
-</span><span class="boring">                println!("received '{value}'");
-</span><span class="boring">            }
-</span><span class="boring">        };
-</span><span class="boring">
-</span><span class="boring">        let tx_fut = async move {
-</span><span class="boring">            let vals = vec![
-</span><span class="boring">                String::from("more"),
-</span><span class="boring">                String::from("messages"),
-</span><span class="boring">                String::from("for"),
-</span><span class="boring">                String::from("you"),
-</span><span class="boring">            ];
-</span><span class="boring">
-</span><span class="boring">            for val in vals {
-</span><span class="boring">                tx.send(val).unwrap();
-</span><span class="boring">                trpl::sleep(Duration::from_secs(1)).await;
-</span><span class="boring">            }
-</span><span class="boring">        };
-</span><span class="boring">
-</span>        let futures: Vec&lt;Box&lt;dyn Future&lt;Output = ()&gt;&gt;&gt; =
-            vec![Box::new(tx1_fut), Box::new(rx_fut), Box::new(tx_fut)];
-<span class="boring">
-</span><span class="boring">        trpl::join_all(futures).await;
-</span><span class="boring">    });
-</span><span class="boring">}</span></code></pre>
-<figcaption><a href="#listing-17-17">Listing 17-17</a>: Fixing the rest of the type mismatch errors by using an explicit type declaration</figcaption>
-</figure>
-<p>This type declaration is a little involved, so let’s walk through it:</p>
-<ol>
-<li>The innermost type is the future itself. We note explicitly that the output
-of the future is the unit type <code>()</code> by writing <code>Future&lt;Output = ()&gt;</code>.</li>
-<li>Then we annotate the trait with <code>dyn</code> to mark it as dynamic.</li>
-<li>The entire trait reference is wrapped in a <code>Box</code>.</li>
-<li>Finally, we state explicitly that <code>futures</code> is a <code>Vec</code> containing these
-items.</li>
-</ol>
-<p>That already made a big difference. Now when we run the compiler, we get only
-the errors mentioning <code>Unpin</code>. Although there are three of them, their contents
-are very similar.</p>
-<!-- manual-regeneration
-cd listings/ch17-async-await/listing-17-17
-cargo build
-# copy *only* the errors
-# fix the paths
--->
-<pre><code class="language-text">error[E0277]: `dyn Future&lt;Output = ()&gt;` cannot be unpinned
-   --&gt; src/main.rs:49:24
-    |
-49  |         trpl::join_all(futures).await;
-    |         -------------- ^^^^^^^ the trait `Unpin` is not implemented for `dyn Future&lt;Output = ()&gt;`
-    |         |
-    |         required by a bound introduced by this call
-    |
-    = note: consider using the `pin!` macro
-            consider using `Box::pin` if you need to access the pinned value outside of the current scope
-    = note: required for `Box&lt;dyn Future&lt;Output = ()&gt;&gt;` to implement `Future`
-note: required by a bound in `join_all`
-   --&gt; file:///home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.30/src/future/join_all.rs:105:14
-    |
-102 | pub fn join_all&lt;I&gt;(iter: I) -&gt; JoinAll&lt;I::Item&gt;
-    |        -------- required by a bound in this function
-...
-105 |     I::Item: Future,
-    |              ^^^^^^ required by this bound in `join_all`
-
-error[E0277]: `dyn Future&lt;Output = ()&gt;` cannot be unpinned
-  --&gt; src/main.rs:49:9
-   |
-49 |         trpl::join_all(futures).await;
-   |         ^^^^^^^^^^^^^^^^^^^^^^^ the trait `Unpin` is not implemented for `dyn Future&lt;Output = ()&gt;`
-   |
-   = note: consider using the `pin!` macro
-           consider using `Box::pin` if you need to access the pinned value outside of the current scope
-   = note: required for `Box&lt;dyn Future&lt;Output = ()&gt;&gt;` to implement `Future`
-note: required by a bound in `futures_util::future::join_all::JoinAll`
-  --&gt; file:///home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.30/src/future/join_all.rs:29:8
-   |
-27 | pub struct JoinAll&lt;F&gt;
-   |            ------- required by a bound in this struct
-28 | where
-29 |     F: Future,
-   |        ^^^^^^ required by this bound in `JoinAll`
-
-error[E0277]: `dyn Future&lt;Output = ()&gt;` cannot be unpinned
-  --&gt; src/main.rs:49:33
-   |
-49 |         trpl::join_all(futures).await;
-   |                                 ^^^^^ the trait `Unpin` is not implemented for `dyn Future&lt;Output = ()&gt;`
-   |
-   = note: consider using the `pin!` macro
-           consider using `Box::pin` if you need to access the pinned value outside of the current scope
-   = note: required for `Box&lt;dyn Future&lt;Output = ()&gt;&gt;` to implement `Future`
-note: required by a bound in `futures_util::future::join_all::JoinAll`
-  --&gt; file:///home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.30/src/future/join_all.rs:29:8
-   |
-27 | pub struct JoinAll&lt;F&gt;
-   |            ------- required by a bound in this struct
-28 | where
-29 |     F: Future,
-   |        ^^^^^^ required by this bound in `JoinAll`
-
-For more information about this error, try `rustc --explain E0277`.
-error: could not compile `async_await` (bin "async_await") due to 3 previous errors
-</code></pre>
-<p>That is a <em>lot</em> to digest, so let’s pull it apart. The first part of the message
-tell us that the first async block (<code>src/main.rs:8:23: 20:10</code>) does not
-implement the <code>Unpin</code> trait and suggests using <code>pin!</code> or <code>Box::pin</code> to resolve
-it. Later in the chapter, we’ll dig into a few more details about <code>Pin</code> and
-<code>Unpin</code>. For the moment, though, we can just follow the compiler’s advice to get
-unstuck. In Listing 17-18, we start by importing <code>Pin</code> from <code>std::pin</code>. Next we
-update the type annotation for <code>futures</code>, with a <code>Pin</code> wrapping each <code>Box</code>.
-Finally, we use <code>Box::pin</code> to pin the futures themselves.</p>
-<figure class="listing" id="listing-17-18">
-<span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
-</span><span class="boring">
-</span>use std::pin::Pin;
-
-// -- snip --
-
-<span class="boring">use std::time::Duration;
-</span><span class="boring">
-</span><span class="boring">fn main() {
-</span><span class="boring">    trpl::run(async {
-</span><span class="boring">        let (tx, mut rx) = trpl::channel();
-</span><span class="boring">
-</span><span class="boring">        let tx1 = tx.clone();
-</span><span class="boring">        let tx1_fut = async move {
-</span><span class="boring">            let vals = vec![
-</span><span class="boring">                String::from("hi"),
-</span><span class="boring">                String::from("from"),
-</span><span class="boring">                String::from("the"),
-</span><span class="boring">                String::from("future"),
-</span><span class="boring">            ];
-</span><span class="boring">
-</span><span class="boring">            for val in vals {
-</span><span class="boring">                tx1.send(val).unwrap();
-</span><span class="boring">                trpl::sleep(Duration::from_secs(1)).await;
-</span><span class="boring">            }
-</span><span class="boring">        };
-</span><span class="boring">
-</span><span class="boring">        let rx_fut = async {
-</span><span class="boring">            while let Some(value) = rx.recv().await {
-</span><span class="boring">                println!("received '{value}'");
-</span><span class="boring">            }
-</span><span class="boring">        };
-</span><span class="boring">
-</span><span class="boring">        let tx_fut = async move {
-</span><span class="boring">            let vals = vec![
-</span><span class="boring">                String::from("more"),
-</span><span class="boring">                String::from("messages"),
-</span><span class="boring">                String::from("for"),
-</span><span class="boring">                String::from("you"),
-</span><span class="boring">            ];
-</span><span class="boring">
-</span><span class="boring">            for val in vals {
-</span><span class="boring">                tx.send(val).unwrap();
-</span><span class="boring">                trpl::sleep(Duration::from_secs(1)).await;
-</span><span class="boring">            }
-</span><span class="boring">        };
-</span><span class="boring">
-</span>        let futures: Vec&lt;Pin&lt;Box&lt;dyn Future&lt;Output = ()&gt;&gt;&gt;&gt; =
-            vec![Box::pin(tx1_fut), Box::pin(rx_fut), Box::pin(tx_fut)];
-<span class="boring">
-</span><span class="boring">        trpl::join_all(futures).await;
-</span><span class="boring">    });
-</span><span class="boring">}</span></code></pre></pre>
-<figcaption><a href="#listing-17-18">Listing 17-18</a>: Using <code>Pin</code> and <code>Box::pin</code> to make the <code>Vec</code> type check</figcaption>
-</figure>
-<p>If we compile and run this, we finally get the output we hoped for:</p>
-<!-- Not extracting output because changes to this output aren't significant;
-the changes are likely to be due to the threads running differently rather than
-changes in the compiler -->
-<pre><code class="language-text">received 'hi'
-received 'more'
-received 'from'
-received 'messages'
-received 'the'
-received 'for'
-received 'future'
-received 'you'
-</code></pre>
-<p>Phew!</p>
-<p>There’s a bit more to explore here. For one thing, using <code>Pin&lt;Box&lt;T&gt;&gt;</code> adds a
-small amount of overhead from putting these futures on the heap with <code>Box</code>—and
-we’re only doing that to get the types to line up. We don’t actually <em>need</em> the
-heap allocation, after all: these futures are local to this particular function.
-As noted before, <code>Pin</code> is itself a wrapper type, so we can get the benefit of
-having a single type in the <code>Vec</code>—the original reason we reached for
-<code>Box</code>—without doing a heap allocation. We can use <code>Pin</code> directly with each
-future, using the <code>std::pin::pin</code> macro.</p>
-<p>However, we must still be explicit about the type of the pinned reference;
-otherwise, Rust will still not know to interpret these as dynamic trait objects,
-which is what we need them to be in the <code>Vec</code>. We therefore add <code>pin</code> to our
-list of imports from <code>std::pin</code>. Then we can <code>pin!</code> each future when we define
-it and define <code>futures</code> as a <code>Vec</code> containing pinned mutable references to the
-dynamic future type, as in Listing 17-19.</p>
-<figure class="listing" id="listing-17-19">
-<span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
-</span><span class="boring">
-</span>use std::pin::{Pin, pin};
-
-// -- snip --
-
-<span class="boring">use std::time::Duration;
-</span><span class="boring">
-</span><span class="boring">fn main() {
-</span><span class="boring">    trpl::run(async {
-</span><span class="boring">        let (tx, mut rx) = trpl::channel();
-</span><span class="boring">
-</span><span class="boring">        let tx1 = tx.clone();
-</span>        let tx1_fut = pin!(async move {
-            // --snip--
-<span class="boring">            let vals = vec![
-</span><span class="boring">                String::from("hi"),
-</span><span class="boring">                String::from("from"),
-</span><span class="boring">                String::from("the"),
-</span><span class="boring">                String::from("future"),
-</span><span class="boring">            ];
-</span><span class="boring">
-</span><span class="boring">            for val in vals {
-</span><span class="boring">                tx1.send(val).unwrap();
-</span><span class="boring">                trpl::sleep(Duration::from_secs(1)).await;
-</span><span class="boring">            }
-</span>        });
-
-        let rx_fut = pin!(async {
-            // --snip--
-<span class="boring">            while let Some(value) = rx.recv().await {
-</span><span class="boring">                println!("received '{value}'");
-</span><span class="boring">            }
-</span>        });
-
-        let tx_fut = pin!(async move {
-            // --snip--
-<span class="boring">            let vals = vec![
-</span><span class="boring">                String::from("more"),
-</span><span class="boring">                String::from("messages"),
-</span><span class="boring">                String::from("for"),
-</span><span class="boring">                String::from("you"),
-</span><span class="boring">            ];
-</span><span class="boring">
-</span><span class="boring">            for val in vals {
-</span><span class="boring">                tx.send(val).unwrap();
-</span><span class="boring">                trpl::sleep(Duration::from_secs(1)).await;
-</span><span class="boring">            }
-</span>        });
-
-        let futures: Vec&lt;Pin&lt;&amp;mut dyn Future&lt;Output = ()&gt;&gt;&gt; =
-            vec![tx1_fut, rx_fut, tx_fut];
-<span class="boring">
-</span><span class="boring">        trpl::join_all(futures).await;
-</span><span class="boring">    });
-</span><span class="boring">}</span></code></pre></pre>
-<figcaption><a href="#listing-17-19">Listing 17-19</a>: Using <code>Pin</code> directly with the <code>pin!</code> macro to avoid unnecessary heap allocations</figcaption>
-</figure>
-<p>We got this far by ignoring the fact that we might have different <code>Output</code>
-types. For example, in Listing 17-20, the anonymous future for <code>a</code> implements
-<code>Future&lt;Output = u32&gt;</code>, the anonymous future for <code>b</code> implements <code>Future&lt;Output = &amp;str&gt;</code>, and the anonymous future for <code>c</code> implements <code>Future&lt;Output = bool&gt;</code>.</p>
-<figure class="listing" id="listing-17-20">
-<span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
-</span><span class="boring">
-</span><span class="boring">fn main() {
-</span><span class="boring">    trpl::run(async {
-</span>        let a = async { 1u32 };
-        let b = async { "Hello!" };
-        let c = async { true };
-
-        let (a_result, b_result, c_result) = trpl::join!(a, b, c);
-        println!("{a_result}, {b_result}, {c_result}");
-<span class="boring">    });
-</span><span class="boring">}</span></code></pre></pre>
-<figcaption><a href="#listing-17-20">Listing 17-20</a>: Three futures with distinct types</figcaption>
-</figure>
-<p>We can use <code>trpl::join!</code> to await them, because it allows us to pass in multiple
-future types and produces a tuple of those types. We <em>cannot</em> use
-<code>trpl::join_all</code>, because it requires all of the futures passed in to have the
-same type. Remember, that error is what got us started on this adventure with
-<code>Pin</code>!</p>
-<p>This is a fundamental tradeoff: we can either deal with a dynamic number of
-futures with <code>join_all</code>, as long as they all have the same type, or we can deal
-with a set number of futures with the <code>join</code> functions or the <code>join!</code> macro,
-even if they have different types. This is the same scenario we’d face when
-working with any other types in Rust. Futures are not special, even though we
-have some nice syntax for working with them, and that’s a good thing.</p>
-<h3 id="racing-futures"><a class="header" href="#racing-futures">Racing Futures</a></h3>
-<p>When we “join” futures with the <code>join</code> family of functions and macros, we
-require <em>all</em> of them to finish before we move on. Sometimes, though, we only
-need <em>some</em> future from a set to finish before we move on—kind of similar to
-racing one future against another.</p>
-<p>In Listing 17-21, we once again use <code>trpl::race</code> to run two futures, <code>slow</code> and
-<code>fast</code>, against each other.</p>
-<figure class="listing" id="listing-17-21">
-<span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
-</span><span class="boring">
-</span><span class="boring">use std::time::Duration;
-</span><span class="boring">
-</span><span class="boring">fn main() {
-</span><span class="boring">    trpl::run(async {
-</span>        let slow = async {
-            println!("'slow' started.");
-            trpl::sleep(Duration::from_millis(100)).await;
-            println!("'slow' finished.");
-        };
-
-        let fast = async {
-            println!("'fast' started.");
-            trpl::sleep(Duration::from_millis(50)).await;
-            println!("'fast' finished.");
-        };
-
-        trpl::race(slow, fast).await;
-<span class="boring">    });
-</span><span class="boring">}</span></code></pre></pre>
-<figcaption><a href="#listing-17-21">Listing 17-21</a>: Using <code>race</code> to get the result of whichever future finishes first</figcaption>
-</figure>
-<p>Each future prints a message when it starts running, pauses for some amount of
-time by calling and awaiting <code>sleep</code>, and then prints another message when it
-finishes. Then we pass both <code>slow</code> and <code>fast</code> to <code>trpl::race</code> and wait for one
-of them to finish. (The outcome here isn’t too surprising: <code>fast</code> wins.) Unlike
-when we used <code>race</code> back in <a href="ch17-01-futures-and-syntax.html#our-first-async-program">“Our First Async Program”</a><!--
-ignore -->, we just ignore the <code>Either</code> instance it returns here, because all of
-the interesting behavior happens in the body of the async blocks.</p>
-<p>Notice that if you flip the order of the arguments to <code>race</code>, the order of the
-“started” messages changes, even though the <code>fast</code> future always completes
-first. That’s because the implementation of this particular <code>race</code> function is
-not fair. It always runs the futures passed in as arguments in the order in
-which they’re passed. Other implementations <em>are</em> fair and will randomly choose
-which future to poll first. Regardless of whether the implementation of race
-we’re using is fair, though, <em>one</em> of the futures will run up to the first
-<code>await</code> in its body before another task can start.</p>
-<p>Recall from <a href="ch17-01-futures-and-syntax.html#our-first-async-program">Our First Async Program</a><!-- ignore --> that at each
-await point, Rust gives a runtime a chance to pause the task and switch to
-another one if the future being awaited isn’t ready. The inverse is also true:
-Rust <em>only</em> pauses async blocks and hands control back to a runtime at an await
-point. Everything between await points is synchronous.</p>
+                        <!-- Old headings. Do not remove or links may break. -->
+<p><a id="yielding"></a></p>
+<h3 id="yielding-control-to-the-runtime"><a class="header" href="#yielding-control-to-the-runtime">Yielding Control to the Runtime</a></h3>
+<p>Recall from the <a href="ch17-01-futures-and-syntax.html#our-first-async-program">“Our First Async Program”</a><!-- ignore -->
+section that at each await point, Rust gives a runtime a chance to pause the
+task and switch to another one if the future being awaited isn’t ready. The
+inverse is also true: Rust <em>only</em> pauses async blocks and hands control back to
+a runtime at an await point. Everything between await points is synchronous.</p>
 <p>That means if you do a bunch of work in an async block without an await point,
 that future will block any other futures from making progress. You may sometimes
 hear this referred to as one future <em>starving</em> other futures. In some cases,
@@ -769,23 +197,16 @@ that may not be a big deal. However, if you are doing some kind of expensive
 setup or long-running work, or if you have a future that will keep doing some
 particular task indefinitely, you’ll need to think about when and where to hand
 control back to the runtime.</p>
-<p>By the same token, if you have long-running blocking operations, async can be a
-useful tool for providing ways for different parts of the program to relate to
-each other.</p>
-<p>But <em>how</em> would you hand control back to the runtime in those cases?</p>
-<!-- Old headings. Do not remove or links may break. -->
-<p><a id="yielding"></a></p>
-<h3 id="yielding-control-to-the-runtime"><a class="header" href="#yielding-control-to-the-runtime">Yielding Control to the Runtime</a></h3>
-<p>Let’s simulate a long-running operation. Listing 17-22 introduces a <code>slow</code>
-function.</p>
-<figure class="listing" id="listing-17-22">
+<p>Let’s simulate a long-running operation to illustrate the starvation problem,
+then explore how to solve it. Listing 17-14 introduces a <code>slow</code> function.</p>
+<figure class="listing" id="listing-17-14">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
 </span><span class="boring">
 </span><span class="boring">use std::{thread, time::Duration};
 </span><span class="boring">
 </span><span class="boring">fn main() {
-</span><span class="boring">    trpl::run(async {
+</span><span class="boring">    trpl::block_on(async {
 </span><span class="boring">        // We will call `slow` here later
 </span><span class="boring">    });
 </span><span class="boring">}
@@ -793,23 +214,23 @@ function.</p>
 </span>fn slow(name: &amp;str, ms: u64) {
     thread::sleep(Duration::from_millis(ms));
     println!("'{name}' ran for {ms}ms");
-}</code></pre></pre>
-<figcaption><a href="#listing-17-22">Listing 17-22</a>: Using <code>thread::sleep</code> to simulate slow operations</figcaption>
+}</code></pre>
+<figcaption><a href="#listing-17-14">Listing 17-14</a>: Using <code>thread::sleep</code> to simulate slow operations</figcaption>
 </figure>
 <p>This code uses <code>std::thread::sleep</code> instead of <code>trpl::sleep</code> so that calling
-<code>slow</code> will block the current thread for some number of milliseconds. We can use
-<code>slow</code> to stand in for real-world operations that are both long-running and
+<code>slow</code> will block the current thread for some number of milliseconds. We can
+use <code>slow</code> to stand in for real-world operations that are both long-running and
 blocking.</p>
-<p>In Listing 17-23, we use <code>slow</code> to emulate doing this kind of CPU-bound work in
+<p>In Listing 17-15, we use <code>slow</code> to emulate doing this kind of CPU-bound work in
 a pair of futures.</p>
-<figure class="listing" id="listing-17-23">
+<figure class="listing" id="listing-17-15">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
 </span><span class="boring">
 </span><span class="boring">use std::{thread, time::Duration};
 </span><span class="boring">
 </span><span class="boring">fn main() {
-</span><span class="boring">    trpl::run(async {
+</span><span class="boring">    trpl::block_on(async {
 </span>        let a = async {
             println!("'a' started.");
             slow("a", 30);
@@ -829,20 +250,20 @@ a pair of futures.</p>
             println!("'b' finished.");
         };
 
-        trpl::race(a, b).await;
+        trpl::select(a, b).await;
 <span class="boring">    });
 </span><span class="boring">}
 </span><span class="boring">
 </span><span class="boring">fn slow(name: &amp;str, ms: u64) {
 </span><span class="boring">    thread::sleep(Duration::from_millis(ms));
 </span><span class="boring">    println!("'{name}' ran for {ms}ms");
-</span><span class="boring">}</span></code></pre></pre>
-<figcaption><a href="#listing-17-23">Listing 17-23</a>: Using <code>thread::sleep</code> to simulate slow operations</figcaption>
+</span><span class="boring">}</span></code></pre>
+<figcaption><a href="#listing-17-15">Listing 17-15</a>: Calling the <code>slow</code> function to simulate slow operations</figcaption>
 </figure>
-<p>To begin, each future only hands control back to the runtime <em>after</em> carrying
-out a bunch of slow operations. If you run this code, you will see this output:</p>
+<p>Each future hands control back to the runtime only <em>after</em> carrying out a bunch
+of slow operations. If you run this code, you will see this output:</p>
 <!-- manual-regeneration
-cd listings/ch17-async-await/listing-17-23/
+cd listings/ch17-async-await/listing-17-15/
 cargo run
 copy just the output
 -->
@@ -857,26 +278,27 @@ copy just the output
 'b' ran for 350ms
 'a' finished.
 </code></pre>
-<p>As with our earlier example, <code>race</code> still finishes as soon as <code>a</code> is done.
-There’s no interleaving between the two futures, though. The <code>a</code> future does all
+<p>As with Listing 17-5 where we used <code>trpl::select</code> to race futures fetching two
+URLs, <code>select</code> still finishes as soon as <code>a</code> is done. There’s no interleaving
+between the calls to <code>slow</code> in the two futures, though. The <code>a</code> future does all
 of its work until the <code>trpl::sleep</code> call is awaited, then the <code>b</code> future does
-all of its work until its own <code>trpl::sleep</code> call is awaited, and finally the <code>a</code>
-future completes. To allow both futures to make progress between their slow
+all of its work until its own <code>trpl::sleep</code> call is awaited, and finally the
+<code>a</code> future completes. To allow both futures to make progress between their slow
 tasks, we need await points so we can hand control back to the runtime. That
 means we need something we can await!</p>
-<p>We can already see this kind of handoff happening in Listing 17-23: if we
+<p>We can already see this kind of handoff happening in Listing 17-15: if we
 removed the <code>trpl::sleep</code> at the end of the <code>a</code> future, it would complete
-without the <code>b</code> future running <em>at all</em>. Let’s try using the <code>sleep</code> function as
-a starting point for letting operations switch off making progress, as shown in
-Listing 17-24.</p>
-<figure class="listing" id="listing-17-24">
+without the <code>b</code> future running <em>at all</em>. Let’s try using the <code>trpl::sleep</code>
+function as a starting point for letting operations switch off making progress,
+as shown in Listing 17-16.</p>
+<figure class="listing" id="listing-17-16">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
 </span><span class="boring">
 </span><span class="boring">use std::{thread, time::Duration};
 </span><span class="boring">
 </span><span class="boring">fn main() {
-</span><span class="boring">    trpl::run(async {
+</span><span class="boring">    trpl::block_on(async {
 </span>        let one_ms = Duration::from_millis(1);
 
         let a = async {
@@ -903,20 +325,20 @@ Listing 17-24.</p>
             println!("'b' finished.");
         };
 <span class="boring">
-</span><span class="boring">        trpl::race(a, b).await;
+</span><span class="boring">        trpl::select(a, b).await;
 </span><span class="boring">    });
 </span><span class="boring">}
 </span><span class="boring">
 </span><span class="boring">fn slow(name: &amp;str, ms: u64) {
 </span><span class="boring">    thread::sleep(Duration::from_millis(ms));
 </span><span class="boring">    println!("'{name}' ran for {ms}ms");
-</span><span class="boring">}</span></code></pre></pre>
-<figcaption><a href="#listing-17-24">Listing 17-24</a>: Using <code>sleep</code> to let operations switch off making progress</figcaption>
+</span><span class="boring">}</span></code></pre>
+<figcaption><a href="#listing-17-16">Listing 17-16</a>: Using <code>trpl::sleep</code> to let operations switch off making progress</figcaption>
 </figure>
-<p>In Listing 17-24, we add <code>trpl::sleep</code> calls with await points between each call
-to <code>slow</code>. Now the two futures’ work is interleaved:</p>
+<p>We’ve added <code>trpl::sleep</code> calls with await points between each call to <code>slow</code>.
+Now the two futures’ work is interleaved:</p>
 <!-- manual-regeneration
-cd listings/ch17-async-await/listing-17-24
+cd listings/ch17-async-await/listing-17-16
 cargo run
 copy just the output
 -->
@@ -937,16 +359,16 @@ have done that after every call to <code>slow</code>, but we could break up the 
 whatever way makes the most sense to us.</p>
 <p>We don’t really want to <em>sleep</em> here, though: we want to make progress as fast
 as we can. We just need to hand back control to the runtime. We can do that
-directly, using the <code>yield_now</code> function. In Listing 17-25, we replace all those
-<code>sleep</code> calls with <code>yield_now</code>.</p>
-<figure class="listing" id="listing-17-25">
+directly, using the <code>trpl::yield_now</code> function. In Listing 17-17, we replace
+all those <code>trpl::sleep</code> calls with <code>trpl::yield_now</code>.</p>
+<figure class="listing" id="listing-17-17">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
 </span><span class="boring">
 </span><span class="boring">use std::{thread, time::Duration};
 </span><span class="boring">
 </span><span class="boring">fn main() {
-</span><span class="boring">    trpl::run(async {
+</span><span class="boring">    trpl::block_on(async {
 </span>        let a = async {
             println!("'a' started.");
             slow("a", 30);
@@ -971,15 +393,15 @@ directly, using the <code>yield_now</code> function. In Listing 17-25, we replac
             println!("'b' finished.");
         };
 <span class="boring">
-</span><span class="boring">        trpl::race(a, b).await;
+</span><span class="boring">        trpl::select(a, b).await;
 </span><span class="boring">    });
 </span><span class="boring">}
 </span><span class="boring">
 </span><span class="boring">fn slow(name: &amp;str, ms: u64) {
 </span><span class="boring">    thread::sleep(Duration::from_millis(ms));
 </span><span class="boring">    println!("'{name}' ran for {ms}ms");
-</span><span class="boring">}</span></code></pre></pre>
-<figcaption><a href="#listing-17-25">Listing 17-25</a>: Using <code>yield_now</code> to let operations switch off making progress</figcaption>
+</span><span class="boring">}</span></code></pre>
+<figcaption><a href="#listing-17-17">Listing 17-17</a>: Using <code>yield_now</code> to let operations switch off making progress</figcaption>
 </figure>
 <p>This code is both clearer about the actual intent and can be significantly
 faster than using <code>sleep</code>, because timers such as the one used by <code>sleep</code> often
@@ -987,57 +409,12 @@ have limits on how granular they can be. The version of <code>sleep</code> we ar
 for example, will always sleep for at least a millisecond, even if we pass it a
 <code>Duration</code> of one nanosecond. Again, modern computers are <em>fast</em>: they can do a
 lot in one millisecond!</p>
-<p>You can see this for yourself by setting up a little benchmark, such as the one
-in Listing 17-26. (This isn’t an especially rigorous way to do performance
-testing, but it suffices to show the difference here.)</p>
-<figure class="listing" id="listing-17-26">
-<span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
-</span><span class="boring">
-</span><span class="boring">use std::time::{Duration, Instant};
-</span><span class="boring">
-</span><span class="boring">fn main() {
-</span><span class="boring">    trpl::run(async {
-</span>        let one_ns = Duration::from_nanos(1);
-        let start = Instant::now();
-        async {
-            for _ in 1..1000 {
-                trpl::sleep(one_ns).await;
-            }
-        }
-        .await;
-        let time = Instant::now() - start;
-        println!(
-            "'sleep' version finished after {} seconds.",
-            time.as_secs_f32()
-        );
-
-        let start = Instant::now();
-        async {
-            for _ in 1..1000 {
-                trpl::yield_now().await;
-            }
-        }
-        .await;
-        let time = Instant::now() - start;
-        println!(
-            "'yield' version finished after {} seconds.",
-            time.as_secs_f32()
-        );
-<span class="boring">    });
-</span><span class="boring">}</span></code></pre></pre>
-<figcaption><a href="#listing-17-26">Listing 17-26</a>: Comparing the performance of <code>sleep</code> and <code>yield_now</code></figcaption>
-</figure>
-<p>Here, we skip all the status printing, pass a one-nanosecond <code>Duration</code> to
-<code>trpl::sleep</code>, and let each future run by itself, with no switching between the
-futures. Then we run for 1,000 iterations and see how long the future using
-<code>trpl::sleep</code> takes compared to the future using <code>trpl::yield_now</code>.</p>
-<p>The version with <code>yield_now</code> is <em>way</em> faster!</p>
 <p>This means that async can be useful even for compute-bound tasks, depending on
 what else your program is doing, because it provides a useful tool for
-structuring the relationships between different parts of the program. This is a
-form of <em>cooperative multitasking</em>, where each future has the power to determine
-when it hands over control via await points. Each future therefore also has the
+structuring the relationships between different parts of the program (but at a
+cost of the overhead of the async state machine). This is a form of
+<em>cooperative multitasking</em>, where each future has the power to determine when
+it hands over control via await points. Each future therefore also has the
 responsibility to avoid blocking for too long. In some Rust-based embedded
 operating systems, this is the <em>only</em> kind of multitasking!</p>
 <p>In real-world code, you won’t usually be alternating function calls with await
@@ -1053,22 +430,22 @@ lot of work happening in serial that you expected to happen concurrently!</p>
 build a <code>timeout</code> function with async building blocks we already have. When
 we’re done, the result will be another building block we could use to create
 still more async abstractions.</p>
-<p>Listing 17-27 shows how we would expect this <code>timeout</code> to work with a slow
+<p>Listing 17-18 shows how we would expect this <code>timeout</code> to work with a slow
 future.</p>
-<figure class="listing" id="listing-17-27">
+<figure class="listing" id="listing-17-18">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><code class="language-rust ignore"><span class="boring">extern crate trpl; // required for mdbook test
+<pre><code class="language-rust ignore does_not_compile"><span class="boring">extern crate trpl; // required for mdbook test
 </span><span class="boring">
 </span><span class="boring">use std::time::Duration;
 </span><span class="boring">
 </span><span class="boring">fn main() {
-</span><span class="boring">    trpl::run(async {
+</span><span class="boring">    trpl::block_on(async {
 </span>        let slow = async {
-            trpl::sleep(Duration::from_millis(100)).await;
-            "I finished!"
+            trpl::sleep(Duration::from_secs(5)).await;
+            "Finally finished"
         };
 
-        match timeout(slow, Duration::from_millis(10)).await {
+        match timeout(slow, Duration::from_secs(2)).await {
             Ok(message) =&gt; println!("Succeeded with '{message}'"),
             Err(duration) =&gt; {
                 println!("Failed after {} seconds", duration.as_secs())
@@ -1076,7 +453,7 @@ future.</p>
         }
 <span class="boring">    });
 </span><span class="boring">}</span></code></pre>
-<figcaption><a href="#listing-17-27">Listing 17-27</a>: Using our imagined <code>timeout</code> to run a slow operation with a time limit</figcaption>
+<figcaption><a href="#listing-17-18">Listing 17-18</a>: Using our imagined <code>timeout</code> to run a slow operation with a time limit</figcaption>
 </figure>
 <p>Let’s implement this! To begin, let’s think about the API for <code>timeout</code>:</p>
 <ul>
@@ -1090,22 +467,22 @@ that will make it easy to pass along to <code>trpl::sleep</code>.</li>
 elapses first, the <code>Result</code> will be <code>Err</code> with the duration that the timeout
 waited for.</li>
 </ul>
-<p>Listing 17-28 shows this declaration.</p>
+<p>Listing 17-19 shows this declaration.</p>
 <!-- This is not tested because it intentionally does not compile. -->
-<figure class="listing" id="listing-17-28">
+<figure class="listing" id="listing-17-19">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><code class="language-rust ignore"><span class="boring">extern crate trpl; // required for mdbook test
+<pre><code class="language-rust ignore does_not_compile"><span class="boring">extern crate trpl; // required for mdbook test
 </span><span class="boring">
 </span><span class="boring">use std::time::Duration;
 </span><span class="boring">
 </span><span class="boring">fn main() {
-</span><span class="boring">    trpl::run(async {
+</span><span class="boring">    trpl::block_on(async {
 </span><span class="boring">        let slow = async {
 </span><span class="boring">            trpl::sleep(Duration::from_secs(5)).await;
 </span><span class="boring">            "Finally finished"
 </span><span class="boring">        };
 </span><span class="boring">
-</span><span class="boring">        match timeout(slow, Duration::from_millis(10)).await {
+</span><span class="boring">        match timeout(slow, Duration::from_secs(2)).await {
 </span><span class="boring">            Ok(message) =&gt; println!("Succeeded with '{message}'"),
 </span><span class="boring">            Err(duration) =&gt; {
 </span><span class="boring">                println!("Failed after {} seconds", duration.as_secs())
@@ -1120,22 +497,17 @@ waited for.</li>
 ) -&gt; Result&lt;F::Output, Duration&gt; {
     // Here is where our implementation will go!
 }</code></pre>
-<figcaption><a href="#listing-17-28">Listing 17-28</a>: Defining the signature of <code>timeout</code></figcaption>
+<figcaption><a href="#listing-17-19">Listing 17-19</a>: Defining the signature of <code>timeout</code></figcaption>
 </figure>
 <p>That satisfies our goals for the types. Now let’s think about the <em>behavior</em> we
 need: we want to race the future passed in against the duration. We can use
-<code>trpl::sleep</code> to make a timer future from the duration, and use <code>trpl::race</code> to
-run that timer with the future the caller passes in.</p>
-<p>We also know that <code>race</code> is not fair, polling arguments in the order in which
-they are passed. Thus, we pass <code>future_to_try</code> to <code>race</code> first so it gets a
-chance to complete even if <code>max_time</code> is a very short duration. If
-<code>future_to_try</code> finishes first, <code>race</code> will return <code>Left</code> with the output from
-<code>future_to_try</code>. If <code>timer</code> finishes first, <code>race</code> will return <code>Right</code> with the
-timer’s output of <code>()</code>.</p>
-<p>In Listing 17-29, we match on the result of awaiting <code>trpl::race</code>.</p>
-<figure class="listing" id="listing-17-29">
+<code>trpl::sleep</code> to make a timer future from the duration, and use <code>trpl::select</code>
+to run that timer with the future the caller passes in.</p>
+<p>In Listing 17-20, we implement <code>timeout</code> by matching on the result of awaiting
+<code>trpl::select</code>.</p>
+<figure class="listing" id="listing-17-20">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
 </span><span class="boring">
 </span><span class="boring">use std::time::Duration;
 </span><span class="boring">
@@ -1143,33 +515,40 @@ timer’s output of <code>()</code>.</p>
 
 // --snip--
 
-fn main() {
-    trpl::run(async {
-        let slow = async {
-            trpl::sleep(Duration::from_secs(5)).await;
-            "Finally finished"
-        };
-
-        match timeout(slow, Duration::from_secs(2)).await {
-            Ok(message) =&gt; println!("Succeeded with '{message}'"),
-            Err(duration) =&gt; {
-                println!("Failed after {} seconds", duration.as_secs())
-            }
-        }
-    });
-}
-
-async fn timeout&lt;F: Future&gt;(
+<span class="boring">fn main() {
+</span><span class="boring">    trpl::block_on(async {
+</span><span class="boring">        let slow = async {
+</span><span class="boring">            trpl::sleep(Duration::from_secs(5)).await;
+</span><span class="boring">            "Finally finished"
+</span><span class="boring">        };
+</span><span class="boring">
+</span><span class="boring">        match timeout(slow, Duration::from_secs(2)).await {
+</span><span class="boring">            Ok(message) =&gt; println!("Succeeded with '{message}'"),
+</span><span class="boring">            Err(duration) =&gt; {
+</span><span class="boring">                println!("Failed after {} seconds", duration.as_secs())
+</span><span class="boring">            }
+</span><span class="boring">        }
+</span><span class="boring">    });
+</span><span class="boring">}
+</span><span class="boring">
+</span>async fn timeout&lt;F: Future&gt;(
     future_to_try: F,
     max_time: Duration,
 ) -&gt; Result&lt;F::Output, Duration&gt; {
-    match trpl::race(future_to_try, trpl::sleep(max_time)).await {
+    match trpl::select(future_to_try, trpl::sleep(max_time)).await {
         Either::Left(output) =&gt; Ok(output),
         Either::Right(_) =&gt; Err(max_time),
     }
-<span class="boring">}</span></code></pre></pre>
-<figcaption><a href="#listing-17-29">Listing 17-29</a>: Defining <code>timeout</code> with <code>race</code> and <code>sleep</code></figcaption>
+}</code></pre>
+<figcaption><a href="#listing-17-20">Listing 17-20</a>: Defining <code>timeout</code> with <code>select</code> and <code>sleep</code></figcaption>
 </figure>
+<p>The implementation of <code>trpl::select</code> is not fair: it always polls arguments in
+the order in which they are passed (other <code>select</code> implementations will
+randomly choose which argument to poll first). Thus, we pass <code>future_to_try</code> to
+<code>select</code> first so it gets a chance to complete even if <code>max_time</code> is a very
+short duration. If <code>future_to_try</code> finishes first, <code>select</code> will return <code>Left</code>
+with the output from <code>future_to_try</code>. If <code>timer</code> finishes first, <code>select</code> will
+return <code>Right</code> with the timer’s output of <code>()</code>.</p>
 <p>If the <code>future_to_try</code> succeeds and we get a <code>Left(output)</code>, we return
 <code>Ok(output)</code>. If the sleep timer elapses instead and we get a <code>Right(())</code>, we
 ignore the <code>()</code> with <code>_</code> and return <code>Err(max_time)</code> instead.</p>
@@ -1178,31 +557,17 @@ we run our code, it will print the failure mode after the timeout:</p>
 <pre><code class="language-text">Failed after 2 seconds
 </code></pre>
 <p>Because futures compose with other futures, you can build really powerful tools
-using smaller async building blocks. For example, you can use this same approach
-to combine timeouts with retries, and in turn use those with operations such as
-network calls (one of the examples from the beginning of the chapter).</p>
+using smaller async building blocks. For example, you can use this same
+approach to combine timeouts with retries, and in turn use those with
+operations such as network calls (such as those in Listing 17-5).</p>
 <p>In practice, you’ll usually work directly with <code>async</code> and <code>await</code>, and
-secondarily with functions and macros such as <code>join</code>, <code>join_all</code>, <code>race</code>, and so
-on. You’ll only need to reach for <code>pin</code> now and again to use futures with those
-APIs.</p>
-<p>We’ve now seen a number of ways to work with multiple futures at the same
-time. Up next, we’ll look at how we can work with multiple futures in a
-sequence over time with <em>streams</em>. Here are a couple more things you might want
-to consider first, though:</p>
-<ul>
-<li>
-<p>We used a <code>Vec</code> with <code>join_all</code> to wait for all of the futures in some group
-to finish. How could you use a <code>Vec</code> to process a group of futures in
-sequence instead? What are the tradeoffs of doing that?</p>
-</li>
-<li>
-<p>Take a look at the <code>futures::stream::FuturesUnordered</code> type from the <code>futures</code>
-crate. How would using it be different from using a <code>Vec</code>? (Don’t worry about
-the fact that it’s from the <code>stream</code> part of the crate; it works just fine
-with any collection of futures.)</p>
-</li>
-</ul>
-<div class="quiz-placeholder" data-quiz-name="&quot;async-03-more-futures&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;Without using a function like `join_all`, the futures will not run concurrently. Therefore this code would take 15 seconds (5 seconds per list element).\n&quot;,&quot;id&quot;:&quot;68680e2e-7a9f-4cee-8080-70e57fe5a2b3&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;15&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;5&quot;,&quot;0&quot;],&quot;prompt&quot;:&quot;Given a function `sleep(d)` that sleeps for the given duration, consider this function:\n\n```rust\nlet futs: Vec&lt;_&gt; = [1, 2, 3].iter().map(|n| async move {\n  sleep(Duration::from_secs(5)).await;\n  n + 1\n}).collect();\n\nfor fut in futs {\n  let n = fut.await;\n  println!(\&quot;{n}\&quot;);\n}\n```\n\nWhen executed, about how many seconds should this take to execute?\n&quot;}},{&quot;context&quot;:&quot;Here's one implementation of the specified function:\n\n```rust\nasync fn map_stringify&lt;I, O, F&gt;(\n  f: impl Fn(I) -&gt; F, inputs: Vec&lt;I&gt;\n) -&gt; Vec&lt;String&gt;\nwhere\n  O: ToString,\n  F: Future&lt;Output = O&gt;,\n{\n  let f = &amp;f;\n  let futs = inputs\n    .into_iter()\n    .map(|input| async move { f(input).await.to_string() });\n  futures::future::join_all(futs).await\n}\n```\n&quot;,&quot;id&quot;:&quot;b42a9c5b-bfe7-4d6f-967a-f8ff2a6faa0d&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;```rust\nasync fn map_stringify&lt;I, O, F&gt;(\n  inputs: Vec&lt;I&gt;, f: impl Fn(I) -&gt; F, \n) -&gt; Vec&lt;String&gt;\nwhere\n  O: ToString,\n  F: Future&lt;Output = O&gt;,\n```\n&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;```rust\nasync fn map_stringify(\n  inputs: Vec&lt;String&gt;, f: impl Future&lt;Output = String&gt;\n) -&gt; Vec&lt;String&gt;\n```\n&quot;,&quot;```rust\nfn map_stringify&lt;I, O, F&gt;(\n  inputs: Vec&lt;I&gt;, f: impl Fn(I) -&gt; O,\n) -&gt; Vec&lt;impl Future&lt;Output = String&gt;&gt;\nwhere\n  O: ToString,  \n```\n&quot;,&quot;```rust\nasync fn map_stringify&lt;I, F&gt;(\n  inputs: Vec&lt;I&gt;, f: impl Fn(I) -&gt; F, \n) -&gt; Vec&lt;String&gt;\nwhere\n  F: Future + ToString,\n```\n&quot;],&quot;prompt&quot;:&quot;Say you are designing a utility function with the following specification:\n\n&gt; `map_stringify` takes two arguments: a vector of inputs, and an async function that converts the input to an output,\n&gt; where the outputs can be converted to strings.\n&gt; `map_stringify` returns a vector of stringified outputs.\n\nWhich function type signature best encodes this specification?\n&quot;}},{&quot;context&quot;:&quot;For instance, you could run a `select` in a loop between a long-running future and a sleep future that completes in 500ms.\n&quot;,&quot;id&quot;:&quot;7da21e95-8e03-412b-8c4d-90ccfc8c6802&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;`race` / `select`&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;`join`&quot;,&quot;`yield`&quot;,&quot;`spawn` / `spawn_task`&quot;],&quot;prompt&quot;:&quot;Say you are writing a program that needs to run some async code, but every 500ms check to see if the computation should be halted.\nWhich helper function would be most appropriate for accomplishing this task?\n&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
+secondarily with functions such as <code>select</code> and macros such as the <code>join!</code>
+macro to control how the outermost futures are executed.</p>
+<p>We’ve now seen a number of ways to work with multiple futures at the same time.
+Up next, we’ll look at how we can work with multiple futures in a sequence over
+time with <em>streams</em>.</p>
+<div class="quiz-placeholder" data-quiz-name="&quot;async-03-more-futures&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;Without using a function like `join_all`, the futures will not run concurrently. Therefore this code would take 15 seconds (5 seconds per list element).&#92;n&quot;,&quot;id&quot;:&quot;68680e2e-7a9f-4cee-8080-70e57fe5a2b3&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;15&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;5&quot;,&quot;0&quot;],&quot;prompt&quot;:&quot;Given a function `sleep(d)` that sleeps for the given duration, consider this function:&#92;n&#92;n```rust&#92;nlet futs: Vec&lt;_&gt; = [1, 2, 3].iter().map(|n| async move {&#92;n  sleep(Duration::from_secs(5)).await;&#92;n  n + 1&#92;n}).collect();&#92;n&#92;nfor fut in futs {&#92;n  let n = fut.await;&#92;n  println!(&#92;&quot;{n}&#92;&quot;);&#92;n}&#92;n```&#92;n&#92;nWhen executed, about how many seconds should this take to execute?&#92;n&quot;}},{&quot;context&quot;:&quot;Here&#39;s one implementation of the specified function:&#92;n&#92;n```rust&#92;nasync fn map_stringify&lt;I, O, F&gt;(&#92;n  f: impl Fn(I) -&gt; F, inputs: Vec&lt;I&gt;&#92;n) -&gt; Vec&lt;String&gt;&#92;nwhere&#92;n  O: ToString,&#92;n  F: Future&lt;Output = O&gt;,&#92;n{&#92;n  let f = &amp;f;&#92;n  let futs = inputs&#92;n    .into_iter()&#92;n    .map(|input| async move { f(input).await.to_string() });&#92;n  futures::future::join_all(futs).await&#92;n}&#92;n```&#92;n&quot;,&quot;id&quot;:&quot;b42a9c5b-bfe7-4d6f-967a-f8ff2a6faa0d&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;```rust&#92;nasync fn map_stringify&lt;I, O, F&gt;(&#92;n  inputs: Vec&lt;I&gt;, f: impl Fn(I) -&gt; F, &#92;n) -&gt; Vec&lt;String&gt;&#92;nwhere&#92;n  O: ToString,&#92;n  F: Future&lt;Output = O&gt;,&#92;n```&#92;n&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;```rust&#92;nasync fn map_stringify(&#92;n  inputs: Vec&lt;String&gt;, f: impl Future&lt;Output = String&gt;&#92;n) -&gt; Vec&lt;String&gt;&#92;n```&#92;n&quot;,&quot;```rust&#92;nfn map_stringify&lt;I, O, F&gt;(&#92;n  inputs: Vec&lt;I&gt;, f: impl Fn(I) -&gt; O,&#92;n) -&gt; Vec&lt;impl Future&lt;Output = String&gt;&gt;&#92;nwhere&#92;n  O: ToString,  &#92;n```&#92;n&quot;,&quot;```rust&#92;nasync fn map_stringify&lt;I, F&gt;(&#92;n  inputs: Vec&lt;I&gt;, f: impl Fn(I) -&gt; F, &#92;n) -&gt; Vec&lt;String&gt;&#92;nwhere&#92;n  F: Future + ToString,&#92;n```&#92;n&quot;],&quot;prompt&quot;:&quot;Say you are designing a utility function with the following specification:&#92;n&#92;n&gt; `map_stringify` takes two arguments: a vector of inputs, and an async function that converts the input to an output,&#92;n&gt; where the outputs can be converted to strings.&#92;n&gt; `map_stringify` returns a vector of stringified outputs.&#92;n&#92;nWhich function type signature best encodes this specification?&#92;n&quot;}},{&quot;context&quot;:&quot;For instance, you could run a `select` in a loop between a long-running future and a sleep future that completes in 500ms.&#92;n&quot;,&quot;id&quot;:&quot;7da21e95-8e03-412b-8c4d-90ccfc8c6802&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;`race` / `select`&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;`join`&quot;,&quot;`yield`&quot;,&quot;`spawn` / `spawn_task`&quot;],&quot;prompt&quot;:&quot;Say you are writing a program that needs to run some async code, but every 500ms check to see if the computation should be halted.&#92;nWhich helper function would be most appropriate for accomplishing this task?&#92;n&quot;}}]}" data-quiz-fullscreen="true"></div>
+
 <script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css">
 
                     </main>
@@ -1210,11 +575,11 @@ with any collection of futures.)</p>
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch17-02-concurrency-with-async.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch17-04-streams.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -1224,16 +589,21 @@ with any collection of futures.)</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch17-02-concurrency-with-async.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch17-04-streams.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
 
 
@@ -1242,19 +612,18 @@ with any collection of futures.)</p>
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
-        <script src="js-extensions/packages/telemetry/dist/index.js"></script>
-        <script src="js-extensions/packages/consent-form/dist/index.js"></script>
-        <script src="js-extensions/packages/feedback/dist/index.js"></script>
+        <script src="ferris-2317480c.js"></script>
+        <script src="js-extensions/packages/feedback/dist/index-d9aca39a.js"></script>
+
 
 
     </div>

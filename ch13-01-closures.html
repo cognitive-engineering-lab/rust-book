@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Closures: Anonymous Functions that Capture Their Environment - The Rust Programming Language</title>
+        <title>Closures - The Rust Programming Language</title>
 
 
         <!-- Custom HTML head -->
@@ -12,29 +12,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="js-extensions/packages/consent-form/dist/index.css">
-        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="js-extensions/packages/feedback/dist/index-c9d186bd.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -42,9 +40,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-795051b7.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-3119a861.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -58,7 +57,7 @@
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -87,56 +86,59 @@
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
                         </button>
                     </div>
 
@@ -144,40 +146,46 @@
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
                         <a href="https://github.com/cognitive-engineering-lab/rust-book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
                         </a>
 
                     </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <!-- Old heading. Do not remove or links may break. -->
-<p><a id="closures-anonymous-functions-that-can-capture-their-environment"></a></p>
-<h2 id="closures-anonymous-functions-that-capture-their-environment"><a class="header" href="#closures-anonymous-functions-that-capture-their-environment">Closures: Anonymous Functions That Capture Their Environment</a></h2>
+                        <!-- Old headings. Do not remove or links may break. -->
+<p><a id="closures-anonymous-functions-that-can-capture-their-environment"></a>
+<a id="closures-anonymous-functions-that-capture-their-environment"></a></p>
+<h2 id="closures"><a class="header" href="#closures">Closures</a></h2>
 <p>Rust’s closures are anonymous functions you can save in a variable or pass as
 arguments to other functions. You can create the closure in one place and then
 call the closure elsewhere to evaluate it in a different context. Unlike
@@ -187,11 +195,12 @@ customization.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="creating-an-abstraction-of-behavior-with-closures"></a>
 <a id="refactoring-using-functions"></a>
-<a id="refactoring-with-closures-to-store-code"></a></p>
-<h3 id="capturing-the-environment-with-closures"><a class="header" href="#capturing-the-environment-with-closures">Capturing the Environment with Closures</a></h3>
+<a id="refactoring-with-closures-to-store-code"></a>
+<a id="capturing-the-environment-with-closures"></a></p>
+<h3 id="capturing-the-environment"><a class="header" href="#capturing-the-environment">Capturing the Environment</a></h3>
 <p>We’ll first examine how we can use closures to capture values from the
 environment they’re defined in for later use. Here’s the scenario: Every so
-often, our t-shirt company gives away an exclusive, limited-edition shirt to
+often, our T-shirt company gives away an exclusive, limited-edition shirt to
 someone on our mailing list as a promotion. People on the mailing list can
 optionally add their favorite color to their profile. If the person chosen for
 a free shirt has their favorite color set, they get that color shirt. If the
@@ -202,9 +211,9 @@ enum called <code>ShirtColor</code> that has the variants <code>Red</code> and <
 number of colors available for simplicity). We represent the company’s
 inventory with an <code>Inventory</code> struct that has a field named <code>shirts</code> that
 contains a <code>Vec&lt;ShirtColor&gt;</code> representing the shirt colors currently in stock.
-The method <code>giveaway</code> defined on <code>Inventory</code> gets the optional shirt
-color preference of the free shirt winner, and returns the shirt color the
-person will get. This setup is shown in Listing 13-1:</p>
+The method <code>giveaway</code> defined on <code>Inventory</code> gets the optional shirt color
+preference of the free-shirt winner, and it returns the shirt color the
+person will get. This setup is shown in Listing 13-1.</p>
 <figure class="listing" id="listing-13-1">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust noplayground">#[derive(Debug, PartialEq, Copy, Clone)]
@@ -278,11 +287,11 @@ variant, <code>unwrap_or_else</code> calls the closure and returns the value ret
 the closure.</p>
 <p>We specify the closure expression <code>|| self.most_stocked()</code> as the argument to
 <code>unwrap_or_else</code>. This is a closure that takes no parameters itself (if the
-closure had parameters, they would appear between the two vertical bars). The
+closure had parameters, they would appear between the two vertical pipes). The
 body of the closure calls <code>self.most_stocked()</code>. We’re defining the closure
 here, and the implementation of <code>unwrap_or_else</code> will evaluate the closure
 later if the result is needed.</p>
-<p>Running this code prints:</p>
+<p>Running this code prints the following:</p>
 <pre><code class="language-console">$ cargo run
    Compiling shirt-company v0.1.0 (file:///projects/shirt-company)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.27s
@@ -297,15 +306,17 @@ defined, or the logic we want to use in this scenario. The closure captures an
 immutable reference to the <code>self</code> <code>Inventory</code> instance and passes it with the
 code we specify to the <code>unwrap_or_else</code> method. Functions, on the other hand,
 are not able to capture their environment in this way.</p>
-<h3 id="closure-type-inference-and-annotation"><a class="header" href="#closure-type-inference-and-annotation">Closure Type Inference and Annotation</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="closure-type-inference-and-annotation"></a></p>
+<h3 id="inferring-and-annotating-closure-types"><a class="header" href="#inferring-and-annotating-closure-types">Inferring and Annotating Closure Types</a></h3>
 <p>There are more differences between functions and closures. Closures don’t
 usually require you to annotate the types of the parameters or the return value
 like <code>fn</code> functions do. Type annotations are required on functions because the
 types are part of an explicit interface exposed to your users. Defining this
 interface rigidly is important for ensuring that everyone agrees on what types
 of values a function uses and returns. Closures, on the other hand, aren’t used
-in an exposed interface like this: they’re stored in variables and used without
-naming them and exposing them to users of our library.</p>
+in an exposed interface like this: They’re stored in variables, and they’re
+used without naming them and exposing them to users of our library.</p>
 <p>Closures are typically short and relevant only within a narrow context rather
 than in any arbitrary scenario. Within these limited contexts, the compiler can
 infer the types of the parameters and the return type, similar to how it’s able
@@ -316,10 +327,10 @@ explicitness and clarity at the cost of being more verbose than is strictly
 necessary. Annotating the types for a closure would look like the definition
 shown in Listing 13-2. In this example, we’re defining a closure and storing it
 in a variable rather than defining the closure in the spot we pass it as an
-argument as we did in Listing 13-1.</p>
+argument, as we did in Listing 13-1.</p>
 <figure class="listing" id="listing-13-2">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">use std::thread;
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">use std::thread;
 </span><span class="boring">use std::time::Duration;
 </span><span class="boring">
 </span><span class="boring">fn generate_workout(intensity: u32, random_number: u32) {
@@ -349,11 +360,11 @@ argument as we did in Listing 13-1.</p>
 </span><span class="boring">    let simulated_random_number = 7;
 </span><span class="boring">
 </span><span class="boring">    generate_workout(simulated_user_specified_value, simulated_random_number);
-</span><span class="boring">}</span></code></pre></pre>
+</span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-13-2">Listing 13-2</a>: Adding optional type annotations of the parameter and return value types in the closure</figcaption>
 </figure>
 <p>With type annotations added, the syntax of closures looks more similar to the
-syntax of functions. Here we define a function that adds 1 to its parameter and
+syntax of functions. Here, we define a function that adds 1 to its parameter and
 a closure that has the same behavior, for comparison. We’ve added some spaces
 to line up the relevant parts. This illustrates how closure syntax is similar
 to function syntax except for the use of pipes and the amount of syntax that is
@@ -362,7 +373,7 @@ optional:</p>
 let add_one_v2 = |x: u32| -&gt; u32 { x + 1 };
 let add_one_v3 = |x|             { x + 1 };
 let add_one_v4 = |x|               x + 1  ;</code></pre>
-<p>The first line shows a function definition, and the second line shows a fully
+<p>The first line shows a function definition and the second line shows a fully
 annotated closure definition. In the third line, we remove the type annotations
 from the closure definition. In the fourth line, we remove the brackets, which
 are optional because the closure body has only one expression. These are all
@@ -396,9 +407,8 @@ error[E0308]: mismatched types
  --&gt; src/main.rs:5:29
   |
 5 |     let n = example_closure(5);
-  |             --------------- ^- help: try using a conversion method: `.to_string()`
-  |             |               |
-  |             |               expected `String`, found integer
+  |             --------------- ^ expected `String`, found integer
+  |             |
   |             arguments to this function are incorrect
   |
 note: expected because the closure was earlier called with an argument of type `String`
@@ -413,6 +423,10 @@ note: closure parameter defined here
   |
 2 |     let example_closure = |x| x;
   |                            ^
+help: try using a conversion method
+  |
+5 |     let n = example_closure(5.to_string());
+  |                              ++++++++++++
 
 For more information about this error, try `rustc --explain E0308`.
 error: could not compile `closure-example` (bin "closure-example") due to 1 previous error
@@ -421,7 +435,8 @@ error: could not compile `closure-example` (bin "closure-example") due to 1 prev
 infers the type of <code>x</code> and the return type of the closure to be <code>String</code>. Those
 types are then locked into the closure in <code>example_closure</code>, and we get a type
 error when we next try to use a different type with the same closure.</p>
-<div class="quiz-placeholder" data-quiz-name="&quot;ch13-01-closures-sec1&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;Rust could, in theory, provide type inference for top-level functions. Functional languages like Haskell and OCaml have this feature.\nHowever, Rust designers made the conscious decision to require type annotations on top-level functions to promote clarity at the \ninterface level: a function will always have exactly the type it says it has.\n&quot;,&quot;id&quot;:&quot;e6cbd582-9692-4045-a984-8770a12e1b95&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Top-level functions can be part of a library's external interface, while closures cannot be directly exposed&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;Due to the halting problem, it is mathematically impossible for Rust to infer the types of top-level functions&quot;,&quot;For backwards compatibility with older versions of Rust&quot;,&quot;Anything assignable to a variable can be type-inferred, and top-level functions cannot be assigned to a variable&quot;],&quot;prompt&quot;:&quot;Which of the following best describes the rationale for why Rust will infer the types of arguments/returns for closures, but not top-level functions?\n&quot;}},{&quot;context&quot;:&quot;The toilet closure is similar to [`std::mem::drop`](https://doc.rust-lang.org/std/mem/fn.drop.html), i.e. a function that moves\nan argument and causes it to be dropped.\n&quot;,&quot;id&quot;:&quot;f844d1c2-3f63-4cdb-b16e-6e818e996e0d&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;`f` causes `s` to be immediately dropped&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;`f` has no effect on `s`&quot;,&quot;`f` reads `s` and then throws away the result&quot;,&quot;`f` captures `s` in its environment&quot;],&quot;prompt&quot;:&quot;Rust permits pattern matching within closure arguments, including the use of the underscore. For example, you could write the following:\n\n```rust\nlet f = |_| (); // sometimes called the \&quot;toilet closure\&quot;\nlet s = String::from(\&quot;Hello\&quot;);\nf(s);\n```\n\nWhich of the following best describes the relationship between `f` and `s` in this program?\n&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
+<div class="quiz-placeholder" data-quiz-name="&quot;ch13-01-closures-sec1&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;Rust could, in theory, provide type inference for top-level functions. Functional languages like Haskell and OCaml have this feature.&#92;nHowever, Rust designers made the conscious decision to require type annotations on top-level functions to promote clarity at the &#92;ninterface level: a function will always have exactly the type it says it has.&#92;n&quot;,&quot;id&quot;:&quot;e6cbd582-9692-4045-a984-8770a12e1b95&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Top-level functions can be part of a library&#39;s external interface, while closures cannot be directly exposed&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;Due to the halting problem, it is mathematically impossible for Rust to infer the types of top-level functions&quot;,&quot;For backwards compatibility with older versions of Rust&quot;,&quot;Anything assignable to a variable can be type-inferred, and top-level functions cannot be assigned to a variable&quot;],&quot;prompt&quot;:&quot;Which of the following best describes the rationale for why Rust will infer the types of arguments/returns for closures, but not top-level functions?&#92;n&quot;}},{&quot;context&quot;:&quot;The toilet closure is similar to [`std::mem::drop`](https://doc.rust-lang.org/std/mem/fn.drop.html), i.e. a function that moves&#92;nan argument and causes it to be dropped.&#92;n&quot;,&quot;id&quot;:&quot;f844d1c2-3f63-4cdb-b16e-6e818e996e0d&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;`f` causes `s` to be immediately dropped&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;`f` has no effect on `s`&quot;,&quot;`f` reads `s` and then throws away the result&quot;,&quot;`f` captures `s` in its environment&quot;],&quot;prompt&quot;:&quot;Rust permits pattern matching within closure arguments, including the use of the underscore. For example, you could write the following:&#92;n&#92;n```rust&#92;nlet f = |_| (); // sometimes called the &#92;&quot;toilet closure&#92;&quot;&#92;nlet s = String::from(&#92;&quot;Hello&#92;&quot;);&#92;nf(s);&#92;n```&#92;n&#92;nWhich of the following best describes the relationship between `f` and `s` in this program?&#92;n&quot;}}]}" data-quiz-fullscreen="true"></div>
+
 <h3 id="capturing-references-or-moving-ownership"><a class="header" href="#capturing-references-or-moving-ownership">Capturing References or Moving Ownership</a></h3>
 <p>Closures can capture values from their environment in three ways, which
 directly map to the three ways a function can take a parameter: borrowing
@@ -430,10 +445,10 @@ which of these to use based on what the body of the function does with the
 captured values.</p>
 <p>In Listing 13-4, we define a closure that captures an immutable reference to
 the vector named <code>list</code> because it only needs an immutable reference to print
-the value:</p>
+the value.</p>
 <figure class="listing" id="listing-13-4">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
+<pre class="playground"><code class="language-rust edition2024">fn main() {
     let list = vec![1, 2, 3];
     println!("Before defining closure: {list:?}");
 
@@ -442,7 +457,7 @@ the value:</p>
     println!("Before calling closure: {list:?}");
     only_borrows();
     println!("After calling closure: {list:?}");
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-13-4">Listing 13-4</a>: Defining and calling a closure that captures an immutable reference</figcaption>
 </figure>
 <p>This example also illustrates that a variable can bind to a closure definition,
@@ -462,10 +477,10 @@ From closure: [1, 2, 3]
 After calling closure: [1, 2, 3]
 </code></pre>
 <p>Next, in Listing 13-5, we change the closure body so that it adds an element to
-the <code>list</code> vector. The closure now captures a mutable reference:</p>
+the <code>list</code> vector. The closure now captures a mutable reference.</p>
 <figure class="listing" id="listing-13-5">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
+<pre class="playground"><code class="language-rust edition2024">fn main() {
     let mut list = vec![1, 2, 3];
     println!("Before defining closure: {list:?}");
 
@@ -473,7 +488,7 @@ the <code>list</code> vector. The closure now captures a mutable reference:</p>
 
     borrows_mutably();
     println!("After calling closure: {list:?}");
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-13-5">Listing 13-5</a>: Defining and calling a closure that captures a mutable reference</figcaption>
 </figure>
 <p>This code compiles, runs, and prints:</p>
@@ -485,10 +500,10 @@ Before defining closure: [1, 2, 3]
 After calling closure: [1, 2, 3, 7]
 </code></pre>
 <p>Note that there’s no longer a <code>println!</code> between the definition and the call of
-the <code>borrows_mutably</code> closure: when <code>borrows_mutably</code> is defined, it captures a
+the <code>borrows_mutably</code> closure: When <code>borrows_mutably</code> is defined, it captures a
 mutable reference to <code>list</code>. We don’t use the closure again after the closure
 is called, so the mutable borrow ends. Between the closure definition and the
-closure call, an immutable borrow to print isn’t allowed because no other
+closure call, an immutable borrow to print isn’t allowed, because no other
 borrows are allowed when there’s a mutable borrow. Try adding a <code>println!</code>
 there to see what error message you get!</p>
 <p>If you want to force the closure to take ownership of the values it uses in the
@@ -499,10 +514,10 @@ the data so that it’s owned by the new thread. We’ll discuss threads and why
 you would want to use them in detail in Chapter 16 when we talk about
 concurrency, but for now, let’s briefly explore spawning a new thread using a
 closure that needs the <code>move</code> keyword. Listing 13-6 shows Listing 13-4 modified
-to print the vector in a new thread rather than in the main thread:</p>
+to print the vector in a new thread rather than in the main thread.</p>
 <figure class="listing" id="listing-13-6">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">use std::thread;
+<pre class="playground"><code class="language-rust edition2024">use std::thread;
 
 fn main() {
     let list = vec![1, 2, 3];
@@ -511,7 +526,7 @@ fn main() {
     thread::spawn(move || println!("From thread: {list:?}"))
         .join()
         .unwrap();
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-13-6">Listing 13-6</a>: Using <code>move</code> to force the closure for the thread to take ownership of <code>list</code></figcaption>
 </figure>
 <p>We spawn a new thread, giving the thread a closure to run as an argument. The
@@ -520,46 +535,47 @@ closure body prints out the list. In Listing 13-4, the closure only captured
 to <code>list</code> needed to print it. In this example, even though the closure body
 still only needs an immutable reference, we need to specify that <code>list</code> should
 be moved into the closure by putting the <code>move</code> keyword at the beginning of the
-closure definition. The new thread might finish before the rest of the main
-thread finishes, or the main thread might finish first. If the main thread
-maintained ownership of <code>list</code> but ended before the new thread did and dropped
+closure definition. If the main thread performed more operations before calling
+<code>join</code> on the new thread, the new thread might finish before the rest of the
+main thread finishes, or the main thread might finish first. If the main thread
+maintained ownership of <code>list</code> but ended before the new thread and drops
 <code>list</code>, the immutable reference in the thread would be invalid. Therefore, the
 compiler requires that <code>list</code> be moved into the closure given to the new thread
-so the reference will be valid. Try removing the <code>move</code> keyword or using <code>list</code>
-in the main thread after the closure is defined to see what compiler errors you
-get!</p>
+so that the reference will be valid. Try removing the <code>move</code> keyword or using
+<code>list</code> in the main thread after the closure is defined to see what compiler
+errors you get!</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="storing-closures-using-generic-parameters-and-the-fn-traits"></a>
 <a id="limitations-of-the-cacher-implementation"></a>
-<a id="moving-captured-values-out-of-the-closure-and-the-fn-traits"></a></p>
-<h3 id="moving-captured-values-out-of-closures-and-the-fn-traits"><a class="header" href="#moving-captured-values-out-of-closures-and-the-fn-traits">Moving Captured Values Out of Closures and the <code>Fn</code> Traits</a></h3>
+<a id="moving-captured-values-out-of-the-closure-and-the-fn-traits"></a>
+<a id="moving-captured-values-out-of-closures-and-the-fn-traits"></a></p>
+<h3 id="moving-captured-values-out-of-closures"><a class="header" href="#moving-captured-values-out-of-closures">Moving Captured Values Out of Closures</a></h3>
 <p>Once a closure has captured a reference or captured ownership of a value from
 the environment where the closure is defined (thus affecting what, if anything,
 is moved <em>into</em> the closure), the code in the body of the closure defines what
 happens to the references or values when the closure is evaluated later (thus
-affecting what, if anything, is moved <em>out of</em> the closure). A closure body can
-do any of the following: move a captured value out of the closure, mutate the
-captured value, neither move nor mutate the value, or capture nothing from the
-environment to begin with.</p>
+affecting what, if anything, is moved <em>out of</em> the closure).</p>
+<p>A closure body can do any of the following: Move a captured value out of the
+closure, mutate the captured value, neither move nor mutate the value, or
+capture nothing from the environment to begin with.</p>
 <p>The way a closure captures and handles values from the environment affects
 which traits the closure implements, and traits are how functions and structs
 can specify what kinds of closures they can use. Closures will automatically
 implement one, two, or all three of these <code>Fn</code> traits, in an additive fashion,
 depending on how the closure’s body handles the values:</p>
-<ol>
+<ul>
 <li><code>FnOnce</code> applies to closures that can be called once. All closures implement
 at least this trait because all closures can be called. A closure that moves
 captured values out of its body will only implement <code>FnOnce</code> and none of the
-other <code>Fn</code> traits, because it can only be called once.</li>
-<li><code>FnMut</code> applies to closures that don’t move captured values out of their
-body, but that might mutate the captured values. These closures can be
-called more than once.</li>
+other <code>Fn</code> traits because it can only be called once.</li>
+<li><code>FnMut</code> applies to closures that don’t move captured values out of their body
+but might mutate the captured values. These closures can be called more than
+once.</li>
 <li><code>Fn</code> applies to closures that don’t move captured values out of their body
-and that don’t mutate captured values, as well as closures that capture
-nothing from their environment. These closures can be called more than once
-without mutating their environment, which is important in cases such as
-calling a closure multiple times concurrently.</li>
-</ol>
+and don’t mutate captured values, as well as closures that capture nothing
+from their environment. These closures can be called more than once without
+mutating their environment, which is important in cases such as calling a closure multiple times concurrently.</li>
+</ul>
 <p>Let’s look at the definition of the <code>unwrap_or_else</code> method on <code>Option&lt;T&gt;</code> that
 we used in Listing 13-1:</p>
 <pre><code class="language-rust ignore">impl&lt;T&gt; Option&lt;T&gt; {
@@ -575,7 +591,7 @@ we used in Listing 13-1:</p>
 }</code></pre>
 <p>Recall that <code>T</code> is the generic type representing the type of the value in the
 <code>Some</code> variant of an <code>Option</code>. That type <code>T</code> is also the return type of the
-<code>unwrap_or_else</code> function: code that calls <code>unwrap_or_else</code> on an
+<code>unwrap_or_else</code> function: Code that calls <code>unwrap_or_else</code> on an
 <code>Option&lt;String&gt;</code>, for example, will get a <code>String</code>.</p>
 <p>Next, notice that the <code>unwrap_or_else</code> function has the additional generic type
 parameter <code>F</code>. The <code>F</code> type is the type of the parameter named <code>f</code>, which is
@@ -583,30 +599,31 @@ the closure we provide when calling <code>unwrap_or_else</code>.</p>
 <p>The trait bound specified on the generic type <code>F</code> is <code>FnOnce() -&gt; T</code>, which
 means <code>F</code> must be able to be called once, take no arguments, and return a <code>T</code>.
 Using <code>FnOnce</code> in the trait bound expresses the constraint that
-<code>unwrap_or_else</code> is only going to call <code>f</code> at most one time. In the body of
+<code>unwrap_or_else</code> will not call <code>f</code> more than once. In the body of
 <code>unwrap_or_else</code>, we can see that if the <code>Option</code> is <code>Some</code>, <code>f</code> won’t be
 called. If the <code>Option</code> is <code>None</code>, <code>f</code> will be called once. Because all
 closures implement <code>FnOnce</code>, <code>unwrap_or_else</code> accepts all three kinds of
 closures and is as flexible as it can be.</p>
 <section class="note" aria-role="note">
 <p>Note: If what we want to do doesn’t require capturing a value from the
-environment, we can use the name of a function rather than a closure. For
-example, we could call <code>unwrap_or_else(Vec::new)</code> on a <code>Option&lt;Vec&lt;T&gt;&gt;</code> value
-to get a new, empty vector if the value is <code>None</code>. The compiler automatically
+environment, we can use the name of a function rather than a closure where we
+need something that implements one of the <code>Fn</code> traits. For example, on an
+<code>Option&lt;Vec&lt;T&gt;&gt;</code> value, we could call <code>unwrap_or_else(Vec::new)</code> to get a
+new, empty vector if the value is <code>None</code>. The compiler automatically
 implements whichever of the <code>Fn</code> traits is applicable for a function
 definition.</p>
 </section>
-<p>Now let’s look at the standard library method <code>sort_by_key</code> defined on slices,
+<p>Now let’s look at the standard library method <code>sort_by_key</code>, defined on slices,
 to see how that differs from <code>unwrap_or_else</code> and why <code>sort_by_key</code> uses
 <code>FnMut</code> instead of <code>FnOnce</code> for the trait bound. The closure gets one argument
 in the form of a reference to the current item in the slice being considered,
-and returns a value of type <code>K</code> that can be ordered. This function is useful
+and it returns a value of type <code>K</code> that can be ordered. This function is useful
 when you want to sort a slice by a particular attribute of each item. In
-Listing 13-7, we have a list of <code>Rectangle</code> instances and we use <code>sort_by_key</code>
-to order them by their <code>width</code> attribute from low to high:</p>
+Listing 13-7, we have a list of <code>Rectangle</code> instances, and we use <code>sort_by_key</code>
+to order them by their <code>width</code> attribute from low to high.</p>
 <figure class="listing" id="listing-13-7">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">#[derive(Debug)]
+<pre class="playground"><code class="language-rust edition2024">#[derive(Debug)]
 struct Rectangle {
     width: u32,
     height: u32,
@@ -621,7 +638,7 @@ fn main() {
 
     list.sort_by_key(|r| r.width);
     println!("{list:#?}");
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-13-7">Listing 13-7</a>: Using <code>sort_by_key</code> to order rectangles by width</figcaption>
 </figure>
 <p>This code prints:</p>
@@ -645,11 +662,11 @@ fn main() {
 ]
 </code></pre>
 <p>The reason <code>sort_by_key</code> is defined to take an <code>FnMut</code> closure is that it calls
-the closure multiple times: once for each item in the slice. The closure <code>|r| r.width</code> doesn’t capture, mutate, or move out anything from its environment, so
+the closure multiple times: once for each item in the slice. The closure <code>|r| r.width</code> doesn’t capture, mutate, or move anything out from its environment, so
 it meets the trait bound requirements.</p>
 <p>In contrast, Listing 13-8 shows an example of a closure that implements just
 the <code>FnOnce</code> trait, because it moves a value out of the environment. The
-compiler won’t let us use this closure with <code>sort_by_key</code>:</p>
+compiler won’t let us use this closure with <code>sort_by_key</code>.</p>
 <figure class="listing" id="listing-13-8">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile">#[derive(Debug)]
@@ -676,13 +693,13 @@ fn main() {
 }</code></pre>
 <figcaption><a href="#listing-13-8">Listing 13-8</a>: Attempting to use an <code>FnOnce</code> closure with <code>sort_by_key</code></figcaption>
 </figure>
-<p>This is a contrived, convoluted way (that doesn’t work) to try and count the
+<p>This is a contrived, convoluted way (that doesn’t work) to try to count the
 number of times <code>sort_by_key</code> calls the closure when sorting <code>list</code>. This code
 attempts to do this counting by pushing <code>value</code>—a <code>String</code> from the closure’s
 environment—into the <code>sort_operations</code> vector. The closure captures <code>value</code> and
 then moves <code>value</code> out of the closure by transferring ownership of <code>value</code> to
 the <code>sort_operations</code> vector. This closure can be called once; trying to call
-it a second time wouldn’t work because <code>value</code> would no longer be in the
+it a second time wouldn’t work, because <code>value</code> would no longer be in the
 environment to be pushed into <code>sort_operations</code> again! Therefore, this closure
 only implements <code>FnOnce</code>. When we try to compile this code, we get this error
 that <code>value</code> can’t be moved out of the closure because the closure must
@@ -693,12 +710,14 @@ error[E0507]: cannot move out of `value`, a captured variable in an `FnMut` clos
   --&gt; src/main.rs:18:30
    |
 15 |     let value = String::from("closure called");
-   |         ----- captured outer variable
+   |         -----   ------------------------------ move occurs because `value` has type `String`, which does not implement the `Copy` trait
+   |         |
+   |         captured outer variable
 16 |
 17 |     list.sort_by_key(|r| {
    |                      --- captured by this `FnMut` closure
 18 |         sort_operations.push(value);
-   |                              ^^^^^ move occurs because `value` has type `String`, which does not implement the `Copy` trait
+   |                              ^^^^^ `value` is moved here
    |
 help: consider cloning the value if the performance cost is acceptable
    |
@@ -714,10 +733,10 @@ move values out of the environment. Keeping a counter in the environment and
 incrementing its value in the closure body is a more straightforward way to
 count the number of times the closure is called. The closure in Listing 13-9
 works with <code>sort_by_key</code> because it is only capturing a mutable reference to the
-<code>num_sort_operations</code> counter and can therefore be called more than once:</p>
+<code>num_sort_operations</code> counter and can therefore be called more than once.</p>
 <figure class="listing" id="listing-13-9">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">#[derive(Debug)]
+<pre class="playground"><code class="language-rust edition2024">#[derive(Debug)]
 struct Rectangle {
     width: u32,
     height: u32,
@@ -736,15 +755,16 @@ fn main() {
         r.width
     });
     println!("{list:#?}, sorted in {num_sort_operations} operations");
-}</code></pre></pre>
-<figcaption><a href="#listing-13-9">Listing 13-9</a>: Using an <code>FnMut</code> closure with <code>sort_by_key</code> is allowed</figcaption>
+}</code></pre>
+<figcaption><a href="#listing-13-9">Listing 13-9</a>: Using an <code>FnMut</code> closure with <code>sort_by_key</code> is allowed.</figcaption>
 </figure>
 <!-- TODO: consider adding a section on the use<> operator -->
 <p>In sum, the <code>Fn</code> traits are important when defining or using functions or types that
 make use of closures. In the next section, we’ll discuss iterators. Many
 iterator methods take closure arguments, so keep these closure details in mind
 as we continue!</p>
-<div class="quiz-placeholder" data-quiz-name="&quot;ch13-01-closures-sec2&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;`add_suffix` mutably borrows `s` between its definition and use, so the `println` (a read of `s`) is invalid.\n&quot;,&quot;id&quot;:&quot;a055fa7c-89e2-467e-8458-62cbf3ffb8bf&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:false,&quot;lineNumber&quot;:5},&quot;prompt&quot;:{&quot;program&quot;:&quot;fn main() {\n    let mut s = String::from(\&quot;Hello\&quot;);\n    let mut add_suffix = || s.push_str(\&quot; world\&quot;);\n    println!(\&quot;{s}\&quot;);\n    add_suffix();\n}\n&quot;}},{&quot;context&quot;:&quot;Because `add_suffix` does not capture `s`, it is fine to read `s` before mutating it with `add_suffix`.\n&quot;,&quot;id&quot;:&quot;266d3cb3-de76-4b91-bd13-c3d6cb9e7fd7&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:true,&quot;stdout&quot;:&quot;Hello&quot;},&quot;prompt&quot;:{&quot;program&quot;:&quot;fn main() {\n    let mut s = String::from(\&quot;Hello\&quot;);\n    let add_suffix = |s: &amp;mut String| s.push_str(\&quot; world\&quot;);\n    println!(\&quot;{s}\&quot;);\n    add_suffix(&amp;mut s);\n}\n&quot;}},{&quot;context&quot;:&quot;`f` is called multiple times so `FnOnce` is not appropriate. Both `Fn` and `FnMut` can work, and `FnMut` is less restrictive, so `FnMut` is most appropriate.\n&quot;,&quot;id&quot;:&quot;0f298680-d870-47a1-962c-1c668f75cb68&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;`FnMut`&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;`Fn`&quot;,&quot;`FnOnce`&quot;],&quot;prompt&quot;:&quot;Consider the following API:\n\n```rust\n/// Executes a function with a mutable reference to each element of a vector\nfn for_each_mut&lt;T, F: ___(&amp;mut T)&gt;(v: &amp;mut Vec&lt;T&gt;, mut f: F) {\n    for x in v.iter_mut() {\n        f(x);\n    }\n}\n```\n\nWhich of the following function traits is most appropriate to fill in the blank?\n&quot;}},{&quot;context&quot;:&quot;`pipeline` could be called multiple times, so `FnOnce` is not appropriate.\n`pipeline` takes an immutable reference to `self`, if `postprocess` were `FnMut`, it could not be called within `pipeline`.\nTherefore `Fn` is most appropriate here.\n&quot;,&quot;id&quot;:&quot;65f574b1-b418-4abe-852e-8b14d88368a7&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;`Fn`&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;`FnMut`&quot;,&quot;`FnOnce`&quot;],&quot;prompt&quot;:&quot;Consider the following API:\n\n```rust\npub struct Analyzer&lt;F&gt; {\n    postprocess: F\n}\n\nimpl&lt;F: ___(i32) -&gt; i32&gt; Analyzer&lt;F&gt; {\n    fn process(&amp;self, n: i32) -&gt; i32 { /* .. */ }\n    pub fn pipeline(&amp;self, n: i32) -&gt; i32 {\n        let n = self.process(n);\n        (self.postprocess)(n)\n    }\n}\n```\n\nWhich of the following function traits is most appropriate to fill in the blank?\n&quot;}}]}" data-quiz-fullscreen="true" data-quiz-cache-answers="true"></div>
+<div class="quiz-placeholder" data-quiz-name="&quot;ch13-01-closures-sec2&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;`add_suffix` mutably borrows `s` between its definition and use, so the `println` (a read of `s`) is invalid.&#92;n&quot;,&quot;id&quot;:&quot;a055fa7c-89e2-467e-8458-62cbf3ffb8bf&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:false,&quot;lineNumber&quot;:5},&quot;prompt&quot;:{&quot;program&quot;:&quot;fn main() {&#92;n    let mut s = String::from(&#92;&quot;Hello&#92;&quot;);&#92;n    let mut add_suffix = || s.push_str(&#92;&quot; world&#92;&quot;);&#92;n    println!(&#92;&quot;{s}&#92;&quot;);&#92;n    add_suffix();&#92;n}&#92;n&quot;}},{&quot;context&quot;:&quot;Because `add_suffix` does not capture `s`, it is fine to read `s` before mutating it with `add_suffix`.&#92;n&quot;,&quot;id&quot;:&quot;266d3cb3-de76-4b91-bd13-c3d6cb9e7fd7&quot;,&quot;type&quot;:&quot;Tracing&quot;,&quot;answer&quot;:{&quot;doesCompile&quot;:true,&quot;stdout&quot;:&quot;Hello&quot;},&quot;prompt&quot;:{&quot;program&quot;:&quot;fn main() {&#92;n    let mut s = String::from(&#92;&quot;Hello&#92;&quot;);&#92;n    let add_suffix = |s: &amp;mut String| s.push_str(&#92;&quot; world&#92;&quot;);&#92;n    println!(&#92;&quot;{s}&#92;&quot;);&#92;n    add_suffix(&amp;mut s);&#92;n}&#92;n&quot;}},{&quot;context&quot;:&quot;`f` is called multiple times so `FnOnce` is not appropriate. Both `Fn` and `FnMut` can work, and `FnMut` is less restrictive, so `FnMut` is most appropriate.&#92;n&quot;,&quot;id&quot;:&quot;0f298680-d870-47a1-962c-1c668f75cb68&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;`FnMut`&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;`Fn`&quot;,&quot;`FnOnce`&quot;],&quot;prompt&quot;:&quot;Consider the following API:&#92;n&#92;n```rust&#92;n/// Executes a function with a mutable reference to each element of a vector&#92;nfn for_each_mut&lt;T, F: ___(&amp;mut T)&gt;(v: &amp;mut Vec&lt;T&gt;, mut f: F) {&#92;n    for x in v.iter_mut() {&#92;n        f(x);&#92;n    }&#92;n}&#92;n```&#92;n&#92;nWhich of the following function traits is most appropriate to fill in the blank?&#92;n&quot;}},{&quot;context&quot;:&quot;`pipeline` could be called multiple times, so `FnOnce` is not appropriate.&#92;n`pipeline` takes an immutable reference to `self`, if `postprocess` were `FnMut`, it could not be called within `pipeline`.&#92;nTherefore `Fn` is most appropriate here.&#92;n&quot;,&quot;id&quot;:&quot;65f574b1-b418-4abe-852e-8b14d88368a7&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;`Fn`&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;`FnMut`&quot;,&quot;`FnOnce`&quot;],&quot;prompt&quot;:&quot;Consider the following API:&#92;n&#92;n```rust&#92;npub struct Analyzer&lt;F&gt; {&#92;n    postprocess: F&#92;n}&#92;n&#92;nimpl&lt;F: ___(i32) -&gt; i32&gt; Analyzer&lt;F&gt; {&#92;n    fn process(&amp;self, n: i32) -&gt; i32 { /* .. */ }&#92;n    pub fn pipeline(&amp;self, n: i32) -&gt; i32 {&#92;n        let n = self.process(n);&#92;n        (self.postprocess)(n)&#92;n    }&#92;n}&#92;n```&#92;n&#92;nWhich of the following function traits is most appropriate to fill in the blank?&#92;n&quot;}}]}" data-quiz-fullscreen="true"></div>
+
 <script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css">
 
                     </main>
@@ -752,11 +772,11 @@ as we continue!</p>
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch13-00-functional-features.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch13-02-iterators.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -766,16 +786,21 @@ as we continue!</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch13-00-functional-features.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch13-02-iterators.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
 
 
@@ -784,19 +809,18 @@ as we continue!</p>
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
-        <script src="js-extensions/packages/telemetry/dist/index.js"></script>
-        <script src="js-extensions/packages/consent-form/dist/index.js"></script>
-        <script src="js-extensions/packages/feedback/dist/index.js"></script>
+        <script src="ferris-2317480c.js"></script>
+        <script src="js-extensions/packages/feedback/dist/index-d9aca39a.js"></script>
+
 
 
     </div>
