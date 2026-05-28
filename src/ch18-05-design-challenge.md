@@ -85,7 +85,7 @@ Along with each quiz, we have also provided links to popular Rust crates that se
 {{#quiz ../quizzes/ch17-05-design-challenge-trait-trees.toml}}
 
 [Yew components]: https://docs.rs/yew/0.20.0/yew/html/trait.Component.html
-[Druid widgets]: https://docs.rs/druid/0.8.3/druid/trait.Widget.html
+[Druid widgets]: https://docs.rs/druid/0.8.3/druid/widget/trait.Widget.html
 
 ## Dispatch
 
