@@ -14,7 +14,7 @@ But another less obvious drawback is that **garbage collection can be unpredicta
 
 ```python
 class Document:     
-    def __init__(self, words: List[str]):
+    def __init__(self, words: list[str]):
         """Create a new document"""
         self.words = words
 
@@ -22,7 +22,7 @@ class Document:
         """Add a word to the document"""
         self.words.append(word)
         
-    def get_words(self) -> List[str]:  
+    def get_words(self) -> list[str]:  
         """Get a list of all the words in the document"""
         return self.words
 ```
