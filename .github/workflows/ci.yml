@@ -1,0 +1,69 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+env:
+  MDBOOK_VERSION: 0.5.2
+  MDBOOK_QUIZ_VERSION: 0.5.0
+  AQUASCOPE_VERSION: 0.4.0
+  AQUASCOPE_TOOLCHAIN: nightly-2026-05-01
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        run: |
+          rustup set profile minimal
+          rustup toolchain install 1.90
+          rustup default 1.90
+
+      - name: Install Aquascope toolchain
+        run: |
+          rustup toolchain install ${AQUASCOPE_TOOLCHAIN} -c rust-src,rustc-dev,llvm-tools-preview,miri
+          cargo +${AQUASCOPE_TOOLCHAIN} miri setup
+          echo "LD_LIBRARY_PATH=$($(rustup which --toolchain ${AQUASCOPE_TOOLCHAIN} rustc) --print target-libdir)" >> "${GITHUB_ENV}"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install mdBook tools
+        run: |
+          mkdir bin
+          curl -sSL "https://github.com/rust-lang/mdBook/releases/download/v${MDBOOK_VERSION}/mdbook-v${MDBOOK_VERSION}-x86_64-unknown-linux-gnu.tar.gz" | tar -xz --directory=bin
+          curl -sSL "https://github.com/cognitive-engineering-lab/mdbook-quiz/releases/download/v${MDBOOK_QUIZ_VERSION}/mdbook-quiz_x86_64-unknown-linux-gnu_full.tar.gz" | tar -xz --directory=bin
+          curl -sSL "https://github.com/cognitive-engineering-lab/aquascope/releases/download/v${AQUASCOPE_VERSION}/aquascope-x86_64-unknown-linux-gnu.tar.gz" | tar -xz --directory=bin
+          sudo apt-get update
+          sudo apt-get install -y patchelf
+          patchelf --set-interpreter /lib64/ld-linux-x86-64.so.2 bin/mdbook-aquascope bin/cargo-aquascope bin/aquascope-driver
+          echo "${PWD}/bin" >> "${GITHUB_PATH}"
+
+      - name: Build local preprocessors
+        run: cargo install --path packages/mdbook-trpl
+
+      - name: Build JavaScript extensions
+        run: |
+          cd js-extensions
+          pnpm init-repo
+
+      - name: Build book
+        run: mdbook build
+
+      - name: Check for errors
+        run: |
+          mdbook build 2>&1 | tee build.log
+          if grep -i "error" build.log; then
+            echo "❌ Build has errors!"
+            exit 1
+          else
+            echo "✅ Build successful!"
+          fi

@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap");
+
+:root {
+  direction: rtl;
+}
+
+ol {
+    list-style-type: arabic-indic;
+}
+
+body,
+.content,
+.chapter,
+.sidebar,
+.searchbar-outer,
+.searchresults-outer {
+  direction: rtl;
+  text-align: right;
+}
+
+code,
+pre,
+.hljs,
+.aquascope,
+.language-rust,
+.language-console,
+.language-text {
+  direction: ltr;
+  text-align: left;
+}
+
+.content main {
+  font-family: "Vazirmatn", Arial, sans-serif;
+  line-height: 1.9;
+  text-align: justify;
+}
+
+.content table {
+  direction: ltr;
+}
+
+.sidebar-scrollbox {
+    font-family: "Vazirmatn", Arial, sans-serif;
+}

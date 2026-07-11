@@ -2,11 +2,14 @@
 # in `nostarch/book.toml`!
 
 [book]
-title = "The Rust Programming Language"
-authors = ["Steve Klabnik", "Carol Nichols", "Contributions from the Rust Community"]
+title = "زبان برنامه‌نویسی Rust"
+authors = ["Steve Klabnik", "Carol Nichols", "Contributions from the Rust Community", "ترجمهٔ فارسی"]
+language = "fa"
 
 [output.html]
+default-theme = "light"
 additional-css = [
+  "theme/persian.css",
   "ferris.css",
   "theme/semantic-notes.css", 
   "theme/listing.css",
@@ -22,7 +25,7 @@ additional-js = [
   "js-extensions/packages/feedback/dist/index.js",
 ]
 
-git-repository-url = "https://github.com/cognitive-engineering-lab/rust-book"
+git-repository-url = "https://github.com/Aalamifar/rust-book"
 
 [preprocessor.quiz]
 fullscreen = true
