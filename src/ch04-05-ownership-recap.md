@@ -122,7 +122,7 @@ fn inner(x: &mut i32) {
 ```
 
 Review this diagram and make sure you understand each part. For example, you should be able to answer:
-* Why does `a_box_stack_ref` point to the stack, while `a_box_heap_ref` point to the heap? 
+* Why does `a_box_stack_ref` point to the stack, while `a_box_heap_ref` points to the heap? 
 * Why is the value `2` no longer on the heap at L2? 
 * Why does `a_num` have the value `5` at L2?
 
