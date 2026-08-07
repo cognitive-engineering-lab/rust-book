@@ -1007,7 +1007,7 @@ added this line to *Cargo.toml*:
 Cargo.toml
 
 ```
-rand = "0.8.5"
+rand = "0.10.1"
 ```
 
 
@@ -1019,14 +1019,14 @@ make `rand` available to our project.
 Then, to bring `rand` definitions into the scope of our package, we added a
 `use` line starting with the name of the crate, `rand`, and listed the items we
 wanted to bring into scope. Recall that in “Generating a Random
-Number” in Chapter 2, we brought the `Rng` trait into
-scope and called the `rand::thread_rng` function:
+Number” in Chapter 2, we brought items in the `rand::prelude` module into
+scope and called the `rand::rng` function:
 
 ```
-use rand::Rng;
+use rand::prelude::*;
 
 fn main() {
-    let secret_number = rand::thread_rng().gen_range(1..=100);
+    let secret_number = rand::rng().random_range(1..=100);
 }
 ```
 
