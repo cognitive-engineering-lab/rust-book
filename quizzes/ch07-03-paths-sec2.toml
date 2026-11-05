@@ -53,5 +53,5 @@ answer.doesCompile = false
 answer.lineNumber = 12
 context = """
 While the `Point` structure and the `origin` static method are both public, the field `i32` is not marked as pub. Therefore directly accessing `p.0` outside of
-the `point` module is not allowed. This program would compile if line 3 were changed to `pub struct Point(pub i32, pub i32)`.
+the `point` module is not allowed. This program would compile if line 3 were changed to `pub struct Point(pub i32, i32)`.
 """
