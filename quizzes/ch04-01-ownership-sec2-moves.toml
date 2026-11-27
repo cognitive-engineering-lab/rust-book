@@ -100,8 +100,8 @@ prompt.distractors = [
 """
 ```
 let b = Box::new(0);
-let b2 = b;
 println!("{}", b);
+let b2 = b;
 move_a_box(b2);
 ```
 """,
